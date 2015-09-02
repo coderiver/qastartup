@@ -1,0 +1,99 @@
+body
+  background: $color-dark
+  color: #FFF
+  min-width: $width-content
+
+.hidden-text
+  +hide-text
+
+.borders
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+.borders:hover,
+.draw-borders
+  .border-top,
+  .border-right,
+  .border-bottom,
+  .border-left
+    &:before
+      transform: translate3d(0,0,0)
+
+.border-top,
+.border-right,
+.border-bottom,
+.border-left
+  position: absolute
+  z-index: 0
+  pointer-events: none
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  overflow: hidden
+  &:before
+    content: " "
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: $color-green
+    transition: transform $duration-draw-border ease
+
+
+.border-top
+  bottom: auto
+  height: 3px
+  &:before
+    transform: translate3d(-100%,0,0)
+    transition-delay: $duration-draw-border
+    background-image: linear-gradient(to right, #00DDB7, #00E1C8)
+  .borders:hover &,
+  .draw-borders &
+    &:before
+      transition-delay: 0s
+
+.border-right
+  left: auto
+  width: 3px
+  &:before
+    transform: translate3d(0,-100%,0)
+    transition-delay: 0s
+    background-image: linear-gradient(to bottom, #00E1C8, #00DBB0)
+  .borders:hover &,
+  .draw-borders &
+    &:before
+      transition-delay: $duration-draw-border
+
+.border-bottom
+  top: auto
+  height: 3px
+  &:before
+    transform: translate3d(-100%,0,0)
+    transition-delay: 0s
+    background-image: linear-gradient(to right, #00D9A0, #00DBB0)
+  .borders:hover &,
+  .draw-borders &
+    &:before
+      transition-delay: $duration-draw-border
+
+.border-left
+  right: auto
+  width: 3px
+  &:before
+    transform: translate3d(0,-100%,0)
+    transition-delay: $duration-draw-border
+    background-image: linear-gradient(to bottom, #00DDB7, #00D9A0)
+  .borders:hover &,
+  .draw-borders &
+    &:before
+      transition-delay: 0s
+
+
+.green-color
+  color: $color-green

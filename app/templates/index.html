@@ -1,0 +1,14 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+<!-- BEGIN toparea -->
+<div class="toparea">
+  <div class="toparea__video"></div>
+  {% include "partials/header.html" %}
+  <div class="toparea__center">
+    {% include "partials/intro.html" %}
+    <button class="play-button" type="button"><span class="hidden-text">Смотреть видео</span></button>
+  </div>
+</div>
+<!-- END toparea -->
+{% endblock %}

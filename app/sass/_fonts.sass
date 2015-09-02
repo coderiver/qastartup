@@ -1,0 +1,25 @@
++font("FuturaPT-Book", futurapt-book)
++font("FuturaPT-Demi", FuturaPT-Demi)
++font("PFAgorasansPro-Medium", pfagorasanspro-medium)
++font("PFAgorasansPro-Regular", pfagorasanspro-reg)
+
+=f($name, $font-size: null, $letter-spacing: null)
+  $font-family: null
+  @if $name == "futura-demi"
+    $font-family: "FuturaPT-Demi"
+  @if $name == "futura-book"
+    $font-family: "FuturaPT-Book"
+  @if $name == "agora-medium"
+    $font-family: "PFAgorasansPro-Medium"
+  @if $name == "agora-regular"
+    $font-family: "PFAgorasansPro-Regular"
+    font-style: normal
+  font-family: $font-family, Helvetica, Arial, sans-serif
+  font-weight: normal
+  @if $font-size != null
+    font-size: $font-size + px
+  @if $letter-spacing != null
+    letter-spacing: ($letter-spacing / 1000) + em
+
+body
+  +font-smooth

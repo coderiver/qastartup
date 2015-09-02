@@ -14,6 +14,7 @@ var config      = require('../config');
 var props = {
     entries: ['./' + config.src.js + '/app.coffee'],
     dest: [config.dest.js],
+    paths: ['./node_modules', './app/js/'],
     transform: ['coffeeify'],
     extensions: ['.js', '.coffee'],
     outputName: 'app.js',

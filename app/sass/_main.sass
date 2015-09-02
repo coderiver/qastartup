@@ -1,0 +1,43 @@
+.toparea
+  height: 100vh
+  min-height: 700px
+  position: relative
+
+.toparea__center
+  position: relative
+  z-index: 1
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  text-align: center
+
+.toparea__video
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: #646566 img-url('toparea-bg.jpg') no-repeat center
+  background-size: cover
+
+
+.intro__top-text
+  display: block
+  +f(futura-demi, 24, 1000)
+  color: rgba(#FFF, 0.4)
+  line-height: 1
+  text-transform: uppercase
+
+.intro__large-text
+  display: block
+  margin: 10px 0
+  +f(futura-demi, 150, 100)
+  line-height: 1
+
+.intro__bottom-text
+  display: block
+  +f(agora-regular, 12, 100)
+  line-height: 1.83
+  text-transform: uppercase

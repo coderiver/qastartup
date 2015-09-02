@@ -1,0 +1,23 @@
+<!-- BEGIN header -->
+<div class="header">
+  <div class="header__logo">
+    <a class="logo draw-borders" href="/">
+      {% include "borders.html" %}
+      <div class="logo__inner"><span>QA.</span><span class="hidden-text">Start Up</span></div>
+    </a>
+  </div>
+  <div class="header__panel">
+    <a href="tel:+380936153090" class="phone-number">093 <span class="green-color">615 30 90</span></a>
+    <a href="tel:+380962554549" class="phone-number">096 <span class="green-color">255 45 49</span></a>
+  </div>
+  <div class="header__nav">
+    <nav class="nav">
+      <ul class="nav__list">
+        {% for link in navItems %}<li class="nav__item">
+          <a class="nav__link" href="{{ link.href }}" title="{{ link.title }}">{{ link.title }}</a>
+        </li>{% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- END header -->

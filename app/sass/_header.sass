@@ -1,0 +1,72 @@
+.header
+  position: relative
+  z-index: 2
+  line-height: 50px
+  box-sizing: border-box
+  padding: 50px 20px 50px 160px
+  max-width: $width-content
+  margin: auto
+  +clr
+
+.header__logo
+  position: absolute
+  top: 35px
+  left: 20px
+
+.header__nav
+  float: right
+
+.header__panel
+  background: $color-dark
+  color: $color-light
+  float: right
+  padding: 0 35px 0 40px
+  margin-left: 40px
+  .phone-number
+    &:not(:first-child)
+      margin-left: 35px
+
+.nav__item
+  display: inline-block
+  vertical-align: top
+  &:not(:last-child)
+    margin-right: 25px
+
+.nav__link
+  display: inline-block
+  vertical-align: top
+  +f(agora-medium, 12, 100)
+  color: #FFF
+  text-transform: uppercase
+  text-decoration: none
+  +trans(color)
+  &:hover
+    color: $color-green
+
+.logo
+  display: block
+  position: relative
+  width: 100%
+  width: 135px
+  height: 60px
+  box-sizing: border-box
+  padding: 27px 3px 3px 12px
+  +f(futura-demi, 24)
+  line-height: 1
+  text-decoration: none
+  color: #FFF
+  &:after
+    content: " "
+    display: block
+    margin-top: 15px
+    height: 12px
+    width: 110px
+    background: img-url('svg/startup.svg') no-repeat center
+    background-size: contain
+
+
+.phone-number
+  display: inline-block
+  +f(futura-demi, 14, 100)
+  text-decoration: none
+  color: inherit

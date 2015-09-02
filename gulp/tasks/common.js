@@ -10,23 +10,19 @@ gulp.task('default', [
 gulp.task('build', ['clean'],  function(cb) {
     runSequence(
         'iconfont',
-        'sprite:svg',
         'imagemin',
         'sass',
-        'jade:all',
         'html:all',
         'scripts',
-        'copy:fonts'
+        'copy:all'
     );
     cb();
 });
 
 gulp.task('watch', [
     'sass:watch',
-    'jade:watch',
     'iconfont:watch',
     'imagemin:watch',
-    'sprite:svg:watch',
     'scripts:watch',
     'html:watch'
 ]);

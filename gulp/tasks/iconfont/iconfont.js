@@ -24,7 +24,7 @@ gulp.task('iconfont', function() {
                     glyphs: glyphs,
                     fontName: 'iconfont',
                     fontPath: '../fonts/',
-                    className: 'i'
+                    className: 'icon'
                 }))
                 .pipe(gulp.dest(config.src.sassGen));
         })
