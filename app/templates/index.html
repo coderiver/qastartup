@@ -5,8 +5,8 @@
 <div class="toparea">
   <div class="toparea__video"></div>
   <div class="toparea__inner">
-    {% include "partials/header.html" %}
     <div class="toparea__center">
+      {% include "partials/header.html" %}
       {% include "partials/intro.html" %}
       <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
       <button class="btn -width-250 draw-borders" type="button">
@@ -59,4 +59,87 @@
   </div>
 </section>
 <!-- END facts -->
+
+<!-- BEGIN stats -->
+<section class="stats">
+  <div class="l">
+    <h2 class="stats__title">Доходы и спрос <small>на QA специалистов</small></h2>
+    <div class="stats__buttons">
+      <button class="btn-round -width-180" type="button">Доходы</button>
+      <button class="btn-round -width-180" type="button">Спрос</button>
+    </div>
+  </div>
+  <div class="stats__graph"></div>
+  <div class="stats__footer l">
+    <p>Данные взяты с сайта <a class="link" href="http://www.dou.ua"><b>www.dou.ua</b></a> за период с 2014 по 2015 год</p>
+  </div>
+</section>
+<!-- END stats -->
+
+<!-- BEGIN salary -->
+<div class="salary l">
+  <div class="salary__left">
+    <div class="salary__left-content">
+      <h2 class="salary__title">Заработная плата <small>QA специалиста начального уровня<br>в Киеве</small></h2>
+    </div>
+  </div>
+  <div class="salary__right green-box">
+    <div class="salary__right-content">
+      <div class="number -color-dark -text-sm">
+        <sup class="number__sup">от</sup>
+        <strong class="number__value">500</strong>
+        <span class="number__sub -type-currency">$</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END salary -->
+
+<!-- BEGIN courses -->
+<div class="courses l">
+  <h2 class="courses__title">Курсы<br>и<br>Цены</h2>
+  <div class="courses__left course">
+    <h3 class="course__title">QA Start</h3>
+    <strong class="course__subtitle">Курс «Тестирование ПО»</strong>
+    <div class="course__prise">7000 <sub>грн</sub></div>
+    <dl class="course-info">
+      <dt class="course-info__label">Сложность</dt>
+      <dd class="course-info__value">
+        <div class="complexity -beginner"><span class="hidden-text">Новичок</span></div>
+      </dd>
+    </dl>
+    <dl class="course-info">
+      <dt class="course-info__label">Продолжительность</dt>
+      <dd class="course-info__value">4 недели</dd>
+    </dl>
+    <dl class="course-info">
+      <dt class="course-info__label">Старт курса</dt>
+      <dd class="course-info__value">01 августа 2015</dd>
+    </dl>
+    <dl class="course-info">
+      <dt class="course-info__label">Дни занятий</dt>
+      <dd class="course-info__value">
+        <ul class="workdays">
+          <li><em>пн</em></li>
+          <li>вт</li>
+          <li><em>ср</em></li>
+          <li>чт</li>
+          <li><em>пт</em></li>
+          <li>сб</li>
+          <li>нд</li>
+        </ul>
+      </dd>
+    </dl>
+    <div class="course__footer">
+      <button class="btn -type-fluid draw-borders" type="button">
+        {% include "partials/borders.html" %}
+        <div class="btn__fill"></div>
+        <span class="btn__text">Программа курса</span>
+      </button>
+    </div>
+  </div>
+  <div class="courses__center course"></div>
+  <div class="courses__right course"></div>
+</div>
+<!-- END courses -->
 {% endblock %}

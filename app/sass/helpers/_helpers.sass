@@ -41,3 +41,15 @@
     @content
 
 
+=text-gradient
+  .m-backgroundcliptext &
+    background-image: $gradient-diagonal
+    -webkit-background-clip: text
+    background-clip: text
+    -webkit-text-fill-color: transparent
+    text-fill-color: transparent
+
+=no-text-gradient
+  background: none
+  -webkit-text-fill-color: initial
+  text-fill-color: initial

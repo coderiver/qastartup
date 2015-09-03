@@ -1,18 +1,21 @@
 +font("FuturaPT-Book", futurapt-book)
-+font("FuturaPT-Demi", FuturaPT-Demi)
-+font("PFAgorasansPro-Medium", pfagorasanspro-medium)
++font("FuturaPT-Demi", futurapt-demi)
 +font("PFAgorasansPro-Regular", pfagorasanspro-reg)
++font("PFAgorasansPro-Medium", pfagorasanspro-medium)
++font("PFAgorasansPro-Bold", pfagorasanspro-bold)
 
 =f($name, $font-size: null, $letter-spacing: null)
   $font-family: null
-  @if $name == "futura-demi"
+  @if $name == "futura-demi" or $name == "fd"
     $font-family: "FuturaPT-Demi"
-  @if $name == "futura-book"
+  @if $name == "futura-book" or $name == "fb"
     $font-family: "FuturaPT-Book"
-  @if $name == "agora-medium"
+  @if $name == "agora-medium" or $name == "am"
     $font-family: "PFAgorasansPro-Medium"
-  @if $name == "agora-regular"
+  @if $name == "agora-regular" or $name == "ar"
     $font-family: "PFAgorasansPro-Regular"
+  @if $name == "agora-bold" or $name == "ab"
+    $font-family: "PFAgorasansPro-Bold"
     font-style: normal
   font-family: $font-family, Helvetica, Arial, sans-serif
   font-weight: normal

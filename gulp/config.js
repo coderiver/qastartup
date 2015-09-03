@@ -26,7 +26,8 @@ module.exports = {
         iconsSvg: 'app/img/icons/svg',
         // path to svg sources for iconfont task
         iconsFont: 'app/img/icons/iconfont',
-        fonts: 'app/fonts'
+        fonts: 'app/fonts',
+        lib: 'app/lib'
     },
     dest: {
         root: destPath,
@@ -34,7 +35,8 @@ module.exports = {
         css: destPath + '/css',
         js: destPath + '/js',
         img: destPath + '/img',
-        fonts: destPath + '/fonts'
+        fonts: destPath + '/fonts',
+        lib: destPath + '/lib'
     },
 
     // misc

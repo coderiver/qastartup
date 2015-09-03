@@ -2,9 +2,23 @@ body
   background: $color-dark
   color: #FFF
   min-width: $width-content
+  +f(agora-regular, 14)
+
+a
+  color: inherit
+
+.out
+  overflow: hidden
 
 .hidden-text
   +hide-text
+
+.link
+  color: inherit
+  +trans(color)
+  &:hover,
+  &:focus
+    color: $color-green
 
 .borders
   position: absolute
@@ -48,7 +62,7 @@ body
 
 .border-top
   bottom: auto
-  height: 3px
+  height: 2px
   &:before
     transform: translate3d(-100%,0,0)
     transition-delay: $duration-draw-border
@@ -60,7 +74,7 @@ body
 
 .border-right
   left: auto
-  width: 3px
+  width: 2px
   &:before
     transform: translate3d(0,-100%,0)
     transition-delay: 0s
@@ -72,7 +86,7 @@ body
 
 .border-bottom
   top: auto
-  height: 3px
+  height: 2px
   &:before
     transform: translate3d(-100%,0,0)
     transition-delay: 0s
@@ -84,7 +98,7 @@ body
 
 .border-left
   right: auto
-  width: 3px
+  width: 2px
   &:before
     transform: translate3d(0,-100%,0)
     transition-delay: $duration-draw-border
@@ -120,6 +134,11 @@ body
   &:focus
     .btn__fill
       transform: translate3d(0,0,0)
+
+  &.-type-fluid
+    display: block
+    width: 100%
+
   &.-width-250
     width: 250px
 
@@ -137,3 +156,40 @@ body
   transform: translate3d(-100%,0,0)
   transition: transform 0.3s ease
   background: $gradient-diagonal
+
+
+.btn-round
+  position: relative
+  height: 40px
+  box-sizing: border-box
+  background: none
+  color: #FFF
+  +f(futura-demi, 14, 100)
+  text-transform: uppercase
+  text-decoration: none
+  box-shadow: inset 0 0 0 1px $color-green
+  border-radius: 20px
+  overflow: hidden
+  text-align: center
+  +gpu
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-radius: 20px
+    background-color: $color-green
+    background-image: $gradient-diagonal
+    transform: translate(-100%,0)
+    transition: transform 0.3s ease
+  &:hover,
+  &:focus
+    &:before
+      transform: translate(0,0)
+
+  &.-width-180
+    width: 180px
+

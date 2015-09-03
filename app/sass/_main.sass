@@ -3,20 +3,30 @@
   position: relative
   box-sizing: border-box
   padding-bottom: 190px
+  .header
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
 
 .toparea__inner
   height: 100%
+  width: 100%
   min-height: 680px
+  display: table
+  table-layout: fixed
   position: relative
   z-index: 1
 
 .toparea__center
   position: relative
   z-index: 1
-  position: absolute
-  top: 55%
-  left: 50%
-  transform: translate(-50%,-50%)
+  display: table-cell
+  width: 100%
+  height: 100%
+  padding-top: 50px
+  box-sizing: border-box
+  vertical-align: middle
   text-align: center
 
 .toparea__video
@@ -31,7 +41,7 @@
 
 
 .intro__top-text
-  display: block
+  display: inline-block
   position: relative
   left: 10px
   +f(futura-demi, 24, 1000)
@@ -85,13 +95,12 @@
     color: $color-text
     .number__value
       color: inherit
-      background: none
-      -webkit-text-fill-color: initial
-      text-fill-color: initial
+      +no-text-gradient
     .number__sub
       color: inherit
     .number__text,
-    .number__count
+    .number__count,
+    .number__sup
       color: inherit
 
   &.-text-lg
@@ -111,18 +120,21 @@
   line-height: 1
   color: $color-grey-lighter
 
+.number__sup
+  position: absolute
+  top: -7px
+  left: 0
+  +f(fd, 30)
+  line-height: 1
+  color: $color-grey-lighter
+
 .number__value
   display: inline-block
   vertical-align: bottom
   +f(futura-demi, 150, 50)
   line-height: 0.73
   color: $color-green
-  .m-backgroundcliptext &
-    background-image: $gradient-diagonal
-    -webkit-background-clip: text
-    background-clip: text
-    -webkit-text-fill-color: transparent
-    text-fill-color: transparent
+  +text-gradient
 
 .number__sub
   display: inline-block
@@ -131,6 +143,8 @@
   line-height: 1
   text-transform: uppercase
   color: $color-green
+  &.-type-currency
+    font-size: 30px
 
 .number__text
   display: block
@@ -159,9 +173,8 @@
 .facts__row
   position: relative
   height: 280px
+  margin-bottom: 60px
   +clr
-  &:not(:first-child)
-    margin-top: 60px
 
 
 .facts__left,
@@ -186,3 +199,199 @@
   text-align: left
 
 
+.stats
+  margin-top: 170px
+
+.stats__title
+  margin-bottom: 60px
+  +f(futura-demi, 60, 100)
+  line-height: 1
+  text-transform: uppercase
+  color: $color-grey
+  > small
+    +f(agora-regular, 18)
+    display: block
+    margin-top: 10px
+    text-transform: none
+    color: #555
+    letter-spacing: 0
+
+.stats__buttons
+  margin: 50px 0
+  .btn-round
+    &:not(:last-child)
+      margin-right: 36px
+
+.stats__footer
+  margin-top: 20px
+  text-align: right
+  +f(ar, 14)
+  color: $color-grey
+  line-height: 1.57
+  a
+    color: inherit
+    text-transform: uppercase
+    font-size: 12px
+  b
+    +f(ab)
+
+.stats__graph
+  height: 400px
+  background: $color-grey
+
+
+.salary
+  position: relative
+  height: 320px
+  margin-top: 135px
+
+.salary__title
+  +f(fd, 40, 50)
+  line-height: 1
+  color: $color-grey-lighter
+  text-transform: uppercase
+  small
+    display: block
+    margin-top: 10px
+    line-height: 1.25
+    +f(ar, 24)
+    color: $color-grey
+    letter-spacing: 0
+    text-transform: none
+
+.salary__left
+  position: absolute
+  top: 0
+  left: 20px
+  width: 40%
+  height: 100%
+  box-sizing: border-box
+
+.salary__right
+  position: absolute
+  top: 0
+  left: 41.7%
+  right: -1000px
+  height: 100%
+  box-sizing: border-box
+
+.salary__left-content
+  box-sizing: border-box
+  padding: 40px 40px 0 0
+
+.salary__right-content
+  padding: 65px 0 0 75px
+  text-align: left
+  max-width: 640px
+  box-sizing: border-box
+
+
+.courses
+  margin-top: 150px
+  +clr
+
+.courses__title
+  +f(fd, 30, 2000)
+  line-height: 1.667
+  color: $color-grey
+  text-transform: uppercase
+
+.courses__left
+  float: left
+
+.courses__center
+  float: left
+
+.courses__right
+  float: right
+
+
+.course
+  color: $color-grey
+
+.course__title
+  display: block
+  +f(fd, 30, 100)
+  line-height: 1
+  text-transform: uppercase
+
+.course__subtitle
+  display: block
+  +f(ar, 18)
+  line-height: 1.667
+
+.course__prise
+  display: block
+  margin: 30px 0
+  +f(fd, 36, 100)
+  color: $color-green
+  line-height: 1
+  +text-gradient
+  sub
+    font-size: 18px
+    text-transform: uppercase
+
+
+.course-info
+  color: $color-grey-lighter
+  line-height: 1.667
+  margin: 10px 0
+
+.course-info__label
+  display: block
+  +f(fb, 12, 100)
+  text-transform: uppercase
+  color: #AAA
+
+.course-info__value
+  +f(ar, 18)
+
+
+.workdays
+  +f(ar, 12)
+  text-transform: uppercase
+  > li
+    display: inline-block
+    vertical-align: baseline
+    color: #AAA
+    margin-right: 8px
+  em
+    +f(fd, 18, 100)
+    color: $color-grey-lighter
+    font-style: normal
+
+.complexity
+  display: inline-block
+  position: relative
+  width: 100%
+  height: 8px
+  box-sizing: border-box
+  border-radius: 4px
+  background: rgba(#AAA, 0.1)
+  overflow: hidden
+  .complexity__bar,
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 70%
+    height: 100%
+    border-radius: 4px
+    background-color: $color-green
+    background-image: $gradient-diagonal
+
+  &.-beginner
+    .complexity__bar,
+    &:before
+      width: 45%
+
+  &.-middle
+    .complexity__bar,
+    &:before
+      width: 65%
+
+  &.-pro
+    .complexity__bar,
+    &:before
+      width: 85%
