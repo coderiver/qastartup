@@ -1,13 +1,20 @@
 .toparea
-  height: 100vh
-  min-height: 700px
+  height: calc(100vh + 190px)
   position: relative
+  box-sizing: border-box
+  padding-bottom: 190px
+
+.toparea__inner
+  height: 100%
+  min-height: 680px
+  position: relative
+  z-index: 1
 
 .toparea__center
   position: relative
   z-index: 1
   position: absolute
-  top: 50%
+  top: 55%
   left: 50%
   transform: translate(-50%,-50%)
   text-align: center
@@ -25,6 +32,8 @@
 
 .intro__top-text
   display: block
+  position: relative
+  left: 10px
   +f(futura-demi, 24, 1000)
   color: rgba(#FFF, 0.4)
   line-height: 1
@@ -41,3 +50,139 @@
   +f(agora-regular, 12, 100)
   line-height: 1.83
   text-transform: uppercase
+
+
+.play-button
+  display: block
+  width: 50px
+  height: 50px
+  margin: 40px auto
+  background: none
+  color: #FFF
+  font-size: 15px
+  border-radius: 50%
+  border: 1px solid rgba(#F7F7F7, 0.3)
+  +trans
+  transition-property: border-color, color
+  &:before
+    position: relative
+    left: 2px
+  &:hover,
+  &:focus
+    color: $color-green
+    border-color: $color-green
+
+
+.number
+  display: inline-block
+  vertical-align: middle
+  position: relative
+  padding-left: 60px
+  text-align: left
+  line-height: 1
+
+  &.-color-dark
+    color: $color-text
+    .number__value
+      color: inherit
+      background: none
+      -webkit-text-fill-color: initial
+      text-fill-color: initial
+    .number__sub
+      color: inherit
+    .number__text,
+    .number__count
+      color: inherit
+
+  &.-text-lg
+    .number__value
+      font-size: 200px
+
+  &.-text-sm
+    .number__value
+      font-size: 120px
+
+.number__count
+  display: inline-block
+  position: absolute
+  top: 0
+  left: 0
+  +f(futura-demi, 14, 100)
+  line-height: 1
+  color: $color-grey-lighter
+
+.number__value
+  display: inline-block
+  vertical-align: bottom
+  +f(futura-demi, 150, 50)
+  line-height: 0.73
+  color: $color-green
+  .m-backgroundcliptext &
+    background-image: $gradient-diagonal
+    -webkit-background-clip: text
+    background-clip: text
+    -webkit-text-fill-color: transparent
+    text-fill-color: transparent
+
+.number__sub
+  display: inline-block
+  vertical-align: bottom
+  +f(futura-demi, 24, 100)
+  line-height: 1
+  text-transform: uppercase
+  color: $color-green
+
+.number__text
+  display: block
+  margin-top: 25px
+  +f(agora-regular, 18)
+  line-height: 1.22
+  color: $color-grey-lighter
+
+
+
+.facts
+  padding: 30px 0 0
+  position: relative
+
+.facts__title
+  position: absolute
+  left: 50%
+  bottom: 100%
+  margin-bottom: 70px
+  +f(futura-demi, 30, 2000)
+  line-height: 1
+  color: $color-grey
+  text-transform: uppercase
+
+
+.facts__row
+  position: relative
+  height: 280px
+  +clr
+  &:not(:first-child)
+    margin-top: 60px
+
+
+.facts__left,
+.facts__right
+  position: absolute
+  box-sizing: border-box
+  top: 0
+  height: 100%
+  width: 50%
+  line-height: 280px
+
+.facts__left
+  right: 50%
+  text-align: right
+  margin-right: 95px
+  .number
+    width: 395px
+
+.facts__right
+  left: 50%
+  padding-left: 95px
+  text-align: left
+
+

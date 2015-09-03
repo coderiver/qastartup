@@ -97,3 +97,43 @@ body
 
 .green-color
   color: $color-green
+
+.green-box
+  background-color: $color-green
+  background-image: $gradient-diagonal
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15)
+
+
+.btn
+  display: inline-block
+  position: relative
+  height: 40px
+  line-height: 40px
+  background: none
+  +f(futura-demi, 12, 100)
+  color: #FFF
+  text-transform: uppercase
+  text-decoration: none
+  text-align: center
+  overflow: hidden
+  &:hover,
+  &:focus
+    .btn__fill
+      transform: translate3d(0,0,0)
+  &.-width-250
+    width: 250px
+
+.btn__text
+  position: relative
+  z-index: 1
+
+.btn__fill
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  transform: translate3d(-100%,0,0)
+  transition: transform 0.3s ease
+  background: $gradient-diagonal
