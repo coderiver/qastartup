@@ -1,8 +1,9 @@
+{% import "mixins.html" as mixins %}
 <!-- BEGIN header -->
 <div class="header">
   <div class="header__logo">
-    <a class="logo draw-borders" href="/">
-      {% include "borders.html" %}
+    <a class="logo" href="/">
+      {{ mixins.borders("-width-3") }}
       <div class="logo__inner"><span>QA.</span><span class="hidden-text">Start Up</span></div>
     </a>
   </div>

@@ -1,5 +1,6 @@
 +font("FuturaPT-Book", futurapt-book)
 +font("FuturaPT-Demi", futurapt-demi)
++font("FuturaPT-Heavy", futurapt-heavy)
 +font("PFAgorasansPro-Regular", pfagorasanspro-reg)
 +font("PFAgorasansPro-Medium", pfagorasanspro-medium)
 +font("PFAgorasansPro-Bold", pfagorasanspro-bold)
@@ -10,6 +11,8 @@
     $font-family: "FuturaPT-Demi"
   @if $name == "futura-book" or $name == "fb"
     $font-family: "FuturaPT-Book"
+  @if $name == "futura-heavy" or $name == "fh"
+    $font-family: "FuturaPT-Heavy"
   @if $name == "agora-medium" or $name == "am"
     $font-family: "PFAgorasansPro-Medium"
   @if $name == "agora-regular" or $name == "ar"

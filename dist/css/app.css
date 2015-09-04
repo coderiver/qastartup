@@ -32,6 +32,8 @@ table { border-spacing: 0; border-collapse: collapse; width: 100%; }
 
 @font-face { font-family: "FuturaPT-Demi"; src: url("../fonts/futurapt-demi.eot"); src: url("../fonts/futurapt-demi.eot?#iefix") format("embedded-opentype"), url("../fonts/futurapt-demi.woff") format("woff"), url("../fonts/futurapt-demi.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 
+@font-face { font-family: "FuturaPT-Heavy"; src: url("../fonts/futurapt-heavy.eot"); src: url("../fonts/futurapt-heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/futurapt-heavy.woff") format("woff"), url("../fonts/futurapt-heavy.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
 @font-face { font-family: "PFAgorasansPro-Regular"; src: url("../fonts/pfagorasanspro-reg.eot"); src: url("../fonts/pfagorasanspro-reg.eot?#iefix") format("embedded-opentype"), url("../fonts/pfagorasanspro-reg.woff") format("woff"), url("../fonts/pfagorasanspro-reg.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 
 @font-face { font-family: "PFAgorasansPro-Medium"; src: url("../fonts/pfagorasanspro-medium.eot"); src: url("../fonts/pfagorasanspro-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/pfagorasanspro-medium.woff") format("woff"), url("../fonts/pfagorasanspro-medium.ttf") format("truetype"); font-weight: normal; font-style: normal; }
@@ -76,9 +78,21 @@ a { color: inherit; }
 
 .link:hover, .link:focus { color: #21DBB2; }
 
+.text-gradient { color: #21DBB2; }
+
+.m-backgroundcliptext .text-gradient { background-image: -webkit-linear-gradient(70deg, #20d8a2 0%, #21e0c7 100%); background-image: linear-gradient(20deg, #20d8a2 0%, #21e0c7 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; }
+
 .borders { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: 0; }
 
-.borders:hover .border-top:before, .borders:hover .border-right:before, .borders:hover .border-bottom:before, .borders:hover .border-left:before, .draw-borders .border-top:before, .draw-borders .border-right:before, .draw-borders .border-bottom:before, .draw-borders .border-left:before { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+.borders.-width-3 .border-top, .borders.-width-3 .border-bottom { height: 3px; }
+
+.borders.-width-3 .border-right, .borders.-width-3 .border-left { width: 3px; }
+
+.borders.-width-6 .border-top, .borders.-width-6 .border-bottom { height: 6px; }
+
+.borders.-width-6 .border-right, .borders.-width-6 .border-left { width: 6px; }
+
+.borders:hover .border-top:before, .borders:hover .border-right:before, .borders:hover .border-bottom:before, .borders:hover .border-left:before, .draw .border-top:before, .draw .border-right:before, .draw .border-bottom:before, .draw .border-left:before { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
 
 .border-top, .border-right, .border-bottom, .border-left { position: absolute; z-index: 0; pointer-events: none; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; }
 
@@ -88,25 +102,25 @@ a { color: inherit; }
 
 .border-top:before { -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); -webkit-transition-delay: 0.3s; transition-delay: 0.3s; background-image: -webkit-linear-gradient(left, #00DDB7, #00E1C8); background-image: linear-gradient(to right, #00DDB7, #00E1C8); }
 
-.borders:hover .border-top:before, .draw-borders .border-top:before { -webkit-transition-delay: 0s; transition-delay: 0s; }
+.borders:hover .border-top:before, .draw .border-top:before { -webkit-transition-delay: 0s; transition-delay: 0s; }
 
 .border-right { left: auto; width: 2px; }
 
 .border-right:before { -webkit-transform: translate3d(0, -100%, 0); transform: translate3d(0, -100%, 0); -webkit-transition-delay: 0s; transition-delay: 0s; background-image: -webkit-linear-gradient(top, #00E1C8, #00DBB0); background-image: linear-gradient(to bottom, #00E1C8, #00DBB0); }
 
-.borders:hover .border-right:before, .draw-borders .border-right:before { -webkit-transition-delay: 0.3s; transition-delay: 0.3s; }
+.borders:hover .border-right:before, .draw .border-right:before { -webkit-transition-delay: 0.3s; transition-delay: 0.3s; }
 
 .border-bottom { top: auto; height: 2px; }
 
 .border-bottom:before { -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); -webkit-transition-delay: 0s; transition-delay: 0s; background-image: -webkit-linear-gradient(left, #00D9A0, #00DBB0); background-image: linear-gradient(to right, #00D9A0, #00DBB0); }
 
-.borders:hover .border-bottom:before, .draw-borders .border-bottom:before { -webkit-transition-delay: 0.3s; transition-delay: 0.3s; }
+.borders:hover .border-bottom:before, .draw .border-bottom:before { -webkit-transition-delay: 0.3s; transition-delay: 0.3s; }
 
 .border-left { right: auto; width: 2px; }
 
 .border-left:before { -webkit-transform: translate3d(0, -100%, 0); transform: translate3d(0, -100%, 0); -webkit-transition-delay: 0.3s; transition-delay: 0.3s; background-image: -webkit-linear-gradient(top, #00DDB7, #00D9A0); background-image: linear-gradient(to bottom, #00DDB7, #00D9A0); }
 
-.borders:hover .border-left:before, .draw-borders .border-left:before { -webkit-transition-delay: 0s; transition-delay: 0s; }
+.borders:hover .border-left:before, .draw .border-left:before { -webkit-transition-delay: 0s; transition-delay: 0s; }
 
 .green-color { color: #21DBB2; }
 
@@ -116,9 +130,19 @@ a { color: inherit; }
 
 .btn:hover .btn__fill, .btn:focus .btn__fill { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
 
-.btn.-type-fluid { display: block; width: 100%; }
+.btn.-width-fluid { display: block; width: 100%; }
 
 .btn.-width-250 { width: 250px; }
+
+.btn.-type-filled { color: #333; }
+
+.btn.-type-filled .btn__fill { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); z-index: -1; }
+
+.btn.-type-filled:after { content: " "; position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; background-color: #21DBB2; background-image: -webkit-linear-gradient(110deg, #20d8a2 0%, #21e0c7 100%); background-image: linear-gradient(-20deg, #20d8a2 0%, #21e0c7 100%); opacity: 0; visibility: hidden; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+
+.btn.-type-filled:hover:after { opacity: 1; visibility: visible; }
+
+.btn.-height-lg { height: 50px; line-height: 50px; }
 
 .btn__text { position: relative; z-index: 1; }
 
@@ -160,8 +184,6 @@ a { color: inherit; }
 
 .number.-color-dark { color: #333; }
 
-.number.-color-dark .number__value { color: inherit; background: none; -webkit-text-fill-color: initial; text-fill-color: initial; }
-
 .number.-color-dark .number__sub { color: inherit; }
 
 .number.-color-dark .number__text, .number.-color-dark .number__count, .number.-color-dark .number__sup { color: inherit; }
@@ -174,9 +196,7 @@ a { color: inherit; }
 
 .number__sup { position: absolute; top: -7px; left: 0; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 30px; line-height: 1; color: #CCC; }
 
-.number__value { display: inline-block; vertical-align: bottom; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 150px; letter-spacing: 0.05em; line-height: 0.73; color: #21DBB2; }
-
-.m-backgroundcliptext .number__value { background-image: -webkit-linear-gradient(70deg, #20d8a2 0%, #21e0c7 100%); background-image: linear-gradient(20deg, #20d8a2 0%, #21e0c7 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; }
+.number__value { display: inline-block; vertical-align: bottom; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 150px; letter-spacing: 0.05em; line-height: 0.73; }
 
 .number__sub { display: inline-block; vertical-align: bottom; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 24px; letter-spacing: 0.1em; line-height: 1; text-transform: uppercase; color: #21DBB2; }
 
@@ -232,29 +252,57 @@ a { color: inherit; }
 
 .salary__right-content { padding: 65px 0 0 75px; text-align: left; max-width: 640px; box-sizing: border-box; }
 
-.courses { margin-top: 150px; *zoom: 1; }
-
-.courses:after { content: " "; display: table; clear: both; }
+.courses { margin-top: 150px; }
 
 .courses__title { font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 30px; letter-spacing: 2em; line-height: 1.667; color: #777; text-transform: uppercase; }
 
-.courses__left { float: left; }
+.courses__container { position: relative; *zoom: 1; }
 
-.courses__center { float: left; }
+.courses__container:after { content: " "; display: table; clear: both; }
 
-.courses__right { float: right; }
+.courses__left, .courses__right { width: 29.38596%; box-sizing: border-box; padding: 60px 50px 110px; opacity: 0.6; -webkit-transition: opacity 0.15s ease; transition: opacity 0.15s ease; }
+
+.courses__left { float: left; padding-left: 0; }
+
+.courses__right { float: right; padding-right: 0; }
+
+.courses__footer { text-align: center; margin-top: 55px; }
+
+.courses-promo { max-width: 500px; margin: auto; text-align: left; *zoom: 1; }
+
+.courses-promo:after { content: " "; display: table; clear: both; }
+
+.courses-promo__text { float: left; width: 40%; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 16px; letter-spacing: 0.1em; line-height: 1.4; color: #FFF; text-transform: uppercase; }
+
+.courses-promo__text strong { display: block; font-size: 24px; line-height: 1.1; font-weight: normal; }
+
+.courses-promo__value { float: right; width: 60%; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 90px; letter-spacing: 0.1em; line-height: 0.75; white-space: nowrap; }
+
+.courses-promo__value sub { font-size: 18px; text-transform: uppercase; margin-left: -20px; letter-spacing: 0.1em; }
+
+.courses__center { position: absolute; top: 0; left: 29.38596%; width: 41.22807%; box-sizing: border-box; padding: 25px 50px 80px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
 
 .course { color: #777; }
+
+.course.-primary .course__title { color: #FFF; }
+
+.course.-primary .course__prise { font-size: 48px; }
+
+.course.-primary .course__footer { margin-top: 60px; }
 
 .course__title { display: block; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 30px; letter-spacing: 0.1em; line-height: 1; text-transform: uppercase; }
 
 .course__subtitle { display: block; font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; line-height: 1.667; }
 
-.course__prise { display: block; margin: 30px 0; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 36px; letter-spacing: 0.1em; color: #21DBB2; line-height: 1; }
-
-.m-backgroundcliptext .course__prise { background-image: -webkit-linear-gradient(70deg, #20d8a2 0%, #21e0c7 100%); background-image: linear-gradient(20deg, #20d8a2 0%, #21e0c7 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; }
+.course__prise { display: block; margin: 30px 0 40px; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 36px; letter-spacing: 0.1em; line-height: 1; }
 
 .course__prise sub { font-size: 18px; text-transform: uppercase; }
+
+.course__prise-old { display: block; font-family: "FuturaPT-Book", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.667; }
+
+.course__head { margin-bottom: 68px; position: relative; margin: -68px -27px 0; padding: 68px 27px 20px; }
+
+.course__footer { margin-top: 50px; }
 
 .course-info { color: #CCC; line-height: 1.667; margin: 10px 0; }
 
@@ -278,7 +326,7 @@ a { color: inherit; }
 
 .complexity.-pro .complexity__bar, .complexity.-pro:before { width: 85%; }
 
-.header { position: relative; z-index: 2; line-height: 50px; box-sizing: border-box; padding: 50px 20px 50px 160px; max-width: 1180px; margin: auto; *zoom: 1; }
+.header { position: relative; z-index: 2; line-height: 50px; box-sizing: border-box; padding: 50px 20px 50px 160px; max-width: 1180px; margin: auto; text-align: left; *zoom: 1; }
 
 .header:after { content: " "; display: table; clear: both; }
 

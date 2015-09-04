@@ -94,8 +94,8 @@
   &.-color-dark
     color: $color-text
     .number__value
-      color: inherit
-      +no-text-gradient
+      // color: inherit
+      // +no-text-gradient
     .number__sub
       color: inherit
     .number__text,
@@ -133,8 +133,7 @@
   vertical-align: bottom
   +f(futura-demi, 150, 50)
   line-height: 0.73
-  color: $color-green
-  +text-gradient
+  // +text-gradient
 
 .number__sub
   display: inline-block
@@ -288,7 +287,6 @@
 
 .courses
   margin-top: 150px
-  +clr
 
 .courses__title
   +f(fd, 30, 2000)
@@ -296,18 +294,83 @@
   color: $color-grey
   text-transform: uppercase
 
+.courses__container
+  position: relative
+  +clr
+
+.courses__left,
+.courses__right
+  width: percentage(335/1140)
+  box-sizing: border-box
+  padding: 60px 50px 110px
+  opacity: 0.6
+  +trans(opacity)
+
 .courses__left
   float: left
-
-.courses__center
-  float: left
+  padding-left: 0
 
 .courses__right
   float: right
+  padding-right: 0
+
+.courses__footer
+  text-align: center
+  margin-top: 55px
+
+
+.courses-promo
+  max-width: 500px
+  margin: auto
+  text-align: left
+  +clr
+
+.courses-promo__text
+  float: left
+  width: percentage(200/500)
+  +f(fh, 16, 100)
+  line-height: 1.4
+  color: #FFF
+  text-transform: uppercase
+  strong
+    display: block
+    font-size: 24px
+    line-height: 1.1
+    font-weight: normal
+
+.courses-promo__value
+  float: right
+  width: percentage(300/500)
+  +f(fh, 90, 100)
+  line-height: 0.75
+  white-space: nowrap
+  sub
+    font-size: 18px
+    text-transform: uppercase
+    margin-left: -20px
+    letter-spacing: 0.1em
+
+
+.courses__center
+  position: absolute
+  top: 0
+  left: percentage(335/1140)
+  width: percentage(470/1140)
+  box-sizing: border-box
+  padding: 25px 50px 80px
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15)
+
 
 
 .course
   color: $color-grey
+  &.-primary
+    .course__title
+      color: #FFF
+    .course__prise
+      font-size: 48px
+    .course__footer
+      margin-top: 60px
 
 .course__title
   display: block
@@ -322,14 +385,27 @@
 
 .course__prise
   display: block
-  margin: 30px 0
+  margin: 30px 0 40px
   +f(fd, 36, 100)
-  color: $color-green
   line-height: 1
-  +text-gradient
   sub
     font-size: 18px
     text-transform: uppercase
+
+.course__prise-old
+  display: block
+  +f(fb, 18, 100)
+  text-transform: uppercase
+  line-height: 1.667
+
+.course__head
+  margin-bottom: 68px
+  position: relative
+  margin: -68px -27px 0
+  padding: 68px 27px 20px
+
+.course__footer
+  margin-top: 50px
 
 
 .course-info
