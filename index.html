@@ -12,7 +12,7 @@
 
   <body>
     <!-- BEGIN content -->
-    <div class="out draw">
+    <div class="out">
 
       <!-- BEGIN toparea -->
       <div class="toparea">
@@ -143,7 +143,7 @@
         <div class="l">
           <h2 class="stats__title">Доходы и спрос <small>на QA специалистов</small></h2>
           <div class="stats__buttons">
-            <button class="btn-round -width-180" type="button">Доходы</button>
+            <button class="btn-round -width-180 is-active" type="button">Доходы</button>
             <button class="btn-round -width-180" type="button">Спрос</button>
           </div>
         </div>
@@ -174,45 +174,62 @@
       <!-- END salary -->
 
       <!-- BEGIN courses -->
-      <div class="courses l">
-        <h2 class="courses__title">Курсы<br>и<br>Цены</h2>
-        <div class="courses__container">
+      <div class="courses">
+        <h2 class="courses__title l">Курсы<br>и<br>Цены</h2>
+        <div class="courses__container l">
           <!-- BEGIN course -->
           <div class="courses__left course">
             <h3 class="course__title">QA Start</h3>
             <strong class="course__subtitle">Курс «Тестирование ПО»</strong>
-            <div class="course__prise text-gradient">7000 <sub>грн</sub></div>
-            <dl class="course-info">
-              <dt class="course-info__label">Сложность</dt>
-              <dd class="course-info__value">
-                <div class="complexity -beginner"><span class="hidden-text">Новичок</span></div>
-              </dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Продолжительность</dt>
-              <dd class="course-info__value">4 недели</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Старт курса</dt>
-              <dd class="course-info__value">01 августа 2015</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Дни занятий</dt>
-              <dd class="course-info__value">
-                <ul class="workdays">
-                  <li><em>пн</em></li>
-                  <li>вт</li>
-                  <li><em>ср</em></li>
-                  <li>чт</li>
-                  <li><em>пт</em></li>
-                  <li>сб</li>
-                  <li>нд</li>
-                </ul>
-              </dd>
-            </dl>
+            <div class="course__body">
+              <div class="course__prise text-gradient">7000 <sub>грн</sub></div>
+              <dl class="course-info">
+                <dt class="course-info__label">Сложность</dt>
+                <dd class="course-info__value">
+                  <div class="complexity">
+                    <div class="complexity__bar" style="width:60%"></div>
+                    <span class="hidden-text">Новичок</span>
+                  </div>
+                </dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Продолжительность</dt>
+                <dd class="course-info__value">4 недели</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Старт курса</dt>
+                <dd class="course-info__value">01 августа 2015</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Дни занятий</dt>
+                <dd class="course-info__value">
+                  <ul class="workdays">
+                    <li><em>пн</em></li>
+                    <li>вт</li>
+                    <li><em>ср</em></li>
+                    <li>чт</li>
+                    <li><em>пт</em></li>
+                    <li>сб</li>
+                    <li>нд</li>
+                  </ul>
+                </dd>
+              </dl>
+              <ul class="course-programm">
+                <li class="course-programm__item -checked">Методологии и техники тестирования</li>
+                <li class="course-programm__item -checked">Багтрекинговая система JIRA</li>
+                <li class="course-programm__item -checked">QA Testing практикум</li>
+                <li class="course-programm__item">База данных (SQL)</li>
+                <li class="course-programm__item">Компьютерные сети (Networks)</li>
+                <li class="course-programm__item">Операционные системы UNIX</li>
+                <li class="course-programm__item">HTML, CSS, XML</li>
+                <li class="course-programm__item">Mobile testing</li>
+                <li class="course-programm__item">Подготовка к собеседованию</li>
+                <li class="course-programm__item">Тренинг по трудоустройству</li>
+              </ul>
+            </div>
             <div class="course__footer">
 
-              <button class="btn -width-fluid -height-lg" type="button">
+              <a class="btn -width-fluid -height-lg" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -223,12 +240,11 @@
 
                 <div class="btn__fill"></div>
                 <span class="btn__text">Программа курса</span>
-              </button>
+              </a>
 
             </div>
           </div>
           <!-- END course -->
-
           <!-- BEGIN course -->
           <div class="courses__center course -primary">
             <div class="course__head">
@@ -242,42 +258,66 @@
 
               <h3 class="course__title">QA Start +<br>QA Advanced</h3>
               <strong class="course__subtitle">С "нуля" на позицию тестировщика</strong>
+              <div class="course-note">
+                <div class="course-note__line"></div>
+                <div class="course-note__content">
+                  <span class="course-note__text">Вероятность<br>трудоустройства</span>
+                  <strong class="course-note__value text-gradient">87<sub>%</sub></strong>
+                </div>
+              </div>
             </div>
-            <div class="course__prise">
-              <del class="course__prise-old">20000 грн</del>
-              <span class="text-gradient">15000 <sub>грн</sub></span>
+            <div class="course__body">
+              <div class="course__prise">
+                <del class="course__prise-old">20000 грн</del>
+                <span class="text-gradient">15000 <sub>грн</sub></span>
+              </div>
+              <dl class="course-info">
+                <dt class="course-info__label">Сложность</dt>
+                <dd class="course-info__value">
+                  <div class="complexity">
+                    <div class="complexity__bar" style="width:80%"></div>
+                    <span class="hidden-text">Продвинутый</span>
+                  </div>
+                </dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Продолжительность</dt>
+                <dd class="course-info__value">6 недель</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Старт курса</dt>
+                <dd class="course-info__value">01 августа 2015</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Дни занятий</dt>
+                <dd class="course-info__value">
+                  <ul class="workdays">
+                    <li><em>пн</em></li>
+                    <li>вт</li>
+                    <li><em>ср</em></li>
+                    <li>чт</li>
+                    <li><em>пт</em></li>
+                    <li>сб</li>
+                    <li>нд</li>
+                  </ul>
+                </dd>
+              </dl>
+              <ul class="course-programm -large">
+                <li class="course-programm__item -checked">Методологии и техники тестирования</li>
+                <li class="course-programm__item -checked">Багтрекинговая система JIRA</li>
+                <li class="course-programm__item -checked">QA Testing практикум</li>
+                <li class="course-programm__item -checked">База данных (SQL)</li>
+                <li class="course-programm__item -checked">Компьютерные сети (Networks)</li>
+                <li class="course-programm__item -checked">Операционные системы UNIX</li>
+                <li class="course-programm__item -checked">HTML, CSS, XML</li>
+                <li class="course-programm__item -checked">Mobile testing</li>
+                <li class="course-programm__item -checked -marked">Подготовка к собеседованию</li>
+                <li class="course-programm__item -checked -marked">Тренинг по трудоустройству</li>
+              </ul>
             </div>
-            <dl class="course-info">
-              <dt class="course-info__label">Сложность</dt>
-              <dd class="course-info__value">
-                <div class="complexity -pro"><span class="hidden-text">Продвинутый</span></div>
-              </dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Продолжительность</dt>
-              <dd class="course-info__value">6 недель</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Старт курса</dt>
-              <dd class="course-info__value">01 августа 2015</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Дни занятий</dt>
-              <dd class="course-info__value">
-                <ul class="workdays">
-                  <li><em>пн</em></li>
-                  <li>вт</li>
-                  <li><em>ср</em></li>
-                  <li>чт</li>
-                  <li><em>пт</em></li>
-                  <li>сб</li>
-                  <li>нд</li>
-                </ul>
-              </dd>
-            </dl>
             <div class="course__footer">
 
-              <button class="btn -type-filled -height-lg -width-fluid" type="button">
+              <a class="btn -type-filled -height-lg -width-fluid" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -288,50 +328,66 @@
 
                 <div class="btn__fill"></div>
                 <span class="btn__text">Программа курса</span>
-              </button>
+              </a>
 
             </div>
           </div>
           <!-- END course -->
-
           <!-- BEGIN course -->
           <div class="courses__right course">
             <h3 class="course__title">QA Advanced</h3>
             <strong class="course__subtitle">Курс «Инструменты тестировщика»</strong>
-            <div class="course__prise">
-              <span class="text-gradient">13000 <sub>грн</sub></span>
+            <div class="course__body">
+              <div class="course__prise">
+                <span class="text-gradient">13000 <sub>грн</sub></span>
+              </div>
+              <dl class="course-info">
+                <dt class="course-info__label">Сложность</dt>
+                <dd class="course-info__value">
+                  <div class="complexity">
+                    <div class="complexity__bar" style="width:70%"></div>
+                    <span class="hidden-text">Продвинутый</span>
+                  </div>
+                </dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Продолжительность</dt>
+                <dd class="course-info__value">6 недель</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Старт курса</dt>
+                <dd class="course-info__value">01 августа 2015</dd>
+              </dl>
+              <dl class="course-info">
+                <dt class="course-info__label">Дни занятий</dt>
+                <dd class="course-info__value">
+                  <ul class="workdays">
+                    <li><em>пн</em></li>
+                    <li>вт</li>
+                    <li><em>ср</em></li>
+                    <li>чт</li>
+                    <li><em>пт</em></li>
+                    <li>сб</li>
+                    <li>нд</li>
+                  </ul>
+                </dd>
+              </dl>
+              <ul class="course-programm">
+                <li class="course-programm__item">Методологии и техники тестирования</li>
+                <li class="course-programm__item">Багтрекинговая система JIRA</li>
+                <li class="course-programm__item">QA Testing практикум</li>
+                <li class="course-programm__item -checked">База данных (SQL)</li>
+                <li class="course-programm__item -checked">Компьютерные сети (Networks)</li>
+                <li class="course-programm__item -checked">Операционные системы UNIX</li>
+                <li class="course-programm__item -checked">HTML, CSS, XML</li>
+                <li class="course-programm__item -checked">Mobile testing</li>
+                <li class="course-programm__item">Подготовка к собеседованию</li>
+                <li class="course-programm__item">Тренинг по трудоустройству</li>
+              </ul>
             </div>
-            <dl class="course-info">
-              <dt class="course-info__label">Сложность</dt>
-              <dd class="course-info__value">
-                <div class="complexity -medium"><span class="hidden-text">Продвинутый</span></div>
-              </dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Продолжительность</dt>
-              <dd class="course-info__value">6 недель</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Старт курса</dt>
-              <dd class="course-info__value">01 августа 2015</dd>
-            </dl>
-            <dl class="course-info">
-              <dt class="course-info__label">Дни занятий</dt>
-              <dd class="course-info__value">
-                <ul class="workdays">
-                  <li><em>пн</em></li>
-                  <li>вт</li>
-                  <li><em>ср</em></li>
-                  <li>чт</li>
-                  <li><em>пт</em></li>
-                  <li>сб</li>
-                  <li>нд</li>
-                </ul>
-              </dd>
-            </dl>
             <div class="course__footer">
 
-              <button class="btn -width-fluid -height-lg" type="button">
+              <a class="btn -width-fluid -height-lg" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -342,25 +398,121 @@
 
                 <div class="btn__fill"></div>
                 <span class="btn__text">Программа курса</span>
-              </button>
+              </a>
 
             </div>
           </div>
           <!-- END course -->
         </div>
         <div class="courses__footer">
-          <div class="courses-promo">
-            <p class="courses-promo__text">
-              При оплате всех трех курсов
-              <strong class="text-gradient">Мы вернем</strong>
-            </p>
-            <strong class="courses-promo__value text-gradient">
-        5000 <sub>грн</sub>
-      </strong>
+          <div class="l">
+            <div class="courses-promo">
+              <p class="courses-promo__text">
+                При оплате всех трех курсов
+                <strong class="text-gradient">Мы вернем</strong>
+              </p>
+              <strong class="courses-promo__value text-gradient">
+          5000<sub>грн</sub>
+        </strong>
+            </div>
           </div>
         </div>
       </div>
       <!-- END courses -->
+
+      <!-- BEGIN advantages -->
+      <section class="advantages">
+        <div class="l">
+          <h2 class="advantages__title">Преимущества <small>учебного центра QA Start UP</small></h2>
+          <div class="slider">
+            <div class="slider-item">
+              <span class="slider-item__count">01</span>
+              <strong class="slider-item__title">Уникальная программа</strong>
+              <p class="slider-item__text">Программа является авторской, все подается в простой и доступной форме на реальных примера</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">02</span>
+              <strong class="slider-item__title">Преподаватели Senior уровня</strong>
+              <p class="slider-item__text">Стаж работы в IT сфере - от 8 лет. Преподавательский стаж достигает 5 лет</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">03</span>
+              <strong class="slider-item__title">80% практики<br>20% теории</strong>
+              <p class="slider-item__text">Мы не нагружаем студентов скучной теорией, а делаем все вместе на реальных примерах, по этому информация воспринимается и запоминается в разы эффективнее</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">04</span>
+              <strong class="slider-item__title">Профессия за<br>2,5 месяца</strong>
+              <p class="slider-item__text">Эффективная и оптимизированная методология обучения сочетающая правильный баланс теории и практики позволяет за краткие сроки получить востребованную профессию</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END advantages -->
+
+      <!-- BEGIN nomination -->
+      <section class="nomination l">
+        <div class="banner-title">
+
+          <div class="borders -width-8">
+            <div class="border-top"></div>
+            <div class="border-left"></div>
+            <div class="border-right"></div>
+            <div class="border-bottom"></div>
+          </div>
+
+          <h3 class="banner-title__text">
+      QA Start UP
+      <br>присвоили номинацию
+      <span class="banner-title__large text-gradient">QA GURU -2015</span>
+    </h3>
+        </div>
+        <div class="nomination__footer">
+          На всеукраинской выставке
+          <br>“IT Jam” компания QA Start UP победила в номинации
+          <br>“QA GURU -2015“
+        </div>
+      </section>
+      <!-- END nomination -->
+
+      <!-- BEGIN causes -->
+      <section class="causes l">
+        <div class="causes__header">
+          <h2 class="causes__title">Четыре<br>причины <small>стать тестировщиком</small></h2>
+        </div>
+        <ul class="causes__list">
+          <li class="cause -type-box -color-dark">
+            <span class="cause__count">01</span>
+            <strong class="cause__title">Высокая<br>зарплата</strong>
+            <p class="cause__text">
+              Уровень заработной платы младшего специалиста составляет порядка 500$, а специалистов уровня Senior достигает 2500$
+            </p>
+          </li>
+          <li class="cause -type-box">
+            <span class="cause__count">02</span>
+            <strong class="cause__title">Самый простой<br>вход в IT</strong>
+            <p class="cause__text">
+              QA является самым простым способом начать работать в IT сфере.
+              <br>Так же для становления тестировщиком не нужен технический склад ума
+            </p>
+          </li>
+          <li class="cause">
+            <span class="cause__count">03</span>
+            <strong class="cause__title">Уникальные<br>условия труда</strong>
+            <p class="cause__text">
+              Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой
+            </p>
+          </li>
+          <li class="cause">
+            <span class="cause__count">04</span>
+            <strong class="cause__title">Работа в любой<br>точке мира</strong>
+            <p class="cause__text">
+              При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма
+            </p>
+          </li>
+        </ul>
+      </section>
+      <!-- END causes -->
 
     </div>
     <!-- END content -->
