@@ -2,7 +2,8 @@ body
   background: $color-dark
   color: #FFF
   min-width: $width-content
-  +f(agora-regular, 14)
+  +f(agora-regular, 18)
+  line-height: 1.22
 
 a
   color: inherit
@@ -30,6 +31,7 @@ a
   left: 0
   right: 0
   bottom: 0
+  +gpu
   &.-width-3
     .border-top,
     .border-bottom
@@ -44,6 +46,13 @@ a
     .border-right,
     .border-left
       width: 6px
+  &.-width-8
+    .border-top,
+    .border-bottom
+      height: 8px
+    .border-right,
+    .border-left
+      width: 8px
 
 
 .draw

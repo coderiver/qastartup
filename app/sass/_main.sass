@@ -654,3 +654,132 @@
   +f(ar, 18)
   line-height: 1.22
 
+
+
+.nomination
+  padding-top: 120px
+  position: relative
+
+.nomination__footer
+  margin-top: 30px
+  max-width: 250px
+  padding-left: 90px
+  font-size: 18px
+  line-height: 1.333
+
+.banner-title
+  position: relative
+  padding: 80px 90px
+  max-width: 830px
+  box-sizing: border-box
+
+.banner-title__text
+  position: relative
+  z-index: 1
+  +f(fd, 36, 100)
+  line-height: 1.39
+  color: #FFF
+  text-transform: uppercase
+
+.banner-title__large
+  display: block
+  margin-top: 22px
+  +f(fd, 72, 100)
+  line-height: 0.8
+
+
+.causes
+  margin-top: 40px
+
+.causes__header
+  text-align: right
+  margin-bottom: 140px
+
+.causes__title
+  display: inline-block
+  vertical-align: top
+  text-align: left
+  +f(fd, 48, 800)
+  line-height: 1.25
+  color: $color-grey
+  text-transform: uppercase
+  small
+    display: block
+    +f(ar, 18)
+    letter-spacing: 0
+    line-height: 2.22
+    text-transform: none
+
+.causes__list
+  +clr
+
+
+.cause
+  float: left
+  margin-bottom: 140px
+  width: 50%
+  box-sizing: border-box
+  position: relative
+  z-index: 1
+  padding:  0 120px 0 160px
+  &:nth-child(odd)
+    padding-right: 120px
+    float: left
+  &:nth-child(even)
+    float: right
+    padding-right: 100px
+  &:nth-child(2)
+    margin-top: 110px
+
+  &.-type-box
+    .cause__text
+      color: inherit
+    &:before
+      content: ""
+      position: absolute
+      z-index: -1
+      top: -60px
+      bottom: -60px
+      left: -95px
+      right: 0
+      background-color: $color-green
+      background-image: $gradient-diagonal
+    &:nth-child(odd)
+      &:before
+        left: -1000px
+    &:nth-child(even)
+      &:before
+        right: -10000px
+        background: #424242
+
+  &.-color-dark
+    color: $color-text
+
+.cause__count
+  display: block
+  position: absolute
+  top: 12px
+  left: 0
+  +f(fd, 12, 100)
+  line-height: 1
+  white-space: nowrap
+  &:after
+    content: ""
+    display: inline-block
+    margin-left: 25px
+    vertical-align: middle
+    position: relative
+    top: -2px
+    width: 70px
+    border-top: 1px solid
+    opacity: 0.3
+
+.cause__title
+  display: block
+  margin-bottom: 30px
+  +f(fd, 30, 100)
+  line-height: 1.2
+  text-transform: uppercase
+
+.cause__text
+  color: $color-grey
