@@ -12,18 +12,20 @@
 
   <body>
     <!-- BEGIN content -->
-    <div class="out">
+    <div class="out draw">
 
       <!-- BEGIN toparea -->
       <div class="toparea">
         <div class="toparea__video"></div>
         <div class="toparea__inner">
           <div class="toparea__center">
+
             <!-- BEGIN header -->
             <div class="header">
               <div class="header__logo">
-                <a class="logo draw-borders" href="/">
-                  <div class="borders">
+                <a class="logo" href="/">
+
+                  <div class="borders -width-3">
                     <div class="border-top"></div>
                     <div class="border-left"></div>
                     <div class="border-right"></div>
@@ -76,7 +78,9 @@
             <!-- END intro -->
 
             <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
-            <button class="btn -width-250 draw-borders" type="button">
+
+            <button class="btn -width-250" type="button">
+
               <div class="borders">
                 <div class="border-top"></div>
                 <div class="border-left"></div>
@@ -87,6 +91,7 @@
               <div class="btn__fill"></div>
               <span class="btn__text">Получить знания</span>
             </button>
+
           </div>
         </div>
       </div>
@@ -107,7 +112,7 @@
           <div class="facts__right">
             <div class="number -text-sm">
               <span class="number__count">02</span>
-              <strong class="number__value">256</strong>
+              <strong class="number__value text-gradient">256</strong>
               <span class="number__text">Студентов получили<br>дипломы</span>
             </div>
           </div>
@@ -116,7 +121,7 @@
           <div class="facts__left">
             <div class="number -text-lg">
               <span class="number__count">03</span>
-              <strong class="number__value">87</strong>
+              <strong class="number__value text-gradient">87</strong>
               <sub class="number__sub">%</sub>
               <span class="number__text">Устроились на работу<br>своей мечты</span>
             </div>
@@ -171,54 +176,189 @@
       <!-- BEGIN courses -->
       <div class="courses l">
         <h2 class="courses__title">Курсы<br>и<br>Цены</h2>
-        <div class="courses__left course">
-          <h3 class="course__title">QA Start</h3>
-          <strong class="course__subtitle">Курс «Тестирование ПО»</strong>
-          <div class="course__prise">7000 <sub>грн</sub></div>
-          <dl class="course-info">
-            <dt class="course-info__label">Сложность</dt>
-            <dd class="course-info__value">
-              <div class="complexity -beginner"><span class="hidden-text">Новичок</span></div>
-            </dd>
-          </dl>
-          <dl class="course-info">
-            <dt class="course-info__label">Продолжительность</dt>
-            <dd class="course-info__value">4 недели</dd>
-          </dl>
-          <dl class="course-info">
-            <dt class="course-info__label">Старт курса</dt>
-            <dd class="course-info__value">01 августа 2015</dd>
-          </dl>
-          <dl class="course-info">
-            <dt class="course-info__label">Дни занятий</dt>
-            <dd class="course-info__value">
-              <ul class="workdays">
-                <li><em>пн</em></li>
-                <li>вт</li>
-                <li><em>ср</em></li>
-                <li>чт</li>
-                <li><em>пт</em></li>
-                <li>сб</li>
-                <li>нд</li>
-              </ul>
-            </dd>
-          </dl>
-          <div class="course__footer">
-            <button class="btn -type-fluid draw-borders" type="button">
-              <div class="borders">
+        <div class="courses__container">
+          <!-- BEGIN course -->
+          <div class="courses__left course">
+            <h3 class="course__title">QA Start</h3>
+            <strong class="course__subtitle">Курс «Тестирование ПО»</strong>
+            <div class="course__prise text-gradient">7000 <sub>грн</sub></div>
+            <dl class="course-info">
+              <dt class="course-info__label">Сложность</dt>
+              <dd class="course-info__value">
+                <div class="complexity -beginner"><span class="hidden-text">Новичок</span></div>
+              </dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Продолжительность</dt>
+              <dd class="course-info__value">4 недели</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Старт курса</dt>
+              <dd class="course-info__value">01 августа 2015</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Дни занятий</dt>
+              <dd class="course-info__value">
+                <ul class="workdays">
+                  <li><em>пн</em></li>
+                  <li>вт</li>
+                  <li><em>ср</em></li>
+                  <li>чт</li>
+                  <li><em>пт</em></li>
+                  <li>сб</li>
+                  <li>нд</li>
+                </ul>
+              </dd>
+            </dl>
+            <div class="course__footer">
+
+              <button class="btn -width-fluid -height-lg" type="button">
+
+                <div class="borders">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="btn__fill"></div>
+                <span class="btn__text">Программа курса</span>
+              </button>
+
+            </div>
+          </div>
+          <!-- END course -->
+
+          <!-- BEGIN course -->
+          <div class="courses__center course -primary">
+            <div class="course__head">
+
+              <div class="borders -width-6">
                 <div class="border-top"></div>
                 <div class="border-left"></div>
                 <div class="border-right"></div>
                 <div class="border-bottom"></div>
               </div>
 
-              <div class="btn__fill"></div>
-              <span class="btn__text">Программа курса</span>
-            </button>
+              <h3 class="course__title">QA Start +<br>QA Advanced</h3>
+              <strong class="course__subtitle">С "нуля" на позицию тестировщика</strong>
+            </div>
+            <div class="course__prise">
+              <del class="course__prise-old">20000 грн</del>
+              <span class="text-gradient">15000 <sub>грн</sub></span>
+            </div>
+            <dl class="course-info">
+              <dt class="course-info__label">Сложность</dt>
+              <dd class="course-info__value">
+                <div class="complexity -pro"><span class="hidden-text">Продвинутый</span></div>
+              </dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Продолжительность</dt>
+              <dd class="course-info__value">6 недель</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Старт курса</dt>
+              <dd class="course-info__value">01 августа 2015</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Дни занятий</dt>
+              <dd class="course-info__value">
+                <ul class="workdays">
+                  <li><em>пн</em></li>
+                  <li>вт</li>
+                  <li><em>ср</em></li>
+                  <li>чт</li>
+                  <li><em>пт</em></li>
+                  <li>сб</li>
+                  <li>нд</li>
+                </ul>
+              </dd>
+            </dl>
+            <div class="course__footer">
+
+              <button class="btn -type-filled -height-lg -width-fluid" type="button">
+
+                <div class="borders">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="btn__fill"></div>
+                <span class="btn__text">Программа курса</span>
+              </button>
+
+            </div>
+          </div>
+          <!-- END course -->
+
+          <!-- BEGIN course -->
+          <div class="courses__right course">
+            <h3 class="course__title">QA Advanced</h3>
+            <strong class="course__subtitle">Курс «Инструменты тестировщика»</strong>
+            <div class="course__prise">
+              <span class="text-gradient">13000 <sub>грн</sub></span>
+            </div>
+            <dl class="course-info">
+              <dt class="course-info__label">Сложность</dt>
+              <dd class="course-info__value">
+                <div class="complexity -medium"><span class="hidden-text">Продвинутый</span></div>
+              </dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Продолжительность</dt>
+              <dd class="course-info__value">6 недель</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Старт курса</dt>
+              <dd class="course-info__value">01 августа 2015</dd>
+            </dl>
+            <dl class="course-info">
+              <dt class="course-info__label">Дни занятий</dt>
+              <dd class="course-info__value">
+                <ul class="workdays">
+                  <li><em>пн</em></li>
+                  <li>вт</li>
+                  <li><em>ср</em></li>
+                  <li>чт</li>
+                  <li><em>пт</em></li>
+                  <li>сб</li>
+                  <li>нд</li>
+                </ul>
+              </dd>
+            </dl>
+            <div class="course__footer">
+
+              <button class="btn -width-fluid -height-lg" type="button">
+
+                <div class="borders">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="btn__fill"></div>
+                <span class="btn__text">Программа курса</span>
+              </button>
+
+            </div>
+          </div>
+          <!-- END course -->
+        </div>
+        <div class="courses__footer">
+          <div class="courses-promo">
+            <p class="courses-promo__text">
+              При оплате всех трех курсов
+              <strong class="text-gradient">Мы вернем</strong>
+            </p>
+            <strong class="courses-promo__value text-gradient">
+        5000 <sub>грн</sub>
+      </strong>
           </div>
         </div>
-        <div class="courses__center course"></div>
-        <div class="courses__right course"></div>
       </div>
       <!-- END courses -->
 
