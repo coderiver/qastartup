@@ -14,3 +14,11 @@
     <span class="btn__text">{{ content }}</span>
   </button>
 {% endmacro %}
+
+{% macro btnLink(content, href, classMod, borderClassMod) %}
+  <a {% if classMod %}class="btn {{ classMod }}"{% else %}class="btn"{% endif %} href="{{ href }}">
+    {{ borders(borderClassMod) }}
+    <div class="btn__fill"></div>
+    <span class="btn__text">{{ content }}</span>
+  </a>
+{% endmacro %}

@@ -289,6 +289,7 @@
   margin-top: 150px
 
 .courses__title
+  margin-bottom: 135px
   +f(fd, 30, 2000)
   line-height: 1.667
   color: $color-grey
@@ -303,8 +304,10 @@
   width: percentage(335/1140)
   box-sizing: border-box
   padding: 60px 50px 110px
-  opacity: 0.6
+  opacity: 0.8
   +trans(opacity)
+  &:hover
+    opacity: 1
 
 .courses__left
   float: left
@@ -316,7 +319,8 @@
 
 .courses__footer
   text-align: center
-  margin-top: 55px
+  padding: 55px 0 50px
+  background: #424242
 
 
 .courses-promo
@@ -347,9 +351,7 @@
   sub
     font-size: 18px
     text-transform: uppercase
-    margin-left: -20px
     letter-spacing: 0.1em
-
 
 .courses__center
   position: absolute
@@ -361,9 +363,16 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15)
 
 
-
 .course
   color: $color-grey
+  background: $color-dark
+  &:hover
+    .course__title
+      color: #FFF
+    .course-programm
+      opacity: 1
+      visibility: visible
+
   &.-primary
     .course__title
       color: #FFF
@@ -377,6 +386,7 @@
   +f(fd, 30, 100)
   line-height: 1
   text-transform: uppercase
+  +trans(color)
 
 .course__subtitle
   display: block
@@ -404,6 +414,10 @@
   margin: -68px -27px 0
   padding: 68px 27px 20px
 
+.course__body
+  position: relative
+  margin-top: 30px
+
 .course__footer
   margin-top: 50px
 
@@ -423,6 +437,119 @@
   +f(ar, 18)
 
 
+.course-programm
+  opacity: 0
+  visibility: hidden
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: $color-dark
+  +f(ar, 14)
+  line-height: 1.7
+  letter-spacing: 0
+  color: $color-grey
+  +trans
+  transition-property: opacity, visibility
+
+  &.-large
+    font-size: 18px
+    line-height: 1.6
+
+.course-programm__item
+  position: relative
+  padding-left: 40px
+  margin-top: 10px
+  &:first-child
+    margin-top: 0
+  &:before
+    @extend %icon
+    content: $icon-close
+    position: absolute
+    top: 7px
+    left: 0
+    font-size: 0.7em
+
+  &.-checked
+    color: $color-grey-lighter
+    &:before
+      content: $icon-check
+      color: $color-green
+
+  &.-marked
+    color: $color-green
+
+
+.course-note
+  position: absolute
+  bottom: 100%
+  left: 100%
+  padding: 0 0 30px 50px
+  box-sizing: border-box
+  white-space: nowrap
+
+.course-note__line
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 40px
+  height: 60px
+  &:before,
+  &:after
+    content: ""
+    position: absolute
+    transition: width 0.3s linear
+    background: $color-grey
+  &:before
+    bottom: 0
+    left: 0
+    width: 0
+    height: 1px
+    transform: rotate(-62.5deg)
+    transform-origin: bottom left
+    transition-delay: 0.3s
+  &:after
+    top: 0
+    left: 100%
+    margin-left: -10px
+    width: 0
+    height: 1px
+  .draw &
+    &:before
+      width: 67px
+      transition-delay: 0s
+    &:after
+      width: 10px
+      transition-delay: 0.3s
+
+.course-note__content
+  opacity: 0
+  transition: opacity 0.6s linear
+  transition-delay: 0.6s
+  .draw &
+    opacity: 1
+
+
+.course-note__text
+  display: inline-block
+  vertical-align: middle
+  margin-right: 10px
+  +f(ar, 18)
+  line-height: 1.22
+  color: #FFF
+  white-space: normal
+
+.course-note__value
+  display: inline-block
+  vertical-align: middle
+  +f(fh, 56)
+  line-height: 0.8
+  sub
+    font-size: 18px
+
+
+
 .workdays
   +f(ar, 12)
   text-transform: uppercase
@@ -439,35 +566,91 @@
 .complexity
   display: inline-block
   position: relative
-  width: 100%
+  width: 270px
   height: 8px
   box-sizing: border-box
   border-radius: 4px
   background: rgba(#AAA, 0.1)
   overflow: hidden
-  .complexity__bar,
-  &:before
+  +gpu
+
+.complexity__bar
+  content: ""
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border-radius: 4px
+  background-color: $color-green
+  background-image: $gradient-diagonal
+  transition: transform 1s ease-out
+  transform: translateX(-101%)
+  .draw &
+    transform: translateX(0)
+
+
+.advantages
+  padding: 90px 0
+  min-height: 100vh
+  background: img-url('advantages-bg.jpg') no-repeat center
+  background-size: cover
+  box-sizing: border-box
+
+.advantages__title
+  margin-bottom: 60px
+  +f(fd, 50, 1000)
+  line-height: 1
+  text-transform: uppercase
+  small
+    display: block
+    text-decoration: none
+    +f(ar, 18)
+    line-height: 2.22
+    letter-spacing: 0
+    text-transform: none
+    color: $color-grey-lighter
+
+
+.slider
+  margin-top: 60px
+  white-space: nowrap
+
+.slider-item
+  position: relative
+  display: inline-block
+  vertical-align: top
+  width: 380px
+  padding-right: 80px
+  font-size: 16px
+  box-sizing: border-box
+  white-space: normal
+
+.slider-item__count
+  display: block
+  position: relative
+  +f(fh, 12, 100)
+  text-transform: uppercase
+  line-height: 1
+  margin-bottom: 30px
+  &:after
     content: ""
-    position: absolute
-    top: 0
-    left: 0
-    width: 70%
-    height: 100%
-    border-radius: 4px
-    background-color: $color-green
-    background-image: $gradient-diagonal
+    display: block
+    margin-top: 30px
+    border-left: 1px solid
+    height: 110px
+    opacity: 0.3
 
-  &.-beginner
-    .complexity__bar,
-    &:before
-      width: 45%
+.slider-item__title
+  display: block
+  +f(fh, 30, 100)
+  line-height: 1.2
+  color: inherit
+  text-decoration: none
+  text-transform: uppercase
 
-  &.-middle
-    .complexity__bar,
-    &:before
-      width: 65%
+.slider-item__text
+  margin: 40px 0 0
+  +f(ar, 18)
+  line-height: 1.22
 
-  &.-pro
-    .complexity__bar,
-    &:before
-      width: 85%

@@ -9,9 +9,11 @@
   font-style: normal;
 }
 
-$icon-facebook: "\EA01";
-$icon-linkedin: "\EA02";
-$icon-play: "\EA03";
+$icon-check: "\EA01";
+$icon-close: "\EA02";
+$icon-facebook: "\EA03";
+$icon-linkedin: "\EA04";
+$icon-play: "\EA05";
 
 
 %icon {
@@ -44,6 +46,8 @@ $icon-play: "\EA03";
   text-align: center;
 }
 
+.icon-check:before { content: $icon-check; }
+.icon-close:before { content: $icon-close; }
 .icon-facebook:before { content: $icon-facebook; }
 .icon-linkedin:before { content: $icon-linkedin; }
 .icon-play:before { content: $icon-play; }
