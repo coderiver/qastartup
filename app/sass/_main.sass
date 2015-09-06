@@ -207,13 +207,8 @@
   line-height: 1
   text-transform: uppercase
   color: $color-grey
-  > small
-    +f(agora-regular, 18)
-    display: block
-    margin-top: 10px
-    text-transform: none
+  .title-small
     color: #555
-    letter-spacing: 0
 
 .stats__buttons
   margin: 50px 0
@@ -249,14 +244,9 @@
   line-height: 1
   color: $color-grey-lighter
   text-transform: uppercase
-  small
-    display: block
+  .title-small
     margin-top: 10px
-    line-height: 1.25
-    +f(ar, 24)
-    color: $color-grey
-    letter-spacing: 0
-    text-transform: none
+    font-size: 24px
 
 .salary__left
   position: absolute
@@ -602,13 +592,7 @@
   +f(fd, 50, 1000)
   line-height: 1
   text-transform: uppercase
-  small
-    display: block
-    text-decoration: none
-    +f(ar, 18)
-    line-height: 2.22
-    letter-spacing: 0
-    text-transform: none
+  .title-small
     color: $color-grey-lighter
 
 
@@ -660,6 +644,15 @@
   padding-top: 120px
   position: relative
 
+.nomination__picture
+  position: absolute
+  z-index: 0
+  top: -235px
+  right: 60px
+  img
+    max-width: 100%
+    display: block
+
 .nomination__footer
   margin-top: 30px
   max-width: 250px
@@ -688,14 +681,14 @@
   line-height: 0.8
 
 
-.causes
+.reasons
   margin-top: 40px
 
-.causes__header
+.reasons__header
   text-align: right
   margin-bottom: 140px
 
-.causes__title
+.reasons__title
   display: inline-block
   vertical-align: top
   text-align: left
@@ -703,18 +696,13 @@
   line-height: 1.25
   color: $color-grey
   text-transform: uppercase
-  small
-    display: block
-    +f(ar, 18)
-    letter-spacing: 0
-    line-height: 2.22
-    text-transform: none
 
-.causes__list
+.reasons__list
+  margin-bottom: -140px
   +clr
 
 
-.cause
+.reason
   float: left
   margin-bottom: 140px
   width: 50%
@@ -732,7 +720,7 @@
     margin-top: 110px
 
   &.-type-box
-    .cause__text
+    .reason__text
       color: inherit
     &:before
       content: ""
@@ -755,7 +743,7 @@
   &.-color-dark
     color: $color-text
 
-.cause__count
+.reason__count
   display: block
   position: absolute
   top: 12px
@@ -774,12 +762,226 @@
     border-top: 1px solid
     opacity: 0.3
 
-.cause__title
+.reason__title
   display: block
   margin-bottom: 30px
+  position: relative
   +f(fd, 30, 100)
   line-height: 1.2
   text-transform: uppercase
+  .borders
+    top: -38px
+    left: -20px
+    right: -40px
+    bottom: -18px
 
-.cause__text
+.reason__text
   color: $color-grey
+
+
+.companies
+  margin-top: 210px
+  background: #FFF linear-gradient(20deg, rgba(0,0,0,0.2) 0%, transparent 30%)
+
+.companies__inner
+  padding-top: 35px
+  padding-bottom: 140px
+  background: img-url('companies-bg.png') no-repeat 70px 100%
+  +clr
+
+.companies__title
+  position: relative
+  z-index: 1
+  display: inline-block
+  vertical-align: top
+  +f(fd, 30, 1000)
+  line-height: 1
+  text-transform: uppercase
+  color: $color-text
+  .title-small
+    color: inherit
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: -145px
+    right: -95px
+    bottom: -55px
+    left: -1000px
+    background-color: $color-green
+    background-image: $gradient-diagonal
+
+.companies__list
+  float: right
+  width: 50%
+  box-sizing: border-box
+  clear: both
+  font-size: 0
+  margin-bottom: -40px
+
+.companies__list-item
+  display: inline-block
+  vertical-align: top
+  font-size: 16px
+  width: 50%
+  box-sizing: border-box
+  padding-right: 50px
+  margin-bottom: 40px
+
+
+.company
+  display: block
+  position: relative
+  color: #AAA
+  text-decoration: none
+  line-height: 140px
+  text-align: center
+
+.company__count
+  position: absolute
+  top: 0
+  left: 0
+  font-weight: normal
+  +f(fd, 12, 100)
+  line-height: 1
+  margin-bottom: 20px
+
+.company__img
+  display: inline-block
+  vertical-align: middle
+  max-width: 100%
+
+
+.testimonials
+  margin-bottom: 230px
+
+.testimonials__header
+  padding-top: 115px
+  text-align: right
+  margin-bottom: 150px
+
+.testimonials__title
+  display: inline-block
+  position: relative
+  z-index: 1
+  vertical-align: top
+  min-width: 480px
+  text-align: left
+  +f(fd, 48, 1000)
+  line-height: 1
+  color: #FFF
+  text-transform: uppercase
+  .title-small
+    color: #AAA
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: -175px
+    left: -95px
+    bottom: -65px
+    right: -1000px
+    background: #424242
+
+.testimonials__container
+  +clr
+
+
+.testimonial
+  float: left
+  width: 48.7%
+  box-sizing: border-box
+  position: relative
+  z-index: 1
+  padding-left: 190px
+  &:nth-child(2)
+    margin-top: 235px
+  &:nth-child(even)
+    float: right
+
+.testimonial__frontlayer
+  position: relative
+  z-index: 1
+
+.testimonial__backlayer
+  position: absolute
+  z-index: 0
+  top: -65px
+  left: 35px
+  right: 45px
+  bottom: -90px
+  background: #424242
+
+
+.testimonial__count
+  position: absolute
+  top: 0
+  left: 0
+  +f(fd, 12, 100)
+  line-height: 1
+  color: #AAA
+
+.testimonial__head
+  position: relative
+  padding: 70px 20px 15px 80px
+  margin: 0 0 20px -80px
+  line-height: 1.2
+
+.testimonial__name
+  display: block
+  +f(fh, 18, 100)
+  color: #FFF
+  text-transform: uppercase
+
+.testimonial__post
+  display: block
+  margin-top: 10px
+  color: $color-grey
+
+.testimonial__userpic
+  position: absolute
+  top: 50%
+  left: -45px
+  margin-top: -50px
+  width: 110px
+  height: 110px
+  border-radius: 50%
+  overflow: hidden
+  background: $color-grey
+  img
+    display: block
+    max-width: 100%
+    max-height: 100%
+    min-height: 100%
+    min-width: 100%
+
+.testimonial__contacts
+  font-size: 16px
+  margin-top: 10px
+  .icon
+    text-decoration: none
+    color: $color-green
+    +trans(color)
+    margin-right: 10px
+    &:hover
+      color: #FFF
+
+.testimonial__text
+  margin: 0 80px 20px 0
+  height: 120px
+  box-sizing: border-box
+  font-size: 16px
+  line-height: 1.5
+  color: $color-grey-lighter
+  position: relative
+  overflow: hidden
+  &:after
+    content: ""
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 100px
+    background: linear-gradient(to top, #424242 0, transparent 100%)
+    pointer-events: none
+
