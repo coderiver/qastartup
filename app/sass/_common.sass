@@ -290,3 +290,51 @@ a
     opacity: 0.5
   &:hover
     color: #FFF
+
+
+.form
+  .btn
+    margin-top: 60px
+
+
+.field
+  position: relative
+  margin-top: 40px
+  &:hover
+    .input
+      border-color: #AAA
+    .input-label
+      color: #AAA
+  &.is-filled
+    .input-label
+      transform: translate3d(0,-1.5em,0) scale(0.8)
+      color: $color-grey
+
+.input
+  display: block
+  box-sizing: border-box
+  height: 40px
+  width: 100%
+  background: none
+  border-bottom: 1px solid $color-grey
+  +f(ar, 18)
+  color: #AAA
+  transition: border-color 0.3s ease
+  &:focus
+    border-color: #AAA
+    & + .input-label
+      transform: translate3d(0,-1.5em,0) scale(0.8)
+      color: $color-grey
+
+.input-label
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  line-height: 40px
+  z-index: 0
+  transition: all 0.3s ease
+  transform-origin: left top
+  font-size: 18px
+  color: $color-grey
+  cursor: pointer

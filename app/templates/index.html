@@ -74,7 +74,7 @@
 <!-- END stats -->
 
 <!-- BEGIN salary -->
-<div class="salary l">
+<section class="salary l">
   <div class="salary__left">
     <div class="salary__left-content">
       <h2 class="salary__title">Заработная плата <small class="title-small">QA специалиста начального уровня<br>в Киеве</small></h2>
@@ -89,11 +89,11 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 <!-- END salary -->
 
 <!-- BEGIN courses -->
-<div class="courses">
+<section class="courses">
   <h2 class="courses__title l">Курсы<br>и<br>Цены</h2>
   <div class="courses__container l">
     <!-- BEGIN course -->
@@ -290,7 +290,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 <!-- END courses -->
 
 <!-- BEGIN advantages -->
@@ -436,4 +436,146 @@
   </div>
 </section>
 <!-- END testimonials -->
+
+<!-- BEGIN contact -->
+<section class="contact l">
+  <div class="contact__backlayer"></div>
+  <div class="contact__frontlayer">
+    <h3 class="contact__title">
+      <span class="text-gradient">Сделай</span>
+      <small class="text-gradient">первый шаг к мечте!</small>
+    </h3>
+    <div class="contact__form">
+      <p>Оставь свои контакты и наш менеджер свяжется с тобой<br>для определения уровня и выбора курса.</p>
+      <strong>Количество мест в групе ограничено!</strong>
+      <form class="form">
+        <div class="field">
+          <input class="input" type="text" name="name" id="name">
+          <label class="input-label" for="name">Ваше имя</label>
+        </div>
+        <div class="field">
+          <input class="input" type="tel" name="name" id="tel">
+          <label class="input-label" for="tel">Ваш номер телефона</label>
+        </div>
+        {{ mixins.btn("Получить знания", "-type-filled -width-fluid -height-lg") }}
+      </form>
+    </div>
+  </div>
+</section>
+<!-- END contact -->
+
+<!-- BEGIN partners -->
+<section class="partners l">
+  <h2 class="partners__title text-gradient">Партнеры</h2>
+  <ul class="partners__list">
+    {% for partner in partners %}<li class="partners__partner">
+      <img src="{{ partner.img }}" alt="{{ partner.title }}">
+    </li>{% endfor %}
+  </ul>
+</section>
+<!-- END partners -->
+
+<!-- BEGIN questions -->
+<section class="faq l">
+  <h3 class="faq__title text-gradient">Нас часто спрашивают...</h3>
+  <ul class="faq__list">
+    <li class="faq-item -width-xsm">
+      <button class="faq-item__button" type="button">
+        <span class="faq-item__count">01</span>
+        <span class="faq-item__question">В чем смысл жизни?</span>
+      </button>
+      <div class="faq-item__answer">
+        <dl>
+          <dt>Уникальные условия труда</dt>
+          <dd>Современные IT  офиса оборудованы комфортными рабочими местами,  игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+        </dl>
+        <dl>
+          <dt>Работа в любой точке мира</dt>
+          <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+        </dl>
+        <dl>
+          <dt>Возможность развития</dt>
+          <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+        </dl>
+        <dl>
+          <dt>Карьерный рост</dt>
+          <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+        </dl>
+      </div>
+    </li>
+    <li class="faq-item -width-sm">
+      <button class="faq-item__button" type="button">
+        <span class="faq-item__count">02</span>
+        <span class="faq-item__question">Тут будут выводится просто последние статьи с блога?</span>
+      </button>
+      <div class="faq-item__answer">
+        <dl>
+          <dt>Уникальные условия труда</dt>
+          <dd>Современные IT  офиса оборудованы комфортными рабочими местами,  игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+        </dl>
+        <dl>
+          <dt>Работа в любой точке мира</dt>
+          <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+        </dl>
+        <dl>
+          <dt>Возможность развития</dt>
+          <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+        </dl>
+        <dl>
+          <dt>Карьерный рост</dt>
+          <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+        </dl>
+      </div>
+    </li>
+    <li class="faq-item">
+      <button class="faq-item__button" type="button">
+        <span class="faq-item__count">03</span>
+        <span class="faq-item__question">Все вышеуказанное проходит через два блока?</span>
+      </button>
+      <div class="faq-item__answer">
+        <dl>
+          <dt>Уникальные условия труда</dt>
+          <dd>Современные IT  офиса оборудованы комфортными рабочими местами,  игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+        </dl>
+        <dl>
+          <dt>Работа в любой точке мира</dt>
+          <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+        </dl>
+        <dl>
+          <dt>Возможность развития</dt>
+          <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+        </dl>
+        <dl>
+          <dt>Карьерный рост</dt>
+          <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+        </dl>
+      </div>
+    </li>
+    <li class="faq-item -width-md">
+      <button class="faq-item__button" type="button">
+        <span class="faq-item__count">04</span>
+        <span class="faq-item__question">В самом конце студент получает работу Software QA Enginner?</span>
+      </button>
+      <div class="faq-item__answer">
+        <dl>
+          <dt>Уникальные условия труда</dt>
+          <dd>Современные IT  офиса оборудованы комфортными рабочими местами,  игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+        </dl>
+        <dl>
+          <dt>Работа в любой точке мира</dt>
+          <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+        </dl>
+        <dl>
+          <dt>Возможность развития</dt>
+          <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+        </dl>
+        <dl>
+          <dt>Карьерный рост</dt>
+          <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+        </dl>
+      </div>
+    </li>
+  </ul>
+</section>
+<!-- END questions -->
 {% endblock %}

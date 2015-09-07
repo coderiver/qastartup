@@ -261,6 +261,7 @@
   top: 0
   left: 41.7%
   right: -1000px
+  right: $window-edge
   height: 100%
   box-sizing: border-box
 
@@ -621,7 +622,7 @@
     content: ""
     display: block
     margin-top: 30px
-    border-left: 1px solid
+    border-left: 2px solid
     height: 110px
     opacity: 0.3
 
@@ -735,9 +736,11 @@
     &:nth-child(odd)
       &:before
         left: -1000px
+        left: $window-edge
     &:nth-child(even)
       &:before
         right: -10000px
+        right: $window-edge
         background: #424242
 
   &.-color-dark
@@ -757,9 +760,10 @@
     margin-left: 25px
     vertical-align: middle
     position: relative
-    top: -2px
+    top: -1px
     width: 70px
-    border-top: 1px solid
+    border: solid
+    border-width: 1px 0
     opacity: 0.3
 
 .reason__title
@@ -808,6 +812,7 @@
     right: -95px
     bottom: -55px
     left: -1000px
+    left: $window-edge
     background-color: $color-green
     background-image: $gradient-diagonal
 
@@ -853,7 +858,7 @@
 
 
 .testimonials
-  margin-bottom: 230px
+  margin-bottom: 260px
 
 .testimonials__header
   padding-top: 115px
@@ -881,6 +886,7 @@
     left: -95px
     bottom: -65px
     right: -1000px
+    right: $window-edge
     background: #424242
 
 .testimonials__container
@@ -985,3 +991,191 @@
     background: linear-gradient(to top, #424242 0, transparent 100%)
     pointer-events: none
 
+
+.contact
+  padding-top: 85px
+  padding-bottom: 75px
+  margin-top: 170px
+  margin-bottom: 230px
+  position: relative
+
+.contact__backlayer
+  position: absolute
+  z-index: 0
+  left: 285px
+  right: 220px
+  top: 0
+  bottom: 0
+  background: #424242
+
+.contact__frontlayer
+  position: relative
+  z-index: 1
+  padding-left: 100px
+  +clr
+
+.contact__title
+  float: left
+  width: 50%
+  margin-top: -8px
+  box-sizing: border-box
+  padding-right: 95px
+  +f(fd, 80, 250)
+  line-height: 1
+  text-transform: uppercase
+  small
+    display: block
+    margin-top: 25px
+    font-size: 24px
+    letter-spacing: 0.1em
+    line-height: 1.2
+
+.contact__form
+  float: right
+  width: 50%
+  box-sizing: border-box
+  color: $color-grey
+  > strong
+    +f(fh, 24)
+
+
+.partners
+  margin-top: 170px
+  margin-bottom: 170px
+
+.partners__title
+  text-align: right
+  +f(fd, 60, 1000)
+  margin-right: -1em
+  line-height: 1
+  margin-bottom: 130px
+  text-transform: uppercase
+
+.partners__list
+  font-size: 0
+  margin: 0 -30px
+
+.partners__partner
+  width: 240px
+  font-size: 14px
+  display: inline-block
+  vertical-align: middle
+  text-align: center
+
+
+.faq__title
+  margin-bottom: 120px
+  +f(fd, 48, 100)
+  line-height: 1.25
+  text-transform: uppercase
+
+.faq__list
+  +clr
+
+.faq-item
+  float: left
+  clear: both
+  position: relative
+  z-index: 1
+  color: #FFF
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: -1000px
+    left: $window-edge
+    left: $window-edge
+    right: 0
+    bottom: 0
+    background: #424242
+  &:nth-child(even)
+    color: $color-text
+    &:before
+      background-color: $color-green
+      background-image: $gradient-diagonal
+    .faq-item__button
+      &:hover
+        &:after,
+        .faq-item__question
+          color: #FFF
+
+  &.-width-xsm
+    width: 660px
+
+  &.-width-sm
+    width: 855px
+
+  &.-width-md
+    width: 950px
+
+.faq-item__button
+  display: block
+  position: relative
+  padding: 62px 115px 62px 155px
+  background: none
+  +f(fd, 30, 100)
+  line-height: 1.2
+  text-transform: uppercase
+  color: inherit
+  text-align: left
+  text-decoration: none
+  +gpu
+  &:after
+    @extend %icon
+    content: $icon-chevron-down
+    position: absolute
+    top: 50%
+    left: 100%
+    margin-left: -95px
+    margin-top: -0.5em
+    font-size: 12px
+    transition: color 0.3s ease
+  &:hover
+    &:after,
+    .faq-item__question
+      color: $color-green
+
+.faq-item__question
+  transition: color 0.3s ease
+
+.faq-item__count
+  position: absolute
+  top: 74px
+  left: 0
+  font-size: 12px
+  line-height: 1
+  white-space: nowrap
+  &:after
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    position: relative
+    top: -1px
+    width: 70px
+    height: 0
+    border: solid
+    border-width: 1px 0
+    opacity: 0.3
+    margin-left: 27px
+
+.faq-item__answer
+  display: none
+  padding: 0 100px 80px 165px
+  box-sizing: border-box
+  p
+    margin: 10px 0
+  dl
+    margin-top: 40px
+    &:first-child
+      margin-top: 0
+  dt
+    margin-bottom: 10px
+  .faq-item:nth-child(odd) &
+    color: #AAA
+    dt
+      color: #FFF
+  .faq-item:nth-child(even) &
+    color: #424242
+    dt
+      color: $color-text

@@ -22,6 +22,7 @@ var props = {
     transform: ['coffeeify'],
     noParse: ['jquery'],
     extensions: ['.js', '.coffee'],
+    debug: true,
     cache: {},
     packageCache: {}
 };
