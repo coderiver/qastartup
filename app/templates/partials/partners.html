@@ -1,0 +1,10 @@
+<!-- BEGIN partners -->
+<section class="partners l">
+  <h2 class="partners__title text-gradient">Партнеры</h2>
+  <ul class="partners__list">
+    {% for partner in partners %}<li class="partners__partner">
+      <img src="{{ partner.img }}" alt="{{ partner.title }}">
+    </li>{% endfor %}
+  </ul>
+</section>
+<!-- END partners -->

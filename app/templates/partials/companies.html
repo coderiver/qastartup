@@ -1,0 +1,17 @@
+<!-- BEGIN companies -->
+<section class="companies">
+  <div class="companies__inner l">
+    <div class="companies__header">
+      <h3 class="companies__title">Компании <small class="title-small">в которых работают наши студенты</small></h3>
+    </div>
+    <ul class="companies__list">
+      {% for company in companies %}<li class="companies__list-item">
+        <a class="company" href="{{ company.link }}" title="{{ company.title }}">
+          <span class="company__count">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+          <img class="company__img" src="{{ company.img }}" width="{{ company.imgWidth }}" alt="{{ company.title }}">
+        </a>
+      </li>{% endfor %}
+    </ul>
+  </div>
+</section>
+<!-- END companies -->

@@ -14,7 +14,7 @@ a
 .hidden-text
   +hide-text
 
-.link
+.lnk
   color: inherit
   +trans(color)
   &:hover,
@@ -144,8 +144,8 @@ a
 .btn
   display: inline-block
   position: relative
-  height: 40px
-  line-height: 40px
+  height: 50px
+  line-height: 50px
   background: none
   +f(futura-demi, 12, 100)
   color: #FFF
@@ -193,9 +193,9 @@ a
         color: $color-text
         transition-delay: 0.65s
 
-  &.-height-lg
-    height: 50px
-    line-height: 50px
+  &.-height-sm
+    height: 40px
+    line-height: 40px
 
 .btn__text
   position: relative
@@ -291,6 +291,10 @@ a
   &:hover
     color: #FFF
 
+  &.-underline-dashed
+    &:after
+      border-bottom-style: dashed
+
 
 .form
   .btn
@@ -305,15 +309,34 @@ a
       border-color: #AAA
     .input-label
       color: #AAA
+
   &.is-filled
     .input-label
-      transform: translate3d(0,-1.5em,0) scale(0.8)
+      transform: translate3d(0,-1.3em,0) scale(0.65)
       color: $color-grey
+
+  &.is-error
+    .input
+      border-color: $color-red
+      color: $color-red
+    .field__error
+      display: block
+
+.field__error
+  display: none
+  position: absolute
+  top: 100%
+  margin-top: 5px
+  right: 0
+  color: $color-red
+  +f(ar, 14)
+  line-height: 1.2
 
 .input
   display: block
   box-sizing: border-box
-  height: 40px
+  height: 42px
+  padding-bottom: 22px
   width: 100%
   background: none
   border-bottom: 1px solid $color-grey
@@ -323,7 +346,7 @@ a
   &:focus
     border-color: #AAA
     & + .input-label
-      transform: translate3d(0,-1.5em,0) scale(0.8)
+      transform: translate3d(0,-1.3em,0) scale(0.65)
       color: $color-grey
 
 .input-label
@@ -331,7 +354,7 @@ a
   top: 0
   left: 0
   right: 0
-  line-height: 40px
+  line-height: 20px
   z-index: 0
   transition: all 0.3s ease
   transform-origin: left top

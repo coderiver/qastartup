@@ -634,6 +634,14 @@
   text-decoration: none
   text-transform: uppercase
 
+  &.-size-sm
+    font-size: 20px
+
+a.slider-item__title
+  +trans(color)
+  &:hover
+    color: $color-green
+
 .slider-item__text
   margin: 40px 0 0
   +f(ar, 18)
@@ -1179,3 +1187,46 @@
     color: #424242
     dt
       color: $color-text
+
+
+.question
+  margin-top: 120px
+  margin-bottom: 100px
+  padding-left: 200px
+
+.question__title
+  position: relative
+  z-index: 1
+  +f(fd, 48, 500)
+  line-height: 1.25
+  margin-bottom: 30px
+  text-transform: uppercase
+  color: $color-grey
+
+.question__form
+  position: relative
+  z-index: 0
+  max-width: 690px
+  margin: -80px 0 0 85px
+  box-sizing: border-box
+  background: #424242
+  padding: 90px 0 0 235px
+  .form
+    position: relative
+    top: 15px
+    left: 60px
+
+
+.news
+  padding-top: 110px
+  padding-bottom: 110px
+  min-height: 100vh
+  background: img-url('news-bg.jpg') no-repeat center
+  background-size: cover
+
+.news__title
+  +f(fd, 50, 1000)
+  line-height: 1.2
+  color: #FFF
+  margin-bottom: 100px
+  text-transform: uppercase

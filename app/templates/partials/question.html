@@ -1,0 +1,26 @@
+<!-- BEGIN question -->
+<section class="question l">
+  <h3 class="question__title">Остались<br>вопросы?</h3>
+  <button class="link -underline-dashed" type="button">Задайте их менеджеру</button>
+  <div class="question__form">
+    <form class="form">
+      <div class="field">
+        <input class="input" type="text" name="name" id="field-name">
+        <label  class="input-label" for="field-name">Ваше имя</label>
+        <span class="field__error">Обязательно для заполнения</span>
+      </div>
+      <div class="field">
+        <input class="input" type="tel" name="phone" id="field-phone">
+        <label  class="input-label" for="field-phone">Ваше имя</label>
+        <span class="field__error">Обязательно для заполнения</span>
+      </div>
+      <div class="field">
+        <input class="input" type="text" name="phone" id="field-question">
+        <label  class="input-label" for="field-question">Ваш вопрос</label>
+        <span class="field__error">Ваш вопрос сформулирован некорректно</span>
+      </div>
+      {{ mixins.btn("Отправить", "-type-filled -width-fluid", "submit") }}
+    </form>
+  </div>
+</section>
+<!-- END question -->

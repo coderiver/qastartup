@@ -7,8 +7,8 @@
 </div>
 {% endmacro %}
 
-{% macro btn(content, classMod, borderClassMod) %}
-  <button {% if classMod %}class="btn {{ classMod }}"{% else %}class="btn"{% endif %} type="button">
+{% macro btn(content, classMod, type, borderClassMod) %}
+  <button {% if classMod %}class="btn {{ classMod }}"{% else %}class="btn"{% endif %} {% if type %}type="{{ type }}"{% else %}type="button"{% endif %}>
     {{ borders(borderClassMod) }}
     <div class="btn__fill"></div>
     <span class="btn__text">{{ content }}</span>
@@ -21,4 +21,12 @@
     <div class="btn__fill"></div>
     <span class="btn__text">{{ content }}</span>
   </a>
+{% endmacro %}
+
+{% macro field(type, name, id, label, error, classMod) %}
+<div class="field">
+  <input class="input" type="{{ type }}" name="{{ name }}" id="{{ id }}">
+  <label class="input-label" for="{{ id }}">{{ label }}</label>
+  <span class="field__error">{{ error }}</span>
+</div>
 {% endmacro %}

@@ -1,0 +1,14 @@
+<!-- BEGIN news -->
+<section class="news">
+  <div class="l">
+    <h2 class="news__title">Новости</h2>
+    <div class="slider">
+      {% for newsItem in news %}<div class="slider-item">
+        <span class="slider-item__count">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+        <a class="slider-item__title -size-sm" href="{{ newsItem.link }}">{{ newsItem.title|safe }}</a>
+        <p class="slider-item__text">{{ newsItem.text|safe }}</p>
+      </div>{% endfor %}
+    </div>
+  </div>
+</section>
+<!-- END news -->

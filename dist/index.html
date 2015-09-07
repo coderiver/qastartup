@@ -79,7 +79,7 @@
 
             <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
 
-            <button class="btn -width-250" type="button">
+            <button class="btn -width-250 -height-sm" type="button">
 
               <div class="borders">
                 <div class="border-top"></div>
@@ -141,7 +141,7 @@
       <!-- BEGIN stats -->
       <section class="stats">
         <div class="l">
-          <h2 class="stats__title">Доходы и спрос <small>на QA специалистов</small></h2>
+          <h2 class="stats__title">Доходы и спрос <small class="title-small">на QA специалистов</small></h2>
           <div class="stats__buttons">
             <button class="btn-round -width-180 is-active" type="button">Доходы</button>
             <button class="btn-round -width-180" type="button">Спрос</button>
@@ -149,16 +149,16 @@
         </div>
         <div class="stats__graph"></div>
         <div class="stats__footer l">
-          <p>Данные взяты с сайта <a class="link" href="http://www.dou.ua"><b>www.dou.ua</b></a> за период с 2014 по 2015 год</p>
+          <p>Данные взяты с сайта <a class="lnk" href="http://www.dou.ua"><b>www.dou.ua</b></a> за период с 2014 по 2015 год</p>
         </div>
       </section>
       <!-- END stats -->
 
       <!-- BEGIN salary -->
-      <div class="salary l">
+      <section class="salary l">
         <div class="salary__left">
           <div class="salary__left-content">
-            <h2 class="salary__title">Заработная плата <small>QA специалиста начального уровня<br>в Киеве</small></h2>
+            <h2 class="salary__title">Заработная плата <small class="title-small">QA специалиста начального уровня<br>в Киеве</small></h2>
           </div>
         </div>
         <div class="salary__right green-box">
@@ -170,11 +170,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- END salary -->
 
       <!-- BEGIN courses -->
-      <div class="courses">
+      <section class="courses">
         <h2 class="courses__title l">Курсы<br>и<br>Цены</h2>
         <div class="courses__container l">
           <!-- BEGIN course -->
@@ -229,7 +229,7 @@
             </div>
             <div class="course__footer">
 
-              <a class="btn -width-fluid -height-lg" href="#">
+              <a class="btn -width-fluid" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -317,7 +317,7 @@
             </div>
             <div class="course__footer">
 
-              <a class="btn -type-filled -height-lg -width-fluid" href="#">
+              <a class="btn -type-filled -width-fluid" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -387,7 +387,7 @@
             </div>
             <div class="course__footer">
 
-              <a class="btn -width-fluid -height-lg" href="#">
+              <a class="btn -width-fluid" href="#">
 
                 <div class="borders">
                   <div class="border-top"></div>
@@ -417,13 +417,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- END courses -->
 
       <!-- BEGIN advantages -->
       <section class="advantages">
         <div class="l">
-          <h2 class="advantages__title">Преимущества <small>учебного центра QA Start UP</small></h2>
+          <h2 class="advantages__title">Преимущества <small class="title-small">учебного центра QA Start UP</small></h2>
           <div class="slider">
             <div class="slider-item">
               <span class="slider-item__count">01</span>
@@ -452,6 +452,9 @@
 
       <!-- BEGIN nomination -->
       <section class="nomination l">
+        <div class="nomination__picture">
+          <img src="img/nomination.png" alt="Certificates">
+        </div>
         <div class="banner-title">
 
           <div class="borders -width-8">
@@ -475,50 +478,491 @@
       </section>
       <!-- END nomination -->
 
-      <!-- BEGIN causes -->
-      <section class="causes l">
-        <div class="causes__header">
-          <h2 class="causes__title">Четыре<br>причины <small>стать тестировщиком</small></h2>
+      <!-- BEGIN reasons -->
+      <section class="reasons l">
+        <div class="reasons__header">
+          <h2 class="reasons__title">Четыре<br>причины <small class="title-small">стать тестировщиком</small></h2>
         </div>
-        <ul class="causes__list">
-          <li class="cause -type-box -color-dark">
-            <span class="cause__count">01</span>
-            <strong class="cause__title">Высокая<br>зарплата</strong>
-            <p class="cause__text">
+        <ul class="reasons__list">
+          <li class="reason -type-box -color-dark">
+            <span class="reason__count">01</span>
+            <strong class="reason__title">Высокая<br>зарплата</strong>
+            <p class="reason__text">
               Уровень заработной платы младшего специалиста составляет порядка 500$, а специалистов уровня Senior достигает 2500$
             </p>
           </li>
-          <li class="cause -type-box">
-            <span class="cause__count">02</span>
-            <strong class="cause__title">Самый простой<br>вход в IT</strong>
-            <p class="cause__text">
+          <li class="reason -type-box">
+            <span class="reason__count">02</span>
+            <strong class="reason__title">Самый простой<br>вход в IT</strong>
+            <p class="reason__text">
               QA является самым простым способом начать работать в IT сфере.
               <br>Так же для становления тестировщиком не нужен технический склад ума
             </p>
           </li>
-          <li class="cause">
-            <span class="cause__count">03</span>
-            <strong class="cause__title">Уникальные<br>условия труда</strong>
-            <p class="cause__text">
+          <li class="reason">
+            <span class="reason__count">03</span>
+            <div class="reason__title">
+
+              <div class="borders -width-6">
+                <div class="border-top"></div>
+                <div class="border-left"></div>
+                <div class="border-right"></div>
+                <div class="border-bottom"></div>
+              </div>
+
+              Уникальные
+              <br>условия труда
+            </div>
+            <p class="reason__text">
               Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой
             </p>
           </li>
-          <li class="cause">
-            <span class="cause__count">04</span>
-            <strong class="cause__title">Работа в любой<br>точке мира</strong>
-            <p class="cause__text">
+          <li class="reason">
+            <span class="reason__count">04</span>
+            <div class="reason__title">
+
+              <div class="borders -width-6">
+                <div class="border-top"></div>
+                <div class="border-left"></div>
+                <div class="border-right"></div>
+                <div class="border-bottom"></div>
+              </div>
+
+              Работа в любой
+              <br>точке мира
+            </div>
+            <p class="reason__text">
               При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма
             </p>
           </li>
         </ul>
       </section>
-      <!-- END causes -->
+      <!-- END reasons -->
+
+      <!-- BEGIN companies -->
+      <section class="companies">
+        <div class="companies__inner l">
+          <div class="companies__header">
+            <h3 class="companies__title">Компании <small class="title-small">в которых работают наши студенты</small></h3>
+          </div>
+          <ul class="companies__list">
+            <li class="companies__list-item">
+              <a class="company" href="#" title="samsung">
+                <span class="company__count">01</span>
+                <img class="company__img" src="img/companies/samsung.png" width="162" alt="samsung">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="ciclum">
+                <span class="company__count">02</span>
+                <img class="company__img" src="img/companies/ciclum.png" width="198" alt="ciclum">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="diosoft">
+                <span class="company__count">03</span>
+                <img class="company__img" src="img/companies/diosoft.png" width="169" alt="diosoft">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="epam">
+                <span class="company__count">04</span>
+                <img class="company__img" src="img/companies/epam.png" width="171" alt="epam">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="global logic">
+                <span class="company__count">05</span>
+                <img class="company__img" src="img/companies/global-logic.png" width="198" alt="global logic">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="luxoft">
+                <span class="company__count">06</span>
+                <img class="company__img" src="img/companies/luxoft.svg" width="167" alt="luxoft">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="miratech">
+                <span class="company__count">07</span>
+                <img class="company__img" src="img/companies/miratech.svg" width="169" alt="miratech">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="amadeus">
+                <span class="company__count">08</span>
+                <img class="company__img" src="img/companies/amadeus.svg" width="201" alt="amadeus">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="miratech">
+                <span class="company__count">09</span>
+                <img class="company__img" src="img/companies/miratech.svg" width="169" alt="miratech">
+              </a>
+            </li>
+            <li class="companies__list-item">
+              <a class="company" href="#" title="amadeus">
+                <span class="company__count">10</span>
+                <img class="company__img" src="img/companies/amadeus.svg" width="201" alt="amadeus">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- END companies -->
+
+      <!-- BEGIN testimonials -->
+      <section class="testimonials l">
+        <div class="testimonials__header">
+          <h3 class="testimonials__title">Отзывы <small class="title-small">наших студентов</small></h3>
+        </div>
+        <div class="testimonials__container">
+
+          <div class="testimonial">
+            <div class="testimonial__backlayer"></div>
+            <div class="testimonial__fronlayer">
+              <span class="testimonial__count">
+          01
+        </span>
+              <div class="testimonial__head">
+
+                <div class="borders -width-6">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="testimonial__userpic">
+                  <img src="img/testimonials/dmitriy.jpg" alt="Дмитрий Ткаченко">
+                </div>
+                <strong class="testimonial__name">Дмитрий Ткаченко</strong>
+                <span class="testimonial__post">QA Analyst, Samsung</span>
+                <div class="testimonial__contacts">
+                  <a class="icon icon-facebook" href="#" title="Дмитрий Ткаченко в Facebook">
+                  </a>
+                  <a class="icon icon-linkedin" href="#" title="Дмитрий Ткаченко в Linkedin">
+                  </a>
+                </div>
+              </div>
+              <p class="testimonial__text">Спасибо за грамотный и полностью понятный экскурс в мир тестирования. Если бы так читали лекции в ВУЗ-е, то вряд ли я так много пропускал, и точно закончил бы с более отличными результатами. На сколько полезно это для меня - скажу как найду
+                новую работу, а азарта после курсов - я уверен что хватит. Ну что же, пожелаем Сергею все так же получать удовольствие от общения с аудиторией, ровно с таким же азартом читать лекции и проводить практику, с каким он находил свои первые
+                баги. P.S. - спросите у Сергея Гливинского как он начинал свою карьеру, и вы услышите историю победителя! Учитесь у лучших и ими будете!</p>
+              <button class="link" type="button">Читать полностью</button>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial__backlayer"></div>
+            <div class="testimonial__fronlayer">
+              <span class="testimonial__count">
+          02
+        </span>
+              <div class="testimonial__head">
+
+                <div class="borders -width-6">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="testimonial__userpic">
+                  <img src="img/testimonials/nataliya.jpg" alt="Наталия Криворучко">
+                </div>
+                <strong class="testimonial__name">Наталия Криворучко</strong>
+                <span class="testimonial__post">QA Analyst, Samsung</span>
+                <div class="testimonial__contacts">
+                  <a class="icon icon-facebook" href="#" title="Наталия Криворучко в Facebook">
+                  </a>
+                  <a class="icon icon-linkedin" href="#" title="Наталия Криворучко в Linkedin">
+                  </a>
+                </div>
+              </div>
+              <p class="testimonial__text">Спасибо за грамотный и полностью понятный экскурс в мир тестирования. Если бы так читали лекции в ВУЗ-е, то вряд ли я так много пропускал, и точно закончил бы с более отличными результатами. На сколько полезно это для меня - скажу как найду
+                новую работу, а азарта после курсов - я уверен что хватит. Ну что же, пожелаем Сергею все так же получать удовольствие от общения с аудиторией, ровно с таким же азартом читать лекции и проводить практику, с каким он находил свои первые
+                баги. P.S. - спросите у Сергея Гливинского как он начинал свою карьеру, и вы услышите историю победителя! Учитесь у лучших и ими будете!</p>
+              <button class="link" type="button">Читать полностью</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- END testimonials -->
+
+      <!-- BEGIN contact -->
+      <section class="contact l">
+        <div class="contact__backlayer"></div>
+        <div class="contact__frontlayer">
+          <h3 class="contact__title">
+      <span class="text-gradient">Сделай</span>
+      <small class="text-gradient">первый шаг к мечте!</small>
+    </h3>
+          <div class="contact__form">
+            <p>Оставь свои контакты и наш менеджер свяжется с тобой
+              <br>для определения уровня и выбора курса.</p>
+            <strong>Количество мест в групе ограничено!</strong>
+            <form class="form">
+              <div class="field">
+                <input class="input" type="text" name="name" id="name">
+                <label class="input-label" for="name">Ваше имя</label>
+              </div>
+              <div class="field">
+                <input class="input" type="tel" name="name" id="tel">
+                <label class="input-label" for="tel">Ваш номер телефона</label>
+              </div>
+
+              <button class="btn -type-filled -width-fluid" type="submit">
+
+                <div class="borders">
+                  <div class="border-top"></div>
+                  <div class="border-left"></div>
+                  <div class="border-right"></div>
+                  <div class="border-bottom"></div>
+                </div>
+
+                <div class="btn__fill"></div>
+                <span class="btn__text">Получить знания</span>
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- END contact -->
+
+      <!-- BEGIN partners -->
+      <section class="partners l">
+        <h2 class="partners__title text-gradient">Партнеры</h2>
+        <ul class="partners__list">
+          <li class="partners__partner">
+            <img src="img/partners/scrummaster.svg" alt="Scrummaster">
+          </li>
+          <li class="partners__partner">
+            <img src="img/partners/epam.svg" alt="Epam">
+          </li>
+          <li class="partners__partner">
+            <img src="img/partners/itjam.svg" alt="IT Jam">
+          </li>
+          <li class="partners__partner">
+            <img src="img/partners/uwcua.svg" alt="Web Challenge">
+          </li>
+          <li class="partners__partner">
+            <img src="img/partners/brainbasket.svg" alt="BrainBasket">
+          </li>
+        </ul>
+      </section>
+      <!-- END partners -->
+
+      <!-- BEGIN faq -->
+      <section class="faq l">
+        <h3 class="faq__title text-gradient">Нас часто спрашивают...</h3>
+        <ul class="faq__list">
+          <li class="faq-item -width-xsm">
+            <button class="faq-item__button" type="button">
+              <span class="faq-item__count">01</span>
+              <span class="faq-item__question">В чем смысл жизни?</span>
+            </button>
+            <div class="faq-item__answer">
+              <dl>
+                <dt>Уникальные условия труда</dt>
+                <dd>Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+              </dl>
+              <dl>
+                <dt>Работа в любой точке мира</dt>
+                <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+              </dl>
+              <dl>
+                <dt>Возможность развития</dt>
+                <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+              </dl>
+              <dl>
+                <dt>Карьерный рост</dt>
+                <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="faq-item -width-sm">
+            <button class="faq-item__button" type="button">
+              <span class="faq-item__count">02</span>
+              <span class="faq-item__question">Тут будут выводится просто последние статьи с блога?</span>
+            </button>
+            <div class="faq-item__answer">
+              <dl>
+                <dt>Уникальные условия труда</dt>
+                <dd>Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+              </dl>
+              <dl>
+                <dt>Работа в любой точке мира</dt>
+                <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+              </dl>
+              <dl>
+                <dt>Возможность развития</dt>
+                <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+              </dl>
+              <dl>
+                <dt>Карьерный рост</dt>
+                <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-item__button" type="button">
+              <span class="faq-item__count">03</span>
+              <span class="faq-item__question">Все вышеуказанное проходит через два блока?</span>
+            </button>
+            <div class="faq-item__answer">
+              <dl>
+                <dt>Уникальные условия труда</dt>
+                <dd>Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+              </dl>
+              <dl>
+                <dt>Работа в любой точке мира</dt>
+                <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+              </dl>
+              <dl>
+                <dt>Возможность развития</dt>
+                <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+              </dl>
+              <dl>
+                <dt>Карьерный рост</dt>
+                <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="faq-item -width-md">
+            <button class="faq-item__button" type="button">
+              <span class="faq-item__count">04</span>
+              <span class="faq-item__question">В самом конце студент получает работу Software QA Enginner?</span>
+            </button>
+            <div class="faq-item__answer">
+              <dl>
+                <dt>Уникальные условия труда</dt>
+                <dd>Современные IT офиса оборудованы комфортными рабочими местами, игровые комнаты и комнаты отдыха. Так же каждый специалист получает полный соцпакет с медстраховкой.</dd>
+              </dl>
+              <dl>
+                <dt>Работа в любой точке мира</dt>
+                <dd>При желании вы можете работать из дома, или с другой точки планеты. Для многих компаний это считается норма.</dd>
+              </dl>
+              <dl>
+                <dt>Возможность развития</dt>
+                <dd>Специалисты могут не только быстро расти по карьерной лестнице, осваивать автоматизированное тестирование, а при желании стать разработчиками или выбрать другую интересующую отрасль.</dd>
+              </dl>
+              <dl>
+                <dt>Карьерный рост</dt>
+                <dd>Пересмотр уровня знаний происходит каждый год, а это значит что уже через 2-3 года вы сможете получить звание Senior.</dd>
+              </dl>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <!-- END faq -->
+
+      <!-- BEGIN question -->
+      <section class="question l">
+        <h3 class="question__title">Остались<br>вопросы?</h3>
+        <button class="link -underline-dashed" type="button">Задайте их менеджеру</button>
+        <div class="question__form">
+          <form class="form">
+            <div class="field">
+              <input class="input" type="text" name="name" id="field-name">
+              <label class="input-label" for="field-name">Ваше имя</label>
+              <span class="field__error">Обязательно для заполнения</span>
+            </div>
+            <div class="field">
+              <input class="input" type="tel" name="phone" id="field-phone">
+              <label class="input-label" for="field-phone">Ваше имя</label>
+              <span class="field__error">Обязательно для заполнения</span>
+            </div>
+            <div class="field">
+              <input class="input" type="text" name="phone" id="field-question">
+              <label class="input-label" for="field-question">Ваш вопрос</label>
+              <span class="field__error">Ваш вопрос сформулирован некорректно</span>
+            </div>
+
+            <button class="btn -type-filled -width-fluid" type="submit">
+
+              <div class="borders">
+                <div class="border-top"></div>
+                <div class="border-left"></div>
+                <div class="border-right"></div>
+                <div class="border-bottom"></div>
+              </div>
+
+              <div class="btn__fill"></div>
+              <span class="btn__text">Отправить</span>
+            </button>
+
+          </form>
+        </div>
+      </section>
+      <!-- END question -->
+
+      <!-- BEGIN news -->
+      <section class="news">
+        <div class="l">
+          <h2 class="news__title">Новости</h2>
+          <div class="slider">
+            <div class="slider-item">
+              <span class="slider-item__count">01</span>
+              <a class="slider-item__title -size-sm" href="#">Выпуск групп апрель-май 2015 г. по направлению QA Testing</a>
+              <p class="slider-item__text">Программа является авторской, все подается в простой и доступной форме на реальных примера</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">02</span>
+              <a class="slider-item__title -size-sm" href="#">Преподаватели<br>Senior уровня</a>
+              <p class="slider-item__text">Стаж работы в IT сфере - от 8 лет. Преподавательский стаж достигает 5 лет</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">03</span>
+              <a class="slider-item__title -size-sm" href="#">80% практики<br>20% теории</a>
+              <p class="slider-item__text">Мы не нагружаем студентов скучной теорией, а делаем все вместе на реальных примерах, по этому информация воспринимается и запоминается в разы эффективнее</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">04</span>
+              <a class="slider-item__title -size-sm" href="#">Профессия за<br>2,5 месяца</a>
+              <p class="slider-item__text">Эффективная и оптимизированная методология обучения сочетающая правильный баланс теории и практики позволяет за краткие сроки получить востребованную профессию</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">05</span>
+              <a class="slider-item__title -size-sm" href="#">80% практики<br>20% теории</a>
+              <p class="slider-item__text">Мы не нагружаем студентов скучной теорией, а делаем все вместе на реальных примерах, по этому информация воспринимается и запоминается в разы эффективнее</p>
+            </div>
+            <div class="slider-item">
+              <span class="slider-item__count">06</span>
+              <a class="slider-item__title -size-sm" href="#">Профессия за<br>2,5 месяца</a>
+              <p class="slider-item__text">Эффективная и оптимизированная методология обучения сочетающая правильный баланс теории и практики позволяет за краткие сроки получить востребованную профессию</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END news -->
+
+      <!-- BEGIN contacts -->
+      <section class="contacts">
+        <div id="map" class="contacts__map"></div>
+        <div class="contacts__inner l">
+          <h3 class="contacts__title">Контакты</h3>
+          <p class="contacts__address address">
+            <span class="address__row1">Киев</span>
+            <span class="address__row2">Вадима Гетьмана, 1-Б</span>
+            <span class="address__row3">(3 минуты ходьбы от метро Шулявская)</span>
+          </p>
+          <ul class="contacts__phones">
+            <li><a href="tel:+380962554549" class="contacts__phone-number -size-lg">(096) 255 45 49</a></li>
+            <li><a href="tel:+380936153090" class="contacts__phone-number -size-lg">(093) 615 30 90</a></li>
+          </ul>
+          <a class="contacts__email text-gradient" href="mailto:info@qastartup.com.ua">info@qastartup.com.ua</a>
+        </div>
+      </section>
+      <!-- END contacts -->
 
     </div>
     <!-- END content -->
 
     <!-- BEGIN sripts -->
     <script type="text/javascript" src="lib/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <!-- END sripts -->
   </body>
