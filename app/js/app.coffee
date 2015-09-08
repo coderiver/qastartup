@@ -1,5 +1,7 @@
-Graph = require './modules/graph'
-$     = require 'jquery'
+$      = require 'jquery'
+header = require './modules/header'
+graph  = require './modules/graph'
+events = require './modules/events'
 
 require './modules/accordion'
 require './modules/draw-button'
@@ -17,3 +19,5 @@ $ ->
       itemSelector: '.question'
       buttonSelector: '.link'
       contentSelector: '.question__form'
+
+  # do header.init

@@ -1,6 +1,6 @@
 $ = jQuery = require 'jquery'
 
-module.export = (->
+module.exports = (->
 
   class Accordion
     constructor: (element, options) ->

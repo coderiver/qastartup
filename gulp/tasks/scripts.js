@@ -37,6 +37,22 @@ function getNPMPackageIds() {
     return _.keys(packageManifest.dependencies) || [];
 }
 
+function getVendorPackagesManifest() {
+    var manifest;
+    try {
+        manifest = require('../../app/js/vendor.coffee').map(function(item) {
+            return {
+                path: item,
+                expose: path.parse(item).name
+            };
+        });
+    } catch (err) {
+        util.log(util.colors.red(err));
+    }
+    // util.log(manifest);
+    return manifest || [];
+}
+
 function bundle(bundler, outputName) {
     return bundler
         .bundle()
@@ -57,8 +73,8 @@ gulp.task('scripts', ['scripts:app', 'scripts:vendor']);
 
 gulp.task('scripts:app', function() {
     var bundler = browserify(props);
-    getNPMPackageIds().forEach(function(id) {
-        bundler.external(id);
+    getVendorPackagesManifest().forEach(function(module) {
+        bundler.external(module.path);
     });
     bundler.add(path.join(config.src.js, 'app.coffee'));
     return bundle(bundler, appBundleName);
@@ -66,14 +82,17 @@ gulp.task('scripts:app', function() {
 
 gulp.task('scripts:vendor', function() {
     var bundler = browserify(props);
-    bundler.require(getNPMPackageIds());
+    getVendorPackagesManifest().forEach(function(module) {
+        bundler.require(module.path, {expose: module.expose});
+        util.log('Added to vendor bundle: ', module);
+    });
     return bundle(bundler, vendorBundleName);
 });
 
 gulp.task('scripts:watch', function() {
     var bundler = watchify(browserify(props));
-    getNPMPackageIds().forEach(function(id) {
-        bundler.external(id);
+    getVendorPackagesManifest().forEach(function(module) {
+        bundler.external(module.path);
     });
     bundler.add(path.join(config.src.js, 'app.coffee'));
     bundler.on('log', util.log);
