@@ -361,3 +361,32 @@ a
   font-size: 18px
   color: $color-grey
   cursor: pointer
+
+
+.phone-number
+  display: inline-block
+  text-decoration: none
+  +f(fh, 18, 100)
+  color: $color-grey
+  > span
+    color: $color-green
+
+  &.-size-xlg
+    font-size: 60px
+    line-height: 1.33
+
+  &.-size-sm
+    +f(fd, 14)
+    color: #FFF
+
+
+.mail-to
+  text-transform: uppercase
+  display: inline-block
+  text-decoration: none
+  +f(fh, 18, 100)
+  +trans
+  +text-gradient(true)
+
+  &.-size-xsm
+    font-size: 12px

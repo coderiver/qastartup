@@ -41,7 +41,7 @@
     @content
 
 
-=text-gradient
+=text-gradient($hover: false, $hover-color: #FFF)
   color: $color-green
   .m-backgroundcliptext &
     background-image: $gradient-diagonal
@@ -49,6 +49,12 @@
     background-clip: text
     -webkit-text-fill-color: transparent
     text-fill-color: transparent
+  @if $hover == true
+    &:hover,
+    &:focus
+      -webkit-text-fill-color: initial
+      text-fill-color: initial
+      color: $hover-color
 
 =no-text-gradient
   background: none

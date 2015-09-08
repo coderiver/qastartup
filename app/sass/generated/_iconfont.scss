@@ -16,6 +16,9 @@ $icon-close: "\EA04";
 $icon-facebook: "\EA05";
 $icon-linkedin: "\EA06";
 $icon-play: "\EA07";
+$icon-twitter: "\EA08";
+$icon-vk: "\EA09";
+$icon-youtube: "\EA0A";
 
 
 %icon {
@@ -55,3 +58,6 @@ $icon-play: "\EA07";
 .icon-facebook:before { content: $icon-facebook; }
 .icon-linkedin:before { content: $icon-linkedin; }
 .icon-play:before { content: $icon-play; }
+.icon-twitter:before { content: $icon-twitter; }
+.icon-vk:before { content: $icon-vk; }
+.icon-youtube:before { content: $icon-youtube; }

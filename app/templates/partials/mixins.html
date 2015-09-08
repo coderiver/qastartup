@@ -7,6 +7,13 @@
 </div>
 {% endmacro %}
 
+{% macro logo(classMod, bordersClassMod) %}
+<a {% if classMod %}class="logo {{ classMod }}"{% else %}class="logo"{% endif %} href="/">
+  {{ mixins.borders(bordersClassMod) }}
+  <div class="logo__inner"><span>QA.</span><span class="hidden-text">Start Up</span></div>
+</a>
+{% endmacro %}
+
 {% macro btn(content, classMod, type, borderClassMod) %}
   <button {% if classMod %}class="btn {{ classMod }}"{% else %}class="btn"{% endif %} {% if type %}type="{{ type }}"{% else %}type="button"{% endif %}>
     {{ borders(borderClassMod) }}

@@ -638,7 +638,7 @@
     font-size: 20px
 
 a.slider-item__title
-  +trans(color)
+  +trans
   &:hover
     color: $color-green
 
@@ -1000,14 +1000,14 @@ a.slider-item__title
     pointer-events: none
 
 
-.contact
+.callback
   padding-top: 85px
   padding-bottom: 75px
   margin-top: 170px
   margin-bottom: 230px
   position: relative
 
-.contact__backlayer
+.callback__backlayer
   position: absolute
   z-index: 0
   left: 285px
@@ -1016,13 +1016,13 @@ a.slider-item__title
   bottom: 0
   background: #424242
 
-.contact__frontlayer
+.callback__frontlayer
   position: relative
   z-index: 1
   padding-left: 100px
   +clr
 
-.contact__title
+.callback__title
   float: left
   width: 50%
   margin-top: -8px
@@ -1038,7 +1038,7 @@ a.slider-item__title
     letter-spacing: 0.1em
     line-height: 1.2
 
-.contact__form
+.callback__form
   float: right
   width: 50%
   box-sizing: border-box
@@ -1230,3 +1230,183 @@ a.slider-item__title
   color: #FFF
   margin-bottom: 100px
   text-transform: uppercase
+
+
+.contacts
+  position: relative
+  min-height: 700px
+
+.contacts__map
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: img-url('map.jpg') no-repeat center
+  background-size: cover
+
+.contacts__inner
+  position: relative
+  z-index: 1
+  padding-top: 220px
+  padding-bottom: 95px
+
+.contacts__container
+  position: absolute
+  top: 220px
+  left: 20px
+  pointer-events: none
+  > *
+    pointer-events: all
+
+.contacts__title
+  position: absolute
+  z-index: 1
+  top: -125px
+  left: 20px
+  padding: 165px 50px 70px 0
+  box-sizing: border-box
+  max-width: 500px
+  +f(fd, 30, 1000)
+  text-transform: uppercase
+  line-height: 1
+  color: $color-text
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    right: 0
+    bottom: 0
+    left: -1000px
+    left: $window-edge
+    background-color: $color-green
+    background-image: $gradient-diagonal
+
+.contacts__phones
+  margin: 50px 0 60px
+
+
+.address
+  color: #FFF
+  line-height: 1.5
+
+.address__row1
+  display: block
+  +f(fd, 30, 100)
+  line-height: 1.2
+  text-transform: uppercase
+
+.address__row2
+  display: block
+  +f(fd, 18, 250)
+  text-transform: uppercase
+
+.address__row3
+  display: block
+  color: $color-grey
+
+
+.footer
+  background: #424242
+  color: #AAA
+
+.footer__main
+  padding-top: 50px
+  padding-bottom: 50px
+  +clr
+
+.footer__logo
+  float: left
+  margin: 3px 65px 0 0
+
+.footer__list
+  float: left
+  margin-left: 40px
+  > li
+    padding-left: 90px
+
+.footer__socials
+  float: right
+  margin: 3px 0 0 40px
+  > li
+    margin-top: 12px
+    &:first-child
+      margin-top: 0
+  .icon
+    text-decoration: none
+    color: inherit
+    font-size: 18px
+    color: $color-green
+    width: 30px
+    text-align: center
+    +trans(color)
+    &:hover
+      color: #FFF
+  .icon-twitter,
+  .icon-vk
+    font-size: 13px,
+  .icon-youtube
+    font-size: 20px
+
+
+.footer__contacts
+  float: right
+  text-align: right
+
+
+.footer__label
+  display: block
+  position: relative
+  margin-bottom: 12px
+  +f(fh, 12, 500)
+  padding-left: 90px
+  text-transform: uppercase
+  color: $color-grey-lighter
+  &:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 0
+    margin-top: -1px
+    width: 60px
+    border: solid
+    border-width: 1px 0
+    opacity: 0.3
+
+.footer__link
+  color: inherit
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 12px
+  letter-spacing: 0.1em
+  +trans
+  &:hover
+    color: $color-green
+
+.footer__phones
+  margin: 15px 0 44px
+
+
+.footer__bottom
+  background: $color-dark
+  color: $color-grey
+  line-height: 60px
+  height: 60px
+  font-size: 14px
+  +clr
+
+.footer__copyright
+  float: left
+
+.footer__designer
+  float: right
+  a
+    text-decoration: none
+    text-transform: uppercase
+    color: $color-grey-lighter
+    +f(fh, 12, 250)
+    +trans(color)
+    &:hover
+      color: $color-green
