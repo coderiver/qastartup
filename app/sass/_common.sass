@@ -390,3 +390,66 @@ a
 
   &.-size-xsm
     font-size: 12px
+
+
+.logo
+  display: block
+  position: relative
+  width: 100%
+  width: 135px
+  height: 60px
+  box-sizing: border-box
+  padding: 27px 3px 3px 12px
+  +f(futura-demi, 24)
+  line-height: 1
+  text-decoration: none
+  color: #FFF
+  &:after
+    content: " "
+    display: block
+    margin-top: 15px
+    height: 12px
+    width: 110px
+    background: img-url('svg/startup.svg') no-repeat center
+    background-size: contain
+
+.hamburger
+  display: inline-block
+  vertical-align: middle
+  position: relative
+  background: none
+  width: 22px
+  height: 16px
+  &:hover
+    .hamburger__line
+      background: $color-green
+
+  &.is-active
+    .hamburger__line
+      &:first-child
+        transform: translate(3px,-0.5px) rotate(45deg)
+      &:nth-child(2)
+        opacity: 0
+        visibility: hidden
+        transform: scale(0.5)
+      &:last-child
+        transform: translate(3px,0.5px) rotate(-45deg)
+
+.hamburger__line
+  height: 2px
+  background: #FFF
+  position: absolute
+  left: 0
+  width: 100%
+  +trans
+  &:first-child
+    top: 0
+    transform-origin: left top
+
+  &:nth-child(2)
+    top: 50%
+    margin-top: -1px
+
+  &:last-child
+    bottom: 0
+    transform-origin: left bottom

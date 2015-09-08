@@ -1,31 +1,131 @@
 .header
-  position: relative
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
   z-index: 2
-  line-height: 50px
   box-sizing: border-box
-  padding: 50px 20px 50px 160px
+  padding: 50px 20px 50px 20px
+  text-align: left
   max-width: $width-content
   margin: auto
-  text-align: left
   +clr
+  +wide
+    max-width: none
+    padding-left: 80px
+    padding-right: 80px
+
+  &.is-fixed
+    position: fixed
+    z-index: 99
+    top: 0
+    left: 0
+    right: 0
+    padding-top: 30px
+    padding-bottom: 30px
+    &:before
+      content: ""
+      position: absolute
+      z-index: 0
+      top: 0
+      left: -100px
+      right: -100px
+      bottom: 0
+      background: $color-dark
+    .header__panel
+      .btn
+        display: inline-block
+      .hamburger
+        display: inline-block
+    .header__row
+      line-height: 40px
+      padding-left: 0
+    .header__nav
+      float: none
+      clear: both
+      padding-top: 130px
+      padding-bottom: 70px
+      +clr
+    .header__promo
+      display: block
+    .nav
+      float: left
+      text-align: right
+      width: 260px
+      margin-left: -260px
+      margin-top: 30px
+      position: relative
+      z-index: 2
+    .nav__item
+      display: block
+      margin: 0
+    .nav__link
+      +f(fh, 24, 250)
+
+
+.header__row
+  position: relative
+  z-index: 1
+  line-height: 50px
+  padding-left: 140px
 
 .header__logo
   position: absolute
-  top: 35px
-  left: 20px
+  top: -15px
+  left: 0
 
 .header__nav
   float: right
+
+.header__promo
+  display: none
+  float: left
+  position: relative
+  z-index: 1
+  box-sizing: border-box
+  width: 100%
+  min-height: 385px
+  padding: 25px 260px 85px 0
+  +f(fh, 16, 250)
+  line-height: 2.25
+  color: $color-grey
+  text-transform: uppercase
+  strong
+    display: block
+    font-weight: normal
+    display: block
+    font-size: 48px
+    line-height: 1
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 95px
+    right: 260px
+    bottom: 0
+    background: #424242
+
+  .btn
+    display: block
+    margin-top: 65px
 
 .header__panel
   background: $color-dark
   color: $color-grey-lighter
   float: right
-  padding: 0 35px 0 40px
+  padding: 0 0 0 40px
   margin-left: 40px
   .phone-number
-    &:not(:first-child)
-      margin-left: 35px
+      margin-right: 35px
+      vertical-align: top
+  .btn
+    display: none
+    vertical-align: top
+    margin-right: 35px
+  .hamburger
+    display: none
+    top: -2px
 
 .nav__item
   display: inline-block
@@ -43,24 +143,3 @@
   +trans(color)
   &:hover
     color: $color-green
-
-.logo
-  display: block
-  position: relative
-  width: 100%
-  width: 135px
-  height: 60px
-  box-sizing: border-box
-  padding: 27px 3px 3px 12px
-  +f(futura-demi, 24)
-  line-height: 1
-  text-decoration: none
-  color: #FFF
-  &:after
-    content: " "
-    display: block
-    margin-top: 15px
-    height: 12px
-    width: 110px
-    background: img-url('svg/startup.svg') no-repeat center
-    background-size: contain
