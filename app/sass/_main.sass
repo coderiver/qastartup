@@ -1,8 +1,12 @@
 .toparea
+  position: fixed
+  z-index: 0
+  top: 0
+  left: 0
+  right: 0
   height: calc(100vh + 190px)
   box-sizing: border-box
   padding-bottom: 190px
-  position: relative
 
 .toparea__inner
   height: 100%
@@ -33,6 +37,7 @@
   height: 100%
   background: #646566 img-url('toparea-bg.jpg') no-repeat center
   background-size: cover
+  +shadow
 
 
 .intro__top-text
@@ -341,6 +346,7 @@
 
 .courses__center
   position: absolute
+  z-index: 2
   top: 0
   left: percentage(335/1140)
   width: percentage(470/1140)
@@ -736,6 +742,7 @@ a.slider-item__title
       right: 0
       background-color: $color-green
       background-image: $gradient-diagonal
+      +shadow
     &:nth-child(odd)
       &:before
         left: -1000px
@@ -991,7 +998,7 @@ a.slider-item__title
     left: 0
     right: 0
     height: 100px
-    background: linear-gradient(to top, #424242 0, transparent 100%)
+    background: linear-gradient(to top, rgba(#424242, 1) 0, rgba(#424242, 0) 100%)
     pointer-events: none
 
 
@@ -1311,6 +1318,11 @@ a.slider-item__title
 
 
 .footer
+  position: absolute
+  z-index: 0
+  bottom: 0
+  left: 0
+  right: 0
   background: #424242
   color: #AAA
 

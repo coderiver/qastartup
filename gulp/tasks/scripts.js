@@ -49,7 +49,6 @@ function getVendorPackagesManifest() {
     } catch (err) {
         util.log(util.colors.red(err));
     }
-    // util.log(manifest);
     return manifest || [];
 }
 
@@ -74,7 +73,7 @@ gulp.task('scripts', ['scripts:app', 'scripts:vendor']);
 gulp.task('scripts:app', function() {
     var bundler = browserify(props);
     getVendorPackagesManifest().forEach(function(module) {
-        bundler.external(module.path);
+        bundler.external(module.expose);
     });
     bundler.add(path.join(config.src.js, 'app.coffee'));
     return bundle(bundler, appBundleName);
@@ -92,7 +91,7 @@ gulp.task('scripts:vendor', function() {
 gulp.task('scripts:watch', function() {
     var bundler = watchify(browserify(props));
     getVendorPackagesManifest().forEach(function(module) {
-        bundler.external(module.path);
+        bundler.external(module.expose);
     });
     bundler.add(path.join(config.src.js, 'app.coffee'));
     bundler.on('log', util.log);

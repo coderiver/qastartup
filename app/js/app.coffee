@@ -1,7 +1,8 @@
-$      = require 'jquery'
-header = require './modules/header'
-graph  = require './modules/graph'
-events = require './modules/events'
+$                = require 'jquery'
+header           = require './modules/header'
+graph            = require './modules/graph'
+events           = require './modules/events'
+initScrollScenes = require './modules/scroll-scenes'
 
 require './modules/accordion'
 require './modules/draw-button'
@@ -21,3 +22,4 @@ $ ->
       contentSelector: '.question__form'
 
   do header.init
+  do initScrollScenes

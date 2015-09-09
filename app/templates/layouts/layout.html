@@ -3,17 +3,8 @@
   <head>{% include "head.html" %}</head>
 
   <body>
-    <!-- BEGIN out -->
-    <div class="out">
-      {% include "../partials/header.html" %}
-      <!-- BEGIN content-wrapper -->
-      <div class="content-wrapper">
-        {% block content %}{% endblock %}
-      </div>
-      <!-- END content-wrapper -->
-      {% include "../partials/footer.html" %}
-    </div>
-    <!-- END out -->
+
+    {% block content %}{% endblock %}
 
     <!-- BEGIN sripts -->
     <script type="text/javascript" src="lib/modernizr.custom.js"></script>

@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "jquery": "^2.1.4",
+    "jquery.transit": "^0.9.12",
     "scrollmagic": "^2.0.5"
   }
 }

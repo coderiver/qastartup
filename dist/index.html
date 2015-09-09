@@ -11,6 +11,7 @@
   </head>
 
   <body>
+
     <!-- BEGIN out -->
     <div class="out">
       <!-- BEGIN header -->
@@ -102,47 +103,46 @@
       </header>
       <!-- END header -->
 
-      <!-- BEGIN content-wrapper -->
-      <div class="content-wrapper">
-
-        <!-- BEGIN toparea -->
-        <div class="toparea">
-          <div class="toparea__video"></div>
-          <div class="toparea__inner">
-            <div class="toparea__center">
-              <!-- BEGIN intro -->
-              <div class="intro">
-                <span class="intro__top-text">Курсы</span>
-                <strong class="intro__large-text">QA</strong>
-                <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
-              </div>
-              <!-- END intro -->
-
-              <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
-
-              <button class="btn -width-250 -height-sm" type="button">
-
-                <div class="borders">
-                  <div class="border-top"></div>
-                  <div class="border-left"></div>
-                  <div class="border-right"></div>
-                  <div class="border-bottom"></div>
-                </div>
-
-                <div class="btn__fill"></div>
-                <span class="btn__text">Получить знания</span>
-              </button>
-
+      <!-- BEGIN toparea -->
+      <div class="toparea">
+        <div class="toparea__video"></div>
+        <div class="toparea__inner">
+          <div class="toparea__center">
+            <!-- BEGIN intro -->
+            <div class="intro">
+              <span class="intro__top-text">Курсы</span>
+              <strong class="intro__large-text">QA</strong>
+              <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
             </div>
+            <!-- END intro -->
+
+            <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
+
+            <button class="btn -width-250 -height-sm" type="button">
+
+              <div class="borders">
+                <div class="border-top"></div>
+                <div class="border-left"></div>
+                <div class="border-right"></div>
+                <div class="border-bottom"></div>
+              </div>
+
+              <div class="btn__fill"></div>
+              <span class="btn__text">Получить знания</span>
+            </button>
+
           </div>
         </div>
-        <!-- END toparea -->
+      </div>
+      <!-- END toparea -->
 
+      <!-- BEGIN content-wrapper -->
+      <div class="content-wrapper">
         <!-- BEGIN facts -->
         <section class="facts">
           <h2 class="facts__title">Факты</h2>
           <div class="facts__row">
-            <div class="facts__left green-box">
+            <div class="facts__left green-box" data-parallax="-200">
               <div class="number -color-dark">
                 <span class="number__count">01</span>
                 <strong class="number__value">8</strong>
@@ -167,7 +167,7 @@
                 <span class="number__text">Устроились на работу<br>своей мечты</span>
               </div>
             </div>
-            <div class="facts__right green-box">
+            <div class="facts__right green-box" data-parallax="-150">
               <div class="number -color-dark">
                 <span class="number__count">04</span>
                 <strong class="number__value">80</strong>
@@ -202,7 +202,7 @@
               <h2 class="salary__title">Заработная плата <small class="title-small">QA специалиста начального уровня<br>в Киеве</small></h2>
             </div>
           </div>
-          <div class="salary__right green-box">
+          <div class="salary__right green-box" data-parallax="-150">
             <div class="salary__right-content">
               <div class="number -color-dark -text-sm">
                 <sup class="number__sup">от</sup>
@@ -287,7 +287,7 @@
             </div>
             <!-- END course -->
             <!-- BEGIN course -->
-            <div class="courses__center course -primary">
+            <div class="courses__center course -primary" data-parallax='{"delta":-200,"shift":100}'>
               <div class="course__head">
 
                 <div class="borders -width-6">
@@ -493,10 +493,10 @@
 
         <!-- BEGIN nomination -->
         <section class="nomination l">
-          <div class="nomination__picture">
+          <div class="nomination__picture" data-parallax="-100">
             <img src="img/nomination.png" alt="Certificates">
           </div>
-          <div class="banner-title">
+          <div class="banner-title" data-parallax="-200">
 
             <div class="borders -width-8">
               <div class="border-top"></div>
@@ -525,14 +525,14 @@
             <h2 class="reasons__title">Четыре<br>причины <small class="title-small">стать тестировщиком</small></h2>
           </div>
           <ul class="reasons__list">
-            <li class="reason -type-box -color-dark">
+            <li class="reason -type-box -color-dark" data-parallax='{"delta":-100,"shift":100}'>
               <span class="reason__count">01</span>
               <strong class="reason__title">Высокая<br>зарплата</strong>
               <p class="reason__text">
                 Уровень заработной платы младшего специалиста составляет порядка 500$, а специалистов уровня Senior достигает 2500$
               </p>
             </li>
-            <li class="reason -type-box">
+            <li class="reason -type-box" data-parallax='{"delta":-200,"shift":100}'>
               <span class="reason__count">02</span>
               <strong class="reason__title">Самый простой<br>вход в IT</strong>
               <p class="reason__text">
@@ -661,7 +661,7 @@
 
             <div class="testimonial">
               <div class="testimonial__backlayer"></div>
-              <div class="testimonial__fronlayer">
+              <div class="testimonial__frontlayer">
                 <span class="testimonial__count">
           01
         </span>
@@ -695,7 +695,7 @@
 
             <div class="testimonial">
               <div class="testimonial__backlayer"></div>
-              <div class="testimonial__fronlayer">
+              <div class="testimonial__frontlayer">
                 <span class="testimonial__count">
           02
         </span>
@@ -1019,6 +1019,7 @@
 
       </div>
       <!-- END content-wrapper -->
+
       <!-- BEGIN footer -->
       <footer class="footer">
         <div class="footer__main l">

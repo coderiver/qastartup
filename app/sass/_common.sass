@@ -11,6 +11,14 @@ a
 .out
   overflow: hidden
   position: relative
+  padding-top: calc(100vh + 190px)
+  padding-bottom: 324px
+
+.content-wrapper
+  position: relative
+  z-index: 1
+  background: $color-dark
+  // box-shadow: 0 0 30px 0 rgba(0,0,0,0.35)
 
 .hidden-text
   +hide-text
@@ -63,7 +71,7 @@ a
   .border-bottom,
   .border-left
     &:before
-      transition: transform $duration-draw-border ease
+      // transition: transform $duration-draw-border ease
       transform: translate(0,0)
 
 .border-top,
@@ -86,6 +94,7 @@ a
     right: 0
     bottom: 0
     background-color: $color-green
+    transition: transform $duration-draw-border ease
 
 
 .border-top
@@ -93,7 +102,7 @@ a
   height: 2px
   &:before
     transform: translate(-101%,0)
-    // transition-delay: $duration-draw-border
+    transition-delay: $duration-draw-border
     background-image: linear-gradient(to right, #00DDB7, #00E1C8)
   .draw &
     &:before
@@ -104,7 +113,7 @@ a
   width: 2px
   &:before
     transform: translate(0,-100%)
-    // transition-delay: 0s
+    transition-delay: 0s
     background-image: linear-gradient(to bottom, #00E1C8, #00DBB0)
   .draw &
     &:before
@@ -115,7 +124,7 @@ a
   height: 2px
   &:before
     transform: translate(-101%,0)
-    // transition-delay: 0s
+    transition-delay: 0s
     background-image: linear-gradient(to right, #00D9A0, #00DBB0)
   .draw &
     &:before
@@ -126,7 +135,7 @@ a
   width: 2px
   &:before
     transform: translate(0,-100%)
-    // transition-delay: $duration-draw-border
+    transition-delay: $duration-draw-border
     background-image: linear-gradient(to bottom, #00DDB7, #00D9A0)
   .draw &
     &:before

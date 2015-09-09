@@ -1,4 +1,5 @@
 module.exports = [
   'jquery',
-  'scrollmagic'
+  'scrollmagic',
+  './node_modules/jquery.transit/jquery.transit.js'
 ]

@@ -18,7 +18,6 @@ class Header
 
     do @_initEvents
     do @_buildScene
-    console.log @
 
   menuButtonClickHandler: (e) =>
     if not @opened
@@ -89,7 +88,6 @@ class Header
       triggerElement: '.out'
       triggerHook: 'onLeave'
     .on 'end', (e) =>
-      console.log @
       if e.scrollDirection is 'FORWARD'
         do @makeFixed
       else if e.scrollDirection is 'REVERSE'

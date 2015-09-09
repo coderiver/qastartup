@@ -1,4 +1,4 @@
-scrollmagic      = require 'scrollmagic'
+scrollmagic = require 'scrollmagic'
 
 scrollController = new scrollmagic.Controller
   container: 'body'
