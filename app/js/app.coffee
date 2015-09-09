@@ -20,4 +20,4 @@ $ ->
       buttonSelector: '.link'
       contentSelector: '.question__form'
 
-  # do header.init
+  do header.init
