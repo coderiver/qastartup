@@ -21,7 +21,7 @@
 
             <a class="logo" href="/">
 
-              <div class="borders -width-3">
+              <div class="borders -width-3 -anim-one-way">
                 <div class="border-top"></div>
                 <div class="border-left"></div>
                 <div class="border-right"></div>
@@ -38,7 +38,7 @@
 
             <a class="btn -width-250 -height-sm" href="#">
 
-              <div class="borders">
+              <div class="borders -anim-one-way">
                 <div class="border-top"></div>
                 <div class="border-left"></div>
                 <div class="border-right"></div>
@@ -142,7 +142,7 @@
         <section class="facts">
           <h2 class="facts__title">Факты</h2>
           <div class="facts__row">
-            <div class="facts__left green-box" data-parallax="-200">
+            <div class="facts__left green-box" data-parallax='{"delta":100,"shift":-30}'>
               <div class="number -color-dark">
                 <span class="number__count">01</span>
                 <strong class="number__value">8</strong>
@@ -167,7 +167,7 @@
                 <span class="number__text">Устроились на работу<br>своей мечты</span>
               </div>
             </div>
-            <div class="facts__right green-box" data-parallax="-150">
+            <div class="facts__right green-box" data-parallax='{"delta":200,"shift":-100}'>
               <div class="number -color-dark">
                 <span class="number__count">04</span>
                 <strong class="number__value">80</strong>
@@ -493,28 +493,33 @@
 
         <!-- BEGIN nomination -->
         <section class="nomination l">
-          <div class="nomination__picture" data-parallax="-100">
-            <img src="img/nomination.png" alt="Certificates">
+          <div class="nomination__layer-1">
+            <img src="img/nomination-layer-1.png" height="455" width="507">
           </div>
-          <div class="banner-title" data-parallax="-200">
+          <div class="nomination__layer-2" data-parallax="-100">
+            <img src="img/nomintation-layer-2.png" height="474" width="373">
+          </div>
+          <div class="nomination__layer-3" data-parallax="-200">
+            <div class="banner-title">
 
-            <div class="borders -width-8">
-              <div class="border-top"></div>
-              <div class="border-left"></div>
-              <div class="border-right"></div>
-              <div class="border-bottom"></div>
+              <div class="borders -width-8">
+                <div class="border-top"></div>
+                <div class="border-left"></div>
+                <div class="border-right"></div>
+                <div class="border-bottom"></div>
+              </div>
+
+              <h3 class="banner-title__text">
+        QA Start UP
+        <br>присвоили номинацию
+        <span class="banner-title__large text-gradient">QA GURU -2015</span>
+      </h3>
             </div>
-
-            <h3 class="banner-title__text">
-      QA Start UP
-      <br>присвоили номинацию
-      <span class="banner-title__large text-gradient">QA GURU -2015</span>
-    </h3>
-          </div>
-          <div class="nomination__footer">
-            На всеукраинской выставке
-            <br>“IT Jam” компания QA Start UP победила в номинации
-            <br>“QA GURU -2015“
+            <div class="nomination__footer">
+              На всеукраинской выставке
+              <br>“IT Jam” компания QA Start UP победила в номинации
+              <br>“QA GURU -2015“
+            </div>
           </div>
         </section>
         <!-- END nomination -->
@@ -584,7 +589,7 @@
         <section class="companies">
           <div class="companies__inner l">
             <div class="companies__header">
-              <h3 class="companies__title">Компании <small class="title-small">в которых работают наши студенты</small></h3>
+              <h3 class="companies__title" data-parallax='{"delta":-100,"shift":50}'>Компании <small class="title-small">в которых работают наши студенты</small></h3>
             </div>
             <ul class="companies__list">
               <li class="companies__list-item">
@@ -655,12 +660,12 @@
         <!-- BEGIN testimonials -->
         <section class="testimonials l">
           <div class="testimonials__header">
-            <h3 class="testimonials__title">Отзывы <small class="title-small">наших студентов</small></h3>
+            <h3 class="testimonials__title" data-parallax='{"delta":-100,"shift":50}'>Отзывы <small class="title-small">наших студентов</small></h3>
           </div>
           <div class="testimonials__container">
 
             <div class="testimonial">
-              <div class="testimonial__backlayer"></div>
+              <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
               <div class="testimonial__frontlayer">
                 <span class="testimonial__count">
           01
@@ -694,7 +699,7 @@
             </div>
 
             <div class="testimonial">
-              <div class="testimonial__backlayer"></div>
+              <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
               <div class="testimonial__frontlayer">
                 <span class="testimonial__count">
           02
@@ -733,7 +738,7 @@
 
         <!-- BEGIN callback -->
         <section class="callback l">
-          <div class="callback__backlayer"></div>
+          <div class="callback__backlayer" data-parallax='{"delta":125,"shift":-75}'></div>
           <div class="callback__frontlayer">
             <h3 class="callback__title">
       <span class="text-gradient">Сделай</span>
@@ -911,39 +916,41 @@
         <!-- BEGIN question -->
         <section class="question l">
           <h3 class="question__title">Остались<br>вопросы?</h3>
-          <button class="link -underline-dashed" type="button">Задайте их менеджеру</button>
-          <div class="question__form">
-            <form class="form">
-              <div class="field">
-                <input class="input" type="text" name="name" id="field-name">
-                <label class="input-label" for="field-name">Ваше имя</label>
-                <span class="field__error">Обязательно для заполнения</span>
-              </div>
-              <div class="field">
-                <input class="input" type="tel" name="phone" id="field-phone">
-                <label class="input-label" for="field-phone">Ваш номер телефона</label>
-                <span class="field__error">Обязательно для заполнения</span>
-              </div>
-              <div class="field">
-                <input class="input" type="text" name="phone" id="field-question">
-                <label class="input-label" for="field-question">Ваш вопрос</label>
-                <span class="field__error">Ваш вопрос сформулирован некорректно</span>
-              </div>
-
-              <button class="btn -type-filled -width-fluid" type="submit">
-
-                <div class="borders">
-                  <div class="border-top"></div>
-                  <div class="border-left"></div>
-                  <div class="border-right"></div>
-                  <div class="border-bottom"></div>
+          <button class="link -underline-dashed" type="button" data-alt-text="Скрыть форму">Задайте их менеджеру</button>
+          <div class="question__container">
+            <div class="question__form">
+              <form class="form" id="question-form">
+                <div class="field">
+                  <input class="input" type="text" name="name" id="field-name">
+                  <label class="input-label" for="field-name">Ваше имя</label>
+                  <span class="field__error">Обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="tel" name="phone" id="field-phone">
+                  <label class="input-label" for="field-phone">Ваш номер телефона</label>
+                  <span class="field__error">Обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="text" name="phone" id="field-question">
+                  <label class="input-label" for="field-question">Ваш вопрос</label>
+                  <span class="field__error">Ваш вопрос сформулирован некорректно</span>
                 </div>
 
-                <div class="btn__fill"></div>
-                <span class="btn__text">Отправить</span>
-              </button>
+                <button class="btn -type-filled -width-fluid" type="submit">
 
-            </form>
+                  <div class="borders">
+                    <div class="border-top"></div>
+                    <div class="border-left"></div>
+                    <div class="border-right"></div>
+                    <div class="border-bottom"></div>
+                  </div>
+
+                  <div class="btn__fill"></div>
+                  <span class="btn__text">Отправить</span>
+                </button>
+
+              </form>
+            </div>
           </div>
         </section>
         <!-- END question -->
@@ -992,7 +999,7 @@
         <section class="contacts">
           <div id="map" class="contacts__map"></div>
           <div class="contacts__inner l">
-            <h3 class="contacts__title">Контакты</h3>
+            <h3 class="contacts__title" data-parallax='{"delta":-100,"shift":50}'>Контакты</h3>
             <div class="contacts__container">
               <p class="contacts__address address">
                 <span class="address__row1">Киев</span>
@@ -1021,13 +1028,14 @@
       <!-- END content-wrapper -->
 
       <!-- BEGIN footer -->
+      <div id="sm-trigger-footer"></div>
       <footer class="footer">
         <div class="footer__main l">
           <div class="footer__logo">
 
             <a class="logo" href="/">
 
-              <div class="borders -width-3 draw">
+              <div class="borders -width-3">
                 <div class="border-top"></div>
                 <div class="border-left"></div>
                 <div class="border-right"></div>
