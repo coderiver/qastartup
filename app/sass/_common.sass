@@ -18,7 +18,7 @@ a
   position: relative
   z-index: 1
   background: $color-dark
-  // box-shadow: 0 0 30px 0 rgba(0,0,0,0.35)
+  box-shadow: 0 -10px 30px 0 rgba(0,0,0,0.15)
 
 .hidden-text
   +hide-text
@@ -63,6 +63,22 @@ a
     .border-right,
     .border-left
       width: 8px
+  &.-anim-one-way
+    .border-top,
+    .border-right,
+    .border-bottom,
+    .border-left
+      &:before
+        transition-duration: 0s
+      .draw &
+        &:before
+          transition-duration: $duration-draw-border
+    .border-top,
+    .border-left
+      &:before
+        transition-delay: 0s
+
+
 
 
 .draw
@@ -95,6 +111,12 @@ a
     bottom: 0
     background-color: $color-green
     transition: transform $duration-draw-border ease
+  // .draw-only-in &
+  //   &:before
+  //     transition-duration: 0s
+  //   .draw &
+  //     &:before
+  //       transition: transform $duration-draw-border ease
 
 
 .border-top
@@ -148,7 +170,6 @@ a
 .green-box
   background-color: $color-green
   background-image: $gradient-diagonal
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15)
 
 
 .btn
@@ -370,7 +391,7 @@ a
   transform-origin: left top
   font-size: 18px
   color: $color-grey
-  cursor: pointer
+  cursor: text
 
 
 .phone-number
@@ -422,6 +443,17 @@ a
     width: 110px
     background: img-url('svg/startup.svg') no-repeat center
     background-size: contain
+  &.is-small,
+  .header.fixed &
+    width: 95px
+    height: 44px
+    font-size: 17px
+    padding-top: 22px
+    padding-left: 9px
+    &:after
+      margin-top: 10px
+      width: 76px
+      height: 6px
 
 .hamburger
   display: inline-block

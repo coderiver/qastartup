@@ -19,12 +19,6 @@ class Header
     do @_initEvents
     do @_buildScene
 
-  menuButtonClickHandler: (e) =>
-    if not @opened
-      do @open
-    else
-      do @close
-
   open: ->
     @hamburger.addClass 'is-active'
     @el.addClass 'open-step-1'
@@ -32,7 +26,7 @@ class Header
       @el.addClass 'open-step-2'
     , 300
     setTimeout =>
-      do @drawBordersInMenu
+      do @_drawBordersInMenu
     , 600
     @opened = yes
 
@@ -41,59 +35,80 @@ class Header
     @el.removeClass 'open-step-2'
     setTimeout =>
       @el.removeClass 'open-step-1'
-      do @removeBordersInMenu
+      do @_removeBordersInMenu
     , 300
     @opened = no
 
   makeFixed: ->
+    @el.addClass 'fixed'
     @el.removeClass 'draw'
-    @el.addClass 'is-fixed'
-    do @removeBordersInTopRow
+    do @_removeBordersInTopRow
     setTimeout =>
       @el.addClass 'animate'
     , 0
     setTimeout =>
-      do @drawBordersInTopRow
+      do @_drawBordersInTopRow
     , 300
     @fixed = yes
 
   makeStatic: ->
     @el.removeClass 'animate'
     setTimeout =>
-      @el.removeClass 'is-fixed'
+      @el.removeClass 'fixed'
+      @el.addClass 'draw'
+      do @_removeBordersInTopRow
     , 300
     @fixed = no
 
-  drawBordersInTopRow: ->
-    @logo.addClass 'draw'
-    @buttonOne.addClass 'draw'
+  animateIn: ->
+    @el.addClass 'animate'
+    setTimeout =>
+      do @_drawBordersInTopRow
+    , 300
 
-  removeBordersInTopRow: ->
-    @logo.removeClass 'draw'
-    @buttonOne.removeClass 'draw'
+  animateOut: ->
+    @el.removeClass 'animate'
+    setTimeout =>
+      do @_removeBordersInTopRow
+    , 300
 
-  drawBordersInMenu: ->
-    @menu.addClass 'draw'
-
-  removeBordersInMenu: ->
-    @menu.removeClass 'draw'
 
   # private methods
   _initEvents: ->
-    @hamburger.on 'click', @menuButtonClickHandler
+    @hamburger.on 'click', @_menuButtonClickHandler
+
+  _menuButtonClickHandler: (e) =>
+    if not @opened
+      do @open
+    else
+      do @close
+
+  _drawBordersInTopRow: ->
+    @logo.addClass 'draw'
+    @buttonOne.addClass 'draw'
+
+  _removeBordersInTopRow: ->
+    @logo.removeClass 'draw'
+    @buttonOne.removeClass 'draw'
+
+  _drawBordersInMenu: ->
+    @menu.addClass 'draw'
+
+  _removeBordersInMenu: ->
+    @menu.removeClass 'draw'
 
   _buildScene: ->
     @scrollScene = SM.addScene
-      duration: 150
-      triggerElement: '.out'
+      offset: 190
+      duration: '100%'
+      triggerElement: 'body'
       triggerHook: 'onLeave'
     .on 'end', (e) =>
       if e.scrollDirection is 'FORWARD'
         do @makeFixed
       else if e.scrollDirection is 'REVERSE'
+        if @opened then do @close
         do @makeStatic
-        if @opened
-          do @close
 
 
 module.exports = new Header()

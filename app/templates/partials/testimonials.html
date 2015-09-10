@@ -1,12 +1,12 @@
 <!-- BEGIN testimonials -->
 <section class="testimonials l">
   <div class="testimonials__header">
-    <h3 class="testimonials__title">Отзывы <small class="title-small">наших студентов</small></h3>
+    <h3 class="testimonials__title" data-parallax='{"delta":-100,"shift":50}'>Отзывы <small class="title-small">наших студентов</small></h3>
   </div>
   <div class="testimonials__container">
     {% for testimonial in testimonials %}
     <div class="testimonial">
-      <div class="testimonial__backlayer"></div>
+      <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
       <div class="testimonial__frontlayer">
         <span class="testimonial__count">
           {% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}

@@ -34,7 +34,7 @@ class Parallax
     val = @props.delta * progress
     @el.stop().transition
       transform: "translate3d(0, #{val}px, 0)"
-    , 50, 'linear'
+    , 10, 'linear'
 
 
 

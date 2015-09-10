@@ -165,7 +165,7 @@
   margin-bottom: 70px
   +f(futura-demi, 30, 2000)
   line-height: 1
-  color: $color-grey
+  color: rgba(#FFF, 0.3)
   text-transform: uppercase
 
 
@@ -654,6 +654,22 @@ a.slider-item__title
   padding-top: 120px
   position: relative
 
+.nomination__layer-1
+  position: absolute
+  z-index: 0
+  top: -235px
+  right: 189px
+
+.nomination__layer-2
+  position: absolute
+  z-index: 1
+  top: -128px
+  right: 61px
+
+.nomination__layer-3
+  position: relative
+  z-index: 2
+
 .nomination__picture
   position: absolute
   z-index: 0
@@ -742,7 +758,6 @@ a.slider-item__title
       right: 0
       background-color: $color-green
       background-image: $gradient-diagonal
-      +shadow
     &:nth-child(odd)
       &:before
         left: -1000px
@@ -873,7 +888,7 @@ a.slider-item__title
 .testimonials__header
   padding-top: 115px
   text-align: right
-  margin-bottom: 150px
+  margin-bottom: 95px
 
 .testimonials__title
   display: inline-block
@@ -909,7 +924,7 @@ a.slider-item__title
   box-sizing: border-box
   position: relative
   z-index: 1
-  padding-left: 190px
+  padding: 65px 0 90px 190px
   &:nth-child(2)
     margin-top: 235px
   &:nth-child(even)
@@ -922,17 +937,17 @@ a.slider-item__title
 .testimonial__backlayer
   position: absolute
   z-index: 0
-  top: -65px
+  top: 0
   left: 35px
   right: 45px
-  bottom: -90px
+  height: 100%
   background: #424242
 
 
 .testimonial__count
   position: absolute
   top: 0
-  left: 0
+  left: -190px
   +f(fd, 12, 100)
   line-height: 1
   color: #AAA
@@ -1202,6 +1217,7 @@ a.slider-item__title
   margin-top: 120px
   margin-bottom: 100px
   padding-left: 200px
+  padding-bottom: 100px
 
 .question__title
   position: relative
@@ -1212,18 +1228,26 @@ a.slider-item__title
   text-transform: uppercase
   color: $color-grey
 
+.question__container
+  margin-top: -90px
+
 .question__form
+  display: none
   position: relative
   z-index: 0
-  max-width: 690px
-  margin: -80px 0 0 85px
+  max-width: 740px
+  margin: 0 0 0 85px
   box-sizing: border-box
-  background: #424242
   padding: 90px 0 0 235px
-  .form
-    position: relative
-    top: 15px
-    left: 60px
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    bottom: 15px
+    right: 60px
+    background: #424242
 
 
 .news
@@ -1272,8 +1296,9 @@ a.slider-item__title
 .contacts__title
   position: absolute
   z-index: 1
-  top: -125px
+  top: 0
   left: 20px
+  margin-top: -125px
   padding: 165px 50px 70px 0
   box-sizing: border-box
   max-width: 500px

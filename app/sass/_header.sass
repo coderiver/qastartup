@@ -3,21 +3,19 @@
   top: 0
   left: 0
   right: 0
-  z-index: 2
+  z-index: 3
   box-sizing: border-box
   padding: 50px 20px 50px 20px
   text-align: left
   max-width: $width-content
   margin: auto
-  transition: 0.1s linear
-  transition-property: padding-top, padding-bottom
   +clr
   +wide
     max-width: none
     padding-left: 80px
     padding-right: 80px
 
-  &.is-fixed
+  &.fixed
     position: fixed
     z-index: 99
     top: 0
@@ -37,6 +35,8 @@
       background: $color-dark
       +shadow
       transition: transform 0.2s linear
+    .header__logo
+      top: -7px
     .header__panel
       background: none
       .btn
@@ -46,6 +46,7 @@
     .header__row
       line-height: 40px
       padding-left: 0
+      // transition: opacity 0.3s linear
       opacity: 0
     .header__nav
       display: none
@@ -71,14 +72,12 @@
     .nav__link
       +f(fh, 24, 250)
 
-
   &.animate
     &:before
       transform: translate3d(0,90px,0)
     .header__row
       opacity: 1
       transition: opacity 0.3s linear
-      transition-delay: 0.1s
 
   &.open-step-1
     &:before
@@ -94,9 +93,12 @@
     &:before
       transform: translate3d(0,100%,0)
       transition-delay: 0s
+      transition-duration: 0.5s
+      transition-timing-function: ease
     .header__nav
       opacity: 1
       transition-delay: 0.3s
+      transition-duration: 0.5s
       &.draw
         .nav__item
           transform: none

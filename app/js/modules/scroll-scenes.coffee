@@ -19,6 +19,7 @@ module.exports = ->
     .on 'progress', (e) ->
       parallaxInstance.move(e.progress)
 
+
   # toparea scrollscene
   topareaVideo = new ZoomOut '.toparea__video'
   SM.addScene
@@ -27,6 +28,16 @@ module.exports = ->
     triggerElement: 'body'
   .on 'progress', (e) ->
     topareaVideo.zoomOut(e.progress)
+  # .on 'end', (e) ->
+  #   $('.toparea').toggle()
+
+
+  # footer scrollscene
+  SM.addScene
+    triggerHook: 'onEnter'
+    triggerElement: '#sm-trigger-footer'
+  .setClassToggle('.footer', 'draw')
+
 
   # courses scrollscene
   $coursesContainer = $ '.courses__container'
@@ -37,6 +48,7 @@ module.exports = ->
   .on 'start', (e) ->
     $coursesContainer.toggleClass 'draw'
 
+
   # nominatin scrollscene
   $nominationTitle = $ '.nomination .banner-title'
   SM.addScene
@@ -45,6 +57,19 @@ module.exports = ->
     triggerElement: $nominationTitle[0]
   .on 'start', (e) ->
     $nominationTitle.toggleClass 'draw'
+
+
+  # callback scrollscene
+  SM.addScene
+    triggerHook: 'onCenter'
+    triggerElement: '.callback__frontlayer'
+  .setClassToggle('.callback__frontlayer', 'draw')
+
+  # reasons scrollscene
+  SM.addScene
+    triggerHook: 'onCenter'
+    triggerElement: '.reasons__list'
+  .setClassToggle('.reasons__list', 'draw')
 
 
 
