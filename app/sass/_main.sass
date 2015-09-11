@@ -581,10 +581,10 @@
   .draw &
     transform: translateX(0)
 
-.advantages-wrapper
+.slider-box-wrapper
   margin-bottom: 235px
 
-.advantages
+.slider-box
   padding: 100px 0
   min-height: 800px
   height: 100vh
@@ -595,25 +595,18 @@
     position: relative
     z-index: 1
 
-.advantages__video
+.slider-box__bg
   position: absolute
   z-index: 0
   top: 0
   left: 0
   width: 100%
   height: 100%
-  background: img-url('advantages-bg.jpg') no-repeat center
+  background-repeat: no-repeat
+  background-position: center
   background-size: cover
 
-.advantages__title
-  // margin-bottom: 60px
-  +f(fd, 50, 1000)
-  line-height: 1
-  text-transform: uppercase
-  .title-small
-    color: $color-grey-lighter
-
-.advantages__container
+.slider-box__container
   height: calc(100% - 90px)
   white-space: nowrap
   &:before
@@ -624,11 +617,22 @@
     height: 100%
     margin-left: -5px
 
-.advantages__container-inner
+.slider-box__container-inner
   display: inline-block
   vertical-align: middle
   white-space: normal
   width: 100%
+
+
+.advantages__bg
+  background-image: img-url('advantages-bg.jpg')
+
+.advantages__title
+  +f(fd, 50, 1000)
+  line-height: 1
+  text-transform: uppercase
+  .title-small
+    color: $color-grey-lighter
 
 
 .slider
@@ -958,6 +962,7 @@ a.slider-item__title
 .testimonial
   float: left
   width: 48.7%
+  margin-bottom: 110px
   box-sizing: border-box
   position: relative
   z-index: 1
@@ -966,6 +971,8 @@ a.slider-item__title
     margin-top: 235px
   &:nth-child(even)
     float: right
+  &:last-child
+    margin-bottom: 0
 
 .testimonial__frontlayer
   position: relative
@@ -1287,18 +1294,14 @@ a.slider-item__title
     background: #424242
 
 
-.news
-  padding-top: 110px
-  padding-bottom: 110px
-  min-height: 100vh
-  background: img-url('news-bg.jpg') no-repeat center
-  background-size: cover
+
+.news__bg
+  background-image: img-url('news-bg.jpg')
 
 .news__title
   +f(fd, 50, 1000)
   line-height: 1.2
   color: #FFF
-  margin-bottom: 100px
   text-transform: uppercase
 
 

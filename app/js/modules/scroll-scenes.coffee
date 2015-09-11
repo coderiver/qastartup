@@ -20,6 +20,16 @@ module.exports = ->
       parallaxInstance.move e.progress
 
 
+  # fadein scrollscene
+  $('.fade-in').each (index, el) ->
+    SM.addScene
+      offset: '20%'
+      triggerHook: 'onEnter'
+      triggerElement: el
+    .on 'start', ->
+      $(el).toggleClass 'animate'
+
+
   # toparea scrollscene
   topareaVideo = new ZoomOut '.toparea__video'
   SM.addScene
@@ -72,10 +82,12 @@ module.exports = ->
     triggerElement: '.callback__frontlayer'
   .setClassToggle '.callback__frontlayer', 'draw'
 
+
   # reasons scrollscene
   SM.addScene
     triggerHook: 'onCenter'
     triggerElement: '.reasons__list'
   .setClassToggle '.reasons__list', 'draw'
+
 
 

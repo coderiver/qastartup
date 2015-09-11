@@ -4,9 +4,9 @@ require 'jquery.transit'
 header           = require './modules/header'
 graph            = require './modules/graph'
 questionForm     = require './modules/question-form'
-advantages       = require './modules/advantages'
 initScrollScenes = require './modules/scroll-scenes'
-SmoothScroll     = require './modules/smooth-scroll'
+SliderBox        = require './modules/slider-box'
+# SmoothScroll     = require './modules/smooth-scroll'
 
 # modules as jQuery plugins
 require('./plugins/input-field')($)
@@ -21,7 +21,11 @@ $ ->
     buttonSelector: '.faq-item__button'
     contentSelector: '.faq-item__answer'
 
+  advantagesSliderBox = new SliderBox '.advantages .slider-box',
+    zoomOutTrigger: '.content-layer-1'
+
+  newsSliderbox = new SliderBox '.news .slider-box'
+
   do header.init
   do questionForm.init
-  do advantages.init
   do initScrollScenes

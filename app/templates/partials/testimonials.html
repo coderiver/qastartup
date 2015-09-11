@@ -35,5 +35,41 @@
     </div>
     {% endfor %}
   </div>
+  <div class="testimonials__container testimonial__more">
+    {% for testimonial in testimonials2 %}
+    <div class="testimonial">
+      <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
+      <div class="testimonial__frontlayer">
+        <span class="testimonial__count">
+          {% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}
+        </span>
+        <div class="testimonial__head">
+          {{ mixins.borders("-width-6") }}
+          <div class="testimonial__userpic">
+            <img src="{{ testimonial.photo }}" alt="{{ testimonial.name }}">
+          </div>
+          <strong class="testimonial__name">{{ testimonial.name }}</strong>
+          <span class="testimonial__post">{{ testimonial.post }}</span>
+          <div class="testimonial__contacts">
+            <a class="icon icon-facebook"
+              href="{{ testimonial.contacts.facebook }}"
+              title="{{ testimonial.name }} в Facebook">
+            </a>
+            <a class="icon icon-linkedin"
+              href="{{ testimonial.contacts.linkedin }}"
+              title="{{ testimonial.name }} в Linkedin">
+            </a>
+          </div>
+        </div>
+        <p class="testimonial__text">{{ testimonial.text }}</p>
+        <button class="link" type="button">Читать полностью</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="testimonial__buttons">
+    {{ mixins.btnLink("Читать все отзывы", "#", "-width-250") }}
+    <button class="link -with-icon"><i class="icon icon-refresh"></i> Больше отзывов</button>
+  </div>
 </section>
 <!-- END testimonials -->

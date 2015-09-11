@@ -1,14 +1,21 @@
 <!-- BEGIN news -->
 <section class="news">
-  <div class="l">
-    <h2 class="news__title">Новости</h2>
-    <div class="slider">
-      <div class="slider__track">
-        {% for newsItem in news %}<div class="slider-item">
-          <span class="slider-item__count">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
-          <a class="slider-item__title -size-sm" href="{{ newsItem.link }}">{{ newsItem.title|safe }}</a>
-          <p class="slider-item__text">{{ newsItem.text|safe }}</p>
-        </div>{% endfor %}
+  <div class="slider-box">
+    <div class="news__bg slider-box__bg"></div>
+    <div class="l">
+      <h2 class="news__title">Новости</h2>
+      <div class="slider-box__container">
+        <div class="slider-box__container-inner">
+          <div class="slider">
+            <div class="slider__track">
+              {% for newsItem in news %}<div class="slider-item">
+                <span class="slider-item__count">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+                <a class="slider-item__title -size-sm" href="{{ newsItem.link }}">{{ newsItem.title|safe }}</a>
+                <p class="slider-item__text">{{ newsItem.text|safe }}</p>
+              </div>{% endfor %}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
