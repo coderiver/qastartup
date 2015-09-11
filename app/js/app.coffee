@@ -5,6 +5,8 @@ questionForm     = require './modules/question-form'
 # events           = require './modules/events'
 initScrollScenes = require './modules/scroll-scenes'
 
+# modules as jQuery plugins
+require './modules/input-field'
 require './modules/accordion'
 require './modules/draw-button'
 

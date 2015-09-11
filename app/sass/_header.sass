@@ -43,6 +43,10 @@
         display: inline-block
       .hamburger
         display: inline-block
+      .phone-number
+        position: relative
+        z-index: 1
+        transform: translate(-285px,0)
     .header__row
       line-height: 40px
       padding-left: 0
@@ -78,6 +82,9 @@
     .header__row
       opacity: 1
       transition: opacity 0.3s linear
+    .header__panel
+      .phone-number
+        transition: transform 0.3s ease
 
   &.open-step-1
     &:before
@@ -88,6 +95,13 @@
       opacity: 0
     .header__promo
       display: block
+    .header__panel
+      .phone-number
+        transform: translate(0,0)
+      .btn
+        transform: scale(0)
+        opacity: 0
+        visibility: hidden
 
   &.open-step-2
     &:before
@@ -159,13 +173,20 @@
   float: right
   padding: 0 0 0 40px
   margin-left: 40px
+  position: relative
   .phone-number
       margin-right: 35px
       vertical-align: top
   .btn
     display: none
+    position: absolute
+    z-index: 0
+    top: 50%
+    margin-top: -20px
+    right: 60px
     vertical-align: top
-    margin-right: 35px
+    transition: all 0.3s ease
+    transform-origin: right center
   .hamburger
     display: none
     top: -2px

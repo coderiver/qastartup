@@ -1,5 +1,4 @@
 $          = require 'jquery'
-InputField = require './input-field'
 # require 'jquery-mask-plugin'
 # require 'jquery.maskedinput'
 require './../lib/jquery.maskedinput'
@@ -31,24 +30,15 @@ class QuestionForm
     @button.text altText
 
   initForm: ->
+    @form.find('input').field()
     phone = @form.find 'input[type="tel"]'
-    phoneField = new InputField phone
     phone.mask "+380 (99) 999-99-99",
-      # translation:
-      #   'Z':
-      #     pattern: /[0-9]/
-      # clearIfNotMatch: true
       placeholder: "+380 (__) ___-__-__"
-    # phone.on 'focus', ->
-    #   value = do phone.val
-    #   if not value
-    #     phone.val '+380 ('
 
 
   _initEvents: ->
     @button.on 'click', =>
       do @toggleFormContainer
-      do @toggleButtonText
 
 
 

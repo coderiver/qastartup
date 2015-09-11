@@ -8,7 +8,6 @@ class Header
     @opened = no
     return @
 
-  # public methods
   init: ->
     @el        = $ '.header'
     @hamburger = @el.find '.hamburger'
@@ -24,7 +23,7 @@ class Header
     @el.addClass 'open-step-1'
     setTimeout =>
       @el.addClass 'open-step-2'
-    , 300
+    , 100
     setTimeout =>
       do @_drawBordersInMenu
     , 600
@@ -72,8 +71,6 @@ class Header
       do @_removeBordersInTopRow
     , 300
 
-
-  # private methods
   _initEvents: ->
     @hamburger.on 'click', @_menuButtonClickHandler
 

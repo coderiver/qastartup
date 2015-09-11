@@ -15,7 +15,6 @@ class InputField
   checkDirty: ->
     val = do @input.val
     if val
-      console.log val
       @field.addClass 'is-filled'
     else
       @field.removeClass 'is-filled'
@@ -23,5 +22,10 @@ class InputField
   _initEvents: ->
     @input.on 'blur', =>
       do @checkDirty
+
+
+$.fn.field = ->
+  this.each (index, el) ->
+    new InputField el
 
 module.exports = InputField
