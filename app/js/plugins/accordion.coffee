@@ -1,10 +1,8 @@
-$ = jQuery = require 'jquery'
-
-module.exports = (->
+module.exports = ($) ->
 
   class Accordion
     constructor: (element, options) ->
-      @el = if element instanceof jQuery then element else $(element)
+      @el = if element instanceof $ then element else $(element)
       @init(options)
 
     init: (options) ->
@@ -44,5 +42,3 @@ module.exports = (->
   $.fn.accordion = (options) ->
     @.each (index, el) ->
       new Accordion(el, options)
-
-)($)

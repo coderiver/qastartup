@@ -1,5 +1,4 @@
 $ = jQuery = require 'jquery'
-require 'jquery.transit'
 
 class Parallax
   defaults =
@@ -31,10 +30,12 @@ class Parallax
     return obj
 
   move: (progress) ->
-    val = @props.delta * progress
-    @el.stop().transition
+    val = Math.round(@props.delta * progress)
+    # @el.stop().transition
+    #   transform: "translate3d(0, #{val}px, 0)"
+    # , 10, 'linear'
+    @el.css
       transform: "translate3d(0, #{val}px, 0)"
-    , 10, 'linear'
 
 
 

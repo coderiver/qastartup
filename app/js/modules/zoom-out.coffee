@@ -1,11 +1,10 @@
 $ = jQuery = require 'jquery'
-require 'jquery.transit'
-
+# require 'jquery.transit'
 
 class ZoomOut
   defaults =
-    minScale: 0.7
-    minOpacity: 0.5
+    minScale: 0.6
+    minOpacity: 0.3
 
   constructor: (selector, options) ->
     @init selector, options
@@ -19,10 +18,13 @@ class ZoomOut
 
   zoomOut: (progress) ->
     scaleValue = 1 - @scaleDelta * progress
-    @el.stop().transition
+    # @el.stop().transition
+    #   transform: "scale3d(#{scaleValue}, #{scaleValue}, 1)"
+    #   opacity: 1 - @opacityDelta * progress
+    # , 50, 'linear'
+    @el.css
       transform: "scale3d(#{scaleValue}, #{scaleValue}, 1)"
       opacity: 1 - @opacityDelta * progress
-    , 50, 'linear'
 
 
 module.exports = ZoomOut

@@ -17,7 +17,7 @@ module.exports = ->
       triggerHook: 'onEnter'
       triggerElement: el
     .on 'progress', (e) ->
-      parallaxInstance.move(e.progress)
+      parallaxInstance.move e.progress
 
 
   # toparea scrollscene
@@ -26,17 +26,24 @@ module.exports = ->
     duration: '100%'
     triggerHook: 'onLeave'
     triggerElement: 'body'
+  .on 'start', (e) ->
+    $('.header, .toparea').addClass 'draw'
   .on 'progress', (e) ->
-    topareaVideo.zoomOut(e.progress)
-  # .on 'end', (e) ->
-  #   $('.toparea').toggle()
+    topareaVideo.zoomOut e.progress
+  .on 'end', (e) ->
+    $('.toparea').toggle()
 
 
   # footer scrollscene
+  $footer = $ '.footer'
   SM.addScene
+    duration: 200
     triggerHook: 'onEnter'
     triggerElement: '#sm-trigger-footer'
-  .setClassToggle('.footer', 'draw')
+  .on 'start', (e) ->
+    $footer.toggleClass 'is-fixed'
+  .on 'end', (e) ->
+    $footer.toggleClass 'draw'
 
 
   # courses scrollscene
@@ -63,13 +70,12 @@ module.exports = ->
   SM.addScene
     triggerHook: 'onCenter'
     triggerElement: '.callback__frontlayer'
-  .setClassToggle('.callback__frontlayer', 'draw')
+  .setClassToggle '.callback__frontlayer', 'draw'
 
   # reasons scrollscene
   SM.addScene
     triggerHook: 'onCenter'
     triggerElement: '.reasons__list'
-  .setClassToggle('.reasons__list', 'draw')
-
+  .setClassToggle '.reasons__list', 'draw'
 
 

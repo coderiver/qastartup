@@ -14,11 +14,15 @@ a
   padding-top: calc(100vh + 190px)
   padding-bottom: 324px
 
-.content-wrapper
+.content-wrapper,
+.content-layer-1
   position: relative
   z-index: 1
   background: $color-dark
   box-shadow: 0 -10px 30px 0 rgba(0,0,0,0.15)
+
+.content-layer-1,
+  z-index: 2
 
 .hidden-text
   +hide-text

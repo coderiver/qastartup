@@ -581,25 +581,62 @@
   .draw &
     transform: translateX(0)
 
+.advantages-wrapper
+  margin-bottom: 235px
 
 .advantages
-  padding: 90px 0
-  min-height: 100vh
+  padding: 100px 0
+  min-height: 800px
+  height: 100vh
+  box-sizing: border-box
+  position: relative
+  .l
+    height: 100%
+    position: relative
+    z-index: 1
+
+.advantages__video
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
   background: img-url('advantages-bg.jpg') no-repeat center
   background-size: cover
-  box-sizing: border-box
 
 .advantages__title
-  margin-bottom: 60px
+  // margin-bottom: 60px
   +f(fd, 50, 1000)
   line-height: 1
   text-transform: uppercase
   .title-small
     color: $color-grey-lighter
 
+.advantages__container
+  height: calc(100% - 90px)
+  white-space: nowrap
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    width: 0
+    height: 100%
+    margin-left: -5px
+
+.advantages__container-inner
+  display: inline-block
+  vertical-align: middle
+  white-space: normal
+  width: 100%
+
 
 .slider
   margin-top: 60px
+  position: relative
+
+.slider__track
+  position: relative
   white-space: nowrap
 
 .slider-item
@@ -1350,11 +1387,22 @@ a.slider-item__title
   right: 0
   background: #424242
   color: #AAA
+  &.is-fixed
+    position: fixed
 
 .footer__main
   padding-top: 50px
   padding-bottom: 50px
   +clr
+
+.footer__main,
+.footer__bottom
+  max-width: $width-content
+  margin: auto
+  +wide
+    max-width: none
+    padding-left: 80px
+    padding-right: 80px
 
 .footer__logo
   float: left
@@ -1429,12 +1477,22 @@ a.slider-item__title
 
 
 .footer__bottom
-  background: $color-dark
+  position: relative
+  z-index: 1
   color: $color-grey
   line-height: 60px
   height: 60px
   font-size: 14px
   +clr
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: -200px
+    right: -200px
+    bottom: 0
+    background: $color-dark
 
 .footer__copyright
   float: left

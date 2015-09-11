@@ -1,6 +1,5 @@
 jQuery           = $ = require 'jquery'
 SM               = require './scroll-controller'
-events           = require './events'
 
 class Header
   constructor: ->
