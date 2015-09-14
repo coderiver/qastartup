@@ -1,6 +1,6 @@
 $        = require 'jquery'
-throttle = require 'lodash/function/throttle'
-debounce = require 'lodash/function/debounce'
+# throttle = require 'lodash/function/throttle'
+# debounce = require 'lodash/function/debounce'
 
 class SmoothScroll
   defaults =

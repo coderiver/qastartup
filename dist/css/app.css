@@ -190,9 +190,9 @@ a { color: inherit; }
 
 .btn-round:before { content: ""; position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; background-color: #21DBB2; background-image: -webkit-linear-gradient(70deg, #20D8A2 0%, #21E0C7 100%); background-image: linear-gradient(20deg, #20D8A2 0%, #21E0C7 100%); -webkit-transform: translate(-100%, 0); -ms-transform: translate(-100%, 0); transform: translate(-100%, 0); -webkit-transition: -webkit-transform 0.3s ease; transition: transform 0.3s ease; }
 
-.btn-round:hover, .btn-round:focus { box-shadow: inset 0 0 0 1px #21DBB2; }
+.btn-round:hover { box-shadow: inset 0 0 0 1px #21DBB2; }
 
-.btn-round:hover:before, .btn-round:focus:before { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+.btn-round:hover:before { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
 
 .btn-round.is-active { box-shadow: inset 0 0 0 1px #21DBB2; }
 
@@ -362,7 +362,7 @@ a { color: inherit; }
 
 .stats__footer b { font-style: normal; font-family: "PFAgorasansPro-Bold", Helvetica, Arial, sans-serif; font-weight: normal; }
 
-.stats__graph { height: 400px; background: #777; }
+.stats__graph { height: 500px; }
 
 .salary { position: relative; height: 320px; margin-top: 135px; }
 
@@ -935,5 +935,11 @@ a.slider-item__title:hover { color: #21DBB2; }
 .nav__link { display: inline-block; vertical-align: top; font-family: "PFAgorasansPro-Medium", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; color: #FFF; text-transform: uppercase; text-decoration: none; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; }
 
 .nav__link:hover { color: #21DBB2; }
+
+.graph-axis-label { font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; letter-spacing: 0.1em; fill: rgba(255, 255, 255, 0.3); text-transform: uppercase; }
+
+.graph-grid { stroke: #F7F7F7; opacity: 0.1; }
+
+.graph-point-label { font-size: 14px; fill: #FFF; }
 
 /*# sourceMappingURL=app.css.map */

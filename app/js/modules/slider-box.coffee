@@ -27,7 +27,6 @@ class SliderBox
       do @initZoomOutScene
     else
       do @initSimpleScene
-    console.log @
 
   scrollSlider: (progress) ->
     @sliderTrack.css

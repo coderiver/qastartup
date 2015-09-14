@@ -2,9 +2,9 @@ $ = require 'jquery'
 require 'jquery.transit'
 
 header           = require './modules/header'
-graph            = require './modules/graph'
 questionForm     = require './modules/question-form'
 initScrollScenes = require './modules/scroll-scenes'
+Graph            = require './modules/graph'
 SliderBox        = require './modules/slider-box'
 # SmoothScroll     = require './modules/smooth-scroll'
 
@@ -25,6 +25,8 @@ $ ->
     zoomOutTrigger: '.content-layer-1'
 
   newsSliderbox = new SliderBox '.news .slider-box'
+
+  graph = new Graph '.stats__graph'
 
   do header.init
   do questionForm.init

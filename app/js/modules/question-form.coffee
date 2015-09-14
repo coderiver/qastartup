@@ -15,7 +15,6 @@ class QuestionForm
 
     do @_initEvents
     do @initForm
-    console.log @
 
   toggleFormContainer: ->
     @formContainer.slideToggle 300

@@ -1,5 +1,5 @@
-jQuery           = $ = require 'jquery'
-SM               = require './scroll-controller'
+jQuery = $ = require 'jquery'
+SM     = require './scroll-controller'
 
 class Header
   constructor: ->
@@ -34,7 +34,7 @@ class Header
     setTimeout =>
       @el.removeClass 'open-step-1'
       do @_removeBordersInMenu
-    , 300
+    , 400
     @opened = no
 
   makeFixed: ->
