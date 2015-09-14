@@ -1,6 +1,6 @@
 $        = require 'jquery'
 s        = require 'snapsvg'
-# throttle = require 'lodash/function/throttle'
+SM       = require './scroll-controller'
 debounce = require 'lodash/function/debounce'
 
 class Graph
@@ -78,42 +78,16 @@ class Graph
       drawLineAfter initialX, y
 
 
-  drawPointOnGraph: =>
-    @pointsGroup = @paper.g()
-    @labelsGroup = @paper.g()
-
-    @pointsGroup.addClass 'graph-points'
-    @labelsGroup.addClass 'graph-labels'
-
-    @points = @currentState.points.map (point, index) =>
-      return @pointsGroup
-        .circle point.x, point.y, 0
-        .attr
-          class: 'graph-point'
-          fill: '#20d8a2'
-        .animate { r: @props.pointRadius }, 1000, mina.elastic
-
-    @points = @currentState.points.map (point, index) =>
-      return @labelsGroup
-        .text point.x, point.y, @props.valueLabels[index]
-        .attr
-          class: 'graph-point-label'
-          fontSize: 14
-          opacity: 0
-        .transform 't53 -60'
-        .animate { opacity: 1 }, 500
-
-
   render: (rerender = off) ->
     do @_calculations
     do @drawGrid
     do @drawPaths
     if rerender
       do @renderState
-      do @drawPointOnGraph
+      do @drawPoints
     else
       setTimeout =>
-        @changeState @stateIncome, @drawPointOnGraph
+        @changeState @stateIncome, @drawPoints
       , 1000
 
 
@@ -144,6 +118,13 @@ class Graph
         fill: gradient
         opacity: 0.2
         class: 'graph-path-fill'
+
+
+  drawPoints: =>
+    @currentState.points.map (point, index) =>
+      setTimeout =>
+        @_drawPoint point.x, point.y, @props.valueLabels[index]
+      , 500 * index
 
 
   changeState: (state, cb = -> ) ->
@@ -179,13 +160,13 @@ class Graph
     minWidth       = Math.min(maxWidth, width)
     @paddingX      = if width > maxWidth then (width - maxWidth) / 2 else 0
 
-    divisionValueX = minWidth / (@props.valuesIncome.length + 1)
-    divisionValueY = @props.height / @props.yMax
+    @divisionValueX = minWidth / (@props.valuesIncome.length + 1)
+    @divisionValueY = @props.height / @props.yMax
 
     coordinates = (value, index) =>
       return {
-        x: @paddingX + divisionValueX * (index + 1)
-        y: @props.height - value * divisionValueY
+        x: @paddingX + @divisionValueX * (index + 1)
+        y: @props.height - value * @divisionValueY
       }
 
     # calc coordinates for each point on graph on different state
@@ -202,6 +183,46 @@ class Graph
     @stateInitial.fillPath = @_pointsToSVGPath @stateInitial.points, true, 'bottom'
     @stateIncome.fillPath  = @_pointsToSVGPath @stateIncome.points, true
     @stateDemand.fillPath  = @_pointsToSVGPath @stateDemand.points, true
+
+
+  _drawPoint: (x, y, labelText) ->
+    point = @paper
+      .circle x, y, 0
+      .attr
+        class: 'graph-point'
+        fill: '#20d8a2'
+
+    line = @paper
+      .path "M#{x} #{y}L#{x + 35} #{y - 60}L#{x + 45} #{y - 60}"
+      .attr
+        class: 'graph-point-line'
+        stroke: 'rgba(255, 255, 255, 0.5)'
+        strokeWidth: 1
+        fill: 'none'
+
+    lineLength = line.getTotalLength()
+    line.attr
+      strokeDashoffset: lineLength
+      strokeDasharray: lineLength
+
+    label = @paper
+      .text x, y, labelText
+      .attr
+        class: 'graph-point-label'
+        fontSize: 14
+        opacity: 0
+        alignmentBaseline: 'middle'
+      .transform 't53 -60'
+
+    # animations
+    point.animate { r: @props.pointRadius }, 2000, mina.elastic
+    line.animate { strokeDashoffset: 0 }, 500, mina.linear, ->
+      label.animate { opacity: 1 }, 1000, mina.linear
+
+    pointGroup = @paper.g(line, label, point)
+    pointGroup.addClass 'graph-point-group'
+
+    return pointGroup
 
 
   _pointsToSVGPath: (points, closePath, lastPoint = 'top') ->
@@ -222,117 +243,3 @@ class Graph
 
 
 module.exports = Graph
-
-# $(document).ready(function(){
-
-
-#   var s = Snap('#svgLine');
-
-#   var points1 = [0,10,20,30,50,10,100,150,125,160,190,40,50];
-#   var points2 = [100,50,75,150,10,20,50,60,70,100,120,90,10];
-#   var points3 = [50,75,60,30,75,100,120,140,305,160,10,20,100];
-
-#   function makeGrid(){
-
-#     var dataLength = points1.length;
-#     var allData = points1.concat(points2, points3);
-#     var maxValue = Math.max.apply(null, allData);
-#     var minValue = Math.min.apply(null, allData);
-
-
-#     if (maxValue > $('#svgLine').height()){
-#       $('#svgLine').height(maxValue+10);
-#     }
-
-#     // Creates the vertical lines in the graph
-#     for (var i=0; i<dataLength; i++) {
-#       var x = i*100;
-#       var xLine = s.line(x, minValue-10, x, maxValue+10).attr({
-#         stroke: "#ccc",
-#         strokeWidth: 0.25
-#       });
-#     }
-
-#     // Creates the horizontal lines in the graph
-#     var w = dataLength*100;
-#     var delimiter = 50;
-#     var values = (maxValue+10)-(minValue-10);
-#     var offset = ((maxValue+10)%delimiter);
-#     for (var i=values; i > 0; i--){
-#       if ((i-offset) % delimiter === 0){ // Change where lines appear by changing the delimiter (10 for every 10 units, 50 for 50, etc.)
-#         var yLine = s.line(0, i, w, i).attr({
-#           stroke: '#ccc',
-#           strokeWidth: 0.25
-#         });
-#       }
-#     }
-
-#   }
-
-#   makeGrid();
-
-
-#   function convertToPath(points){
-#     var path = '';
-
-#     for (var i=0; i<points.length; i++){
-#       var x = i*100;
-#       var y = -points[i]+$('#svgLine').height(); // Convert points to how we like to view graphs
-#       if (i===0){
-#         path += 'M'+x+','+y+' R';
-#       }
-#       else if (i===points.length-1){
-#         path += x+','+y;
-#       }
-#       else {
-#         path += x+','+y+',';
-#       }
-#     }
-#     return path;
-#   }
-
-#   function makePath(data, color){
-#     var pathString = convertToPath(data);
-#     var graphHeight = $('#svgLine').height();
-#     var fillString = pathString+' V'+graphHeight+' H0 Z';
-
-#     function getDefaultPath(isFill){
-#       var defaultPathString = 'M0,'+graphHeight+' H';
-
-
-#       for (var i=0; i<data.length; i++) {
-#         if (i!==0){
-#           defaultPathString += i*100+' ';
-#         }
-#       }
-
-#       if(isFill){
-#         defaultPathString += 'V'+graphHeight+' H0 Z';
-#       }
-#       return defaultPathString;
-#     }
-
-#     var path = s.path(getDefaultPath()).attr({
-#       stroke: color,
-#       strokeWidth: 2,
-#       fill: 'transparent'
-#     });
-
-#     var fill = s.path(getDefaultPath(true)).attr({
-#       fill: color,
-#       fillOpacity: 0.25
-#     });
-
-#     path.animate({ path: pathString },500);
-#     fill.animate({ path: fillString },500);
-
-#   }
-
-#   makePath(points1, 'red');
-#   makePath(points2, 'blue');
-
-#   $('#add-green').on('click', function(){
-#     makePath(points3,'green');
-#   });
-
-# });
