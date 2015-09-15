@@ -6,7 +6,6 @@ questionForm     = require './modules/question-form'
 initScrollScenes = require './modules/scroll-scenes'
 Graph            = require './modules/graph'
 SliderBox        = require './modules/slider-box'
-# SmoothScroll     = require './modules/smooth-scroll'
 
 # modules as jQuery plugins
 require('./plugins/input-field')($)
@@ -14,7 +13,6 @@ require('./plugins/accordion')($)
 require './plugins/draw-button'
 
 $ ->
-  # new SmoothScroll 'body'
 
   $('.faq__list').accordion
     itemSelector: '.faq-item'
@@ -26,7 +24,10 @@ $ ->
 
   newsSliderbox = new SliderBox '.news .slider-box'
 
-  graph = new Graph '.stats__graph'
+  graph = new Graph '.stats__graph',
+    valuesIncome: [500, 1500, 2350, 3200]
+    valuesDemand: [800, 3000, 2000, 200]
+    valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
 
   do header.init
   do questionForm.init
