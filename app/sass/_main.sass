@@ -931,6 +931,21 @@ a.slider-item__title
 
 .testimonials
   margin-bottom: 260px
+  position: relative
+  &.is-show-more
+    .testimonials__buttons
+      .btn
+        transform: scale(1)
+        opacity: 1
+        visibility: visible
+      .link
+        transform: translate(0,-30px)
+        opacity: 0
+        visibility: hidden
+    .testimonials__more
+      .testimonial
+        opacity: 1
+        transform: none
 
 .testimonials__header
   padding-top: 115px
@@ -964,6 +979,34 @@ a.slider-item__title
 .testimonials__container
   +clr
 
+.testimonials__more
+  display: none
+  .testimonial
+    opacity: 0
+    transform: translate(0, 50px)
+    transition: 0.5s ease
+    transition-property: opacity, transform
+
+.testimonials__buttons
+  position: absolute
+  z-index: 1
+  bottom: 30px
+  left: 220px
+  padding: 13px 0
+  .btn
+    visibility: hidden
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+    transform: translate(0,30px)
+    transition: all 0.5s ease
+  .link
+    transition: all 0.5s ease
+    transform-origin: right top
+
+
+
 
 .testimonial
   float: left
@@ -979,6 +1022,18 @@ a.slider-item__title
     float: right
   &:last-child
     margin-bottom: 0
+
+  &.is-expanded
+    .testimonial__text
+      &:after
+        opacity: 0
+        visibility: hidden
+    .testimonial__head
+      .borders
+        left: 50px
+        right: 50px
+    .testimonial__userpic
+      transform: translate(30px, -100px) scale(1.364)
 
 .testimonial__frontlayer
   position: relative
@@ -1007,6 +1062,9 @@ a.slider-item__title
   padding: 70px 20px 15px 80px
   margin: 0 0 20px -80px
   line-height: 1.2
+  .borders
+    transition: 0.5s ease
+    transition-property: top, left, right, bottom
 
 .testimonial__name
   display: block
@@ -1029,6 +1087,7 @@ a.slider-item__title
   border-radius: 50%
   overflow: hidden
   background: $color-grey
+  transition: transform 0.5s ease
   img
     display: block
     max-width: 100%
@@ -1056,6 +1115,7 @@ a.slider-item__title
   color: $color-grey-lighter
   position: relative
   overflow: hidden
+  transition: max-height 0.3s ease
   &:after
     content: ""
     position: absolute
@@ -1065,6 +1125,7 @@ a.slider-item__title
     height: 100px
     background: linear-gradient(to top, rgba(#424242, 1) 0, rgba(#424242, 0) 100%)
     pointer-events: none
+    transition: all 0.5s ease
 
 
 .callback

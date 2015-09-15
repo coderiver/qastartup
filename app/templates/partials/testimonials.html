@@ -3,7 +3,7 @@
   <div class="testimonials__header">
     <h3 class="testimonials__title" data-parallax='{"delta":-100,"shift":50}'>Отзывы <small class="title-small">наших студентов</small></h3>
   </div>
-  <div class="testimonials__container">
+  <div class="testimonials__container js-draw">
     {% for testimonial in testimonials %}
     <div class="testimonial">
       <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
@@ -30,12 +30,12 @@
           </div>
         </div>
         <p class="testimonial__text">{{ testimonial.text }}</p>
-        <button class="link" type="button">Читать полностью</button>
+        <button class="link" type="button" data-alt-text="Скрыть">Читать полностью</button>
       </div>
     </div>
     {% endfor %}
   </div>
-  <div class="testimonials__container testimonial__more">
+  <div class="testimonials__container testimonials__more js-draw">
     {% for testimonial in testimonials2 %}
     <div class="testimonial">
       <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
@@ -62,12 +62,12 @@
           </div>
         </div>
         <p class="testimonial__text">{{ testimonial.text }}</p>
-        <button class="link" type="button">Читать полностью</button>
+        <button class="link" type="button" data-alt-text="Скрыть">Читать полностью</button>
       </div>
     </div>
     {% endfor %}
   </div>
-  <div class="testimonial__buttons">
+  <div class="testimonials__buttons js-draw" data-sm-offset="-200">
     {{ mixins.btnLink("Читать все отзывы", "#", "-width-250") }}
     <button class="link -with-icon"><i class="icon icon-refresh"></i> Больше отзывов</button>
   </div>

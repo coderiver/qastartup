@@ -90,4 +90,13 @@ module.exports = ->
   .setClassToggle '.reasons__list', 'draw'
 
 
+  # draw borders scrollscenes
+  $('.js-draw').each (index, el) ->
+    SM.addScene
+      offset: $(el).data('sm-offset') or 0
+      triggerHook: 'onCenter'
+      triggerElement: el
+    .setClassToggle el, 'draw'
+
+
 

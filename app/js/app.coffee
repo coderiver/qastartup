@@ -4,6 +4,7 @@ require 'jquery.transit'
 header           = require './modules/header'
 questionForm     = require './modules/question-form'
 initScrollScenes = require './modules/scroll-scenes'
+initTestimonials = require './modules/testimonials'
 Graph            = require './modules/graph'
 SliderBox        = require './modules/slider-box'
 
@@ -13,6 +14,11 @@ require('./plugins/accordion')($)
 require './plugins/draw-button'
 
 $ ->
+
+  do header.init
+  do questionForm.init
+  do initTestimonials
+  do initScrollScenes
 
   $('.faq__list').accordion
     itemSelector: '.faq-item'
@@ -29,6 +35,4 @@ $ ->
     valuesDemand: [800, 3000, 2000, 200]
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
 
-  do header.init
-  do questionForm.init
-  do initScrollScenes
+

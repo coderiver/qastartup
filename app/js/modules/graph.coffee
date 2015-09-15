@@ -51,8 +51,6 @@ class Graph
 
     @paper.prependTo @container[0]
 
-    console.log @paper
-
     do @_initEvents
     do @_buildScene
 
