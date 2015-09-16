@@ -208,6 +208,11 @@ a
       transform: translate3d(0,0,0)
     .btn__text
       color: $color-text
+  &[disabled],
+  &:disabled
+    opacity: 0.5
+    cursor: default
+
 
   &.-width-fluid
     display: block
@@ -362,8 +367,59 @@ a
 
 
 .form
+  position: relative
+  transition: 0.5s ease
+  transition-property: opacity, visibility
   .btn
     margin-top: 60px
+  .show-msg &
+    opacity: 0
+    visibility: hidden
+    pointer-events: none
+
+
+.form-wrapper
+  position: relative
+
+.form-msg
+  position: absolute
+  z-index: 2
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  box-sizing: border-box
+  white-space: nowrap
+  transition: 0.5s ease
+  transition-property: opacity, visibility
+  opacity: 0
+  visibility: hidden
+  pointer-events: none
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+    width: 0
+  .form-msg-text
+    display: inline-block
+    vertical-align: middle
+    white-space: normal
+  .show-msg &
+    opacity: 1
+    visibility: visible
+    pointer-events: all
+
+.form-msg-text
+  color: $color-grey
+  > strong
+    display: block
+    margin: 5px 0
+    +f(fh, 24)
+  .link
+    margin-top: 25px
+
+
 
 
 .field
@@ -529,3 +585,35 @@ a
   &:last-child
     bottom: 0
     transform-origin: left bottom
+
+
+.carousel-prev,
+.carousel-next
+  position: absolute
+  z-index: 2
+  top: 50%
+  line-height: 100px
+  height: 100px
+  background: none
+  margin-top: -50px
+  font-size: 16px
+  color: rgba(#FFF, 0.5)
+  +trans(color)
+  &:before
+    @extend %icon
+  &:hover
+    color: $color-green
+
+.carousel-prev
+  left: 0
+  background: linear-gradient(to right, #2F2F2F 50%, rgba(47, 47, 47, 0) 100%)
+  padding-right: 30px
+  &:before
+    content: $icon-arrow-left
+
+.carousel-next
+  right: 0
+  background: linear-gradient(to left, #2F2F2F 50%, rgba(47, 47, 47, 0) 100%)
+  padding-left: 30px
+  &:before
+    content: $icon-arrow-right

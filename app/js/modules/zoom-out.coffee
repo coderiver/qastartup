@@ -18,10 +18,6 @@ class ZoomOut
 
   zoomOut: (progress) ->
     scaleValue = 1 - @scaleDelta * progress
-    # @el.stop().transition
-    #   transform: "scale3d(#{scaleValue}, #{scaleValue}, 1)"
-    #   opacity: 1 - @opacityDelta * progress
-    # , 50, 'linear'
     @el.css
       transform: "scale3d(#{scaleValue}, #{scaleValue}, 1)"
       opacity: 1 - @opacityDelta * progress

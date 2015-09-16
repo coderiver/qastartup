@@ -9,17 +9,21 @@
   font-style: normal;
 }
 
-$icon-check: "\EA01";
-$icon-chevron-down: "\EA02";
-$icon-chevron-up: "\EA03";
-$icon-close: "\EA04";
-$icon-facebook: "\EA05";
-$icon-linkedin: "\EA06";
-$icon-play: "\EA07";
-$icon-refresh: "\EA08";
-$icon-twitter: "\EA09";
-$icon-vk: "\EA0A";
-$icon-youtube: "\EA0B";
+$icon-arrow-down: "\EA01";
+$icon-arrow-left: "\EA02";
+$icon-arrow-right: "\EA03";
+$icon-arrow-up: "\EA04";
+$icon-check: "\EA05";
+$icon-chevron-down: "\EA06";
+$icon-chevron-up: "\EA07";
+$icon-close: "\EA08";
+$icon-facebook: "\EA09";
+$icon-linkedin: "\EA0A";
+$icon-play: "\EA0B";
+$icon-refresh: "\EA0C";
+$icon-twitter: "\EA0D";
+$icon-vk: "\EA0E";
+$icon-youtube: "\EA0F";
 
 
 %icon {
@@ -52,6 +56,10 @@ $icon-youtube: "\EA0B";
   text-align: center;
 }
 
+.icon-arrow-down:before { content: $icon-arrow-down; }
+.icon-arrow-left:before { content: $icon-arrow-left; }
+.icon-arrow-right:before { content: $icon-arrow-right; }
+.icon-arrow-up:before { content: $icon-arrow-up; }
 .icon-check:before { content: $icon-check; }
 .icon-chevron-down:before { content: $icon-chevron-down; }
 .icon-chevron-up:before { content: $icon-chevron-up; }

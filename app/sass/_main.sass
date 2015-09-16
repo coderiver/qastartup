@@ -211,7 +211,7 @@
     color: #555
 
 .stats__buttons
-  margin: 50px 0
+  margin: 50px 0 80px
   .btn-round
     &:not(:last-child)
       margin-right: 36px
@@ -1172,19 +1172,20 @@ a.slider-item__title
   box-sizing: border-box
   color: $color-grey
 
-.callback__text-block
-  margin-bottom: 25px
-  color: $color-grey
-  > strong
-    display: block
-    margin: 5px 0
-    +f(fh, 24)
-
 
 
 .partners
   margin-top: 170px
   margin-bottom: 170px
+  +wide
+    .partners__list
+      margin: 0 -30px
+    .carousel-prev
+      left: -50px
+      padding-right: 50px
+    .carousel-next
+      right: -50px
+      padding-left: 50px
 
 .partners__title
   text-align: right
@@ -1196,7 +1197,6 @@ a.slider-item__title
 
 .partners__list
   font-size: 0
-  margin: 0 -30px
 
 .partners__partner
   width: 240px
@@ -1204,6 +1204,19 @@ a.slider-item__title
   display: inline-block
   vertical-align: middle
   text-align: center
+  line-height: 100px
+  img
+    display: inline-block
+    vertical-align: middle
+    max-width: 100%
+    max-height: 100%
+  &:focus
+    outline: none
+  &.slick-slide
+    display: inline-block
+
+.partners__link
+  display: block
 
 
 .faq__title

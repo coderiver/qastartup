@@ -48,6 +48,7 @@
     "jquery-mask-plugin": "^1.13.4",
     "jquery.transit": "^0.9.12",
     "scrollmagic": "^2.0.5",
+    "slick-carousel": "^1.5.8",
     "snapsvg": "^0.4.0"
   }
 }

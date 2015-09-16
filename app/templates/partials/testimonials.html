@@ -41,7 +41,7 @@
       <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
       <div class="testimonial__frontlayer">
         <span class="testimonial__count">
-          {% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}
+          {% if loop.index < 10 %}0{{ loop.index + 2 }}{% else %}{{ loop.index + 2 }}{% endif %}
         </span>
         <div class="testimonial__head">
           {{ mixins.borders("-width-6") }}
