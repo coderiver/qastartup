@@ -11,8 +11,15 @@ Form             = require './modules/form'
 SliderBox        = require './modules/slider-box'
 
 # modules as jQuery plugins
-# require('./plugins/input-field')($)
 require('./plugins/accordion')($)
+
+
+Pace.on 'done', ->
+  do hidePreloader
+
+hidePreloader = (cb = -> ) ->
+  $('#preloader').fadeOut 500, cb
+
 
 $ ->
 

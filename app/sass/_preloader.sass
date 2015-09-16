@@ -1,0 +1,47 @@
+.preloader
+  position: fixed
+  z-index: 9999
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: #FFF
+  text-align: center
+  .intro__top-text
+    color: #BEBEBE
+
+.preloader__backlayer
+  height: 100%
+  width: 100%
+  background: #FFF
+  color: $color-dark
+  white-space: nowrap
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+    width: 0
+
+.preloader__frontlayer
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: $color-dark
+  color: #FFF
+  overflow: hidden
+  white-space: nowrap
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+    width: 0
+
+.preloader__center
+  display: inline-block
+  vertical-align: middle
+  white-space: normal
+  width: 100vw

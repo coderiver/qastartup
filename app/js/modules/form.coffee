@@ -27,6 +27,10 @@ class InputField
     val = @input.val()
     if val then @dirty = yes else @dirty = no
 
+  validate: ->
+    val = @input.val()
+    if val then @valid = yes else @valid = no
+
   updateClass: ->
     if @dirty
       @field.addClass @props.dirtyClass
@@ -53,13 +57,14 @@ class InputField
   _initEvents: ->
     @input.on 'blur', =>
       do @checkDirty
+      do @validate
       do @updateClass
 
   _initPhoneNumberMask: ->
     @input.mask "+380 (99) 999-99-99",
       placeholder: "+380 (__) ___-__-__"
-      completed: ->
-        console.log this
+      # completed: ->
+      #   console.log this
 
 
 
@@ -79,7 +84,7 @@ class Form
 
     do @_initEvents
     do @_initFeilds
-    do @checkStatus
+    # do @checkStatus
 
 
   _initFeilds: ->
@@ -96,9 +101,16 @@ class Form
     @fields.forEach (field, index) ->
       do field.reset
 
-
   checkStatus: ->
-    do @_toggleSubmitButton
+    valid = yes
+    for field in @fields
+      console.log field.valid
+      if field.valid is no
+        valid = no
+        break
+
+    @valid = valid
+    return valid
 
 
   _toggleSubmitButton: ->
@@ -116,6 +128,9 @@ class Form
       do e.preventDefault
       do @hideMessage
       do @resetFields
+
+    # @form.find('input').on 'blur', =>
+    #   do @checkStatus
 
 
 module.exports = Form

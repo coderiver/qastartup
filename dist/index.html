@@ -8,9 +8,39 @@
     <meta name="viewport" content="width=1180">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/app.css">
+    <script type="text/javascript" src="lib/pace.min.js"></script>
   </head>
 
   <body>
+
+    <!-- BEGIN preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader__backlayer">
+        <div class="preloader__center">
+          <!-- BEGIN intro -->
+          <div class="intro">
+            <span class="intro__top-text">Курсы</span>
+            <strong class="intro__large-text">QA</strong>
+            <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
+          </div>
+          <!-- END intro -->
+
+        </div>
+      </div>
+      <div class="preloader__frontlayer">
+        <div class="preloader__center">
+          <!-- BEGIN intro -->
+          <div class="intro">
+            <span class="intro__top-text">Курсы</span>
+            <strong class="intro__large-text">QA</strong>
+            <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
+          </div>
+          <!-- END intro -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END preloader -->
 
     <!-- BEGIN out -->
     <div class="out">
@@ -761,7 +791,7 @@
                 <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
                 <div class="testimonial__frontlayer">
                   <span class="testimonial__count">
-          01
+          03
         </span>
                   <div class="testimonial__head">
 
@@ -795,7 +825,7 @@
                 <div class="testimonial__backlayer" data-parallax='{"delta":150,"shift":-50}'></div>
                 <div class="testimonial__frontlayer">
                   <span class="testimonial__count">
-          02
+          04
         </span>
                   <div class="testimonial__head">
 
@@ -855,41 +885,43 @@
       <small class="text-gradient">первый шаг к мечте!</small>
     </h3>
               <div class="callback__form">
-                <div class="callback__text-block">
+                <div class="form-msg-text">
                   <p>Оставь свои контакты и наш менеджер свяжется с тобой
                     <br>для определения уровня и выбора курса.</p>
                   <strong>Количество мест в групе ограничено!</strong>
                 </div>
-                <form class="form">
-                  <div class="field">
-                    <input class="input" type="text" name="name" id="name">
-                    <label class="input-label" for="name">Ваше имя</label>
-                  </div>
-                  <div class="field">
-                    <input class="input" type="tel" name="name" id="tel">
-                    <label class="input-label" for="tel">Ваш номер телефона</label>
-                  </div>
-
-                  <button class="btn -type-filled -width-fluid" type="submit">
-
-                    <div class="borders">
-                      <div class="border-top"></div>
-                      <div class="border-left"></div>
-                      <div class="border-right"></div>
-                      <div class="border-bottom"></div>
+                <div class="form-wrapper">
+                  <form class="form" id="callback-form">
+                    <div class="field">
+                      <input class="input" type="text" name="name" id="name">
+                      <label class="input-label" for="name">Ваше имя</label>
+                    </div>
+                    <div class="field">
+                      <input class="input" type="tel" name="name" id="tel">
+                      <label class="input-label" for="tel">Ваш номер телефона</label>
                     </div>
 
-                    <div class="btn__fill"></div>
-                    <span class="btn__text">Получить знания</span>
-                  </button>
+                    <button class="btn -type-filled -width-fluid" type="submit">
 
-                </form>
-                <div class="callback__msg">
-                  <div class="callback__text-block">
-                    <strong>Спасибо!</strong>
-                    <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                      <div class="borders">
+                        <div class="border-top"></div>
+                        <div class="border-left"></div>
+                        <div class="border-right"></div>
+                        <div class="border-bottom"></div>
+                      </div>
+
+                      <div class="btn__fill"></div>
+                      <span class="btn__text">Получить знания</span>
+                    </button>
+
+                  </form>
+                  <div class="form-msg">
+                    <div class="form-msg-text">
+                      <strong>Спасибо!</strong>
+                      <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                      <button class="link -underline-dashed" type="button">Вернуться Назад</button>
+                    </div>
                   </div>
-                  <button class="link -underline-dashed" type="button">Вернуться Назад</button>
                 </div>
               </div>
             </div>
@@ -899,23 +931,58 @@
           <!-- BEGIN partners -->
           <section class="partners l">
             <h2 class="partners__title text-gradient">Партнеры</h2>
-            <ul class="partners__list">
-              <li class="partners__partner">
-                <img src="img/partners/scrummaster.svg" alt="Scrummaster">
-              </li>
-              <li class="partners__partner">
-                <img src="img/partners/epam.svg" alt="Epam">
-              </li>
-              <li class="partners__partner">
-                <img src="img/partners/itjam.svg" alt="IT Jam">
-              </li>
-              <li class="partners__partner">
-                <img src="img/partners/uwcua.svg" alt="Web Challenge">
-              </li>
-              <li class="partners__partner">
-                <img src="img/partners/brainbasket.svg" alt="BrainBasket">
-              </li>
-            </ul>
+            <div class="partners__list">
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/scrummaster.svg" alt="Scrummaster">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/epam.svg" alt="Epam">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/itjam.svg" alt="IT Jam">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/uwcua.svg" alt="Web Challenge">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/brainbasket.svg" alt="BrainBasket">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/scrummaster.svg" alt="Scrummaster">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/epam.svg" alt="Epam">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/itjam.svg" alt="IT Jam">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/uwcua.svg" alt="Web Challenge">
+                </a>
+              </div>
+              <div class="partners__partner">
+                <a class="partners__link" href="#" target="_blank">
+                  <img src="img/partners/brainbasket.svg" alt="BrainBasket">
+                </a>
+              </div>
+            </div>
           </section>
           <!-- END partners -->
 
@@ -1026,40 +1093,49 @@
           <!-- BEGIN question -->
           <section class="question l">
             <h3 class="question__title">Остались<br>вопросы?</h3>
-            <button class="link -underline-dashed" type="button" data-alt-text="Скрыть форму">Задайте их менеджеру</button>
+            <button class="link -underline-dashed js-question-toggle" type="button" data-alt-text="Скрыть форму">Задайте их менеджеру</button>
             <div class="question__container">
               <div class="question__form">
-                <form class="form" id="question-form">
-                  <div class="field">
-                    <input class="input" type="text" name="name" id="field-name">
-                    <label class="input-label" for="field-name">Ваше имя</label>
-                    <span class="field__error">Обязательно для заполнения</span>
-                  </div>
-                  <div class="field">
-                    <input class="input" type="tel" name="phone" id="field-phone">
-                    <label class="input-label" for="field-phone">Ваш номер телефона</label>
-                    <span class="field__error">Обязательно для заполнения</span>
-                  </div>
-                  <div class="field">
-                    <input class="input" type="text" name="phone" id="field-question">
-                    <label class="input-label" for="field-question">Ваш вопрос</label>
-                    <span class="field__error">Ваш вопрос сформулирован некорректно</span>
-                  </div>
+                <div class="form-wrapper">
+                  <form class="form" id="question-form">
+                    <div class="field">
+                      <input class="input" type="text" name="name" id="field-name">
+                      <label class="input-label" for="field-name">Ваше имя</label>
 
-                  <button class="btn -type-filled -width-fluid" type="submit">
+                    </div>
+                    <div class="field">
+                      <input class="input" type="tel" name="phone" id="field-phone">
+                      <label class="input-label" for="field-phone">Ваш номер телефона</label>
 
-                    <div class="borders">
-                      <div class="border-top"></div>
-                      <div class="border-left"></div>
-                      <div class="border-right"></div>
-                      <div class="border-bottom"></div>
+                    </div>
+                    <div class="field">
+                      <input class="input" type="text" name="phone" id="field-question">
+                      <label class="input-label" for="field-question">Ваш вопрос</label>
+
                     </div>
 
-                    <div class="btn__fill"></div>
-                    <span class="btn__text">Отправить</span>
-                  </button>
+                    <button class="btn -type-filled -width-fluid" type="submit">
 
-                </form>
+                      <div class="borders">
+                        <div class="border-top"></div>
+                        <div class="border-left"></div>
+                        <div class="border-right"></div>
+                        <div class="border-bottom"></div>
+                      </div>
+
+                      <div class="btn__fill"></div>
+                      <span class="btn__text">Отправить</span>
+                    </button>
+
+                  </form>
+                  <div class="form-msg">
+                    <div class="form-msg-text">
+                      <strong>Спасибо!</strong>
+                      <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                      <button class="link -underline-dashed" type="button">Вернуться Назад</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
