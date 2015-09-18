@@ -11,9 +11,11 @@ pace.on 'done', ->
   do hidePreloader
 
 hidePreloader = (cb = -> ) ->
-  preloader.classList.add 'fade-out'
+  setTimeout ->
+    preloader.classList.add 'fade-out'
+  , 300
   setTimeout ->
     preloader.setAttribute 'hidden', 'hidden'
-  , 500
+  , 800
 
 module.exports = pace
