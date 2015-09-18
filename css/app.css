@@ -100,7 +100,7 @@ body { -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; }
 
 .preloader__backlayer:before { content: ""; display: inline-block; vertical-align: middle; height: 100%; width: 0; }
 
-.preloader__frontlayer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #2F2F2F; color: #FFF; overflow: hidden; white-space: nowrap; -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
+.preloader__frontlayer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #2F2F2F; color: #FFF; overflow: hidden; white-space: nowrap; -webkit-transition: width 0.3s linear; transition: width 0.3s linear; }
 
 .preloader__frontlayer:before { content: ""; display: inline-block; vertical-align: middle; height: 100%; width: 0; }
 
@@ -385,9 +385,15 @@ a { color: inherit; }
 
 .toparea__inner { height: 100%; width: 100%; min-height: 680px; display: table; table-layout: fixed; position: relative; z-index: 1; }
 
+.toparea__inner.hide { opacity: 0; }
+
+.toparea__inner.transition { -webkit-transition: opacity 1s linear; transition: opacity 1s linear; }
+
 .toparea__center { position: relative; z-index: 1; display: table-cell; width: 100%; height: 100%; padding-top: 50px; box-sizing: border-box; vertical-align: middle; text-align: center; }
 
-.toparea__video { position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; background: #646566 url("../img/toparea-bg.jpg") no-repeat center; background-size: cover; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+.toparea__video { position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; background: #646566 url("../img/toparea-bg.jpg") no-repeat center; background-size: cover; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+
+.video { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); min-height: 100%; min-width: 100%; }
 
 .intro__top-text { display: inline-block; position: relative; left: 10px; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 24px; letter-spacing: 1em; color: rgba(255, 255, 255, 0.4); line-height: 1; text-transform: uppercase; }
 
@@ -691,9 +697,13 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .reason__text { color: #777; }
 
-.companies { margin-top: 210px; background: #FFF -webkit-linear-gradient(70deg, rgba(0, 0, 0, 0.2) 0%, transparent 30%); background: #FFF linear-gradient(20deg, rgba(0, 0, 0, 0.2) 0%, transparent 30%); }
+.companies { margin-top: 210px; background: #FFF -webkit-linear-gradient(70deg, rgba(0, 0, 0, 0.2) 0%, transparent 30%); background: #FFF linear-gradient(20deg, rgba(0, 0, 0, 0.2) 0%, transparent 30%); position: relative; }
 
-.companies__inner { padding-top: 35px; padding-bottom: 140px; background: url("../img/companies-bg.png") no-repeat 70px 100%; *zoom: 1; }
+.companies__video { position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; }
+
+.companies__video video { position: absolute; bottom: 0; left: -130px; max-width: 100%; }
+
+.companies__inner { position: relative; z-index: 1; padding-top: 35px; padding-bottom: 140px; *zoom: 1; }
 
 .companies__inner:after { content: " "; display: table; clear: both; }
 
@@ -889,7 +899,9 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .contacts__map { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: 0; background: url("../img/map.jpg") no-repeat center; background-size: cover; }
 
-.contacts__inner { position: relative; z-index: 1; padding-top: 220px; padding-bottom: 95px; }
+.contacts__map .gmnoprint { display: none; }
+
+.contacts__inner { position: relative; z-index: 1; }
 
 .contacts__container { position: absolute; top: 220px; left: 20px; pointer-events: none; }
 
@@ -972,6 +984,10 @@ a.slider-item__title:hover { color: #21DBB2; }
 .header:after { content: " "; display: table; clear: both; }
 
 @media only screen and (min-width: 1300px) { .header { max-width: none; padding-left: 80px; padding-right: 80px; } }
+
+.header.hide { opacity: 0; }
+
+.header.transition { -webkit-transition: opacity 1s linear; transition: opacity 1s linear; }
 
 .header.fixed { position: fixed; z-index: 99; top: 0; left: 0; right: 0; padding-top: 25px; padding-bottom: 25px; min-width: 1180px; }
 
