@@ -36,8 +36,8 @@ module.exports = ->
     duration: '100%'
     triggerHook: 'onLeave'
     triggerElement: 'body'
-  .on 'start', (e) ->
-    $('.header, .toparea').addClass 'draw'
+  # .on 'start', (e) ->
+  #   $('.header, .toparea').addClass 'draw'
   .on 'progress', (e) ->
     topareaVideo.zoomOut e.progress
   .on 'end', (e) ->

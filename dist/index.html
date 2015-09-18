@@ -135,7 +135,13 @@
 
       <!-- BEGIN toparea -->
       <div class="toparea">
-        <div class="toparea__video"></div>
+        <div class="toparea__video">
+          <video class="video" id="toparea-video" autobuffer autoloop loop>
+            <source src="video/java.mp4" type="video/mp4">
+            <source src="video/java.ogv" type="video/ogg">
+            <source src="video/java.webm" type="video/webm">
+          </video>
+        </div>
         <div class="toparea__inner">
           <div class="toparea__center">
             <!-- BEGIN intro -->
@@ -639,6 +645,13 @@
 
           <!-- BEGIN companies -->
           <section class="companies">
+            <div class="companies__video">
+              <video id="companies-video" autobuffer autoloop loop autoplay>
+                <source src="video/1.mp4" type="video/mp4">
+                <source src="video/1.ogv" type="video/ogg">
+                <source src="video/1.webm" type="video/webm">
+              </video>
+            </div>
             <div class="companies__inner l">
               <div class="companies__header">
                 <h3 class="companies__title" data-parallax='{"delta":-100,"shift":50}'>Компании <small class="title-small">в которых работают наши студенты</small></h3>
@@ -1194,7 +1207,7 @@
           <section class="contacts">
             <div id="map" class="contacts__map"></div>
             <div class="contacts__inner l">
-              <h3 class="contacts__title" data-parallax='{"delta":-100,"shift":50}'>Контакты</h3>
+              <h3 class="contacts__title" data-parallax='{"delta":-100,"shift":80}'>Контакты</h3>
               <div class="contacts__container">
                 <p class="contacts__address address">
                   <span class="address__row1">Киев</span>

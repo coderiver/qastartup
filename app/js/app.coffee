@@ -13,8 +13,27 @@ SliderBox        = require './modules/slider-box'
 # modules as jQuery plugins
 require('./plugins/accordion')($)
 
-Pace.on 'hide', ->
-  console.log 'hide'
+toparea = $('.toparea__inner, .header')
+
+makeTopareaInvisible = ->
+  toparea.addClass 'hide'
+
+makeTopareaVisible = ->
+  toparea
+    .addClass 'transition'
+    .removeClass 'hide'
+  setTimeout ->
+    toparea
+      .removeClass 'transition'
+      .addClass 'draw'
+  , 1500
+
+# start play video and show toparea after preloader
+Pace.on 'done', ->
+  $('#toparea-video')[0].play()
+  setTimeout ->
+    do makeTopareaVisible
+  , 1000
 
 
 $ ->
@@ -22,6 +41,9 @@ $ ->
   do header.init
   do initTestimonials
   do initScrollScenes
+  require('./modules/map')()
+
+  do makeTopareaInvisible
 
 
   $('.faq__list').accordion
@@ -33,7 +55,6 @@ $ ->
     formContainer = $('.question__form')
     formContainer.slideToggle 500, ->
       formContainer.toggleClass 'draw'
-
 
   $('.partners__list').slick
     slidesToShow: 5
@@ -60,4 +81,3 @@ $ ->
     valuesIncome: [500, 1500, 2350, 3200]
     valuesDemand: [800, 3000, 2000, 200]
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
-

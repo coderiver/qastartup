@@ -16,6 +16,10 @@
   table-layout: fixed
   position: relative
   z-index: 1
+  &.hide
+    opacity: 0
+  &.transition
+    transition: opacity 1s linear
 
 .toparea__center
   position: relative
@@ -37,8 +41,16 @@
   height: 100%
   background: #646566 img-url('toparea-bg.jpg') no-repeat center
   background-size: cover
+  overflow: hidden
   +shadow
 
+.video
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  min-height: 100%
+  min-width: 100%
 
 .intro__top-text
   display: inline-block
@@ -858,11 +870,27 @@ a.slider-item__title
 .companies
   margin-top: 210px
   background: #FFF linear-gradient(20deg, rgba(0,0,0,0.2) 0%, transparent 30%)
+  position: relative
+
+.companies__video
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  video
+    position: absolute
+    bottom: 0
+    left: -130px
+    max-width: 100%
 
 .companies__inner
+  position: relative
+  z-index: 1
   padding-top: 35px
   padding-bottom: 140px
-  background: img-url('companies-bg.png') no-repeat 70px 100%
+  // background: img-url('companies-bg.png') no-repeat 70px 100%
   +clr
 
 .companies__title
@@ -1398,12 +1426,14 @@ a.slider-item__title
   bottom: 0
   background: img-url('map.jpg') no-repeat center
   background-size: cover
+  .gmnoprint
+    display: none
 
 .contacts__inner
   position: relative
   z-index: 1
-  padding-top: 220px
-  padding-bottom: 95px
+  // padding-top: 220px
+  // padding-bottom: 95px
 
 .contacts__container
   position: absolute
