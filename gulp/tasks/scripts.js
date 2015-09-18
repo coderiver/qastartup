@@ -14,8 +14,9 @@ var _           = require('lodash');
 var reload      = require('browser-sync').reload;
 var config      = require('../config');
 
-var appBundleName    = 'app.js';
-var vendorBundleName = 'vendor.js';
+var bundles = ['app', 'preloader'];
+var vendorBundleName = 'vendor';
+
 
 var props = {
     dest: [config.dest.js],
@@ -71,12 +72,30 @@ function bundle(bundler, outputName) {
 gulp.task('scripts', ['scripts:app', 'scripts:vendor']);
 
 gulp.task('scripts:app', function() {
-    var bundler = browserify(props);
-    getVendorPackagesManifest().forEach(function(module) {
-        bundler.external(module.expose);
+    bundles.forEach(function(bundleName) {
+        console.log(bundleName);
+        var bundler = browserify(props);
+        getVendorPackagesManifest().forEach(function(module) {
+            bundler.external(module.expose);
+        });
+        bundler.add(path.join(config.src.js, (bundleName + '.coffee')));
+        return bundle(bundler, (bundleName + '.js'));
     });
-    bundler.add(path.join(config.src.js, 'app.coffee'));
-    return bundle(bundler, appBundleName);
+});
+
+gulp.task('scripts:watch', function() {
+    bundles.forEach(function(bundleName) {
+        var bundler = watchify(browserify(props));
+        getVendorPackagesManifest().forEach(function(module) {
+            bundler.external(module.expose);
+        });
+        bundler.add(path.join(config.src.js, (bundleName + '.coffee')));
+        bundler.on('log', util.log);
+        bundler.on('update', function() {
+            bundle(bundler, (bundleName + '.js'));
+        });
+        return bundle(bundler, (bundleName + '.js'));
+    });
 });
 
 gulp.task('scripts:vendor', function() {
@@ -85,18 +104,5 @@ gulp.task('scripts:vendor', function() {
         bundler.require(module.path, {expose: module.expose});
         util.log('Added to vendor bundle: ', module);
     });
-    return bundle(bundler, vendorBundleName);
-});
-
-gulp.task('scripts:watch', function() {
-    var bundler = watchify(browserify(props));
-    getVendorPackagesManifest().forEach(function(module) {
-        bundler.external(module.expose);
-    });
-    bundler.add(path.join(config.src.js, 'app.coffee'));
-    bundler.on('log', util.log);
-    bundler.on('update', function() {
-        bundle(bundler, appBundleName);
-    });
-    return bundle(bundler, appBundleName);
+    return bundle(bundler, (vendorBundleName + '.js'));
 });

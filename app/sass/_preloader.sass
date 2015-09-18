@@ -7,8 +7,12 @@
   bottom: 0
   background: #FFF
   text-align: center
+  transition: opacity 0.5s ease
   .intro__top-text
     color: #BEBEBE
+  &.fade-out
+    opacity: 0
+
 
 .preloader__backlayer
   height: 100%
@@ -33,6 +37,7 @@
   color: #FFF
   overflow: hidden
   white-space: nowrap
+  transition: width 0.2s linear
   &:before
     content: ""
     display: inline-block

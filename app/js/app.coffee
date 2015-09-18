@@ -13,12 +13,8 @@ SliderBox        = require './modules/slider-box'
 # modules as jQuery plugins
 require('./plugins/accordion')($)
 
-
-Pace.on 'done', ->
-  do hidePreloader
-
-hidePreloader = (cb = -> ) ->
-  $('#preloader').fadeOut 500, cb
+Pace.on 'hide', ->
+  console.log 'hide'
 
 
 $ ->
