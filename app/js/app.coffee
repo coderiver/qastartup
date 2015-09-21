@@ -10,9 +10,11 @@ require('./plugins/input-field')(jQuery)
 header           = require './modules/header'
 initScrollScenes = require './modules/scroll-scenes'
 initTestimonials = require './modules/testimonials'
-openModal        = require './modules/modal'
+initMap          = require './modules/map'
 Graph            = require './modules/graph'
 SliderBox        = require './modules/slider-box'
+initPlayerApi    = require('./modules/player').initPlayerApi
+ModalPlayer      = require('./modules/player').ModalPlayer
 
 toparea = $('.toparea__inner, .header')
 
@@ -45,13 +47,13 @@ Pace.on 'done', ->
   , 1000
 
 
-$ ->
+$(document).ready ->
 
   do header.init
   do initTestimonials
   do initScrollScenes
   do makeTopareaInvisible
-  # require('./modules/map')()
+  do initMap
 
 
   $('.faq__list').accordion
@@ -105,14 +107,12 @@ $ ->
     $(this).parents('.show-msg').removeClass 'show-msg'
 
 
-
   # graph init
   graph = new Graph '.stats__graph',
     valuesIncome: [500, 1500, 2350, 3200]
     valuesDemand: [800, 3000, 2000, 200]
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
 
-  # modal window
-  $('[data-modal]').on 'click', (e) ->
-    do e.preventDefault
-    openModal $(this).data('modal')
+  # modal youtube player
+  new ModalPlayer '#player', '.toparea .play-button'
+  do initPlayerApi

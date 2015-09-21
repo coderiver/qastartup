@@ -31,12 +31,8 @@ class Parallax
 
   move: (progress) ->
     val = Math.round(@props.delta * progress)
-    # @el.stop().transition
-    #   transform: "translate3d(0, #{val}px, 0)"
-    # , 10, 'linear'
     @el.css
       transform: "translate3d(0, #{val}px, 0)"
-
 
 
 module.exports = Parallax
