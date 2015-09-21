@@ -152,7 +152,7 @@
             </div>
             <!-- END intro -->
 
-            <button class="play-button icon icon-play" type="button"><span class="hidden-text">Смотреть видео</span></button>
+            <button class="play-button icon icon-play" type="button" data-modal="#video"></button>
 
             <button class="btn -width-250 -height-sm" type="button">
 
@@ -547,15 +547,15 @@
         </section>
         <!-- END advantages -->
 
+        <!-- BEGIN content-layer-1 -->
         <div class="content-layer-1">
-
           <!-- BEGIN nomination -->
           <section class="nomination l">
             <div class="nomination__layer-1">
-              <img src="img/nomination-layer-1.png" height="455" width="507">
+              <img src="img/nomination1.png" height="485" width="515" alt="">
             </div>
             <div class="nomination__layer-2" data-parallax="-100">
-              <img src="img/nomintation-layer-2.png" height="474" width="373">
+              <img src="img/nomination2.png" height="447" width="269" alt="">
             </div>
             <div class="nomination__layer-3" data-parallax="-200">
               <div class="banner-title">
@@ -906,11 +906,11 @@
                 <div class="form-wrapper">
                   <form class="form" id="callback-form">
                     <div class="field">
-                      <input class="input" type="text" name="name" id="name">
+                      <input class="input" type="text" name="name" id="name" data-validetta="required">
                       <label class="input-label" for="name">Ваше имя</label>
                     </div>
                     <div class="field">
-                      <input class="input" type="tel" name="name" id="tel">
+                      <input class="input" type="tel" name="name" id="tel" data-validetta="required">
                       <label class="input-label" for="tel">Ваш номер телефона</label>
                     </div>
 
@@ -1112,17 +1112,17 @@
                 <div class="form-wrapper">
                   <form class="form" id="question-form">
                     <div class="field">
-                      <input class="input" type="text" name="name" id="field-name">
+                      <input class="input" type="text" name="name" id="field-name" data-validetta="required">
                       <label class="input-label" for="field-name">Ваше имя</label>
-
+                      <span class="field__error">Поле обязательно для заполнения</span>
                     </div>
                     <div class="field">
-                      <input class="input" type="tel" name="phone" id="field-phone">
+                      <input class="input" type="tel" name="phone" id="field-phone" data-validetta="required">
                       <label class="input-label" for="field-phone">Ваш номер телефона</label>
-
+                      <span class="field__error">Поле обязательно для заполнения</span>
                     </div>
                     <div class="field">
-                      <input class="input" type="text" name="phone" id="field-question">
+                      <input class="input" type="text" name="question" id="field-question">
                       <label class="input-label" for="field-question">Ваш вопрос</label>
 
                     </div>
@@ -1233,6 +1233,7 @@
           <!-- END contacts -->
 
         </div>
+        <!-- END content-layer-1 -->
       </div>
       <!-- END content-wrapper -->
 
@@ -1292,6 +1293,17 @@
       </footer>
       <!-- END footer -->
 
+      <!-- BEGIN modal -->
+      <div class="modal" id="video">
+        <div class="modal__inner">
+          <div class="modal__body">
+            <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
+            <p>Modal content</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- END modal -->
     </div>
     <!-- END out -->
 
