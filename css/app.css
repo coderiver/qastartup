@@ -44,7 +44,7 @@ body { -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; }
 
 @font-face { font-family: "iconfont"; src: url("../fonts/iconfont.eot"); src: url("../fonts/iconfont.eot?#iefix") format("eot"), url("../fonts/iconfont.woff") format("woff"), url("../fonts/iconfont.woff2") format("woff2"), url("../fonts/iconfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 
-.icon, .carousel-prev:before, .carousel-next:before, .course-programm__item:before, .faq-item__button:after { font-family: "iconfont"; font-style: normal; font-weight: normal; text-rendering: auto; speak: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.icon, .carousel-prev:before, .carousel-next:before, .course-programm__item:before, .faq-item__button:after, .modal__close:before { font-family: "iconfont"; font-style: normal; font-weight: normal; text-rendering: auto; speak: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 .icon { display: inline-block; }
 
@@ -74,21 +74,23 @@ body { -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; }
 
 .icon-chevron-up:before { content: ""; }
 
-.icon-close:before { content: ""; }
+.icon-close-thin:before { content: ""; }
 
-.icon-facebook:before { content: ""; }
+.icon-close:before { content: ""; }
 
-.icon-linkedin:before { content: ""; }
+.icon-facebook:before { content: ""; }
 
-.icon-play:before { content: ""; }
+.icon-linkedin:before { content: ""; }
 
-.icon-refresh:before { content: ""; }
+.icon-play:before { content: ""; }
 
-.icon-twitter:before { content: ""; }
+.icon-refresh:before { content: ""; }
 
-.icon-vk:before { content: ""; }
+.icon-twitter:before { content: ""; }
 
-.icon-youtube:before { content: ""; }
+.icon-vk:before { content: ""; }
+
+.icon-youtube:before { content: ""; }
 
 .preloader { position: fixed; z-index: 9999; top: 0; left: 0; right: 0; bottom: 0; background: #FFF; text-align: center; -webkit-transition: opacity 0.5s ease; transition: opacity 0.5s ease; }
 
@@ -140,6 +142,18 @@ body { -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; }
 .slick-loading .slick-slide { visibility: hidden; }
 
 .slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; }
+
+.validetta-bubble { position: absolute; background-color: #cd2e26; max-width: 325px; border-radius: 5px; color: white; padding: 5px 12px; z-index: 9; }
+
+.validetta-bubble:before { content: ''; position: absolute; display: block; height: 0; width: 0; border-width: 5px; border-style: solid; }
+
+.validetta-bubble--right:before { top: 7px; left: -10px; border-color: transparent #cd2e26 transparent transparent; }
+
+.validetta-bubble--bottom:before { top: -10px; left: 10px; border-color: transparent transparent #cd2e26 transparent; }
+
+.validetta-inline, .validetta-bubble { display: block; font: 12px/14px Arial, Helvetica, sans-serif; }
+
+.validetta-inline { color: #cd2e26; }
 
 body { background: #2F2F2F; color: #FFF; min-width: 1180px; font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; line-height: 1.22; }
 
@@ -312,6 +326,8 @@ a { color: inherit; }
 .field.is-filled .input-label { -webkit-transform: translate3d(0, -1.3em, 0) scale(0.65); transform: translate3d(0, -1.3em, 0) scale(0.65); color: #777; }
 
 .field.is-error .input { border-color: #BE4545; color: #BE4545; }
+
+.field.is-error .input-label { color: #BE4545; }
 
 .field.is-error .field__error { display: block; }
 
@@ -555,7 +571,7 @@ a { color: inherit; }
 
 .course-programm__item:first-child { margin-top: 0; }
 
-.course-programm__item:before { content: ""; position: absolute; top: 7px; left: 0; font-size: 0.7em; }
+.course-programm__item:before { content: ""; position: absolute; top: 7px; left: 0; font-size: 0.7em; }
 
 .course-programm__item.-checked { color: #CCC; }
 
@@ -641,9 +657,9 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .nomination { padding-top: 120px; position: relative; }
 
-.nomination__layer-1 { position: absolute; z-index: 0; top: -235px; right: 189px; }
+.nomination__layer-1 { position: absolute; z-index: 0; top: -210px; right: 210px; }
 
-.nomination__layer-2 { position: absolute; z-index: 1; top: -128px; right: 61px; }
+.nomination__layer-2 { position: absolute; z-index: 1; top: -100px; right: 135px; }
 
 .nomination__layer-3 { position: relative; z-index: 2; }
 
@@ -1021,6 +1037,8 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .header.animate .header__panel .phone-number { -webkit-transition: -webkit-transform 0.3s ease; transition: transform 0.3s ease; }
 
+.header.open-step-1 { height: 100%; }
+
 .header.open-step-1:before { -webkit-transition-delay: 0.1s; transition-delay: 0.1s; }
 
 .header.open-step-1 .header__nav { display: block; -webkit-transition: opacity 0.2s linear; transition: opacity 0.2s linear; opacity: 0; }
@@ -1086,5 +1104,21 @@ a.slider-item__title:hover { color: #21DBB2; }
 .graph-grid { stroke: #F7F7F7; opacity: 0.1; }
 
 .graph-point-label { font-size: 14px; fill: #FFF; }
+
+.modal { display: none; position: fixed; z-index: 100; background: #2F2F2F; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+
+.modal.is-open .modal__inner { opacity: 1; -webkit-transform: none; -ms-transform: none; transform: none; }
+
+.modal__inner { display: table; width: 100%; height: 100%; -webkit-transform: translate(0, 100%); -ms-transform: translate(0, 100%); transform: translate(0, 100%); opacity: 0; -webkit-transition: 0.5s ease; transition: 0.5s ease; -webkit-transition-property: opacity, -webkit-transform; transition-property: opacity, transform; }
+
+.modal__body { position: relative; display: table-cell; vertical-align: middle; text-align: center; padding: 20px; width: 100%; height: 100%; overflow: auto; box-sizing: border-box; }
+
+.modal__body > img { display: block; max-width: 100%; }
+
+.modal__close { background: none; position: absolute; z-index: 2; top: 0; right: 0; padding: 20px; font-size: 20px; color: #AAA; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; }
+
+.modal__close:before { content: ""; }
+
+.modal__close:hover { color: #21DBB2; }
 
 /*# sourceMappingURL=app.css.map */
