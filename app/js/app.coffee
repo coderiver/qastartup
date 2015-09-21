@@ -94,7 +94,7 @@ $ ->
       do e.preventDefault
       form = $ this.form
       alert 'form valid'
-      # send form to server over $.ajax and show success message
+      # send form over $.ajax and show success message
       showFormMessage form
     onError: (e) ->
       alert 'form error'
@@ -106,7 +106,7 @@ $ ->
 
 
 
-  # graph
+  # graph init
   graph = new Graph '.stats__graph',
     valuesIncome: [500, 1500, 2350, 3200]
     valuesDemand: [800, 3000, 2000, 200]
