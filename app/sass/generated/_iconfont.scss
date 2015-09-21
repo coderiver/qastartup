@@ -16,14 +16,15 @@ $icon-arrow-up: "\EA04";
 $icon-check: "\EA05";
 $icon-chevron-down: "\EA06";
 $icon-chevron-up: "\EA07";
-$icon-close: "\EA08";
-$icon-facebook: "\EA09";
-$icon-linkedin: "\EA0A";
-$icon-play: "\EA0B";
-$icon-refresh: "\EA0C";
-$icon-twitter: "\EA0D";
-$icon-vk: "\EA0E";
-$icon-youtube: "\EA0F";
+$icon-close-thin: "\EA08";
+$icon-close: "\EA09";
+$icon-facebook: "\EA0A";
+$icon-linkedin: "\EA0B";
+$icon-play: "\EA0C";
+$icon-refresh: "\EA0D";
+$icon-twitter: "\EA0E";
+$icon-vk: "\EA0F";
+$icon-youtube: "\EA10";
 
 
 %icon {
@@ -63,6 +64,7 @@ $icon-youtube: "\EA0F";
 .icon-check:before { content: $icon-check; }
 .icon-chevron-down:before { content: $icon-chevron-down; }
 .icon-chevron-up:before { content: $icon-chevron-up; }
+.icon-close-thin:before { content: $icon-close-thin; }
 .icon-close:before { content: $icon-close; }
 .icon-facebook:before { content: $icon-facebook; }
 .icon-linkedin:before { content: $icon-linkedin; }

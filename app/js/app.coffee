@@ -6,6 +6,7 @@ require 'slick-carousel'
 header           = require './modules/header'
 initScrollScenes = require './modules/scroll-scenes'
 initTestimonials = require './modules/testimonials'
+openModal        = require './modules/modal'
 Graph            = require './modules/graph'
 Form             = require './modules/form'
 SliderBox        = require './modules/slider-box'
@@ -41,7 +42,7 @@ $ ->
   do header.init
   do initTestimonials
   do initScrollScenes
-  require('./modules/map')()
+  # require('./modules/map')()
 
   do makeTopareaInvisible
 
@@ -81,3 +82,7 @@ $ ->
     valuesIncome: [500, 1500, 2350, 3200]
     valuesDemand: [800, 3000, 2000, 200]
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
+
+  $('[data-modal]').on 'click', (e) ->
+    do e.preventDefault
+    openModal $(this).data('modal')
