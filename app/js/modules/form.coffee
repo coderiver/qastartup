@@ -1,5 +1,4 @@
-$ = require 'jquery'
-# require 'jquery.maskedinput'
+# require 'validetta'
 
 class InputField
   defaults =
@@ -12,13 +11,13 @@ class InputField
     return @
 
   init: (selector, options) ->
-    @props  = $.extend {}, defaults, options
-    @input  = if selector instanceof $ then selector else $(selector)
-    @field  = @input.parent()
-    @label  = @input.siblings 'label'
+    @props = $.extend {}, defaults, options
+    @input = if selector instanceof $ then selector else $(selector)
+    @field = @input.parent()
+    @label = @input.siblings 'label'
     @dirty = no
-    @valid  = no
-    @error  = no
+    @valid = no
+    @error = no
 
     if @input[0].type is 'tel' then do @_initPhoneNumberMask
     do @_initEvents

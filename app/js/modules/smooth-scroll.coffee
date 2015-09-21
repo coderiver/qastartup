@@ -1,4 +1,4 @@
-$        = require 'jquery'
+# $        = require 'jquery'
 # throttle = require 'lodash/function/throttle'
 # debounce = require 'lodash/function/debounce'
 

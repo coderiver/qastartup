@@ -7,17 +7,17 @@
       <div class="form-wrapper">
         <form class="form" id="question-form">
           <div class="field">
-            <input class="input" type="text" name="name" id="field-name">
+            <input class="input" type="text" name="name" id="field-name" data-validetta="required">
             <label  class="input-label" for="field-name">Ваше имя</label>
-            {# <span class="field__error">Обязательно для заполнения</span> #}
+            <span class="field__error">Поле обязательно для заполнения</span>
           </div>
           <div class="field">
-            <input class="input" type="tel" name="phone" id="field-phone">
+            <input class="input" type="tel" name="phone" id="field-phone" data-validetta="required">
             <label  class="input-label" for="field-phone">Ваш номер телефона</label>
-            {# <span class="field__error">Обязательно для заполнения</span> #}
+            <span class="field__error">Поле обязательно для заполнения</span>
           </div>
           <div class="field">
-            <input class="input" type="text" name="phone" id="field-question">
+            <input class="input" type="text" name="question" id="field-question">
             <label  class="input-label" for="field-question">Ваш вопрос</label>
             {# <span class="field__error">Ваш вопрос сформулирован некорректно</span> #}
           </div>

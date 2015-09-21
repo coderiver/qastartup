@@ -1,4 +1,4 @@
-$        = jQuery = require 'jquery'
+# $        = jQuery = require 'jquery'
 SM       = require './scroll-controller'
 ZoomOut  = require './zoom-out'
 Parallax = require './parallax'

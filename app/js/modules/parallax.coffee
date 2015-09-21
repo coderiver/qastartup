@@ -1,4 +1,4 @@
-$ = jQuery = require 'jquery'
+# $ = jQuery = require 'jquery'
 
 class Parallax
   defaults =

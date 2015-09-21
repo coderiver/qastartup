@@ -1,4 +1,4 @@
-$ = jQuery = require 'jquery'
+# $ = jQuery = require 'jquery'
 # require 'jquery.transit'
 
 class ZoomOut

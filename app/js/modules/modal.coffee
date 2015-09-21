@@ -1,4 +1,4 @@
-$ = require 'jquery'
+# $ = require 'jquery'
 
 openModal = (selector) ->
   modal     = if selector instanceof $ then selector else $(selector)

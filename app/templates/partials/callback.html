@@ -14,11 +14,11 @@
       <div class="form-wrapper">
         <form class="form" id="callback-form">
           <div class="field">
-            <input class="input" type="text" name="name" id="name">
+            <input class="input" type="text" name="name" id="name" data-validetta="required">
             <label class="input-label" for="name">Ваше имя</label>
           </div>
           <div class="field">
-            <input class="input" type="tel" name="name" id="tel">
+            <input class="input" type="tel" name="name" id="tel" data-validetta="required">
             <label class="input-label" for="tel">Ваш номер телефона</label>
           </div>
           {{ mixins.btn("Получить знания", "-type-filled -width-fluid", "submit") }}

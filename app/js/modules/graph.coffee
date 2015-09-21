@@ -1,4 +1,4 @@
-$        = require 'jquery'
+# $        = require 'jquery'
 s        = require 'snapsvg'
 SM       = require './scroll-controller'
 debounce = require 'lodash/function/debounce'
