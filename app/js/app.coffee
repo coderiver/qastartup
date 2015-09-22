@@ -54,7 +54,7 @@ $(document).ready ->
   do initTestimonials
   do initScrollScenes
   do makeTopareaInvisible
-  # do initMap
+  do initMap
 
 
   $('.faq__list').accordion

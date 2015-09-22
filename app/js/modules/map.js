@@ -242,11 +242,9 @@ mapStyle = [
 
 pointsOnMap = [
     [50.453000, 30.445960, 1, {
-        'head'    : 'QA Startup',
-        'address' : 'address 1',
-        'tel'     : '0800-800-800',
-        'open'    : '8:30AM - 5:00PM',
-        'common'  : 'some text'
+        'head'    : 'Учебный центр «QAStartUP»',
+        'address' : 'Адрес: Вадима Гетьмана, 1-Б',
+        'tel'     : 'Телефон: (096) 255-45-49, (093) 615-30-90'
     }],
 ];
 
@@ -286,8 +284,6 @@ function composeInfoWindowContent(data) {
             '<li class="marker-info__head">'     + data.head    + '</li>' +
             '<li class="marker-info__address">'  + data.address + '</li>' +
             '<li class="marker-info__tel">'      + data.tel     + '</li>' +
-            '<li class="marker-info__open">'     + data.open    + '</li>' +
-            '<li class="marker-info__common">'   + data.common  + '</li>' +
         '</ul>';
     }
 
@@ -303,6 +299,9 @@ window.initMapInContactsArea = function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     var mapMarkers = setMarkers(map, pointsOnMap);
+    var mapInfoWindow = new google.maps.InfoWindow();
+
+    setInfoWindowContent(mapMarkers, mapInfoWindow);
 }
 
 function loadScript() {
