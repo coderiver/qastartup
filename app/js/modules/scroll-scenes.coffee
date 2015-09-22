@@ -2,6 +2,7 @@
 SM       = require './scroll-controller'
 ZoomOut  = require './zoom-out'
 Parallax = require './parallax'
+Number   = require './number'
 
 module.exports = ->
 
@@ -58,12 +59,24 @@ module.exports = ->
 
   # courses scrollscene
   $coursesContainer = $ '.courses__container'
+  courcesNumber = new Number $coursesContainer.find('.course-note__value > span'),
+    initValue: 0
+    targetValue: 87
+    duration: 2000
+
   SM.addScene
-    offset: 100
-    triggerHook: 'onCenter'
-    triggerElement: '.courses__container'
+    offset: 250
+    duration: 330
+    triggerHook: 'onEnter'
+    triggerElement: $coursesContainer[0]
   .on 'start', (e) ->
-    $coursesContainer.toggleClass 'draw'
+    $coursesContainer.find('.course__head, .course__body').toggleClass 'draw'
+    if e.scrollDirection is 'FORWARD'
+      setTimeout ->
+        do courcesNumber.start
+      , 600
+  .on 'end', (e) ->
+    $coursesContainer.find('.course__footer').toggleClass 'draw'
 
 
   # nominatin scrollscene
@@ -97,6 +110,16 @@ module.exports = ->
       triggerHook: 'onCenter'
       triggerElement: el
     .setClassToggle el, 'draw'
+
+  # increase numbers
+  $('[data-number]').each (index, el) ->
+    number = new Number $(el)
+    SM.addScene
+      offset: 150
+      triggerHook: 'onEnter'
+      triggerElement: el
+    .on 'start', (e) ->
+      do number.start if not number.animated
 
 
 
