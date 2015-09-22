@@ -5,21 +5,21 @@ debounce = require 'lodash/function/debounce'
 
 class Graph
   defaults =
-    valuesIncome: [500, 1500, 2350, 3200]
-    valuesDemand: [1000, 2650, 2000, 500]
+    values1: [500, 1500, 2350, 3200]
+    values2: [456, 1140, 720, 187]
     valuesInitial: null
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
-    buttonIncome: $('.stats__buttons button').first()
-    buttonDemand: $('.stats__buttons button').last()
+    button1: $('.stats__buttons button').first()
+    button2: $('.stats__buttons button').last()
     width: '100%'
     maxWidth: 1140
     minWidth: 1140
     height: 400
     paddingY: 20
     pointRadius: 3.5
-    yStart: 0
-    yMax: 4000
-    yStep: 500
+    yMax1: 4000
+    yStep1: 500
+    yMax2: 1600
     eventName: 'graphReady'
 
 
@@ -33,17 +33,17 @@ class Graph
     @maxY         = @props.height + @props.paddingY
     @paper        = s @props.width, (@props.height + @props.paddingY * 2)
     @container    = if selector instanceof $ then selector else $(selector)
-    @buttonIncome = if @props.buttonIncome instanceof $ then @props.buttonIncome else $(@props.buttonIncome)
-    @buttonDemand = if @props.buttonDemand instanceof $ then @props.buttonDemand else $(@props.buttonDemand)
+    @button1 = if @props.button1 instanceof $ then @props.button1 else $(@props.button1)
+    @button2 = if @props.button2 instanceof $ then @props.button2 else $(@props.button2)
     @stateInitial = { name: 'initial' }
-    @stateIncome  = { name: 'income' }
-    @stateDemand  = { name: 'demand' }
+    @state1  = { name: 'state1' }
+    @state2  = { name: 'state2' }
     @currentState = @stateInitial
     @active       = off
     @isReady      = no
     @inProgress   = no
 
-    @props.valuesInitial ?= @props.valuesIncome.map -> return 0
+    @props.valuesInitial ?= @props.values1.map -> return 0
 
     @paper.node.style.display      = 'block'
     @paper.node.style.marginTop    = -@props.paddingY
@@ -55,18 +55,23 @@ class Graph
     do @_buildScene
 
 
-  changeState: (state, duration = 1000, cb) ->
+  changeState: (state, duration = 800, cb) ->
+    easing = mina.easein
     return if @inProgress
     @inProgress = on
-    @line.animate { path: state.linePath }, duration, mina.easein
-    @fill.animate { path: state.fillPath }, duration, mina.easein, =>
+    @line.animate { path: state.linePath }, duration, easing
+    @fill.animate { path: state.fillPath }, duration, easing, =>
       @inProgress = off
-      @currentState = state
       cb() if typeof cb is 'function'
+
+    @currentState.axisYGroup.animate { opacity: 0 }, duration / 2, easing, ->
+      state.axisYGroup.animate { opacity: 1 }, duration / 2, easing
 
     if @pointsGroups?
       @pointsGroups.forEach (group, index) =>
         @_changePointPosition state, index, duration
+
+    @currentState = state
 
 
 
@@ -79,7 +84,7 @@ class Graph
       @_drawPoints off
     else
       setTimeout =>
-        @changeState @stateIncome, 1000, @_drawPoints
+        @changeState @state1, null, @_drawPoints
       , 1000
     @active = on
 
@@ -91,13 +96,24 @@ class Graph
 
 
   _drawGrid: ->
-    axisYGroup = @axisYGroup = @paper.g()
-    gridGroup  = @gridGroup = @paper.g()
-    initialX   = @paddingX
-    height     = @props.height
+    axisYGroup1   = @state1.axisYGroup = @stateInitial.axisYGroup = @paper.g()
+    axisYGroup2   = @state2.axisYGroup = @paper.g()
+    gridGroup     = @gridGroup = @paper.g()
+    initialX      = @paddingX
+    height        = @props.height
+    axisLabelAttr =
+      alignmentBaseline: 'middle'
+      fontSize: 14
+      fill: 'rgba(255, 255, 255, 0.3)'
+      class: 'graph-axis-label'
 
-    axisYGroup.attr
+    axisYGroup1.attr
       class: 'graph-axis-y'
+      opacity: 0
+
+    axisYGroup2.attr
+      class: 'graph-axis-y'
+      opacity: 0
 
     gridGroup
       .addClass 'graph-grid'
@@ -106,7 +122,8 @@ class Graph
         opacity: 0.1
         strokeWidth: 1
 
-    range = (i for i in [@props.yStart..@props.yMax] by @props.yStep)
+    range1 = (i for i in [0..@props.yMax1] by @props.yStep1)
+    range2 = (i for i in [0..@props.yMax2] by (@props.yMax2 / (range1.length - 1)))
 
     drawLineBefore = (x, y) ->
       gridGroup.line x - 27, y, 0, y
@@ -114,15 +131,14 @@ class Graph
     drawLineAfter = (x, y) ->
       gridGroup.line x + 73, y, '100%', y
 
-    for value, index in range
-      y = @minY + height - index * height / (range.length - 1)
-      axisYGroup
+    for value, index in range1
+      y = @minY + height - index * height / (range1.length - 1)
+      axisYGroup1
         .text initialX, y, "$#{value}"
-        .attr
-          alignmentBaseline: 'middle'
-          fontSize: 14
-          fill: 'rgba(255, 255, 255, 0.3)'
-          class: 'graph-axis-label'
+        .attr axisLabelAttr
+      axisYGroup2
+        .text initialX, y, "#{range2[index]}"
+        .attr axisLabelAttr
       drawLineBefore initialX, y
       drawLineAfter initialX, y
 
@@ -150,8 +166,8 @@ class Graph
         class: 'graph-path-fill'
 
 
-  _drawPoints: (animations = on) =>
-    timeout =  if animations is on then 500 else 0
+  _drawPoints: (animations = on, sequence = off) =>
+    timeout =  if animations and sequence then 500 else 0
     @pointsGroups = []
 
     @currentState.points.forEach (point, index, arr) =>
@@ -213,6 +229,7 @@ class Graph
   _renderState: (state = @currentState) ->
     @line.attr path: state.linePath
     @fill.attr path: state.fillPath
+    state.axisYGroup.attr opacity: 1
 
 
   _initEvents: ->
@@ -221,49 +238,55 @@ class Graph
 
       $(window).on 'resize', debounce(@refresh, 200).bind(@)
 
-      @buttonIncome.on 'click', (e) =>
+      @button1.on 'click', (e) =>
         do e.preventDefault
-        @buttonDemand.removeClass 'is-active'
-        @buttonIncome.addClass 'is-active'
-        @changeState @stateIncome
+        @button2.removeClass 'is-active'
+        @button1.addClass 'is-active'
+        @changeState @state1
 
-      @buttonDemand.on 'click', (e) =>
+      @button2.on 'click', (e) =>
         do e.preventDefault
-        @buttonDemand.addClass 'is-active'
-        @buttonIncome.removeClass 'is-active'
-        @changeState @stateDemand
+        @button2.addClass 'is-active'
+        @button1.removeClass 'is-active'
+        @changeState @state2
 
 
   _calculations: ->
-    width           = @container[0].clientWidth
-    maxWidth        = @props.maxWidth
-    minWidth        = Math.min(maxWidth, width)
-    @paddingX       = if width > maxWidth then (width - maxWidth) / 2 else 0
+    width       = @container[0].clientWidth
+    maxWidth    = @props.maxWidth
+    minWidth    = Math.min(maxWidth, width)
+    @paddingX   = if width > maxWidth then (width - maxWidth) / 2 else 0
 
-    @divisionValueX = minWidth / (@props.valuesIncome.length + 1)
-    @divisionValueY = @props.height / @props.yMax
+    @divisionValueX = minWidth / (@props.values1.length + 1)
+    @divisionValueY = @props.height / @props.yMax1
 
     # function to transform values in coordinates
-    coordinates = (value, index) =>
+    coordinates = (value, index, multiplier = 1) =>
       return {
         x: @paddingX + @divisionValueX * (index + 1)
-        y: @minY + @props.height - value * @divisionValueY
+        y: @minY + @props.height - value * multiplier * @divisionValueY
       }
 
-    # calc coordinates for each point on graph on different state
-    @stateInitial.points = @props.valuesInitial.map coordinates
-    @stateIncome.points  = @props.valuesIncome.map coordinates
-    @stateDemand.points  = @props.valuesDemand.map coordinates
+    # calc multiplier for y coordinate for each point on graph in different state
+    @stateInitial.yMultiplier = 1
+    @state1.yMultiplier       = 1
+    @state2.yMultiplier       = @props.yMax1 / @props.yMax2
+
+    # calc coordinates for each point on graph in different state
+    @stateInitial.points = @props.valuesInitial.map (value, index) => coordinates(value, index, @stateInitial.yMultiplier)
+    @state1.points       = @props.values1.map (value, index) => coordinates(value, index, @state1.yMultiplier)
+    @state2.points       = @props.values2.map (value, index) => coordinates(value, index, @state2.yMultiplier)
 
     # create pathStroke for line path for each state
     @stateInitial.linePath = @_pointsToSVGPath @stateInitial.points, false, 'bottom'
-    @stateIncome.linePath  = @_pointsToSVGPath @stateIncome.points
-    @stateDemand.linePath  = @_pointsToSVGPath @stateDemand.points, false, 'bottom'
+    @state1.linePath       = @_pointsToSVGPath @state1.points
+    @state2.linePath       = @_pointsToSVGPath @state2.points, false, 'bottom'
 
     # create pathStroke for fill path for each state
     @stateInitial.fillPath = @_pointsToSVGPath @stateInitial.points, true, 'bottom'
-    @stateIncome.fillPath  = @_pointsToSVGPath @stateIncome.points, true
-    @stateDemand.fillPath  = @_pointsToSVGPath @stateDemand.points, true, 'bottom'
+    @state1.fillPath       = @_pointsToSVGPath @state1.points, true
+    @state2.fillPath       = @_pointsToSVGPath @state2.points, true, 'bottom'
+    console.log @
 
 
   _changePointPosition: (state, pointIndex, duration = 1000) ->

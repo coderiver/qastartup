@@ -54,7 +54,7 @@ $(document).ready ->
   do initTestimonials
   do initScrollScenes
   do makeTopareaInvisible
-  do initMap
+  # do initMap
 
 
   $('.faq__list').accordion
@@ -110,8 +110,8 @@ $(document).ready ->
 
   # graph init
   graph = new Graph '.stats__graph',
-    valuesIncome: [500, 1500, 2350, 3200]
-    valuesDemand: [800, 3000, 2000, 200]
+    values1: [500, 1500, 2350, 3200]
+    values2: [456, 1140, 720, 187]
     valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
 
   # modal youtube player
