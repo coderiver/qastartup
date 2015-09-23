@@ -106,8 +106,8 @@ module.exports = ->
   # draw borders scrollscenes
   $('.js-draw').each (index, el) ->
     SM.addScene
-      offset: $(el).data('sm-offset') or 0
-      triggerHook: 'onCenter'
+      offset: $(el).data('sm-offset') or 200
+      triggerHook: $(el).data('sm-trigger-hook') or 'onEnter'
       triggerElement: el
     .setClassToggle el, 'draw'
 

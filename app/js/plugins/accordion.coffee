@@ -9,7 +9,7 @@ module.exports = ($) ->
       @items           = @el.find options.itemSelector
       @buttons         = @el.find options.buttonSelector
       @contents        = @el.find options.contentSelector
-      @speed           = options.speed ? 300
+      @speed           = if options.speed? then options.speed else 300
       @openedItemIndex = null
       do @initEvents
 
@@ -32,13 +32,17 @@ module.exports = ($) ->
 
     openItem: (itemIndex) ->
       $(@items[itemIndex]).addClass 'is-open'
-      $(@contents[itemIndex]).slideDown @speed
+      $(@contents[itemIndex]).slideDown @speed, =>
+        do @scrollToActiveItem
 
     closeItem: (itemIndex) ->
       $(@items[itemIndex]).removeClass 'is-open'
       $(@contents[itemIndex]).slideUp @speed
 
+    scrollToActiveItem: ->
+      $('html, body').animate { scrollTop: $(@items[@openedItemIndex]).offset().top - 90 }, 500
 
   $.fn.accordion = (options) ->
     @.each (index, el) ->
       new Accordion(el, options)
+    return @
