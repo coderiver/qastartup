@@ -53,20 +53,25 @@ class Graph
 
     do @_initEvents
     do @_buildScene
+    do @renderInitialState
 
 
   changeState: (state, duration = 800, cb) ->
     easing = mina.easein
-    return if @inProgress
+    return if @inProgress or state.name is @currentState.name
     @inProgress = on
+
+    # animate line path and fill path
     @line.animate { path: state.linePath }, duration, easing
     @fill.animate { path: state.fillPath }, duration, easing, =>
       @inProgress = off
       cb() if typeof cb is 'function'
 
+    # animate change of axis Y labels
     @currentState.axisYGroup.animate { opacity: 0 }, duration / 2, easing, ->
       state.axisYGroup.animate { opacity: 1 }, duration / 2, easing
 
+    # animate positions change for each point
     if @pointsGroups?
       @pointsGroups.forEach (group, index) =>
         @_changePointPosition state, index, duration
@@ -74,25 +79,52 @@ class Graph
     @currentState = state
 
 
+  activate: ->
+    @changeState @state1, null, @_drawPoints
+    @active = on
+
 
   render: (rerender = off) ->
     do @_calculations
     do @_drawGrid
     do @_drawPaths
     if rerender
-      do @_renderState
+      do @_refreshState
       @_drawPoints off
     else
       setTimeout =>
         @changeState @state1, null, @_drawPoints
       , 1000
-    @active = on
+      @active = on
 
+  renderInitialState: ->
+    do @_calculations
+    do @_drawGrid
+    @_drawPaths @stateInitial
+    # @_showAxisY @stateInitial
+
+  # refresh: ->
+  #   return if $(window).width() <= @props.minWidth
+  #   do @paper.clear
+  #   @render on
 
   refresh: =>
     return if $(window).width() <= @props.minWidth
     do @paper.clear
-    @render on
+    do @_calculations
+    if @currentState.name is @stateInitial.name
+      do @renderInitialState
+    else
+      do @_drawGrid
+      @_drawPaths @currentState
+      do @_showAxisY
+      @_drawPoints off
+
+
+  _refreshState: (state = @currentState) ->
+    @line.attr path: state.linePath
+    @fill.attr path: state.fillPath
+    @_showAxisY state
 
 
   _drawGrid: ->
@@ -174,7 +206,9 @@ class Graph
       setTimeout =>
         group = @_drawPoint point.x, point.y, @props.valueLabels[index], animations
         @pointsGroups.push group
-        $(window).trigger @props.eventName if index is arr.length - 1
+        if index is arr.length - 1
+          $(window).trigger @props.eventName
+          @isReady = yes
       , timeout * index
 
     return @pointsGroups
@@ -226,17 +260,14 @@ class Graph
     return pointGroup
 
 
-  _renderState: (state = @currentState) ->
-    @line.attr path: state.linePath
-    @fill.attr path: state.fillPath
+  _showAxisY: (state = @currentState) ->
     state.axisYGroup.attr opacity: 1
 
 
   _initEvents: ->
-    $(window).one @props.eventName, =>
-      @isReady = yes
+    $(window).on 'resize', debounce(@refresh, 200).bind(@)
 
-      $(window).on 'resize', debounce(@refresh, 200).bind(@)
+    $(window).one @props.eventName, =>
 
       @button1.on 'click', (e) =>
         do e.preventDefault
@@ -286,7 +317,6 @@ class Graph
     @stateInitial.fillPath = @_pointsToSVGPath @stateInitial.points, true, 'bottom'
     @state1.fillPath       = @_pointsToSVGPath @state1.points, true
     @state2.fillPath       = @_pointsToSVGPath @state2.points, true, 'bottom'
-    console.log @
 
 
   _changePointPosition: (state, pointIndex, duration = 1000) ->
@@ -319,7 +349,7 @@ class Graph
     .on 'start', (e) =>
       @container.addClass 'show-graph'
       if not @active
-        do @render
+        do @activate
 
 
 
