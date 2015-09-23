@@ -604,8 +604,8 @@
 
 .slider-box
   padding: 100px 0
-  min-height: 800px
-  height: 100vh
+  // min-height: 800px
+  min-height: 100vh
   box-sizing: border-box
   position: relative
   .l
@@ -656,10 +656,18 @@
 .slider
   margin-top: 60px
   position: relative
+  &.-type-static
+    margin-bottom: 60px
+    .slider__track
+      white-space: normal
+    .slider-item
+      width: 25%
+      padding-right: 60px
 
 .slider__track
   position: relative
   white-space: nowrap
+  font-size: 0
 
 .slider-item
   position: relative
@@ -1403,7 +1411,6 @@ a.slider-item__title
     background: #424242
 
 
-
 .news__bg
   background-image: img-url('news-bg.jpg')
 
@@ -1412,6 +1419,9 @@ a.slider-item__title
   line-height: 1.2
   color: #FFF
   text-transform: uppercase
+
+.news__button-container
+  padding-left: 50%
 
 
 .contacts

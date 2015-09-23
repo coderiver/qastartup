@@ -7,6 +7,7 @@ require 'validetta'
 require 'jquery.easing'
 require('./plugins/accordion')(jQuery)
 require('./plugins/input-field')(jQuery)
+require('./plugins/hover-gallery')(jQuery)
 
 header           = require './modules/header'
 initScrollScenes = require './modules/scroll-scenes'
@@ -50,11 +51,22 @@ Pace.on 'done', ->
 
 $(document).ready ->
 
+  do makeTopareaInvisible
   do header.init
   do initTestimonials
   do initScrollScenes
-  do makeTopareaInvisible
   # do initMap
+
+
+  # graph init
+  graph = new Graph '.stats__graph',
+    values1: [500, 1500, 2350, 3200]
+    values2: [456, 1140, 720, 187]
+    valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
+
+  # modal youtube player
+  new ModalPlayer '#player', '.toparea .play-button'
+  # do initPlayerApi
 
 
   $('.faq__list').accordion
@@ -80,7 +92,7 @@ $(document).ready ->
     nextArrow: '<button type="button" class="carousel-next"></button>'
 
   # slider boxes
-  newsSliderbox = new SliderBox '.news .slider-box'
+  # newsSliderbox = new SliderBox '.news .slider-box'
   advantagesSliderBox = new SliderBox '.advantages .slider-box',
     zoomOutTrigger: '.content-layer-1'
 
@@ -108,12 +120,6 @@ $(document).ready ->
     $(this).parents('.show-msg').removeClass 'show-msg'
 
 
-  # graph init
-  graph = new Graph '.stats__graph',
-    values1: [500, 1500, 2350, 3200]
-    values2: [456, 1140, 720, 187]
-    valueLabels: ['Junior QA', 'Middle QA', 'Senior QA', 'QA Tech Lead']
-
-  # modal youtube player
-  new ModalPlayer '#player', '.toparea .play-button'
-  # do initPlayerApi
+  # news gallery
+  $('.news .slider-item__title').hoverGallery
+    container: '.news__bg'
