@@ -615,7 +615,7 @@ a { color: inherit; }
 
 .slider-box-wrapper { margin-bottom: 235px; }
 
-.slider-box { padding: 100px 0; min-height: 800px; height: 100vh; box-sizing: border-box; position: relative; }
+.slider-box { padding: 100px 0; min-height: 100vh; box-sizing: border-box; position: relative; }
 
 .slider-box .l { height: 100%; position: relative; z-index: 1; }
 
@@ -635,7 +635,13 @@ a { color: inherit; }
 
 .slider { margin-top: 60px; position: relative; }
 
-.slider__track { position: relative; white-space: nowrap; }
+.slider.-type-static { margin-bottom: 60px; }
+
+.slider.-type-static .slider__track { white-space: normal; }
+
+.slider.-type-static .slider-item { width: 25%; padding-right: 60px; }
+
+.slider__track { position: relative; white-space: nowrap; font-size: 0; }
 
 .slider-item { position: relative; display: inline-block; vertical-align: top; width: 380px; padding-right: 80px; font-size: 16px; box-sizing: border-box; white-space: normal; }
 
@@ -851,7 +857,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .faq-item:before { content: ""; position: absolute; z-index: -1; top: 0; left: -1000px; left: -webkit-calc(-0.5 * (100vw - 1140px)); left: calc(-0.5 * (100vw - 1140px)); left: calc(-0.5 * (100vw - 1140px)); right: 0; bottom: 0; background: #424242; }
 
-.faq-item:nth-child(even) { color: #333; }
+.faq-item:nth-child(even) { color: #333; z-index: 2; }
 
 .faq-item:nth-child(even):before { background-color: #21DBB2; background-image: -webkit-linear-gradient(70deg, #20D8A2 0%, #21E0C7 100%); background-image: linear-gradient(20deg, #20D8A2 0%, #21E0C7 100%); }
 
@@ -906,6 +912,8 @@ a.slider-item__title:hover { color: #21DBB2; }
 .news__bg { background-image: url("../img/news-bg.jpg"); }
 
 .news__title { font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 50px; letter-spacing: 1em; line-height: 1.2; color: #FFF; text-transform: uppercase; }
+
+.news__button-container { padding-left: 50%; }
 
 .contacts { position: relative; min-height: 700px; }
 
@@ -1122,5 +1130,13 @@ a.slider-item__title:hover { color: #21DBB2; }
 .modal__close:hover { color: #21DBB2; }
 
 .modal__player { padding: 40px 0 0; }
+
+.hover-gallery-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; -webkit-transform: translate3d(0, 0, 0) scale(1.05); transform: translate3d(0, 0, 0) scale(1.05); -webkit-transition: 0.5s ease; transition: 0.5s ease; -webkit-transition-property: opacity, visibility, -webkit-transform; transition-property: opacity, visibility, transform; background-size: cover; background-position: center; }
+
+.hover-gallery-image.visible { opacity: 1; visibility: visible; -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
+
+img.hover-gallery-image { -webkit-transform: translate3d(-50%, -50%, 0) scale(1.05); transform: translate3d(-50%, -50%, 0) scale(1.05); top: 50%; left: 50%; width: auto; height: auto; min-width: 100%; min-height: 100%; }
+
+img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) scale(1); transform: translate3d(-50%, -50%, 0) scale(1); }
 
 /*# sourceMappingURL=app.css.map */
