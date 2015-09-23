@@ -3,9 +3,9 @@
   <h2 class="partners__title text-gradient">Партнеры</h2>
   <div class="partners__list">
     {% for partner in partners %}<div class="partners__partner">
-      <a class="partners__link" href="#" target="_blank">
+      <div class="partners__link">
         <img src="{{ partner.img }}" alt="{{ partner.title }}">
-      </a>
+      </div>
     </div>{% endfor %}
   </div>
 </section>

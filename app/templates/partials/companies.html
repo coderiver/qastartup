@@ -13,10 +13,10 @@
     </div>
     <ul class="companies__list">
       {% for company in companies %}<li class="companies__list-item fade-in">
-        <a class="company" href="{{ company.link }}" title="{{ company.title }}">
+        <div class="company">
           <span class="company__count">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
           <img class="company__img" src="{{ company.img }}" width="{{ company.imgWidth }}" alt="{{ company.title }}">
-        </a>
+        </div>
       </li>{% endfor %}
     </ul>
   </div>
