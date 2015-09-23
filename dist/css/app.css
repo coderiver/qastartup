@@ -637,7 +637,7 @@ a { color: inherit; }
 
 .slider.-type-static { margin-bottom: 60px; }
 
-.slider.-type-static .slider__track { white-space: normal; }
+.slider.-type-static .slider__track { white-space: normal; margin-right: -60px; }
 
 .slider.-type-static .slider-item { width: 25%; padding-right: 60px; }
 

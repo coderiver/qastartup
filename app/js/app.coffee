@@ -55,7 +55,7 @@ $(document).ready ->
   do header.init
   do initTestimonials
   do initScrollScenes
-  # do initMap
+  do initMap
 
 
   # graph init
@@ -66,7 +66,7 @@ $(document).ready ->
 
   # modal youtube player
   new ModalPlayer '#player', '.toparea .play-button'
-  # do initPlayerApi
+  do initPlayerApi
 
 
   $('.faq__list').accordion
@@ -91,8 +91,7 @@ $(document).ready ->
     prevArrow: '<button type="button" class="carousel-prev"></button>'
     nextArrow: '<button type="button" class="carousel-next"></button>'
 
-  # slider boxes
-  # newsSliderbox = new SliderBox '.news .slider-box'
+  # slider box
   advantagesSliderBox = new SliderBox '.advantages .slider-box',
     zoomOutTrigger: '.content-layer-1'
 
