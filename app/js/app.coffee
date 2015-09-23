@@ -54,7 +54,7 @@ $(document).ready ->
   do initTestimonials
   do initScrollScenes
   do makeTopareaInvisible
-  # do initMap
+  do initMap
 
 
   $('.faq__list').accordion
@@ -116,4 +116,4 @@ $(document).ready ->
 
   # modal youtube player
   new ModalPlayer '#player', '.toparea .play-button'
-  # do initPlayerApi
+  do initPlayerApi
