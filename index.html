@@ -66,7 +66,7 @@
             <a href="tel:+380936153090" class="phone-number -size-sm">093 <span class="text-gradient">615 30 90</span></a>
             <a href="tel:+380962554549" class="phone-number -size-sm">096 <span class="text-gradient">255 45 49</span></a>
 
-            <a class="btn -width-250 -height-sm" href="#">
+            <button class="btn -width-250 -height-sm" type="button" data-modal="#modal-callback">
 
               <div class="borders -anim-one-way">
                 <div class="border-top"></div>
@@ -77,7 +77,7 @@
 
               <div class="btn__fill"></div>
               <span class="btn__text">Получить знания</span>
-            </a>
+            </button>
 
             <button class="hamburger" type="button">
               <div class="hamburger__line"></div>
@@ -89,9 +89,9 @@
             <div class="header__promo">
               Уже готовы<strong>стать<br>востребованным</strong>специалистом?
 
-              <a class="btn -width-250 -type-filled -height-sm" href="#">
+              <button class="btn -width-250 -height-sm" type="button" data-modal="#modal-callback">
 
-                <div class="borders">
+                <div class="borders -anim-one-way">
                   <div class="border-top"></div>
                   <div class="border-left"></div>
                   <div class="border-right"></div>
@@ -100,7 +100,7 @@
 
                 <div class="btn__fill"></div>
                 <span class="btn__text">Получить знания</span>
-              </a>
+              </button>
 
             </div>
             <nav class="nav">
@@ -154,7 +154,7 @@
 
             <button class="play-button icon icon-play" type="button"></button>
 
-            <button class="btn -width-250 -height-sm" type="button">
+            <button class="btn -width-250 -height-sm" type="button" data-modal="#modal-callback">
 
               <div class="borders">
                 <div class="border-top"></div>
@@ -908,10 +908,12 @@
                     <div class="field">
                       <input class="input" type="text" name="name" id="name" data-validetta="required">
                       <label class="input-label" for="name">Ваше имя</label>
+                      <span class="field__error">Поле обязательно для заполнения</span>
                     </div>
                     <div class="field">
                       <input class="input" type="tel" name="name" id="tel" data-validetta="required">
                       <label class="input-label" for="tel">Ваш номер телефона</label>
+                      <span class="field__error">Поле обязательно для заполнения</span>
                     </div>
 
                     <button class="btn -type-filled -width-fluid" type="submit">
@@ -1306,7 +1308,66 @@
             <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
             <div class="modal__player" id="player" data-video-id="xEhaVhta7sI">
               На этом месте должно быть наше замечательное видео.
-              <br>Но если вы, вдруг, увидели данный текст, так и знайте - Youtube поломался, и наши разработчики тут вовсе не при делах :)
+              <br>Но если Вы, вдруг, увидели данный текст, так и знайте - Youtube поломался, и наши разработчики тут вовсе не при делах :)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-callback">
+        <div class="modal__inner">
+          <div class="modal__body">
+            <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
+            <div class="callback l">
+              <div class="callback__backlayer"></div>
+              <div class="callback__frontlayer">
+                <h3 class="callback__title">
+            <span class="text-gradient">Сделай</span>
+            <small class="text-gradient">первый шаг к мечте!</small>
+          </h3>
+                <div class="callback__form">
+                  <div class="form-msg-text">
+                    <p>Оставь свои контакты и наш менеджер свяжется с тобой
+                      <br>для определения уровня и выбора курса.</p>
+                    <strong>Количество мест в групе ограничено!</strong>
+                  </div>
+                  <div class="form-wrapper">
+                    <form class="form" id="modal-callback-form">
+                      <div class="field">
+                        <input class="input" type="text" name="name" id="modal-cb-name" data-validetta="required">
+                        <label class="input-label" for="modal-cb-name">Ваше имя</label>
+                        <span class="field__error">Поле обязательно для заполнения</span>
+                      </div>
+                      <div class="field">
+                        <input class="input" type="tel" name="name" id="modal-cb-tel" data-validetta="required">
+                        <label class="input-label" for="modal-cb-tel">Ваш номер телефона</label>
+                        <span class="field__error">Поле обязательно для заполнения</span>
+                      </div>
+
+                      <button class="btn -type-filled -width-fluid" type="submit">
+
+                        <div class="borders">
+                          <div class="border-top"></div>
+                          <div class="border-left"></div>
+                          <div class="border-right"></div>
+                          <div class="border-bottom"></div>
+                        </div>
+
+                        <div class="btn__fill"></div>
+                        <span class="btn__text">Получить знания</span>
+                      </button>
+
+                    </form>
+                    <div class="form-msg">
+                      <div class="form-msg-text">
+                        <strong>Спасибо!</strong>
+                        <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                        <button class="link -underline-dashed" type="button">Вернуться Назад</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
