@@ -7,7 +7,8 @@
     <div class="header__panel">
       <a href="tel:+380936153090" class="phone-number -size-sm">093 <span class="text-gradient">615 30 90</span></a>
       <a href="tel:+380962554549" class="phone-number -size-sm">096 <span class="text-gradient">255 45 49</span></a>
-      {{ mixins.btnLink("Получить знания", "#", "-width-250 -height-sm", "-anim-one-way") }}
+      {# {{ mixins.btnLink("Получить знания", "#", "-width-250 -height-sm", "-anim-one-way") }} #}
+      {{ mixins.btnOpenModalCallback("-anim-one-way") }}
       <button class="hamburger" type="button">
         <div class="hamburger__line"></div>
         <div class="hamburger__line"></div>
@@ -17,7 +18,8 @@
     <div class="header__nav">
       <div class="header__promo">
         Уже готовы<strong>стать<br>востребованным</strong>специалистом?
-        {{ mixins.btnLink("Получить знания", "#", "-width-250 -type-filled -height-sm") }}
+        {# {{ mixins.btnLink("Получить знания", "#", "-width-250 -type-filled -height-sm") }} #}
+        {{ mixins.btnOpenModalCallback("-anim-one-way") }}
       </div>
       <nav class="nav">
         <ul class="nav__list">

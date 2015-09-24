@@ -30,6 +30,14 @@
   </a>
 {% endmacro %}
 
+{% macro btnOpenModalCallback(bordersClassMod) %}
+<button class="btn -width-250 -height-sm" type="button" data-modal="#modal-callback">
+  {{ mixins.borders(bordersClassMod) }}
+  <div class="btn__fill"></div>
+  <span class="btn__text">Получить знания</span>
+</button>
+{% endmacro %}
+
 {% macro field(type, name, id, label, error, classMod) %}
 <div class="field">
   <input class="input" type="{{ type }}" name="{{ name }}" id="{{ id }}">

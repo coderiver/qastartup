@@ -1,0 +1,44 @@
+<div class="modal" id="modal-callback">
+  <div class="modal__inner">
+    <div class="modal__body">
+      <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
+      <div class="callback l">
+        <div class="callback__backlayer"></div>
+        <div class="callback__frontlayer">
+          <h3 class="callback__title">
+            <span class="text-gradient">Сделай</span>
+            <small class="text-gradient">первый шаг к мечте!</small>
+          </h3>
+          <div class="callback__form">
+            <div class="form-msg-text">
+              <p>Оставь свои контакты и наш менеджер свяжется с тобой<br>для определения уровня и выбора курса.</p>
+              <strong>Количество мест в групе ограничено!</strong>
+            </div>
+            <div class="form-wrapper">
+              <form class="form" id="modal-callback-form">
+                <div class="field">
+                  <input class="input" type="text" name="name" id="modal-cb-name" data-validetta="required">
+                  <label class="input-label" for="modal-cb-name">Ваше имя</label>
+                  <span class="field__error">Поле обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="tel" name="name" id="modal-cb-tel" data-validetta="required">
+                  <label class="input-label" for="modal-cb-tel">Ваш номер телефона</label>
+                  <span class="field__error">Поле обязательно для заполнения</span>
+                </div>
+                {{ mixins.btn("Получить знания", "-type-filled -width-fluid", "submit") }}
+              </form>
+              <div class="form-msg">
+                <div class="form-msg-text">
+                  <strong>Спасибо!</strong>
+                  <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                  <button class="link -underline-dashed" type="button">Вернуться Назад</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

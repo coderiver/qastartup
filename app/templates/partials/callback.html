@@ -16,10 +16,12 @@
           <div class="field">
             <input class="input" type="text" name="name" id="name" data-validetta="required">
             <label class="input-label" for="name">Ваше имя</label>
+            <span class="field__error">Поле обязательно для заполнения</span>
           </div>
           <div class="field">
             <input class="input" type="tel" name="name" id="tel" data-validetta="required">
             <label class="input-label" for="tel">Ваш номер телефона</label>
+            <span class="field__error">Поле обязательно для заполнения</span>
           </div>
           {{ mixins.btn("Получить знания", "-type-filled -width-fluid", "submit") }}
         </form>

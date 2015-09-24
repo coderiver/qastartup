@@ -7,14 +7,15 @@ openModal = (selector, options = {}) ->
   modal.fadeIn 500, ->
     modal.addClass 'is-open'
     setTimeout ->
-      do options.afterOpen if typeof options.afterOpen is 'function'
+      modal.addClass 'draw'
+      options.afterOpen?()
     , 500
 
   closeBtn.one 'click', (e) ->
     do e.preventDefault
-    do options.beforeClose if typeof options.beforeClose is 'function'
+    options.beforeClose?()
     modal
-      .removeClass 'is-open'
+      .removeClass 'is-open draw'
       .delay 500
       .fadeOut 500
 

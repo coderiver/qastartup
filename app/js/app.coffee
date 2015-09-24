@@ -15,6 +15,7 @@ initTestimonials = require './modules/testimonials'
 initMap          = require './modules/map'
 Graph            = require './modules/graph'
 SliderBox        = require './modules/slider-box'
+openModal        = require './modules/modal'
 initPlayerApi    = require('./modules/player').initPlayerApi
 ModalPlayer      = require('./modules/player').ModalPlayer
 
@@ -122,3 +123,9 @@ $(document).ready ->
   # news gallery
   $('.news .slider-item__title').hoverGallery
     container: '.news__bg'
+
+  # open modal windows
+  $('[data-modal]').on 'click', (e) ->
+    do e.preventDefault
+    openModal $(this).data('modal')
+

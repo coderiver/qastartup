@@ -1,0 +1,41 @@
+<div class="modal" id="modal-question">
+  <div class="modal__inner">
+    <div class="modal__body">
+      <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
+      <div class="question -modal">
+        <h3 class="question__title">Остались<br>вопросы?</h3>
+        <div class="question__container">
+          <div class="question__form">
+            <div class="form-wrapper">
+              <form class="form" id="modal-question-form">
+                <div class="field">
+                  <input class="input" type="text" name="name" id="modal-field-name" data-validetta="required">
+                  <label  class="input-label" for="modal-field-name">Ваше имя</label>
+                  <span class="field__error">Поле обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="tel" name="phone" id="modal-field-phone" data-validetta="required">
+                  <label  class="input-label" for="modal-field-phone">Ваш номер телефона</label>
+                  <span class="field__error">Поле обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="text" name="question" id="modal-field-question">
+                  <label  class="input-label" for="modal-field-question">Ваш вопрос</label>
+                  {# <span class="field__error">Ваш вопрос сформулирован некорректно</span> #}
+                </div>
+                {{ mixins.btn("Отправить", "-type-filled -width-fluid", "submit") }}
+              </form>
+              <div class="form-msg">
+                <div class="form-msg-text">
+                  <strong>Спасибо!</strong>
+                  <p>Наш менеджер свяжется с Вами на протяжении 24 часов.</p>
+                  <button class="link -underline-dashed" type="button">Вернуться Назад</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
