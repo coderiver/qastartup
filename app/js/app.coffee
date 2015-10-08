@@ -5,9 +5,11 @@ require 'jquery.maskedinput'
 require 'slick-carousel'
 require 'validetta'
 require 'jquery.easing'
+# require 'autosize' 
 require('./plugins/accordion')(jQuery)
 require('./plugins/input-field')(jQuery)
 require('./plugins/hover-gallery')(jQuery)
+# require('./lib/autosize')(jQuery)
 
 header           = require './modules/header'
 initScrollScenes = require './modules/scroll-scenes'
@@ -38,7 +40,7 @@ showFormMessage = (form) ->
   form.parent().addClass 'show-msg'
   # reset fields
   setTimeout ->
-    form.find('input').val('')
+    form.find('input,textarea').val('')
     form.find('.field').removeClass 'is-filled'
   , 500
 
@@ -100,6 +102,11 @@ $(document).ready ->
   # forms
   $('input[type="tel"]').mask "+380 (99) 999-99-99", { placeholder: "+380 (__) ___-__-__" }
   $('form input').inputField()
+  autosize($('textarea'))
+  $('input[data-validetta="required"]').on 'keyup', (e) ->
+    if $(this).val()!=''
+      if $(this).parents('.is-error').length>0
+        $(this).parents('.is-error').removeClass('is-error')
   $('form').validetta
     showErrorMessages: false
     errorClass: 'is-error'
