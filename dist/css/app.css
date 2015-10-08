@@ -1097,6 +1097,10 @@ a {
 textarea.input {
   border: none;
   resize: none;
+  overflow: hidden;
+  border-bottom: 1px solid #777;
+  height: 46px;
+  transition: height 0.2s linear;
 }
 
 .input-label {

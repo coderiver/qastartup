@@ -105,10 +105,10 @@ $(document).ready(function() {
   advantagesSliderBox = new SliderBox('.advantages .slider-box', {
     zoomOutTrigger: '.content-layer-1'
   });
-  $('input[type="tel"]').mask("+380 (99) 999-99-99", {
+  $('input[type="tel"]').mask("?+380 (99) 999-99-99", {
     placeholder: "+380 (__) ___-__-__"
   });
-  $('form input').inputField();
+  $('form input,form textarea').inputField();
   autosize($('textarea'));
   $('input[data-validetta="required"]').on('keyup', function(e) {
     if ($(this).val() !== '') {

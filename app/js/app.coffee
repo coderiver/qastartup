@@ -100,8 +100,8 @@ $(document).ready ->
 
 
   # forms
-  $('input[type="tel"]').mask "+380 (99) 999-99-99", { placeholder: "+380 (__) ___-__-__" }
-  $('form input').inputField()
+  $('input[type="tel"]').mask "?+380 (99) 999-99-99", { placeholder: "+380 (__) ___-__-__" }
+  $('form input,form textarea').inputField()
   autosize($('textarea'))
   $('input[data-validetta="required"]').on 'keyup', (e) ->
     if $(this).val()!=''
