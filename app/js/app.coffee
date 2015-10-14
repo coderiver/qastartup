@@ -1,15 +1,14 @@
 window.$ = window.jQuery = require 'jquery'
 # jQuery plugins
 require 'jquery.transit'
-require 'jquery.maskedinput'
 require 'slick-carousel'
-require 'validetta'
 require 'jquery.easing'
-# require 'autosize' 
+# require 'validetta'
+# require 'autosize'
+# require 'jquery.maskedinput'
+# require('./plugins/input-field')(jQuery)
 require('./plugins/accordion')(jQuery)
-require('./plugins/input-field')(jQuery)
 require('./plugins/hover-gallery')(jQuery)
-# require('./lib/autosize')(jQuery)
 
 header           = require './modules/header'
 initScrollScenes = require './modules/scroll-scenes'
@@ -20,6 +19,7 @@ SliderBox        = require './modules/slider-box'
 openModal        = require './modules/modal'
 initPlayerApi    = require('./modules/player').initPlayerApi
 ModalPlayer      = require('./modules/player').ModalPlayer
+Form             = require('./modules/form')
 
 toparea = $('.toparea__inner, .header')
 
@@ -35,14 +35,6 @@ makeTopareaVisible = ->
       .removeClass 'transition'
       .addClass 'draw'
   , 1500
-
-showFormMessage = (form) ->
-  form.parent().addClass 'show-msg'
-  # reset fields
-  setTimeout ->
-    form.find('input,textarea').val('')
-    form.find('.field').removeClass 'is-filled'
-  , 500
 
 # start play video and show toparea after preloader
 Pace.on 'done', ->
@@ -98,33 +90,13 @@ $(document).ready ->
   advantagesSliderBox = new SliderBox '.advantages .slider-box',
     zoomOutTrigger: '.content-layer-1'
 
-
   # forms
-  $('input[type="tel"]').mask "?+380 (99) 999-99-99", { placeholder: "+380 (__) ___-__-__" }
-  $('form input,form textarea').inputField()
-  autosize($('textarea'))
-  $('input[data-validetta="required"]').on 'keyup', (e) ->
-    if $(this).val()!=''
-      if $(this).parents('.is-error').length>0
-        $(this).parents('.is-error').removeClass('is-error')
-  $('form').validetta
-    showErrorMessages: false
-    errorClass: 'is-error'
-    validClass: 'is-valid'
-    realTime: true
-    onValid: (e) ->
-      do e.preventDefault
-      form = $ this.form
-      alert 'form valid'
-      # send form over $.ajax and show success message
-      showFormMessage form
-    onError: (e) ->
-      alert 'form error'
-
-  # hide form message
-  $('.form-msg-text .link').on 'click', (e) ->
-    do e.preventDefault
-    $(this).parents('.show-msg').removeClass 'show-msg'
+  $('form').each (index, el) ->
+    new Form el,
+      onValid: ->
+        alert 'Form valid!'
+      onError: ->
+        alert 'Form error!'
 
 
   # news gallery

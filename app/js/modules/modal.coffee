@@ -3,20 +3,26 @@
 openModal = (selector, options = {}) ->
   modal     = if selector instanceof $ then selector else $(selector)
   closeBtn  = modal.find '.modal__close'
+  { beforeOpen, afterOpen, beforeClose, afterClose } = options
+
+  beforeOpen?()
 
   modal.fadeIn 500, ->
     modal.addClass 'is-open'
     setTimeout ->
       modal.addClass 'draw'
-      options.afterOpen?()
+      afterOpen?()
+      $(window).trigger 'modalOpen', [modal]
     , 500
 
   closeBtn.one 'click', (e) ->
     do e.preventDefault
-    options.beforeClose?()
+    beforeClose?()
     modal
       .removeClass 'is-open draw'
       .delay 500
-      .fadeOut 500
+      .fadeOut 500, ->
+        afterClose?()
+        $(window).trigger 'modalClose', [modal]
 
 module.exports = openModal
