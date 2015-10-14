@@ -1,7 +1,7 @@
 require 'jquery.maskedinput'
 require 'validetta'
-require 'autosize'
 require('../plugins/input-field')(jQuery)
+autosize = require 'autosize'
 
 showFormMessage = (form) ->
   form.parent().addClass 'show-msg'
@@ -10,7 +10,7 @@ hideFormMessage = (form) ->
   form.parent().removeClass 'show-msg'
 
 resetFormFields = (form) ->
-  form.find('input, textarea').val('')
+  form.find('input, textarea').val('').filter('textarea').css('height', '')
   form.find('.field').removeClass 'is-filled is-valid is-error'
 
 class Form
