@@ -35,9 +35,6 @@ class Form
     @form.find('input[type="tel"]').mask "+380 (99) 999-99-99",
       placeholder: "+380 (__) ___-__-__"
       autoclear: false
-    @form.find('input[type="tel"]').on 'blur', ->
-      console.log this.value, this.value.length
-
 
   initInputField: ->
     @form.find('input, textarea').inputField()
@@ -53,7 +50,10 @@ class Form
       validClass: 'is-valid'
       realTime: true
       validators:
-        phone: /^\+380\s\(\d{2}\)\s\d{3}\-\d{2}\-\d{2}/
+        regExp:
+          phone:
+            pattern: /^\+380\s\(\d{2}\)\s\d{3}\-\d{2}\-\d{2}/
+            errorMessage : 'Phone number is not valid!'
       onValid: (e) ->
         do e.preventDefault
         # alert 'form valid'
@@ -66,7 +66,6 @@ class Form
       onError: (e) ->
         do e.preventDefault
         # alert 'form error'
-        console.log this
         _this.onError?()
 
   showMessage: ->
@@ -81,10 +80,18 @@ class Form
 Form.resetFields = (form) ->
   resetFormFields form
 
+Form.showMessage = (form) ->
+  showFormMessage form
+
+Form.hideMessage = (form) ->
+  hideFormMessage form
+
 # if form is in modal window we need to reset fields after it is closed
 $(window).on 'modalClose', (e, modal) ->
   form = modal.find('form')
   if form.length
     Form.resetFields form
+    if form.parent('.show-msg').length
+      Form.hideMessage form
 
 module.exports = Form
