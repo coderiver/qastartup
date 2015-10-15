@@ -43,11 +43,11 @@ Pace.on 'done', ->
 $(document).ready ->
 
   do makeTopareaInvisible
-  do header.init
   do initTestimonials
   do initCommonScrollScenes
   do initSpecificScrollScenes
   do initMap
+  header.init offset: 190
 
 
   # graph init

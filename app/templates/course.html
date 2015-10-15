@@ -1,12 +1,21 @@
+{% set bodyClass = "course-page" %}
 {% extends "layouts/layout.html" %}
 {% import "partials/mixins.html" as mixins %}
 
 {% block content %}
 {# {% include "partials/preloader.html" %} #}
+{% include "partials/page-pagination.html" %}
+
 <!-- BEGIN out -->
-<div class="out">
+<div class="out draw">
   {% include "partials/header.html" %}
   {% include "partials/toparea-course.html" %}
+
+  <!-- BEGIN content-wrapper -->
+  <div class="content-wrapper">
+    {% include "partials/course-advantages.html" %}
+  </div>
+  <!-- END content-wrapper -->
 
   {% include "partials/footer.html" %}
 </div>

@@ -7,7 +7,7 @@ class Header
     @opened = no
     return @
 
-  init: ->
+  init: (@options = {}) ->
     @el        = $ '.header'
     @hamburger = @el.find '.hamburger'
     @logo      = @el.find '.logo'
@@ -16,6 +16,7 @@ class Header
 
     do @_initEvents
     do @_buildScene
+    return @
 
   open: ->
     @hamburger.addClass 'is-active'
@@ -95,7 +96,7 @@ class Header
 
   _buildScene: ->
     @scrollScene = SM.addScene
-      offset: 190
+      offset: @options.offset or 0
       duration: '100%'
       triggerElement: 'body'
       triggerHook: 'onLeave'
@@ -107,4 +108,4 @@ class Header
         do @makeStatic
 
 
-module.exports = new Header()
+module.exports =  new Header

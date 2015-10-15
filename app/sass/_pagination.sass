@@ -1,0 +1,67 @@
+.pagination
+  position: fixed
+  z-index: 3
+  top: 0
+  right: 0
+  bottom: 0
+  padding: 60px 20px 0
+  +vertical
+  white-space: nowrap
+  &:hover
+    .pagination__text
+      opacity: 1
+      visibility: visible
+      transform: none
+  +wide
+    padding-right: 80px
+
+.pagination__list
+  display: inline-block
+  vertical-align: middle
+  font-size: 16px
+  white-space: normal
+
+.pagination__item
+  &:not(:first-child)
+    margin-top: 20px
+
+
+.pagination__link
+  display: block
+  position: relative
+  text-decoration: none
+  color: #FFF
+  text-align: right
+  line-height: 1
+  padding: 5px 0
+  &:after
+    content: ""
+    display: block
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    background: #666
+    +trans(background)
+  &:hover,
+  &.is-active
+    &:after
+      background: $color-green
+
+.pagination__text
+  position: absolute
+  top: 50%
+  right: 10px
+  text-align: right
+  +f(am, 12, 100)
+  margin-top: -0.5em
+  text-transform: uppercase
+  padding-right: 25px
+  transition: all 0.3s ease
+  opacity: 0
+  visibility: hidden
+  transform: translate(-30px, 0)
+  white-space: nowrap
+  @for $i from 1 through 10
+    .pagination__item:nth-child(#{$i}) &
+      transition-delay: #{0.05 * $i}s
+

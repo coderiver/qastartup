@@ -24,3 +24,4 @@ $(document).ready ->
 
   do initCommonScrollScenes
   do initSpecificScrollScenes
+  do header.init
