@@ -1,8 +1,8 @@
-# $        = jQuery = require 'jquery'
-SM       = require './scroll-controller'
-ZoomOut  = require './zoom-out'
-Parallax = require './parallax'
-Number   = require './number'
+# $              = jQuery = require 'jquery'
+SM             = require './scroll-controller'
+ZoomOut        = require './zoom-out'
+Parallax       = require './parallax'
+NumberIncrease = require './number'
 
 module.exports = ->
 
@@ -113,13 +113,10 @@ module.exports = ->
 
   # increase numbers
   $('[data-number]').each (index, el) ->
-    number = new Number $(el)
+    number = new NumberIncrease $(el)
     SM.addScene
       offset: 150
       triggerHook: 'onEnter'
       triggerElement: el
     .on 'start', (e) ->
       do number.start if not number.animated
-
-
-

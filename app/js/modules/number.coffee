@@ -1,7 +1,7 @@
 # $ = require 'jquery'
 # require 'jquery.easing'
 
-class Number
+class NumberIncrease
   constructor: (selector, options = {}) ->
     @init selector, options
 
@@ -32,4 +32,4 @@ class Number
   _render: (value) =>
     @el.text Math.round(value)
 
-module.exports = Number
+module.exports = NumberIncrease

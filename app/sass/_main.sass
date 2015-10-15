@@ -7,6 +7,13 @@
   height: calc(100vh + 190px)
   box-sizing: border-box
   padding-bottom: 190px
+  &.-type-course
+    height: 100vh
+    padding-bottom: 0
+    overflow: hidden
+    .toparea__center
+      text-align: left
+      padding-top: 100px
 
 .toparea__inner
   height: 100%
@@ -43,6 +50,23 @@
   background-size: cover
   overflow: hidden
   +shadow
+
+.toparea__title
+  letter-spacing: 0.5em
+  color: #FFF
+
+.toparea__line
+  display: block
+  position: relative
+  width: 25px
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    width: 1px
+    background: rgba(white, 0.3)
+    height: 1000px
 
 .video
   position: absolute
@@ -93,6 +117,11 @@
   &:focus
     color: $color-green
     border-color: $color-green
+  &:last-child
+    margin-bottom: 0
+  &.-align-left
+    margin-left: 0
+    margin-right: 0
 
 
 .number
