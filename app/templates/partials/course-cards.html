@@ -1,6 +1,29 @@
-<!-- BEGIN course-cards -->
-<section class="l">
-  <div class="course-cards-group">
+<!-- BEGIN course-header -->
+<section class="course-header">
+  <div class="course-header__pinned-area">
+    <div class="course-header__inner">
+      <div class="l">
+        <!-- BEGIN breadcrumbs -->
+        <ul class="breadcrumbs">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Курсы</a></li>
+        </ul>
+        <!-- END breadcrumbs -->
+        <h1 class="course-header__title title-base">
+          Тестирование<br>
+          программного<br>
+          обеспечения<br>
+          <small class="title-small">QA Testing</small>
+        </h1>
+        <div class="course-header__hide-group">
+          <button class="play-button -align-left icon icon-play" type="button"></button>
+          <div class="course-header__line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-cards-group l">
     <div class="course-card">
       <h3 class="course-card__title">Группа<br>выходного<br>дня</h3>
       <dl class="course-info">
@@ -37,7 +60,7 @@
       </dl>
     </div>
 
-    <div class="course-card">
+    <div class="course-card" data-parallax='{"shift": 0, "delta": 60}'>
       <h3 class="course-card__title">Группа<br>буднего<br>дня</h3>
       <dl class="course-info">
         <dt class="course-info__label">Старт курса</dt>
@@ -83,7 +106,7 @@
       </dl>
     </div>
 
-    <div class="course-card">
+    <div class="course-card" data-parallax='{"shift": 60, "delta": -120}'>
       <dl class="course-info">
         <dt class="course-info__label">Продолжительность</dt>
         <dd class="course-info__value">
@@ -103,8 +126,13 @@
         <del class="course-prise__old">20000 грн</del>
         <span class="text-gradient">15000 <sub>грн</sub></span>
       </div>
-      {{mixins.btn("Получить знания", "-type-filled -width-fluid")}}
+      {# {{mixins.btn("Получить знания", "-type-filled -width-fluid")}} #}
+      <button class="btn -type-filled -width-fluid" type="button" data-modal="#modal-callback">
+        {{ mixins.borders() }}
+        <div class="btn__fill"></div>
+        <span class="btn__text">Получить знания</span>
+      </button>
     </div>
   </div>
 </section>
-<!-- END course-cards -->
+<!-- END course-header -->

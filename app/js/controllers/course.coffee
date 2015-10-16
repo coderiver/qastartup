@@ -12,7 +12,9 @@ initSpecificScrollScenes = require '../scrollscenes/course'
 initTestimonials         = require '../modules/testimonials'
 initMap                  = require '../modules/map'
 openModal                = require '../modules/modal'
-Form                     = require('../modules/form')
+initPlayerApi            = require('../modules/player').initPlayerApi
+ModalPlayer              = require('../modules/player').ModalPlayer
+Form                     = require '../modules/form'
 
 Pace.on 'done', ->
   setTimeout ->
@@ -25,3 +27,20 @@ $(document).ready ->
   do initCommonScrollScenes
   do initSpecificScrollScenes
   do header.init
+
+  # modal youtube player
+  # new ModalPlayer '#player', '.course-header .play-button'
+  # do initPlayerApi
+
+  # open modal windows
+  $('[data-modal]').on 'click', (e) ->
+    do e.preventDefault
+    openModal $(this).data('modal')
+
+  # forms
+  $('form').each (index, el) ->
+    new Form el,
+      onValid: ->
+        alert 'Form valid!'
+      onError: ->
+        alert 'Form error!'

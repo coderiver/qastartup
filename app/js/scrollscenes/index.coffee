@@ -40,7 +40,7 @@ module.exports = ->
     $coursesContainer.find('.course__footer').toggleClass 'draw'
 
 
-  # nominatin scrollscene
+  # nomination scrollscene
   $nominationTitle = $ '.nomination .banner-title'
   SM.addScene
     offset: 200

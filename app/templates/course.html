@@ -7,18 +7,24 @@
 {% include "partials/page-pagination.html" %}
 
 <!-- BEGIN out -->
-<div class="out draw">
+<div class="out -no-padding-top draw">
   {% include "partials/header.html" %}
   {% include "partials/toparea-course.html" %}
 
+  {% include "partials/course-cards.html" %}
   <!-- BEGIN content-wrapper -->
   <div class="content-wrapper">
-    {% include "partials/course-cards.html" %}
     {% include "partials/course-advantages.html" %}
+    {% include "partials/course-structure.html" %}
   </div>
   <!-- END content-wrapper -->
 
   {% include "partials/footer.html" %}
+
+  <!-- BEGIN modal -->
+  {% include "partials/modal/video.html" %}
+  {% include "partials/modal/callback.html" %}
+  <!-- END modal -->
 </div>
 <!-- END out -->
 {% endblock %}

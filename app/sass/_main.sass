@@ -51,23 +51,6 @@
   overflow: hidden
   +shadow
 
-.toparea__title
-  letter-spacing: 0.5em
-  color: #FFF
-
-.toparea__line
-  display: block
-  position: relative
-  width: 25px
-  &:before
-    content: ""
-    position: absolute
-    top: 0
-    right: 0
-    width: 1px
-    background: rgba(white, 0.3)
-    height: 1000px
-
 .video
   position: absolute
   top: 50%
@@ -134,7 +117,7 @@
 
   &.-color-dark
     color: $color-text
-    .number__value
+    // .number__value
       // color: inherit
       // +no-text-gradient
     .number__sub
@@ -151,6 +134,9 @@
   &.-text-sm
     .number__value
       font-size: 120px
+
+  &.-no-padding-left
+    padding-left: 0
 
 .number__count
   display: inline-block
@@ -192,6 +178,12 @@
   +f(agora-regular, 18)
   line-height: 1.22
   color: $color-grey-lighter
+
+.number__large-text
+  display: block
+  +f(fd, 24, 50)
+  text-transform: uppercase
+  margin-top: 10px
 
 
 
@@ -1701,8 +1693,68 @@ a.slider-item__title
   +f(am, 18)
 
 
+.course-header
+  position: relative
+  z-index: 2
+  .scrollmagic-pin-spacer
+    z-index: 2
+  .breadcrumbs
+    transition: all 0.5s ease
+    opacity: 0
+    visibility: hidden
+
+  &.is-unpinned
+    .scrollmagic-pin-spacer
+      z-index: auto
+    .course-header__hide-group
+      opacity: 0
+      visibility: hidden
+    .breadcrumbs
+      opacity: 1
+      visibility: visible
+
+.course-header__pinned-area
+  height: 100vh
+  box-sizing: border-box
+  padding-top: 80px
+  +vertical
+  white-space: nowrap
+
+.course-header__inner
+  display: inline-block
+  vertical-align: middle
+  box-sizing: border-box
+  font-size: 16px
+  white-space: normal
+  text-align: left
+
+.course-header__title
+  letter-spacing: 0.5em
+  color: #FFF
+  position: relative
+  z-index: 2
+
+.course-header__line
+  display: block
+  position: relative
+  width: 25px
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    width: 1px
+    background: rgba(white, 0.3)
+    height: 1000px
+
+.course-header__hide-group
+  transition: all 0.5s ease
+
+
 .course-cards-group
   position: relative
+  z-index: 1
+  margin-bottom: -120px
   +clr
 
 .course-card
@@ -1721,11 +1773,11 @@ a.slider-item__title
     padding-top: 120px
     padding-right: 90px
   &:nth-child(2)
-    margin-top: 60px
+    // margin-top: 60px
     width: percentage(360/1140)
   &:nth-child(3)
     left: -20px
-    margin-top: -60px
+    // margin-top: -60px
     width: percentage(400/1140)
   .course-info
     margin-top: 15px
@@ -1761,3 +1813,27 @@ a.slider-item__title
     font-style: normal
     color: $color-grey-lighter
 
+
+
+.course-structure
+  padding-bottom: 200px
+  .number
+    vertical-align: top
+    &:not(:last-child)
+      margin-right: 70px
+
+
+.course-structure__title
+  color: rgba(white, 0.3)
+  letter-spacing: 1em
+  margin: -55px 0 120px
+
+.course-structure__container
+  margin-left: 50px
+  background: $color-dark2
+  padding: 10px 120px 10px 100px
+
+.course-structure__numbers
+  display: inline-block
+  vertical-align: middle
+  position: relative

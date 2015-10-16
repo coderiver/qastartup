@@ -15,7 +15,7 @@ SliderBox                = require '../modules/slider-box'
 openModal                = require '../modules/modal'
 initPlayerApi            = require('../modules/player').initPlayerApi
 ModalPlayer              = require('../modules/player').ModalPlayer
-Form                     = require('../modules/form')
+Form                     = require '../modules/form'
 
 toparea = $('.toparea__inner, .header')
 
