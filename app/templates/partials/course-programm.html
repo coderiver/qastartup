@@ -1,0 +1,79 @@
+{% macro lesson1() %}
+<div class="lesson">
+  <h3 class="lesson__title">Уровни и виды тестирования</h3>
+  <ul class="lesson__list">
+    <li>
+      Методология тестирования:
+      <ul class="lesson__list-level-2">
+        <li>Тестирование Черного ящика (Black Box testing)</li>
+        <li>Тестирование Белого ящика (White Box testing)</li>
+        <li>Тестирование Серого ящика (Gray Box testing)</li>
+      </ul>
+    </li>
+    <li>Уровни тестирования (Компонентный, Интеграционный, Системный, Приемочный)</li>
+    <li>Виды тестирования </li>
+  </ul>
+  <h4 class="lesson__subtitle">Практическая работа</h4>
+  <p>Применение основ тестирования на одном из коммерческих ПО</p>
+</div>
+{% endmacro %}
+{% macro lesson2() %}
+<div class="lesson">
+  <h3 class="lesson__title">Разработка ПО и процесс тестирования</h3>
+  <ul class="lesson__list">
+    <li>Что такое проект</li>
+    <li>Жизненный цикл разработки программного обеспечения (Software Development Life Cycle)</li>
+    <li>Понятия обеспечения качества (Quality Assurance), контроля качества (Quality Control) и разница между ними</li>
+    <li>Фундаментальный процесс тестирования</li>
+    <li>
+      Методологии разработки ПО:
+      <div class="lesson__grey-box">
+        <span class="lesson__list-label">Каскадные:</span>
+        <ul class="lesson__list-level-2">
+          <li>Waterfall</li>
+          <li>V-model</li>
+        </ul>
+        <span class="lesson__list-label">Итеративные:</span>
+        <ul class="lesson__list-level-2">
+          <li>RUP</li>
+          <li>Scrum</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+{% endmacro %}
+<!-- BEGIN curriculum -->
+<section class="curriculum">
+  <div class="l">
+    <div class="curriculum__header">
+      <h3 class="curriculum__title">
+        Программа<br>
+        курса
+        <small class="title-small">“Тестирование ПО”</small>
+      </h3>
+    </div>
+    <div class="curriculum__body">
+      <div class="curriculum__pinned-area">
+        <div class="lessons-counter">
+          <span class="lessons-counter__label">Занятие</span>
+          <span class="lessons-counter__numbers">
+            <b class="lessons-counter__current">03</b>
+            <br>из
+            <br>12
+          </span>
+        </div>
+        <button class="curriculum__scroll-btn">Перейти к<br>тренерам<br>курса</button>
+      </div>
+      {{ lesson1() }}
+      {{ lesson2() }}
+      {{ lesson1() }}
+      {{ lesson2() }}
+      {{ lesson1() }}
+      {{ lesson2() }}
+      {{ lesson1() }}
+      {{ lesson2() }}
+    </div>
+  </div>
+</section>
+<!-- END curriculum -->

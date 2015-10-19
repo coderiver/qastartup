@@ -1,7 +1,7 @@
 console.log 'course controller'
 # jQuery plugins
 require 'jquery.transit'
-# require 'slick-carousel'
+require 'slick-carousel'
 require 'jquery.easing'
 require('../plugins/accordion')(jQuery)
 require('../plugins/hover-gallery')(jQuery)
@@ -44,3 +44,13 @@ $(document).ready ->
         alert 'Form valid!'
       onError: ->
         alert 'Form error!'
+
+  $('.carousel__items').slick
+    arrows: no
+    slidesToShow: 5
+    slidesToScroll: 1
+    slide: '.carousel__item'
+    draggable: no
+    initialSlide: 0
+    focusOnSelect: yes
+    speed: 1000

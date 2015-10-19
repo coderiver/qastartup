@@ -1816,7 +1816,6 @@ a.slider-item__title
 
 
 .course-structure
-  padding-bottom: 200px
   .number
     vertical-align: top
     &:not(:last-child)
@@ -1831,9 +1830,66 @@ a.slider-item__title
 .course-structure__container
   margin-left: 50px
   background: $color-dark2
-  padding: 10px 120px 10px 100px
+  padding: 10px 10px 10px 100px
 
 .course-structure__numbers
   display: inline-block
   vertical-align: middle
   position: relative
+  margin-right: 70px
+  min-width: 565px
+
+.course-structure__text
+  display: inline-block
+  vertical-align: middle
+  position: relative
+  +f(fd, 70, 50)
+  color: $color-dark
+  text-transform: uppercase
+  line-height: 1
+  > span
+    display: inline-block
+    vertical-align: middle
+    &:first-child
+      +f(fb)
+  small
+    font-size: 24px
+    display: block
+
+
+.seo-text
+  +clr
+  color: $color-grey
+  font-size: 16px
+  line-height: 1.375
+  &:not(:first-child)
+    margin-top: 150px
+  &:not(:last-child)
+    margin-bottom: 130px
+
+.seo-text__title
+  float: left
+  width: percentage(285/1140)
+  box-sizing: border-box
+  padding-right: 20px
+  +f(fh, 30, 1000)
+  > span
+    display: inline-block
+
+.seo-text__container
+  float: right
+  width: percentage(855/1140)
+  column-count: 2
+  column-gap: 70px
+  > p
+    &:not(:first-child)
+      margin-top: 10px
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+.course-technology__title
+  +f(fh, 30, 1000)
+  color: $color-grey
+  margin-bottom: 70px
+  text-transform: uppercase

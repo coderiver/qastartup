@@ -53,7 +53,7 @@ class Form
         regExp:
           phone:
             pattern: /^\+380\s\(\d{2}\)\s\d{3}\-\d{2}\-\d{2}/
-            errorMessage : 'Phone number is not valid!'
+            errorMessage: 'Phone number is not valid!'
       onValid: (e) ->
         do e.preventDefault
         # alert 'form valid'
