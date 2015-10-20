@@ -1,7 +1,20 @@
 {% macro lesson1() %}
 <div class="lesson">
+  <h3 class="lesson__title">Введение в основы тестирования</h3>
+  <ul class="lesson__list checklist">
+    <li>Что такое тестирование</li>
+    <li>Тестирование и качество</li>
+    <li>Причины возникновения дефектов</li>
+    <li>Принципы тестирования</li>
+    <li>Виды программного обеспечения</li>
+    <li>Клиент-серверная архитектура</li>
+  </ul>
+</div>
+{% endmacro %}
+{% macro lesson2() %}
+<div class="lesson">
   <h3 class="lesson__title">Уровни и виды тестирования</h3>
-  <ul class="lesson__list">
+  <ul class="lesson__list checklist">
     <li>
       Методология тестирования:
       <ul class="lesson__list-level-2">
@@ -17,10 +30,10 @@
   <p>Применение основ тестирования на одном из коммерческих ПО</p>
 </div>
 {% endmacro %}
-{% macro lesson2() %}
+{% macro lesson3() %}
 <div class="lesson">
   <h3 class="lesson__title">Разработка ПО и процесс тестирования</h3>
-  <ul class="lesson__list">
+  <ul class="lesson__list checklist">
     <li>Что такое проект</li>
     <li>Жизненный цикл разработки программного обеспечения (Software Development Life Cycle)</li>
     <li>Понятия обеспечения качества (Quality Assurance), контроля качества (Quality Control) и разница между ними</li>
@@ -67,12 +80,12 @@
       </div>
       {{ lesson1() }}
       {{ lesson2() }}
-      {{ lesson1() }}
+      {{ lesson3() }}
       {{ lesson2() }}
       {{ lesson1() }}
+      {{ lesson3() }}
       {{ lesson2() }}
       {{ lesson1() }}
-      {{ lesson2() }}
     </div>
   </div>
 </section>

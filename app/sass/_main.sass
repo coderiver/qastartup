@@ -434,6 +434,8 @@
   sub
     font-size: 18px
     text-transform: uppercase
+  &.-size-large
+    font-size: 48px
 
 .course-prise__old
   display: block
@@ -504,13 +506,15 @@
     left: 0
     font-size: 0.7em
 
-  &.-checked
+  &.-checked,
+  &.is-checked
     color: $color-grey-lighter
     &:before
       content: $icon-check
       color: $color-green
 
-  &.-marked
+  &.-marked,
+  &.is-marked
     color: $color-green
 
 
@@ -632,13 +636,17 @@
 .slider-box
   padding: 100px 0
   // min-height: 800px
-  min-height: 100vh
+  height: 100vh
   box-sizing: border-box
   position: relative
   .l
     height: 100%
     position: relative
     z-index: 1
+
+  &.-type-static
+    height: auto
+    min-height: 100vh
 
 .slider-box__bg
   position: absolute
@@ -669,6 +677,7 @@
   width: 100%
 
 
+
 .advantages__bg
   background-image: img-url('advantages-bg.jpg')
 
@@ -678,6 +687,9 @@
   text-transform: uppercase
   .title-small
     color: $color-grey-lighter
+  &.-size-sm
+    font-size: 30px
+    line-height: 1.2
 
 
 .slider
@@ -1206,7 +1218,7 @@ a.slider-item__title
 .callback
   padding-top: 85px
   padding-bottom: 75px
-  margin-top: 170px
+  // margin-top: 170px
   margin-bottom: 230px
   position: relative
   text-align: left
@@ -1214,6 +1226,11 @@ a.slider-item__title
     margin: auto
     .callback__frontlayer
       padding-left: 0
+  &.-wide-bg
+    padding-top: 120px
+    padding-bottom: 120px
+    .callback__backlayer
+      right: $window-edge
 
 .callback__backlayer
   position: absolute
@@ -1479,6 +1496,30 @@ a.slider-item__title
   position: relative
   min-height: 700px
 
+  &.-type-questions
+    margin-top: 120px
+    .contacts__title
+      position: static
+      padding: 0
+      margin: 0
+      color: $color-grey
+      +f(fh, 48, 500)
+      &:before
+        display: none
+    .contacts__address
+      margin: 20px 0
+    .contacts__inner
+      pointer-events: none
+      +clr
+    .contacts__container
+      position: relative
+      top: 0
+      left: 0
+      max-width: 350px
+    .title-small
+      +f(fh, 12, 100)
+      text-transform: uppercase
+
 .contacts__map
   position: absolute
   z-index: 0
@@ -1490,6 +1531,23 @@ a.slider-item__title
   background-size: cover
   .gmnoprint
     display: none
+
+.contacts__header
+  margin-bottom: 150px
+
+.contacts__body
+  position: relative
+  min-height: 700px
+
+.contacts__managers-group
+  pointer-events: none
+  position: relative
+  top: -90px
+  +clr
+  > *
+    pointer-events: all
+  .manager-card
+    float: left
 
 .contacts__inner
   position: relative
@@ -1552,6 +1610,58 @@ a.slider-item__title
 .address__row3
   display: block
   color: $color-grey
+
+
+.manager-card
+  position: relative
+  padding: 70px 20px 70px 100px
+  background: $color-dark2
+  box-sizing: border-box
+  width: 380px
+  color: $color-grey
+  margin-left: 40px
+  &:not(:last-child)
+    margin-right: 155px
+
+.manager-card__avatar
+  position: absolute
+  top: 50px
+  left: -40px
+  width: 100px
+  height: 100px
+  box-sizing: border-box
+  border-radius: 50%
+  overflow: hidden
+  img
+    display: block
+    max-width: 100%
+    max-height: 100%
+    min-width: 100%
+    min-height: 100%
+
+.manager-card__title
+  display: block
+  +f(fh, 18, 100)
+  text-transform: uppercase
+  color: #FFF
+
+.manager-card__subtitle
+  display: block
+  margin-top: 10px
+  font-size: 18px
+
+.manager-card__contact
+  display: inline-block
+  margin-top: 10px
+  +f(fh, 18, 100)
+  text-transform: uppercase
+  color: inherit
+  text-decoration: none
+
+.manager-card__btn
+  display: block
+  margin-top: 45px
+  margin-right: -90px
 
 
 .footer
@@ -1893,3 +2003,89 @@ a.slider-item__title
   color: $color-grey
   margin-bottom: 70px
   text-transform: uppercase
+
+
+.coaches
+  margin-top: 150px
+
+.coaches__title
+  display: block
+  margin-bottom: 50px
+  +f(fd, 50, 1000)
+  text-transform: uppercase
+  color: #FFF
+
+
+.offer
+  margin-top: 120px
+  .course__subtitle
+    line-height: 2
+  .course__head
+    padding-top: 90px
+    margin-top: -90px
+    padding-bottom: 30px
+  .course-info
+    margin: 15px 0
+  .checklist
+    margin: 30px 0
+
+.offer__title
+  margin-bottom: 140px
+  letter-spacing: 2em
+  color: rgba(white, 0.3)
+  line-height: 1.667
+
+.offer__subtitle
+  display: block
+  margin: 30px 0
+  +f(fh, 24, 100)
+  text-transform: uppercase
+  line-height: 1.1667
+
+.offer__body
+  position: relative
+  margin-left: 60px
+  background: $color-dark2
+  padding: 70px 70px 70px 0
+  +clr
+  .course-note
+    left: 50%
+    margin-left: 220px
+
+.offer__course-card
+  position: relative
+  margin-left: -60px
+  margin-right: 150px
+  float: left
+  width: 490px
+  box-sizing: border-box
+  padding: 45px 60px 65px
+  background: $color-dark
+  +shadow
+  .course__footer
+    margin-top: 70px
+  .course-prise
+    margin: 50px 0
+
+.offer__course-simple
+  float: left
+  background: none
+  padding-top: 45px
+  width: 320px
+  box-sizing: border-box
+  .course__title
+    color: #FFF
+  .course__footer
+    margin-top: 30px
+  .checklist
+    color: #FFF
+
+.offer__plus
+  position: absolute
+  top: 118px
+  left: 474px
+  +f(fd, 42)
+
+.offer__total-prise
+  margin: 40px 0
+  font-size: 48px

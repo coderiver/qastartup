@@ -51,7 +51,6 @@
   position: relative
   background: $color-dark2
   padding: 40px 0 40px 60px
-  margin: 50px 0
   font-size: 14px
   color: #AAA
   &:not(:first-child)
@@ -99,21 +98,11 @@
   &:not(:last-child)
     margin-bottom: 40px
   > li
-    padding-left: 40px
-    position: relative
     &:not(:first-child)
       margin-top: 15px
     .lesson__grey-box,
     .lesson__list-level-2
       position: static
-    &:before
-      @extend %icon
-      content: $icon-check
-      position: absolute
-      top: 3px
-      left: 0
-      color: $color-green
-      font-size: 10px
 
 .lesson__list-level-2
   line-height: 1.3

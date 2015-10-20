@@ -1,4 +1,5 @@
 {% set bodyClass = "course-page" %}
+{% set callbackClassMod = "-wide-bg" %}
 {% extends "layouts/layout.html" %}
 {% import "partials/mixins.html" as mixins %}
 
@@ -19,6 +20,18 @@
     {% include "partials/course-seo-text.html" %}
     {% include "partials/course-technology.html" %}
     {% include "partials/course-programm.html" %}
+    {% include "partials/course-coaches.html" %}
+    {% include "partials/course-offer.html" %}
+    {% include "partials/companies.html" %}
+    {% include "partials/testimonials.html" %}
+    {% include "partials/qa-center-advantages.html" %}
+    <!-- BEGIN content-layer-1 -->
+    <div class="content-layer-1">
+      {% include "partials/callback.html" %}
+      {% include "partials/faq.html" %}
+      {% include "partials/course-contacts.html" %}
+    </div>
+    <!-- END content-layer-1 -->
   </div>
   <!-- END content-wrapper -->
 

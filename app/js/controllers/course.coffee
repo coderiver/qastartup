@@ -12,6 +12,7 @@ initSpecificScrollScenes = require '../scrollscenes/course'
 initTestimonials         = require '../modules/testimonials'
 initMap                  = require '../modules/map'
 openModal                = require '../modules/modal'
+SliderBox                = require '../modules/slider-box'
 initPlayerApi            = require('../modules/player').initPlayerApi
 ModalPlayer              = require('../modules/player').ModalPlayer
 Form                     = require '../modules/form'
@@ -27,6 +28,8 @@ $(document).ready ->
   do initCommonScrollScenes
   do initSpecificScrollScenes
   do header.init
+  do initTestimonials
+  # do initMap
 
   # modal youtube player
   # new ModalPlayer '#player', '.course-header .play-button'
@@ -54,3 +57,7 @@ $(document).ready ->
     initialSlide: 0
     focusOnSelect: yes
     speed: 1000
+
+  # slider box
+  advantagesSliderBox = new SliderBox '.advantages .slider-box',
+    zoomOutTrigger: '.content-layer-1'

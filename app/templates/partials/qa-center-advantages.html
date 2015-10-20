@@ -1,0 +1,23 @@
+<!-- BEGIN advantages -->
+<section class="advantages -type-course">
+  <div class="slider-box">
+    <div class="advantages__bg slider-box__bg"></div>
+    <div class="l">
+      <h2 class="advantages__title -size-sm">Преимущества<br>учебного<br>центра</h2>
+      <div class="slider-box__container">
+        <div class="slider-box__container-inner">
+          <div class="slider">
+            <div class="slider__track">
+              {% for advantage in advantages %}<div class="slider-item">
+                <span class="slider-item__count">{{ advantage.count }}</span>
+                <strong class="slider-item__title -size-sm">{{ advantage.title|safe }}</strong>
+                <p class="slider-item__text">{{ advantage.text|safe }}</p>
+              </div>{% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END advantages -->

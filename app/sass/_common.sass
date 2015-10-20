@@ -670,3 +670,46 @@ textarea.input
     +trans(color)
     &:hover
       color: $color-green
+
+
+.checklist
+  line-height: 1.2
+  position: relative
+  z-index: 1
+  font-size: 14px
+  &:not(:first-child)
+    margin-top: 40px
+  &:not(:last-child)
+    margin-bottom: 40px
+
+  .checklist__item,
+  > li
+    padding-left: 40px
+    position: relative
+    &:not(:first-child)
+      margin-top: 15px
+    &:before
+      @extend %icon
+      content: $icon-check
+      position: absolute
+      top: 3px
+      left: 0
+      color: $color-green
+      font-size: 10px
+
+    &.-not-available,
+    &.is-not-available
+      &:before
+        content: $icon-close
+        color: inherit
+
+    &.-checked,
+    &.is-checked
+      color: $color-grey-lighter
+      &:before
+        content: $icon-check
+        color: $color-green
+
+    &.-marked,
+    &.is-marked
+      color: $color-green

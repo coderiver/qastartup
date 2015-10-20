@@ -5,3 +5,5 @@ switch location.pathname
     require('./controllers/index')
   when '/course.html'
     require('./controllers/course')
+  when '/qastartup/course.html'
+    require('./controllers/course')
