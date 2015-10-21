@@ -269,6 +269,10 @@ a { color: inherit; }
 
 .btn.-height-sm { height: 40px; line-height: 40px; }
 
+.btn.-color-grey .btn__fill { background: #777; }
+
+.btn.-color-grey .borders > *:before { background: #777; }
+
 .btn__text { position: relative; z-index: 2; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; -webkit-transition-delay: 0.05s; transition-delay: 0.05s; }
 
 .btn__fill { position: absolute; z-index: 0; top: 0; left: 0; right: 0; bottom: 0; -webkit-transform: translate3d(-101%, 0, 0); transform: translate3d(-101%, 0, 0); -webkit-transition: -webkit-transform 0.3s ease; transition: transform 0.3s ease; background: -webkit-linear-gradient(70deg, #20D8A2 0%, #21E0C7 100%); background: linear-gradient(20deg, #20D8A2 0%, #21E0C7 100%); }
@@ -615,11 +619,11 @@ textarea.input { resize: none; overflow: hidden; height: auto; -webkit-transitio
 
 .course__footer { margin-top: 50px; }
 
-.course-info { color: #CCC; line-height: 1.667; margin: 10px 0; }
+.course-info { display: block; color: #CCC; line-height: 1.667; margin: 10px 0; }
 
 .course-info__label { display: block; font-family: "FuturaPT-Book", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #AAA; }
 
-.course-info__value { font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; }
+.course-info__value { display: block; font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; }
 
 .course-programm { opacity: 0; visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #2F2F2F; font-family: "PFAgorasansPro-Regular", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.7; letter-spacing: 0; color: #777; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; -webkit-transition-property: opacity, visibility; transition-property: opacity, visibility; }
 
@@ -871,7 +875,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .testimonial__userpic { position: absolute; top: 50%; left: -45px; margin-top: -50px; width: 110px; height: 110px; border-radius: 50%; overflow: hidden; background: #777; -webkit-transition: -webkit-transform 0.5s ease; transition: transform 0.5s ease; }
 
-.testimonial__userpic img { display: block; max-width: 100%; max-height: 100%; min-height: 100%; min-width: 100%; }
+.testimonial__userpic img { display: block; width: 100%; height: 100%; }
 
 .testimonial__contacts { font-size: 16px; margin-top: 10px; }
 
@@ -1055,7 +1059,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .manager-card__avatar { position: absolute; top: 50px; left: -40px; width: 100px; height: 100px; box-sizing: border-box; border-radius: 50%; overflow: hidden; }
 
-.manager-card__avatar img { display: block; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%; }
+.manager-card__avatar img { display: block; width: 100%; height: 100%; }
 
 .manager-card__title { display: block; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF; }
 
@@ -1540,5 +1544,109 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 .lessons-counter__numbers { display: inline-block; vertical-align: top; }
 
 .lessons-counter__current { color: #FFF; }
+
+.slider-duo { position: relative; }
+
+.slider-duo:after { content: " "; display: table; clear: both; }
+
+.slider-duo__nav-buttons { position: relative; z-index: 2; max-width: 810px; margin-left: -20px; }
+
+@media only screen and (min-width: 1300px) { .slider-duo__nav-buttons { max-width: 880px; margin-left: -90px; } }
+
+.slider-duo__nav-prev, .slider-duo__nav-next { position: absolute; top: 0; background: none; color: rgba(255, 255, 255, 0.3); -webkit-transition: color 0.2s ease; transition: color 0.2s ease; font-size: 24px; height: 130px; }
+
+.slider-duo__nav-prev:hover, .slider-duo__nav-next:hover { color: #21DBB2; }
+
+.slider-duo__nav-prev { left: 0; }
+
+.slider-duo__nav-next { right: 0; }
+
+.slider-duo__left { position: relative; z-index: 1; float: left; width: 66.66667%; min-height: 440px; }
+
+.slider-duo__left-inner { margin-left: -1000px; overflow: hidden; }
+
+.slider-duo__left-inner:after { content: " "; display: table; clear: both; }
+
+.slider-duo__left-slides { position: relative; float: right; max-width: 760px; }
+
+.slider-duo__left-slides:after { content: " "; display: table; clear: both; }
+
+.slider-duo__left-slides:before { content: ""; position: absolute; z-index: -1; top: 0; right: 0; bottom: 0; background: #424242; left: 90px; }
+
+.slider-duo__right { position: relative; z-index: 0; float: right; width: 33.33333%; }
+
+.slider-duo__right-inner { margin-right: -1000px; overflow: hidden; }
+
+.slider-duo__right-slides { max-width: 380px; }
+
+.slider-duo__right-slides:after { content: " "; display: table; clear: both; }
+
+.slider-duo__slide-count { display: block; height: 190px; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; color: #777; }
+
+.slider-duo__slide-count em { color: #FFF; font-style: normal; }
+
+.slider-duo__slide-count:after { content: ""; display: block; height: 110px; margin: 30px 0; border-left: 2px solid rgba(255, 255, 255, 0.3); }
+
+.slider-duo__slide-lg { float: left; width: 100%; box-sizing: border-box; padding: 30px 110px 60px 0; }
+
+.slider-duo__slide-sm { float: left; padding-top: 30px; }
+
+.person { color: #AAA; position: relative; z-index: 0; }
+
+.person:after { content: " "; display: table; clear: both; }
+
+.person.-size-sm .person__title, .person.-size-sm .person__name { font-size: 15px; }
+
+.person.-size-sm .person__pic { width: 95px; height: 95px; margin-bottom: 25px; -webkit-filter: saturate(0); filter: saturate(0); }
+
+.person.-size-sm .course-info__label { font-size: 12px; }
+
+.person.-size-sm .course-info__value { font-size: 14px; }
+
+.person.-with-bg:before { content: ""; position: absolute; z-index: -1; top: -30px; left: 90px; right: -110px; bottom: -60px; background: #424242; }
+
+.person__left { float: left; width: 190px; }
+
+.person__right { float: right; width: -webkit-calc(100% - 240px); width: calc(100% - 240px); }
+
+.person__pic { width: 190px; height: 190px; overflow: hidden; margin-bottom: 40px; }
+
+.person__pic img { display: block; max-width: 100%; max-height: 100%; }
+
+.person__name, .person__title { display: block; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; margin: 20px 0; }
+
+.person__name { color: #AAA; }
+
+.person__title { color: #777; }
+
+.person__title:not(:first-child) { margin-top: 60px; }
+
+.person__text { font-size: 16px; color: #AAA; line-height: 1.375; }
+
+.person__more { margin-top: 60px; display: none; }
+
+.person__links { color: #FFF; line-height: 1.3; }
+
+.person__links > li { position: relative; padding-left: 90px; }
+
+.person__links > li:before { content: ""; position: absolute; top: 11px; left: 0; width: 60px; height: 2px; background: #FFF; opacity: 0.3; }
+
+.person__links a { display: inline-block; text-decoration: none; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; }
+
+.person__links a:hover { color: #21DBB2; }
+
+.person__footer { margin-top: 40px; }
+
+.person__footer .btn { display: block; }
+
+.person__footer .btn:not(:first-child) { margin-top: 20px; }
+
+.timeline { margin: 30px 0; }
+
+.timeline__date { display: block; margin-bottom: 25px; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF; }
+
+.timeline__body { padding-left: 38px; border-left: 2px solid rgba(255, 255, 255, 0.3); }
+
+.timeline__title { display: block; margin-bottom: 20px; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF; }
 
 /*# sourceMappingURL=app.css.map */
