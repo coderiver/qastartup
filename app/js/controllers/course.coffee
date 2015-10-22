@@ -16,6 +16,7 @@ SliderBox                = require '../modules/slider-box'
 initPlayerApi            = require('../modules/player').initPlayerApi
 ModalPlayer              = require('../modules/player').ModalPlayer
 Form                     = require '../modules/form'
+SliderDuo                = require '../modules/slider-duo'
 
 Pace.on 'done', ->
   setTimeout ->
@@ -61,3 +62,5 @@ $(document).ready ->
   # slider box
   advantagesSliderBox = new SliderBox '.advantages .slider-box',
     zoomOutTrigger: '.content-layer-1'
+
+  sliderDuo = new SliderDuo '.slider-duo'

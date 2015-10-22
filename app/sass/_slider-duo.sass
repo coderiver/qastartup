@@ -35,6 +35,8 @@
   float: left
   width: percentage(760/1140)
   min-height: 440px
+  .slick-list
+    overflow: visible
 
 .slider-duo__left-inner
   margin-left: -1000px
@@ -61,13 +63,17 @@
   z-index: 0
   float: right
   width: percentage(380/1140)
+  .slick-list
+    overflow: visible
 
 .slider-duo__right-inner
   margin-right: -1000px
   overflow: hidden
 
 .slider-duo__right-slides
-  max-width: 380px
+  max-width: 340px
+  position: relative
+  left: -340px
   +clr
 
 
@@ -95,7 +101,8 @@
 
 .slider-duo__slide-sm
   float: left
-  padding-top: 30px
+  padding: 30px 0 0 60px
+  box-sizing: border-box
 
 
 
@@ -121,6 +128,7 @@
 
   &.-with-bg
     &:before
+      display: none
       content: ""
       position: absolute
       z-index: -1

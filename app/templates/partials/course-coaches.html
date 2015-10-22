@@ -120,7 +120,7 @@
     <div class="coaches__slider-container">
       <!-- BEGIN slider-duo -->
       <div class="slider-duo">
-        <div class="slider-duo__slide-count"><em>01</em>/05</div>
+        <div class="slider-duo__slide-count"><em class="current">01</em>/05</div>
         <div class="slider-duo__nav-buttons">
           <button type="button" class="slider-duo__nav-prev icon icon-arrow-left"></button>
           <button type="button" class="slider-duo__nav-next icon icon-arrow-right"></button>
@@ -130,6 +130,10 @@
           <div class="slider-duo__left-inner">
             <div class="slider-duo__left-slides">
               {{ largeSlide() }}
+              {{ largeSlide() }}
+              {{ largeSlide() }}
+              {{ largeSlide() }}
+              {{ largeSlide() }}
             </div>
           </div>
         </div>
@@ -137,6 +141,10 @@
         <div class="slider-duo__right">
           <div class="slider-duo__right-inner">
             <div class="slider-duo__right-slides">
+              {{ smallSlide() }}
+              {{ smallSlide() }}
+              {{ smallSlide() }}
+              {{ smallSlide() }}
               {{ smallSlide() }}
             </div>
           </div>
