@@ -627,7 +627,7 @@
             <div class="coaches__slider-container">
               <!-- BEGIN slider-duo -->
               <div class="slider-duo">
-                <div class="slider-duo__slide-count"><em class="current">01</em>/05</div>
+                <div class="slider-duo__slide-count"><span class="current">01</span>/05</div>
                 <div class="slider-duo__nav-buttons">
                   <button type="button" class="slider-duo__nav-prev icon icon-arrow-left"></button>
                   <button type="button" class="slider-duo__nav-next icon icon-arrow-right"></button>
@@ -1216,7 +1216,7 @@
                           <div class="person__pic">
                             <img src="img/coach.jpg" alt="">
                           </div>
-                          <strong class="person__name">Андрей<br>Коновалец</strong>
+                          <strong class="person__name">Сергей<br>Гливинский</strong>
                           <div class="course-info">
                             <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -1241,7 +1241,7 @@
                           <div class="person__pic">
                             <img src="img/coach.jpg" alt="">
                           </div>
-                          <strong class="person__name">Андрей<br>Коновалец</strong>
+                          <strong class="person__name">Сергей<br>Гливинский</strong>
                           <div class="course-info">
                             <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -1266,7 +1266,7 @@
                           <div class="person__pic">
                             <img src="img/coach.jpg" alt="">
                           </div>
-                          <strong class="person__name">Андрей<br>Коновалец</strong>
+                          <strong class="person__name">Сергей<br>Гливинский</strong>
                           <div class="course-info">
                             <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -1291,7 +1291,7 @@
                           <div class="person__pic">
                             <img src="img/coach.jpg" alt="">
                           </div>
-                          <strong class="person__name">Андрей<br>Коновалец</strong>
+                          <strong class="person__name">Сергей<br>Гливинский</strong>
                           <div class="course-info">
                             <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -1316,7 +1316,7 @@
                           <div class="person__pic">
                             <img src="img/coach.jpg" alt="">
                           </div>
-                          <strong class="person__name">Андрей<br>Коновалец</strong>
+                          <strong class="person__name">Сергей<br>Гливинский</strong>
                           <div class="course-info">
                             <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -2088,10 +2088,10 @@
         <!-- END footer -->
 
         <!-- BEGIN modal -->
-        <div class="modal">
+        <div class="modal -type-video">
           <div class="modal__inner">
+            <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
             <div class="modal__body">
-              <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
               <div class="modal__player" id="player" data-video-id="xEhaVhta7sI">
                 На этом месте должно быть наше замечательное видео.
                 <br>Но если Вы, вдруг, увидели данный текст, так и знайте - Youtube поломался, и наши разработчики тут вовсе не при делах :)
@@ -2102,8 +2102,8 @@
 
         <div class="modal" id="modal-callback">
           <div class="modal__inner">
+            <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
             <div class="modal__body">
-              <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
               <div class="callback l">
                 <div class="callback__backlayer"></div>
                 <div class="callback__frontlayer">
@@ -2156,6 +2156,13 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="modal" id="coaches-modal">
+          <div class="modal__inner">
+            <button class="modal__close" type="button"><span class="hidden-text">Закрыть</span></button>
+            <div class="modal__body"></div>
           </div>
         </div>
 
