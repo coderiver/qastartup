@@ -1,5 +1,11 @@
 # require 'jquery'
 # require 'slick-carousel'
+openModal = require '../modules/modal'
+
+# $('.slider-duo__slide-lg .person').each (index, el) ->
+#   elem = $ el
+#   elem.find('.person__footer .btn').first().on 'click', (e) ->
+#     elem.find('.person__more').slideToggle()
 
 class SliderDuo
 
@@ -12,21 +18,46 @@ class SliderDuo
       prevButton: '.slider-duo__nav-prev'
       nextButton: '.slider-duo__nav-next'
       slideCounter: '.slider-duo__slide-count'
+      modal: '#coaches-modal'
 
   constructor: (container, options = {}) ->
-    @props = $.extend {}, defaults, options
-    @container = if container instanceof $ then container else $(container)
-    @leftSlider = @container.find @props.selectors.leftSlider
-    @rightSlider = @container.find @props.selectors.rightSlider
-    @prevButton = @container.find @props.selectors.prevButton
-    @nextButton = @container.find @props.selectors.nextButton
+    @props        = $.extend {}, defaults, options
+    @container    = if container instanceof $ then container else $(container)
+    @leftSlider   = @container.find @props.selectors.leftSlider
+    @rightSlider  = @container.find @props.selectors.rightSlider
+    @prevButton   = @container.find @props.selectors.prevButton
+    @nextButton   = @container.find @props.selectors.nextButton
+    @slideCounter = @container.find @props.selectors.slideCounter
+    @modal        = $ @props.selectors.modal
+
+    @_initEvents()
     @_initLeftSlider()
     @_initRightSlider()
-    @_initSlideCounter()
+    @_updateSlideCounter()
+    @_initEventsForModal()
     console.log @
 
+
+  _initEvents: ->
+    @leftSlider.on 'afterChange', (e, slick, currentSlide) =>
+      @_updateSlideCounter()
+
+  _initEventsForModal: ->
+    @leftSlider.on 'beforeChange', (e, slick, currentSlide, nextSlide) =>
+      currentBtns = $(slick.$slides[currentSlide]).find '.person__footer .btn'
+      nextBtns    = $(slick.$slides[nextSlide]).find '.person__footer .btn'
+      currentBtns.off 'click'
+      nextBtns.first().on 'click', (e) =>
+        e.preventDefault()
+        @_updateModalContent nextSlide
+        openModal @modal
+      nextBtns.last().on 'click', (e) =>
+        e.preventDefault()
+        @_updateModalContent nextSlide
+        openModal @modal
+        console.log 'second btn'
+
   _initLeftSlider: ->
-    # @leftSlider = @container.find @props.selectors.leftSlider
     @leftSlider.slick
       infinite: off
       draggable: off
@@ -38,8 +69,7 @@ class SliderDuo
 
     @leftSliderSlickInstance = @leftSlider.slick 'getSlick'
 
-  _initRightSlider: =>
-    # @rightSlider = @container.find @props.selectors.rightSlider
+  _initRightSlider: ->
     @rightSlider.slick
       infinite: off
       arrows: off
@@ -48,13 +78,20 @@ class SliderDuo
       slide: @props.selectors.rightSliderSlide
       asNavFor: @leftSlider
 
-    @rightSliderSlickInstance = @rightSlider.slick 'getSlick'
+  _updateSlideCounter: ->
+    currentSlide = @leftSliderSlickInstance.currentSlide
+    slideCount   = @leftSliderSlickInstance.slideCount
+    @slideCounter.html "<span class='current'>#{currentSlide + 1}</span>/#{slideCount}"
 
-  _initSlideCounter: ->
-    @slideCounter = @container
-      .find(@props.selectors.slideCounter)
-      .empty()
-      .html("<em class='current'>1232</em>/05")
+  _initModal: ->
+    @modal = $ @props.selectors.modal
+
+  _updateModalContent: (currentSlide) ->
+    if typeof currentSlide is 'number'
+      content = $(@leftSliderSlickInstance.$slides[currentSlide]).html()
+    else
+      content = currentSlide.html()
+    @modal.find('.modal__body').html content
 
 
 module.exports = SliderDuo
