@@ -1,4 +1,5 @@
 # $ = require 'jquery'
+toggleBodyScroll = require '../modules/toggle-scroll'
 
 openModal = (selector, options = {}) ->
   modal     = if selector instanceof $ then selector else $(selector)
@@ -6,6 +7,11 @@ openModal = (selector, options = {}) ->
   { beforeOpen, afterOpen, beforeClose, afterClose } = options
 
   beforeOpen?()
+
+  modal.on 'mousewheel DOMMouseScroll', (e) ->
+    e.stopPropagation()
+
+  toggleBodyScroll.disable()
 
   modal.fadeIn 500, ->
     modal.addClass 'is-open'
@@ -16,8 +22,10 @@ openModal = (selector, options = {}) ->
     , 500
 
   closeBtn.one 'click', (e) ->
-    do e.preventDefault
+    e.preventDefault()
     beforeClose?()
+    toggleBodyScroll.enable()
+    modal.off 'mousewheel DOMMouseScroll'
     modal
       .removeClass 'is-open draw'
       .delay 500

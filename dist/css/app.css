@@ -1625,9 +1625,9 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .person.-size-sm .course-info__value { font-size: 14px; }
 
-.modal .person { max-width: 760px; margin: auto; text-align: left; position: relative; }
+.modal .person { max-width: 760px; margin: 100px auto; text-align: left; position: relative; }
 
-.modal .person .person__footer { display: none; }
+.modal .person .person__buttons { display: none; }
 
 .modal .person .person__more { display: block; }
 
@@ -1663,11 +1663,11 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .person__links a:hover { color: #21DBB2; }
 
-.person__footer { margin-top: 40px; }
+.person__buttons { margin-top: 40px; }
 
-.person__footer .btn { display: block; }
+.person__buttons .btn { display: block; }
 
-.person__footer .btn:not(:first-child) { margin-top: 20px; }
+.person__buttons .btn:not(:first-child) { margin-top: 20px; }
 
 .timeline { margin: 30px 0; }
 

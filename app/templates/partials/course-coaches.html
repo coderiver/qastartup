@@ -1,7 +1,7 @@
-{% macro largeSlide() %}
+{% macro largeSlide(addContent) %}
 <div class="slider-duo__slide-lg">
   <!-- BEGIN person -->
-  <div class="person -with-bg">
+  <div class="person">
     <div class="person__left">
       <div class="person__pic">
         <img src="img/coach.jpg" alt="">
@@ -18,6 +18,9 @@
     <div class="person__right">
       <strong class="person__name text-gradient">Сергей<br>Гливинский</strong>
       <p class="person__text">Опыт в домене телекоммуникационных (анализ, тестирование ПО и решение проблем таких систем как Genesys Framefork и Granite Inventory System) и банковских систем (Трейдинг ориентированные системы)</p>
+      {% if addContent %}
+      <div class="person__title">{{ addContent }}</div>
+      {% endif %}
       <div class="person__more">
         <strong class="person__title">Технические знания</strong>
         <dl class="course-info">
@@ -78,7 +81,7 @@
           <li><a href="#">ISTQB foundation level (CTFL)</a></li>
         </ul>
       </div>
-      <div class="person__footer">
+      <div class="person__buttons">
         {{ mixins.btn("Подробнее", "-type-filled -width-250 -height-sm") }}
         {{ mixins.btn("Задать вопрос", "-color-grey -width-250 -height-sm") }}
       </div>
@@ -87,7 +90,7 @@
   <!-- END person -->
 </div>
 {% endmacro %}
-{% macro smallSlide %}
+{% macro smallSlide() %}
 <div class="slider-duo__slide-sm">
   <!-- BEGIN person -->
   <div class="person -size-sm">
@@ -130,10 +133,10 @@
           <div class="slider-duo__left-inner">
             <div class="slider-duo__left-slides">
               {{ largeSlide() }}
-              {{ largeSlide() }}
-              {{ largeSlide() }}
-              {{ largeSlide() }}
-              {{ largeSlide() }}
+              {{ largeSlide("Slide 2") }}
+              {{ largeSlide("Slide 3") }}
+              {{ largeSlide("Slide 4") }}
+              {{ largeSlide("Slide 5") }}
             </div>
           </div>
         </div>
