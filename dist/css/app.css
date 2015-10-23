@@ -749,7 +749,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .banner-title__large { display: block; margin-top: 22px; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 72px; letter-spacing: 0.1em; line-height: 0.8; }
 
-.reasons.-course-advantages { padding-top: 300px; padding-bottom: 20px; background: url("../img/course-advantages.jpg") repeat-x right center; background-size: auto 100%; }
+.reasons.-course-advantages { padding-top: 300px; padding-bottom: 20px; background: url("../img/course-advantages.jpg") repeat-x right center; background-size: cover; }
 
 .reasons.-course-advantages .reasons__list { margin-bottom: 0; }
 
@@ -1385,6 +1385,8 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .modal.is-open .modal__inner { opacity: 1; -webkit-transform: none; -ms-transform: none; transform: none; }
 
+.modal.is-open .modal__close { opacity: 1; -webkit-transform: none; -ms-transform: none; transform: none; }
+
 .modal__inner { width: 100%; height: 100%; -webkit-transform: translate(0, 100%); -ms-transform: translate(0, 100%); transform: translate(0, 100%); opacity: 0; -webkit-transition: 0.5s ease; transition: 0.5s ease; -webkit-transition-property: opacity, -webkit-transform; transition-property: opacity, transform; white-space: nowrap; text-align: center; font-size: 0; }
 
 .modal__inner:before { content: ""; display: inline-block; vertical-align: middle; width: 0; height: 100%; }
@@ -1393,7 +1395,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .modal__body > img { display: block; max-width: 100%; }
 
-.modal__close { background: none; position: absolute; z-index: 2; top: 0; right: 0; padding: 20px; font-size: 20px; color: #AAA; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; }
+.modal__close { background: none; position: absolute; z-index: 2; top: 0; right: 0; padding: 20px; font-size: 20px; color: #AAA; -webkit-transition: all 0.5s ease; transition: all 0.5s ease; -webkit-transform: rotate(360deg) scale(0); -ms-transform: rotate(360deg) scale(0); transform: rotate(360deg) scale(0); opacity: 0; }
 
 .modal__close:before { content: ""; }
 
@@ -1419,15 +1421,13 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .pagination__list { display: inline-block; vertical-align: middle; font-size: 16px; white-space: normal; }
 
-.pagination__item:not(:first-child) { margin-top: 20px; }
+.pagination__link { display: block; position: relative; text-decoration: none; color: #FFF; text-align: right; line-height: 50px; }
 
-.pagination__link { display: block; position: relative; text-decoration: none; color: #FFF; text-align: right; line-height: 1; padding: 5px 0; }
-
-.pagination__link:after { content: ""; display: block; width: 10px; height: 10px; border-radius: 50%; background: #666; -webkit-transition: background 0.2s ease; transition: background 0.2s ease; }
+.pagination__link:after { content: ""; display: inline-block; vertical-align: middle; position: relative; z-index: 1; top: -1px; width: 10px; height: 10px; border-radius: 50%; background: #666; -webkit-transition: background 0.2s ease; transition: background 0.2s ease; }
 
 .pagination__link:hover:after, .pagination__link.is-active:after { background: #21DBB2; }
 
-.pagination__text { position: absolute; top: 50%; right: 10px; text-align: right; font-family: "PFAgorasansPro-Medium", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; margin-top: -0.5em; text-transform: uppercase; padding-right: 25px; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; opacity: 0; visibility: hidden; -webkit-transform: translate(-30px, 0); -ms-transform: translate(-30px, 0); transform: translate(-30px, 0); white-space: nowrap; }
+.pagination__text { position: absolute; z-index: 0; top: 50%; right: 10px; text-align: right; font-family: "PFAgorasansPro-Medium", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.1em; margin-top: -25px; text-transform: uppercase; padding-right: 25px; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; opacity: 0; visibility: hidden; -webkit-transform: translate(30px, 0); -ms-transform: translate(30px, 0); transform: translate(30px, 0); white-space: nowrap; }
 
 .pagination__item:nth-child(1) .pagination__text { -webkit-transition-delay: 0.05s; transition-delay: 0.05s; }
 
@@ -1453,6 +1453,8 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .carousel .slick-list { overflow: visible; }
 
+.carousel .slick-slide { -webkit-animation: fadein 0.5s ease 1; animation: fadein 0.5s ease 1; }
+
 .carousel:before, .carousel:after { content: ""; position: absolute; z-index: 1; top: 0; width: 100px; height: 100%; }
 
 .carousel:before { left: 0; background: -webkit-linear-gradient(left, #2F2F2F 50%, rgba(47, 47, 47, 0) 100%); background: linear-gradient(to right, #2F2F2F 50%, rgba(47, 47, 47, 0) 100%); }
@@ -1467,25 +1469,44 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .carousel__item:hover .carousel__icon { color: #21DBB2; }
 
+.carousel__item.slick-slide .carousel__item-text { display: none; }
+
+.carousel__item-text { margin-top: 20px; font-size: 14px; color: #777; }
+
 .carousel__icon { display: inline-block; font-size: 68px; color: #777; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; }
 
 .slick-current .carousel__icon { color: #21DBB2; }
 
 .carousel__label { display: block; margin-top: 20px; text-transform: uppercase; font-family: "FuturaPT-Demi", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; letter-spacing: 0.1em; }
 
-.carousel__line { display: block; height: 110px; width: 2px; background: rgba(255, 255, 255, 0.3); margin: 20px 0; }
+.carousel-line { display: block; height: 110px; width: 2px; background: rgba(255, 255, 255, 0.3); margin: 20px 0; }
 
-.carousel__text { max-width: 300px; min-height: 200px; color: #CCC; font-size: 14px; line-height: 1.57; }
+.carousel-text-box { max-width: 300px; min-height: 350px; color: #CCC; font-size: 14px; line-height: 1.57; }
+
+.carousel-text-box:before { content: ""; display: block; height: 110px; width: 2px; background: rgba(255, 255, 255, 0.3); margin: 20px 0; }
+
+.carousel-text-box .slick-slide { opacity: 0; visibility: hidden; -webkit-transition: 0.5s ease; transition: 0.5s ease; -webkit-transition-property: opacity, visibility; transition-property: opacity, visibility; pointer-events: none; }
+
+.carousel-text-box .slick-slide.slick-current { opacity: 1; visibility: visible; pointer-events: all; -webkit-user-select: initial; -moz-user-select: initial; -ms-user-select: initial; user-select: initial; }
+
+@keyframe fadein { 0% { opacity: 0; }
+  100% { opacity: 1; } }
 
 .curriculum__header { text-align: right; margin-bottom: 60px; }
 
 .curriculum__title { display: inline-block; text-align: left; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 48px; letter-spacing: 1.2em; text-transform: uppercase; margin-right: -1.2em; color: #FFF; }
 
-.curriculum__body { padding-left: 320px; position: relative; }
+.curriculum__body { position: relative; }
 
-.curriculum__pinned-area { position: absolute; top: 50px; left: 0; min-height: 400px; height: -webkit-calc(100vh - 200px); height: calc(100vh - 200px); color: #777; }
+.curriculum__body:after { content: " "; display: table; clear: both; }
 
-.curriculum__scroll-btn { position: absolute; bottom: 0; left: 0; cursor: pointer; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.5em; text-transform: uppercase; background: none; color: #777; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; text-align: left; }
+.curriculum__left { position: relative; float: left; width: 24.5614%; }
+
+.curriculum__pinned-area { position: relative; padding-top: 50px; min-height: 400px; height: -webkit-calc(100vh - 200px); height: calc(100vh - 200px); color: #777; }
+
+.curriculum__scrolled-area { float: right; width: 68.42105%; box-sizing: border-box; }
+
+.curriculum__scroll-btn { position: absolute; bottom: 0; left: 0; cursor: pointer; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; letter-spacing: 0.5em; text-transform: uppercase; background: none; color: #777; -webkit-transition: color 0.2s ease; transition: color 0.2s ease; text-align: left; text-decoration: none; }
 
 .curriculum__scroll-btn:after { content: ""; display: block; font-size: 70px; margin-top: 10px; position: relative; left: -5px; }
 
@@ -1503,7 +1524,7 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .lesson p:not(:last-child) { margin-bottom: 10px; }
 
-.lesson__title { display: block; margin: 0 0 40px -100px; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 36px; letter-spacing: 0.1em; color: #FFF; text-transform: uppercase; }
+.lesson__title { position: relative; display: block; margin: 0 0 40px -100px; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 36px; letter-spacing: 0.1em; color: #FFF; text-transform: uppercase; }
 
 .lesson__subtitle { display: block; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: #CCC; }
 
@@ -1520,6 +1541,8 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 .lesson__list > li:not(:first-child) { margin-top: 15px; }
 
 .lesson__list > li .lesson__grey-box, .lesson__list > li .lesson__list-level-2 { position: static; }
+
+.lesson__list > li:last-child .lesson__grey-box:before, .lesson__list > li:last-child .lesson__list-level-2:before { bottom: -20px; }
 
 .lesson__list-level-2 { line-height: 1.3; margin-left: 60px; position: relative; }
 
@@ -1539,9 +1562,11 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .lesson__list-label { display: block; margin: 15px 0; }
 
-.lessons-counter { box-sizing: border-box; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; letter-spacing: 0.1em; color: #777; line-height: 1.5; padding-right: 120px; }
+.lessons-counter { position: relative; box-sizing: border-box; font-family: "FuturaPT-Heavy", Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; letter-spacing: 0.1em; color: #777; line-height: 1.5; padding-right: 120px; }
 
 .lessons-counter:after { content: ""; position: absolute; top: 9px; right: 0; width: 100px; border-top: 2px solid; }
+
+.lessons-counter .current { color: #FFF; }
 
 .lessons-counter__label { display: inline-block; vertical-align: top; letter-spacing: 0.5em; text-transform: uppercase; }
 
@@ -1627,7 +1652,9 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .modal .person { max-width: 760px; margin: 100px auto; text-align: left; position: relative; }
 
-.modal .person .person__buttons { display: none; }
+.modal .person .person__buttons .btn { display: none; }
+
+.modal .person .person__buttons .btn.js-modal-close { display: block; }
 
 .modal .person .person__more { display: block; }
 
@@ -1668,6 +1695,8 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 .person__buttons .btn { display: block; }
 
 .person__buttons .btn:not(:first-child) { margin-top: 20px; }
+
+.person__buttons .btn.js-modal-close { display: none; }
 
 .timeline { margin: 30px 0; }
 

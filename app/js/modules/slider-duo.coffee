@@ -2,11 +2,6 @@
 # require 'slick-carousel'
 openModal = require '../modules/modal'
 
-# $('.slider-duo__slide-lg .person').each (index, el) ->
-#   elem = $ el
-#   elem.find('.person__footer .btn').first().on 'click', (e) ->
-#     elem.find('.person__more').slideToggle()
-
 class SliderDuo
 
   defaults =
@@ -37,8 +32,6 @@ class SliderDuo
     @_initLeftSlider()
     @_initRightSlider()
     @_updateSlideCounter()
-    console.log @
-
 
   _initBasicEvents: ->
     @leftSlider.on 'afterChange', (e, slick, currentSlide) =>
@@ -101,7 +94,6 @@ class SliderDuo
       e.preventDefault()
       @_updateModalContent nextSlideObj
       openModal '#modal-callback'
-      console.log 'second btn'
 
   _updateModalContent: (currentSlide) ->
     if typeof currentSlide is 'number'

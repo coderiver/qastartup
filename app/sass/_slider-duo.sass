@@ -168,7 +168,10 @@
     text-align: left
     position: relative
     .person__buttons
-      display: none
+      .btn
+        display: none
+        &.js-modal-close
+          display: block
     .person__more
       display: block
     &:before
@@ -254,6 +257,8 @@
     display: block
     &:not(:first-child)
       margin-top: 20px
+    &.js-modal-close
+      display: none
 
 
 .timeline

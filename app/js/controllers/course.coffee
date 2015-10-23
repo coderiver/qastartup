@@ -6,17 +6,20 @@ require 'jquery.easing'
 require('../plugins/accordion')(jQuery)
 require('../plugins/hover-gallery')(jQuery)
 
-header                   = require '../modules/header'
-initCommonScrollScenes   = require '../scrollscenes/common'
-initSpecificScrollScenes = require '../scrollscenes/course'
-initTestimonials         = require '../modules/testimonials'
-initMap                  = require '../modules/map'
-openModal                = require '../modules/modal'
-SliderBox                = require '../modules/slider-box'
-initPlayerApi            = require('../modules/player').initPlayerApi
-ModalPlayer              = require('../modules/player').ModalPlayer
-Form                     = require '../modules/form'
-SliderDuo                = require '../modules/slider-duo'
+header                     = require '../modules/header'
+initCommonScrollScenes     = require '../scrollscenes/common'
+initSpecificScrollScenes   = require '../scrollscenes/course'
+initTestimonials           = require '../modules/testimonials'
+initMap                    = require '../modules/map'
+openModal                  = require '../modules/modal'
+SliderBox                  = require '../modules/slider-box'
+initPlayerApi              = require('../modules/player').initPlayerApi
+ModalPlayer                = require('../modules/player').ModalPlayer
+Form                       = require '../modules/form'
+SliderDuo                  = require '../modules/slider-duo'
+Curriculum                 = require '../modules/curriculum'
+TextCarousel               = require '../modules/text-carousel'
+{scrollTo, scrollToAnchor} = require '../modules/scroll-to'
 
 Pace.on 'done', ->
   setTimeout ->
@@ -30,6 +33,7 @@ $(document).ready ->
   do initSpecificScrollScenes
   do header.init
   do initTestimonials
+  do scrollToAnchor
   # do initMap
 
   # modal youtube player
@@ -49,18 +53,15 @@ $(document).ready ->
       onError: ->
         alert 'Form error!'
 
-  $('.carousel__items').slick
-    arrows: no
-    slidesToShow: 5
-    slidesToScroll: 1
-    slide: '.carousel__item'
-    draggable: no
-    initialSlide: 0
-    focusOnSelect: yes
-    speed: 1000
+  # course technology
+  carousel = new TextCarousel '.carousel'
 
-  # slider box
+  # course advantages
   advantagesSliderBox = new SliderBox '.advantages .slider-box',
     zoomOutTrigger: '.content-layer-1'
 
-  sliderDuo = new SliderDuo '.slider-duo'
+  # course coaches
+  coachSlider = new SliderDuo '.slider-duo'
+
+  # course curriculum
+  curriculum = new Curriculum '.curriculum__body'

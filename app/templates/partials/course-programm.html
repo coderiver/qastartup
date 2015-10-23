@@ -67,25 +67,33 @@
       </h3>
     </div>
     <div class="curriculum__body">
-      <div class="curriculum__pinned-area">
-        <div class="lessons-counter">
-          <span class="lessons-counter__label">Занятие</span>
-          <span class="lessons-counter__numbers">
-            <b class="lessons-counter__current">03</b>
-            <br>из
-            <br>12
-          </span>
+      <div class="curriculum__left">
+        <div class="curriculum__pinned-area">
+          <div class="lessons-counter">
+            <span class="lessons-counter__label">Занятие</span>
+            <span class="lessons-counter__numbers">
+              <span class="current">03</span>
+              <br>из
+              <br>12
+            </span>
+          </div>
+          <a href="#coaches" class="curriculum__scroll-btn">Перейти к<br>тренерам<br>курса</a>
         </div>
-        <button class="curriculum__scroll-btn">Перейти к<br>тренерам<br>курса</button>
       </div>
-      {{ lesson1() }}
-      {{ lesson2() }}
-      {{ lesson3() }}
-      {{ lesson2() }}
-      {{ lesson1() }}
-      {{ lesson3() }}
-      {{ lesson2() }}
-      {{ lesson1() }}
+      <div class="curriculum__scrolled-area">
+        {{ lesson1() }}
+        {{ lesson2() }}
+        {{ lesson3() }}
+        {{ lesson2() }}
+        {{ lesson1() }}
+        {{ lesson3() }}
+        {{ lesson2() }}
+        {{ lesson1() }}
+        {{ lesson2() }}
+        {{ lesson1() }}
+        {{ lesson3() }}
+        {{ lesson1() }}
+      </div>
     </div>
   </div>
 </section>

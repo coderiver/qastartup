@@ -5,6 +5,8 @@
   overflow: hidden
   .slick-list
     overflow: visible
+  .slick-slide
+    animation: fadein 0.5s ease 1
   &:before,
   &:after
     content: ""
@@ -35,6 +37,15 @@
   &:hover
     .carousel__icon
       color: $color-green
+  &.slick-slide
+    .carousel__item-text
+      display: none
+
+
+.carousel__item-text
+  margin-top: 20px
+  font-size: 14px
+  color: $color-grey
 
 .carousel__icon
   display: inline-block
@@ -50,16 +61,40 @@
   text-transform: uppercase
   +f(fd, 14, 100)
 
-.carousel__line
+.carousel-line
   display: block
   height: 110px
   width: 2px
   background: rgba(white, 0.3)
   margin: 20px 0
 
-.carousel__text
+.carousel-text-box
   max-width: 300px
-  min-height: 200px
+  min-height: 350px
   color: $color-grey-lighter
   font-size: 14px
   line-height: 1.57
+  &:before
+    content: ""
+    display: block
+    height: 110px
+    width: 2px
+    background: rgba(white, 0.3)
+    margin: 20px 0
+  .slick-slide
+    opacity: 0
+    visibility: hidden
+    transition: 0.5s ease
+    transition-property: opacity, visibility
+    pointer-events: none
+    &.slick-current
+      opacity: 1
+      visibility: visible
+      pointer-events: all
+      user-select: initial
+
+@keyframe fadein
+  0%
+    opacity: 0
+  100%
+    opacity: 1

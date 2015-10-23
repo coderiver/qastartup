@@ -21,9 +21,10 @@
   font-size: 16px
   white-space: normal
 
-.pagination__item
-  &:not(:first-child)
-    margin-top: 20px
+// .pagination__item
+//   &:not(:last-child)
+//     .pagination__link
+//       padding-bottom: 20px
 
 
 .pagination__link
@@ -32,11 +33,14 @@
   text-decoration: none
   color: #FFF
   text-align: right
-  line-height: 1
-  padding: 5px 0
+  line-height: 50px
   &:after
     content: ""
-    display: block
+    display: inline-block
+    vertical-align: middle
+    position: relative
+    z-index: 1
+    top: -1px
     width: 10px
     height: 10px
     border-radius: 50%
@@ -49,17 +53,18 @@
 
 .pagination__text
   position: absolute
+  z-index: 0
   top: 50%
   right: 10px
   text-align: right
   +f(am, 12, 100)
-  margin-top: -0.5em
+  margin-top: -25px
   text-transform: uppercase
   padding-right: 25px
   transition: all 0.3s ease
   opacity: 0
   visibility: hidden
-  transform: translate(-30px, 0)
+  transform: translate(30px, 0)
   white-space: nowrap
   @for $i from 1 through 10
     .pagination__item:nth-child(#{$i}) &

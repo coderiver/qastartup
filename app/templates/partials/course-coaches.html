@@ -83,6 +83,7 @@
       </div>
       <div class="person__buttons">
         {{ mixins.btn("Подробнее", "-type-filled -width-250 -height-sm") }}
+        {{ mixins.btn("Закрыть резюме", "-type-filled -width-250 -height-sm js-modal-close") }}
         {{ mixins.btn("Задать вопрос", "-color-grey -width-250 -height-sm") }}
       </div>
     </div>
@@ -118,6 +119,7 @@
 {% endmacro %}
 <!-- BEGIN coaches -->
 <section class="coaches">
+  <a name="coaches"></a>
   <div class="l">
     <h3 class="coaches__title">Тренеры<br>курса</h3>
     <div class="coaches__slider-container">
