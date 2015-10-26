@@ -167,11 +167,13 @@ body { background: #2F2F2F; color: #FFF; min-width: 1180px; font-family: "PFAgor
 
 a { color: inherit; }
 
-.out { overflow: hidden; position: relative; padding-top: 100vh; padding-bottom: 324px; }
+.out { overflow: hidden; position: relative; padding-top: 100vh; padding-bottom: 324px; -webkit-transition: -webkit-transform 0.5s ease; transition: transform 0.5s ease; }
 
 .main-page .out { padding-top: -webkit-calc(100vh + 190px); padding-top: calc(100vh + 190px); }
 
 .course-page .out, .out.-no-padding-top { padding-top: 0; }
+
+.pagination-active .out { -webkit-transform: translateX(-300px); -ms-transform: translateX(-300px); transform: translateX(-300px); }
 
 .content-wrapper, .content-layer-1, .content-layer-2 { position: relative; z-index: 1; background: #2F2F2F; box-shadow: 0 -10px 30px 0 rgba(0, 0, 0, 0.15); }
 
@@ -754,6 +756,8 @@ a.slider-item__title:hover { color: #21DBB2; }
 .reasons.-course-advantages .reasons__list { margin-bottom: 0; }
 
 .reasons.-course-advantages .reasons__title { font-size: 30px; letter-spacing: 1em; color: rgba(255, 255, 255, 0.3); }
+
+.reasons.-course-advantages .reason__text { color: #FFF; }
 
 .reasons__header { text-align: right; margin-bottom: 80px; }
 
@@ -1391,7 +1395,7 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .modal__inner:before { content: ""; display: inline-block; vertical-align: middle; width: 0; height: 100%; }
 
-.modal__body { position: relative; display: inline-block; vertical-align: middle; text-align: center; padding: 20px; width: 100%; max-height: 100%; overflow: auto; box-sizing: border-box; white-space: normal; }
+.modal__body { position: relative; display: inline-block; vertical-align: middle; text-align: center; padding: 20px; width: 100%; max-height: 100%; overflow: auto; box-sizing: border-box; white-space: normal; font-size: 18px; }
 
 .modal__body > img { display: block; max-width: 100%; }
 
@@ -1697,6 +1701,8 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 .person__buttons .btn:not(:first-child) { margin-top: 20px; }
 
 .person__buttons .btn.js-modal-close { display: none; }
+
+.slick-slide:not(.slick-current) .person__buttons .btn { pointer-events: none; cursor: default; }
 
 .timeline { margin: 30px 0; }
 
