@@ -15,7 +15,7 @@
               <strong>Количество мест в групе ограничено!</strong>
             </div>
             <div class="form-wrapper">
-              <form class="form" id="modal-callback-form">
+              <form class="form" id="modal-callback-form" novalidate>
                 <div class="field">
                   <input class="input" type="text" name="name" id="modal-cb-name" data-validetta="required">
                   <label class="input-label" for="modal-cb-name">Ваше имя</label>
@@ -25,6 +25,11 @@
                   <input class="input" type="tel" name="name" id="modal-cb-tel" data-validetta="required,regExp[phone]">
                   <label class="input-label" for="modal-cb-tel">Ваш номер телефона</label>
                   <span class="field__error">Поле обязательно для заполнения</span>
+                </div>
+                <div class="field">
+                  <input class="input" type="email" name="email" id="modal-cb-email" data-validetta="required,email">
+                  <label class="input-label" for="modal-cb-email">Ваш email</label>
+                  <span class="field__error">Введите корректный email адрес</span>
                 </div>
                 {{ mixins.btn("Получить знания", "-type-filled -width-fluid", "submit") }}
               </form>

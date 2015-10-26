@@ -34,11 +34,11 @@ $(document).ready ->
   do header.init
   do initTestimonials
   do scrollToAnchor
-  do initMap
+  # do initMap
 
   # modal youtube player
-  new ModalPlayer '#player', '.course-header .play-button'
-  do initPlayerApi
+  # new ModalPlayer '#player', '.course-header .play-button'
+  # do initPlayerApi
 
   # open modal windows
   $('[data-modal]').on 'click', (e) ->
@@ -67,9 +67,9 @@ $(document).ready ->
   curriculum = new Curriculum '.curriculum__body'
 
   # move page content to left when pagination is hover
-  $('.pagination').hover(
-    ->
-      $('body').addClass 'pagination-active'
-    , ->
-      $('body').removeClass 'pagination-active'
-    )
+  # $('.pagination').hover(
+  #   ->
+  #     $('body').addClass 'pagination-active'
+  #   , ->
+  #     $('body').removeClass 'pagination-active'
+  #   )

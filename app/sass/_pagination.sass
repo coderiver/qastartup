@@ -7,24 +7,38 @@
   padding: 60px 20px 0
   +vertical
   white-space: nowrap
+  &:after
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    right: 0
+    width: 100%
+    min-width: 200px
+    height: 100%
+    background: $color-dark
+    transform: translate(101%, 0)
+    transition: transform 0.5s ease
+    +shadow
   &:hover
+    &:after
+      transform: none
+      transition-delay: 0.2s
     .pagination__text
       opacity: 1
       visibility: visible
       transform: none
+      transition-delay: 0.4s
   +wide
     padding-right: 80px
+    &:after
+      min-width: 300px
 
 .pagination__list
   display: inline-block
   vertical-align: middle
   font-size: 16px
   white-space: normal
-
-// .pagination__item
-//   &:not(:last-child)
-//     .pagination__link
-//       padding-bottom: 20px
 
 
 .pagination__link

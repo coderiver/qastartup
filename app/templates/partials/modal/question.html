@@ -7,16 +7,21 @@
         <div class="question__container">
           <div class="question__form">
             <div class="form-wrapper">
-              <form class="form" id="modal-question-form">
+              <form class="form" id="modal-question-form" novalidate>
                 <div class="field">
                   <input class="input" type="text" name="name" id="modal-field-name" data-validetta="required">
                   <label  class="input-label" for="modal-field-name">Ваше имя</label>
                   <span class="field__error">Поле обязательно для заполнения</span>
                 </div>
-                <div class="field">
+                {# <div class="field">
                   <input class="input" type="tel" name="phone" id="modal-field-phone" data-validetta="required,regExp[phone]">
                   <label  class="input-label" for="modal-field-phone">Ваш номер телефона</label>
                   <span class="field__error">Поле обязательно для заполнения</span>
+                </div> #}
+                <div class="field">
+                  <input class="input" type="email" name="email" id="modal-field-email" data-validetta="required,email">
+                  <label class="input-label" for="modal-field-email">Ваш email</label>
+                  <span class="field__error">Введите корректный email адрес</span>
                 </div>
                 <div class="field">
                   <textarea class="input" type="text" name="question" id="modal-field-question" rows="1"></textarea>

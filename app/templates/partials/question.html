@@ -5,16 +5,21 @@
   <div class="question__container">
     <div class="question__form">
       <div class="form-wrapper">
-        <form class="form" id="question-form">
+        <form class="form" id="question-form" novalidate>
           <div class="field">
             <input class="input" type="text" name="name" id="field-name" data-validetta="required">
             <label class="input-label" for="field-name">Ваше имя</label>
             <span class="field__error">Поле обязательно для заполнения</span>
           </div>
-          <div class="field">
+          {# <div class="field">
             <input class="input" type="tel" name="phone" id="field-phone" data-validetta="required,regExp[phone]">
             <label class="input-label" for="field-phone">Ваш номер телефона</label>
             <span class="field__error">Поле обязательно для заполнения</span>
+          </div> #}
+          <div class="field">
+            <input class="input" type="email" name="email" id="field-email" data-validetta="required,email">
+            <label class="input-label" for="field-email">Ваш email</label>
+            <span class="field__error">Введите корректный email адрес</span>
           </div>
           <div class="field">
             <textarea class="input" type="text" name="question" id="field-question" rows="1"></textarea>

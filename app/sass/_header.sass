@@ -54,15 +54,23 @@
     .header__row
       line-height: 40px
       padding-left: 0
-      // transition: opacity 0.3s linear
       opacity: 0
     .header__nav
       display: none
       float: none
       clear: both
       padding-top: 130px
+      padding-top: 15vh
       padding-bottom: 70px
       +clr
+      +rhmin(800)
+        padding-top: 20vh
+      +rhmin(1000)
+        padding-top: 25vh
+      +rh(700)
+        padding-top: 12vh
+      +rh(600)
+        padding-top: 10vh
     .nav
       float: left
       text-align: right

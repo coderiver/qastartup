@@ -13,6 +13,10 @@
 	@media only screen and (max-height: $height + "px")
 		@content
 
+=rhmin($height)
+  @media only screen and (min-height: $height + "px")
+    @content
+
 =fs($sizeValue: 16)
 	font-size: $sizeValue + px
 	font-size: $sizeValue / 10 + rem
