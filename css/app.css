@@ -167,13 +167,13 @@ body { background: #2F2F2F; color: #FFF; min-width: 1180px; font-family: "PFAgor
 
 a { color: inherit; }
 
-.out { overflow: hidden; position: relative; padding-top: 100vh; padding-bottom: 324px; -webkit-transition: -webkit-transform 0.5s ease; transition: transform 0.5s ease; }
+.out { overflow: hidden; position: relative; padding-top: 100vh; padding-bottom: 324px; -webkit-transition: right 0.5s ease; transition: right 0.5s ease; right: 0; }
 
 .main-page .out { padding-top: -webkit-calc(100vh + 190px); padding-top: calc(100vh + 190px); }
 
 .course-page .out, .out.-no-padding-top { padding-top: 0; }
 
-.pagination-active .out { -webkit-transform: translateX(-300px); -ms-transform: translateX(-300px); transform: translateX(-300px); }
+.pagination-active .out { right: 300px; }
 
 .content-wrapper, .content-layer-1, .content-layer-2 { position: relative; z-index: 1; background: #2F2F2F; box-shadow: 0 -10px 30px 0 rgba(0, 0, 0, 0.15); }
 
