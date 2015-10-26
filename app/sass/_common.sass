@@ -16,14 +16,16 @@ a
   position: relative
   padding-top: 100vh
   padding-bottom: 324px
-  transition: transform 0.5s ease
+  transition: right 0.5s ease
+  right: 0
   .main-page &
     padding-top: calc(100vh + 190px)
   .course-page &,
   &.-no-padding-top
     padding-top: 0
   .pagination-active &
-    transform: translateX(-300px)
+    // transform: translateX(-300px)
+    right: 300px
 
 .content-wrapper,
 .content-layer-1,
