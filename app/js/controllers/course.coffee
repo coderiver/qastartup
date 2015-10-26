@@ -65,3 +65,11 @@ $(document).ready ->
 
   # course curriculum
   curriculum = new Curriculum '.curriculum__body'
+
+  # move page content to left when pagination is hover
+  $('.pagination').hover(
+    ->
+      $('body').addClass 'pagination-active'
+    , ->
+      $('body').removeClass 'pagination-active'
+    )

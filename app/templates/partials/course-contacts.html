@@ -9,7 +9,7 @@
   </div>
   <div class="contacts__body">
     <div id="map" class="contacts__map"></div>
-    <div class="contacts__inner l">
+    <div class="contacts__inner l js-draw" data-sm-offset="200">
       <div class="contacts__managers-group">
         <div class="manager-card">
           <div class="manager-card__avatar">
@@ -21,7 +21,7 @@
           </dl>
           <a class="manager-card__contact" href="tel:+380962554549">(096) <span class="text-gradient">255 45 49</span></a>
           <div class="manager-card__btn">
-            <button type="button" class="btn -type-filled -width-fluid">
+            <button type="button" class="btn -type-filled -width-fluid" data-modal="#modal-question">
               {{ mixins.borders() }}
               <span class="btn__fill"></span>
               <span class="btn__text">Задать вопрос</span>
@@ -38,7 +38,7 @@
           </dl>
           <a class="manager-card__contact" href="tel:+380962554549">(096) <span class="text-gradient">255 45 49</span></a>
           <div class="manager-card__btn">
-            <button type="button" class="btn -type-filled -width-fluid">
+            <button type="button" class="btn -type-filled -width-fluid" data-modal="#modal-question">
               {{ mixins.borders() }}
               <span class="btn__fill"></span>
               <span class="btn__text">Задать вопрос</span>

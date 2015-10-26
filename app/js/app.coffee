@@ -1,9 +1,7 @@
 window.$ = window.jQuery = require 'jquery'
 
 switch location.pathname
-  when '/'
+  when '/' or '/qastartup/'
     require('./controllers/index')
-  when '/course.html'
-    require('./controllers/course')
-  when '/qastartup/course.html'
+  when '/course.html' or '/qastartup/course.html'
     require('./controllers/course')

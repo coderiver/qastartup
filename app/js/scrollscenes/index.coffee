@@ -48,17 +48,3 @@ module.exports = ->
     triggerElement: $nominationTitle[0]
   .on 'start', (e) ->
     $nominationTitle.toggleClass 'draw'
-
-
-  # callback scrollscene
-  SM.addScene
-    triggerHook: 'onCenter'
-    triggerElement: '.callback__frontlayer'
-  .setClassToggle '.callback__frontlayer', 'draw'
-
-
-  # reasons scrollscene
-  SM.addScene
-    triggerHook: 'onCenter'
-    triggerElement: '.reasons__list'
-  .setClassToggle '.reasons__list', 'draw'

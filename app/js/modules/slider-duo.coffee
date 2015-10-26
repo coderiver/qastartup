@@ -93,7 +93,7 @@ class SliderDuo
     nextSlideBtns.last().on 'click', (e) =>
       e.preventDefault()
       @_updateModalContent nextSlideObj
-      openModal '#modal-callback'
+      openModal @questionModal
 
   _updateModalContent: (currentSlide) ->
     if typeof currentSlide is 'number'

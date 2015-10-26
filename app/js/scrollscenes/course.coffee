@@ -25,3 +25,32 @@ module.exports = ->
   .setPin '.course-header__pinned-area', pushFollowers: no
   .on 'end', (e) ->
     $('.course-header').toggleClass 'is-unpinned'
+
+  # course offer scene
+  $offerContainer = $ '.offer__body'
+  offerNumber = new NumberIncrease $offerContainer.find('.course-note__value > span'),
+    initValue: 0
+    targetValue: 87
+    duration: 2000
+
+  SM.addScene
+    offset: 250
+    duration: 500
+    triggerHook: 'onEnter'
+    triggerElement: $offerContainer[0]
+  .on 'start', (e) ->
+    $offerContainer.find('.course-note, .course__head, .course__body').toggleClass 'draw'
+    if e.scrollDirection is 'FORWARD'
+      setTimeout ->
+        do offerNumber.start
+      , 600
+  .on 'end', (e) ->
+    $offerContainer.find('.course__footer').toggleClass 'draw'
+
+
+  # faq accordion
+  $('.faq__list').accordion
+    itemSelector: '.faq-item'
+    buttonSelector: '.faq-item__button'
+    contentSelector: '.faq-item__answer'
+
