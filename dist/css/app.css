@@ -1299,9 +1299,17 @@ a.slider-item__title:hover { color: #21DBB2; }
 
 .header.fixed .header__row { line-height: 40px; padding-left: 0; opacity: 0; }
 
-.header.fixed .header__nav { display: none; float: none; clear: both; padding-top: 130px; padding-bottom: 70px; }
+.header.fixed .header__nav { display: none; float: none; clear: both; padding-top: 130px; padding-top: 15vh; padding-bottom: 70px; }
 
 .header.fixed .header__nav:after { content: " "; display: table; clear: both; }
+
+@media only screen and (min-height: 800px) { .header.fixed .header__nav { padding-top: 20vh; } }
+
+@media only screen and (min-height: 1000px) { .header.fixed .header__nav { padding-top: 25vh; } }
+
+@media only screen and (max-height: 700px) { .header.fixed .header__nav { padding-top: 12vh; } }
+
+@media only screen and (max-height: 600px) { .header.fixed .header__nav { padding-top: 10vh; } }
 
 .header.fixed .nav { float: left; text-align: right; width: 260px; margin-left: -260px; margin-top: 30px; position: relative; z-index: 2; }
 
@@ -1419,9 +1427,14 @@ img.hover-gallery-image.visible { -webkit-transform: translate3d(-50%, -50%, 0) 
 
 .pagination:before { content: ""; display: inline-block; vertical-align: middle; width: 0; height: 100%; }
 
-.pagination:hover .pagination__text { opacity: 1; visibility: visible; -webkit-transform: none; -ms-transform: none; transform: none; }
+.pagination:after { content: ""; position: absolute; z-index: -1; top: 0; right: 0; width: 100%; min-width: 200px; height: 100%; background: #2F2F2F; -webkit-transform: translate(101%, 0); -ms-transform: translate(101%, 0); transform: translate(101%, 0); -webkit-transition: -webkit-transform 0.5s ease; transition: transform 0.5s ease; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
 
-@media only screen and (min-width: 1300px) { .pagination { padding-right: 80px; } }
+.pagination:hover:after { -webkit-transform: none; -ms-transform: none; transform: none; -webkit-transition-delay: 0.2s; transition-delay: 0.2s; }
+
+.pagination:hover .pagination__text { opacity: 1; visibility: visible; -webkit-transform: none; -ms-transform: none; transform: none; -webkit-transition-delay: 0.4s; transition-delay: 0.4s; }
+
+@media only screen and (min-width: 1300px) { .pagination { padding-right: 80px; }
+  .pagination:after { min-width: 300px; } }
 
 .pagination__list { display: inline-block; vertical-align: middle; font-size: 16px; white-space: normal; }
 
