@@ -12,6 +12,36 @@
 
   <body class="course-page">
 
+    <!-- BEGIN preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader__backlayer">
+        <div class="preloader__center">
+          <!-- BEGIN intro -->
+          <div class="intro">
+            <span class="intro__top-text">Курсы</span>
+            <strong class="intro__large-text">QA</strong>
+            <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
+          </div>
+          <!-- END intro -->
+
+        </div>
+      </div>
+      <div class="preloader__frontlayer" style="width:0%">
+        <div class="preloader__center">
+          <!-- BEGIN intro -->
+          <div class="intro">
+            <span class="intro__top-text">Курсы</span>
+            <strong class="intro__large-text">QA</strong>
+            <span class="intro__bottom-text">Стань востребованным специалистом<br>вместе с нами</span>
+          </div>
+          <!-- END intro -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- END preloader -->
+
     <!-- BEGIN pagination -->
     <div class="pagination">
       <ul class="pagination__list">
@@ -1980,7 +2010,7 @@
                   <strong>Количество мест в групе ограничено!</strong>
                 </div>
                 <div class="form-wrapper">
-                  <form class="form" id="callback-form">
+                  <form class="form" id="callback-form" novalidate>
                     <div class="field">
                       <input class="input" type="text" name="name" id="name" data-validetta="required">
                       <label class="input-label" for="name">Ваше имя</label>
@@ -1990,6 +2020,11 @@
                       <input class="input" type="tel" name="name" id="tel" data-validetta="required,regExp[phone]">
                       <label class="input-label" for="tel">Ваш номер телефона</label>
                       <span class="field__error">Поле обязательно для заполнения</span>
+                    </div>
+                    <div class="field">
+                      <input class="input" type="email" name="email" id="email" data-validetta="required,email">
+                      <label class="input-label" for="email">Ваш email</label>
+                      <span class="field__error">Введите корректный email адрес</span>
                     </div>
 
                     <button class="btn -type-filled -width-fluid" type="submit">
@@ -2292,7 +2327,7 @@
                       <strong>Количество мест в групе ограничено!</strong>
                     </div>
                     <div class="form-wrapper">
-                      <form class="form" id="modal-callback-form">
+                      <form class="form" id="modal-callback-form" novalidate>
                         <div class="field">
                           <input class="input" type="text" name="name" id="modal-cb-name" data-validetta="required">
                           <label class="input-label" for="modal-cb-name">Ваше имя</label>
@@ -2302,6 +2337,11 @@
                           <input class="input" type="tel" name="name" id="modal-cb-tel" data-validetta="required,regExp[phone]">
                           <label class="input-label" for="modal-cb-tel">Ваш номер телефона</label>
                           <span class="field__error">Поле обязательно для заполнения</span>
+                        </div>
+                        <div class="field">
+                          <input class="input" type="email" name="email" id="modal-cb-email" data-validetta="required,email">
+                          <label class="input-label" for="modal-cb-email">Ваш email</label>
+                          <span class="field__error">Введите корректный email адрес</span>
                         </div>
 
                         <button class="btn -type-filled -width-fluid" type="submit">
@@ -2349,16 +2389,17 @@
                 <div class="question__container">
                   <div class="question__form">
                     <div class="form-wrapper">
-                      <form class="form" id="modal-question-form">
+                      <form class="form" id="modal-question-form" novalidate>
                         <div class="field">
                           <input class="input" type="text" name="name" id="modal-field-name" data-validetta="required">
                           <label class="input-label" for="modal-field-name">Ваше имя</label>
                           <span class="field__error">Поле обязательно для заполнения</span>
                         </div>
+
                         <div class="field">
-                          <input class="input" type="tel" name="phone" id="modal-field-phone" data-validetta="required,regExp[phone]">
-                          <label class="input-label" for="modal-field-phone">Ваш номер телефона</label>
-                          <span class="field__error">Поле обязательно для заполнения</span>
+                          <input class="input" type="email" name="email" id="modal-field-email" data-validetta="required,email">
+                          <label class="input-label" for="modal-field-email">Ваш email</label>
+                          <span class="field__error">Введите корректный email адрес</span>
                         </div>
                         <div class="field">
                           <textarea class="input" type="text" name="question" id="modal-field-question" rows="1"></textarea>
