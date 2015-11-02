@@ -1,4 +1,4 @@
-{% macro largeSlide(addContent) %}
+{% macro largeSlide(addContent, coachName, questionTo) %}
 <div class="slider-duo__slide-lg">
   <!-- BEGIN person -->
   <div class="person">
@@ -16,7 +16,7 @@
       </dl>
     </div>
     <div class="person__right">
-      <strong class="person__name text-gradient">Сергей<br>Гливинский</strong>
+      <strong class="person__name text-gradient">{% if coachName %}{{ coachName|safe }}{% else %}Сергей<br>Гливинский{% endif %}</strong>
       <p class="person__text">Опыт в домене телекоммуникационных (анализ, тестирование ПО и решение проблем таких систем как Genesys Framefork и Granite Inventory System) и банковских систем (Трейдинг ориентированные системы)</p>
       {% if addContent %}
       <div class="person__title">{{ addContent }}</div>
@@ -84,21 +84,26 @@
       <div class="person__buttons">
         {{ mixins.btn("Подробнее", "-type-filled -width-250 -height-sm") }}
         {{ mixins.btn("Закрыть резюме", "-type-filled -width-250 -height-sm js-modal-close") }}
-        {{ mixins.btn("Задать вопрос", "-color-grey -width-250 -height-sm") }}
+        {# {{ mixins.btn("Задать вопрос", "-color-grey -width-250 -height-sm") }} #}
+        <button class="btn -color-grey -width-250 -height-sm" type="button" data-modal-question-title="{% if questionTo %}{{ questionTo }}{% else %}Вопрос<br>Сергею{% endif %}">
+          {{ mixins.borders() }}
+          <div class="btn__fill"></div>
+          <span class="btn__text">Задать вопрос</span>
+        </button>
       </div>
     </div>
   </div>
   <!-- END person -->
 </div>
 {% endmacro %}
-{% macro smallSlide() %}
+{% macro smallSlide(coachName) %}
 <div class="slider-duo__slide-sm">
   <!-- BEGIN person -->
   <div class="person -size-sm">
     <div class="person__pic">
       <img src="img/coach.jpg" alt="">
     </div>
-    <strong class="person__name">Сергей<br>Гливинский</strong>
+    <strong class="person__name">{% if coachName %}{{ coachName|safe }}{% else %}Сергей<br>Гливинский{% endif %}</strong>
     <div class="course-info">
       <span class="course-info__value">
         Стаж работы в IT сфере - от 8 лет.
@@ -135,10 +140,10 @@
           <div class="slider-duo__left-inner">
             <div class="slider-duo__left-slides">
               {{ largeSlide() }}
-              {{ largeSlide("Slide 2") }}
-              {{ largeSlide("Slide 3") }}
-              {{ largeSlide("Slide 4") }}
-              {{ largeSlide("Slide 5") }}
+              {{ largeSlide(null, "Андрей<br>Коновалец", "Вопрос<br>Андрею") }}
+              {{ largeSlide() }}
+              {{ largeSlide() }}
+              {{ largeSlide() }}
             </div>
           </div>
         </div>
@@ -147,7 +152,7 @@
           <div class="slider-duo__right-inner">
             <div class="slider-duo__right-slides">
               {{ smallSlide() }}
-              {{ smallSlide() }}
+              {{ smallSlide("Андрей<br>Коновалец") }}
               {{ smallSlide() }}
               {{ smallSlide() }}
               {{ smallSlide() }}

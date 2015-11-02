@@ -1,4 +1,3 @@
-console.log 'course controller'
 # jQuery plugins
 require 'jquery.transit'
 require 'slick-carousel'
@@ -24,7 +23,7 @@ TextCarousel               = require '../modules/text-carousel'
 Pace.on 'done', ->
   setTimeout ->
     $('.header').addClass 'draw'
-    # $('#toparea-video')[0].play()
+    $('#toparea-video')[0].play()
   , 500
 
 $(document).ready ->
@@ -34,11 +33,11 @@ $(document).ready ->
   do header.init
   do initTestimonials
   do scrollToAnchor
-  # do initMap
+  do initMap
 
   # modal youtube player
-  # new ModalPlayer '#player', '.course-header .play-button'
-  # do initPlayerApi
+  new ModalPlayer '#player', '.course-header .play-button'
+  do initPlayerApi
 
   # open modal windows
   $('[data-modal]').on 'click', (e) ->
@@ -65,11 +64,3 @@ $(document).ready ->
 
   # course curriculum
   curriculum = new Curriculum '.curriculum__body'
-
-  # move page content to left when pagination is hover
-  # $('.pagination').hover(
-  #   ->
-  #     $('body').addClass 'pagination-active'
-  #   , ->
-  #     $('body').removeClass 'pagination-active'
-  #   )

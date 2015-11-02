@@ -17,6 +17,7 @@ class Form
   constructor: (selector, options = {}) ->
     @form = if selector instanceof $ then selector else $(selector)
     { @onValid, @onError } = options
+    @form.attr 'autocomplete', 'off'
     do @initPhoneField
     do @initInputField
     do @initTextareaAutosize

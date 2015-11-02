@@ -54,7 +54,12 @@
           </dl>
         </div>
         <div class="course__footer">
-          {{ mixins.btnLink("Записаться на курс", "#", "-width-fluid") }}
+          {# {{ mixins.btnLink("Записаться на курс", "#", "-width-fluid") }} #}
+          <button class="btn -width-fluid" type="button" data-modal="#modal-callback">
+            {{ mixins.borders() }}
+            <div class="btn__fill"></div>
+            <span class="btn__text">Записаться на курс</span>
+          </button>
         </div>
       </div>
       <!-- END course -->
@@ -106,7 +111,12 @@
           </div>
         </div>
         <div class="course__footer">
-          {{ mixins.btnLink("Записаться на курс", "#", "-type-filled -width-fluid") }}
+          {# {{ mixins.btnLink("Записаться на курс", "#", "-type-filled -width-fluid") }} #}
+          <button class="btn -type-filled -width-fluid" type="button" data-modal="#modal-callback">
+            {{ mixins.borders() }}
+            <div class="btn__fill"></div>
+            <span class="btn__text">Записаться на курс</span>
+          </button>
         </div>
       </div>
       <!-- END course -->

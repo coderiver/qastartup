@@ -1,5 +1,7 @@
 window.$ = window.jQuery = require 'jquery'
 
+# temporary solution to work on local web server and gh-pages
+# DO NOT USE FOR PRODUCTION
 switch location.pathname
   when '/'
     require './controllers/index'

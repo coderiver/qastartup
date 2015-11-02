@@ -24,7 +24,18 @@
       <nav class="nav">
         <ul class="nav__list">
           {% for link in navItems %}<li class="nav__item">
+            {% if link.dropdown %}
+            <div class="nav__link">
+              {{ link.title }}
+              <ul class="nav__dropdown">
+                {% for item in link.dropdown %}
+                <li><a href="{{ item.href }}">{{ item.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% else %}
             <a class="nav__link" href="{{ link.href }}" title="{{ link.title }}">{{ link.title }}</a>
+            {% endif %}
           </li>{% endfor %}
         </ul>
       </nav>

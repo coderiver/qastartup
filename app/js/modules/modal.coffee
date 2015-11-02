@@ -4,9 +4,14 @@ toggleBodyScroll = require '../modules/toggle-scroll'
 openModal = (selector, options = {}) ->
   modal    = if selector instanceof $ then selector else $(selector)
   closeBtn = modal.find '.modal__close, .js-modal-close'
-  { beforeOpen, afterOpen, beforeClose, afterClose } = options
+  { beforeOpen, afterOpen, beforeClose, afterClose, questionTitle } = options
 
   beforeOpen?()
+  # change title for question in modal window
+  if questionTitle
+    title = modal.find '.question__title'
+    origTitleText = title.html()
+    title.html questionTitle
 
   toggleBodyScroll.disable()
 
@@ -30,6 +35,9 @@ openModal = (selector, options = {}) ->
       .delay 500
       .fadeOut 500, ->
         afterClose?()
+        # change title to original value for question in modal window
+        if questionTitle
+          title.html origTitleText
         $(window).trigger 'modalClose', [modal]
 
 module.exports = openModal

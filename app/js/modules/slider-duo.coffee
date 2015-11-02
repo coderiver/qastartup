@@ -15,7 +15,7 @@ class SliderDuo
       nextButton: '.slider-duo__nav-next'
       slideCounter: '.slider-duo__slide-count'
       infoModal: '#coaches-modal'
-      questionModal: '#modal-callback'
+      questionModal: '#modal-question'
       modalButtons: '.person__buttons .btn'
 
   constructor: (container, options = {}) ->
@@ -77,23 +77,29 @@ class SliderDuo
       @_toggleEventsForModal(currentSlideObj, nextSlideObj)
 
   _toggleEventsForModal: (currentSlideObj, nextSlideObj) ->
-    btnsSelector = @props.selectors.modalButtons
+    btnsSelector           = @props.selectors.modalButtons
+    origQuestionModalTitle = null
+    $questionTitle          = null
 
     if currentSlideObj?
       currentSlideBtns = currentSlideObj.find btnsSelector
       currentSlideBtns.off 'click'
 
-    nextSlideBtns = nextSlideObj.find btnsSelector
+    nextSlideBtns    = nextSlideObj.find btnsSelector
+    btnModalAbout    = nextSlideBtns.first()
+    btnModalQuestion = nextSlideBtns.last()
 
-    nextSlideBtns.first().on 'click', (e) =>
+    # show modal about coach
+    btnModalAbout.on 'click', (e) =>
       e.preventDefault()
       @_updateModalContent nextSlideObj
       openModal @infoModal
 
-    nextSlideBtns.last().on 'click', (e) =>
+    # show modal with question to coach
+    btnModalQuestion.on 'click', (e) =>
       e.preventDefault()
-      @_updateModalContent nextSlideObj
-      openModal @questionModal
+      openModal @questionModal,
+        questionTitle: btnModalQuestion.data('modal-question-title')
 
   _updateModalContent: (currentSlide) ->
     if typeof currentSlide is 'number'
@@ -101,6 +107,5 @@ class SliderDuo
     else
       content = currentSlide.html()
     @infoModal.find('.modal__body').html content
-
 
 module.exports = SliderDuo
