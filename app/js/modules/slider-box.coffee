@@ -41,7 +41,6 @@ class SliderBox
     @wrapper.css
       height: @el.outerHeight()
       boxSizing: 'content-box'
-      paddingBottom: @duration
 
   makeStatic: ->
     @el.css
@@ -52,7 +51,6 @@ class SliderBox
     @wrapper.css
       height: ''
       boxSizing: ''
-      paddingBottom: ''
 
   initSimpleScene: ->
     SM.addScene
@@ -104,6 +102,9 @@ class SliderBox
     trackWidth   = @sliderTrack.outerWidth()
 
     @duration = trackWidth - sliderWidth
+
+    @wrapper.css
+      paddingBottom: @duration
 
 
 module.exports = SliderBox

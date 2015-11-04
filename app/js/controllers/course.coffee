@@ -18,6 +18,7 @@ Form                       = require '../modules/form'
 SliderDuo                  = require '../modules/slider-duo'
 Curriculum                 = require '../modules/curriculum'
 TextCarousel               = require '../modules/text-carousel'
+Pagination                 = require '../modules/pagination'
 {scrollTo, scrollToAnchor} = require '../modules/scroll-to'
 
 Pace.on 'done', ->
@@ -33,11 +34,11 @@ $(document).ready ->
   do header.init
   do initTestimonials
   do scrollToAnchor
-  do initMap
+  # do initMap
 
   # modal youtube player
-  new ModalPlayer '#player', '.course-header .play-button'
-  do initPlayerApi
+  # new ModalPlayer '#player', '.course-header .play-button'
+  # do initPlayerApi
 
   # open modal windows
   $('[data-modal]').on 'click', (e) ->
@@ -64,3 +65,5 @@ $(document).ready ->
 
   # course curriculum
   curriculum = new Curriculum '.curriculum__body'
+
+  new Pagination '.pagination'

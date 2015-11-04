@@ -3,8 +3,8 @@ var runSequence = require('run-sequence');
 var config      = require('../config');
 
 gulp.task('default', [
-    'server',
-    'watch'
+    'watch',
+    'server'
 ]);
 
 gulp.task('build', ['clean'],  function(cb) {
