@@ -85,7 +85,7 @@
         {{ mixins.btn("Подробнее", "-type-filled -width-250 -height-sm") }}
         {{ mixins.btn("Закрыть резюме", "-type-filled -width-250 -height-sm js-modal-close") }}
         {# {{ mixins.btn("Задать вопрос", "-color-grey -width-250 -height-sm") }} #}
-        <button class="btn -color-grey -width-250 -height-sm" type="button" data-modal-question-title="{% if questionTo %}{{ questionTo }}{% else %}Вопрос<br>Сергею{% endif %}">
+        <button class="btn -color-grey -width-250 -height-sm" type="button" data-modal-question-title="{% if questionTo %}{{ questionTo }}{% else %}Сергею Гливинскому{% endif %}">
           {{ mixins.borders() }}
           <div class="btn__fill"></div>
           <span class="btn__text">Задать вопрос</span>
@@ -140,7 +140,7 @@
           <div class="slider-duo__left-inner">
             <div class="slider-duo__left-slides">
               {{ largeSlide() }}
-              {{ largeSlide(null, "Андрей<br>Коновалец", "Вопрос<br>Андрею") }}
+              {{ largeSlide(null, "Андрей<br>Коновалец", "Андрею Коновальцу") }}
               {{ largeSlide() }}
               {{ largeSlide() }}
               {{ largeSlide() }}

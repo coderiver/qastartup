@@ -38,6 +38,7 @@ module.exports = ->
     triggerElement: '#sm-trigger-footer'
   .on 'start', (e) ->
     $footer.toggleClass 'is-fixed'
+    $('body').toggleClass 'footer-is-visible'
   .on 'end', (e) ->
     $footer.toggleClass 'draw'
 

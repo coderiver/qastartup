@@ -97,9 +97,13 @@ class SliderDuo
 
     # show modal with question to coach
     btnModalQuestion.on 'click', (e) =>
+      toCoach = btnModalQuestion.data 'modal-question-title'
       e.preventDefault()
       openModal @questionModal,
-        questionTitle: btnModalQuestion.data('modal-question-title')
+        questionTitle: """
+          <span class='text-gradient'>Задать вопрос</span>
+          <br><small class='small text-gradient'>#{toCoach}</small>
+        """
 
   _updateModalContent: (currentSlide) ->
     if typeof currentSlide is 'number'
