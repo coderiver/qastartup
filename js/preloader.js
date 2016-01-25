@@ -1,2 +1,1041 @@
-!function t(e,n,r){function s(i,u){if(!n[i]){if(!e[i]){var a="function"==typeof require&&require;if(!u&&a)return a(i,!0);if(o)return o(i,!0);var c=new Error("Cannot find module '"+i+"'");throw c.code="MODULE_NOT_FOUND",c}var l=n[i]={exports:{}};e[i][0].call(l.exports,function(t){var n=e[i][1][t];return s(n?n:t)},l,l.exports,t,e,n,r)}return n[i].exports}for(var o="function"==typeof require&&require,i=0;i<r.length;i++)s(r[i]);return s}({1:[function(t,e,n){var r,s,o,i,u,a,c,l,p,h,f,d,g,m,y,v,w,b,q,S,k,x,L,T,P,R,E,O,_,N,j,M,A,F,C,U,D,W,X,I,H,z,B,G,J,K,Q,V,Y=[].slice,Z={}.hasOwnProperty,$=function(t,e){function n(){this.constructor=t}for(var r in e)Z.call(e,r)&&(t[r]=e[r]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},tt=[].indexOf||function(t){for(var e=0,n=this.length;n>e;e++)if(e in this&&this[e]===t)return e;return-1};for(E={catchupTime:100,initialRate:.03,minTime:250,ghostTime:100,maxProgressPerFrame:20,easeFactor:1.25,startOnPageLoad:!0,restartOnPushState:!0,restartOnRequestAfter:500,target:"body",elements:{checkInterval:100,selectors:["body"]},eventLag:{minSamples:10,sampleCount:3,lagThreshold:3},ajax:{trackMethods:["GET"],trackWebSockets:!0,ignoreURLs:[]}},D=function(){var t;return null!=(t="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance.now():void 0)?t:+new Date},I=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame,R=window.cancelAnimationFrame||window.mozCancelAnimationFrame,null==I&&(I=function(t){return setTimeout(t,50)},R=function(t){return clearTimeout(t)}),z=function(t){var e,n;return e=D(),(n=function(){var r;return r=D()-e,r>=33?(e=D(),t(r,function(){return I(n)})):setTimeout(n,33-r)})()},H=function(){var t,e,n;return n=arguments[0],e=arguments[1],t=3<=arguments.length?Y.call(arguments,2):[],"function"==typeof n[e]?n[e].apply(n,t):n[e]},O=function(){var t,e,n,r,s,o,i;for(r=arguments[0],o=2<=arguments.length?Y.call(arguments,1):[],t=0,n=o.length;n>t;t++)if(s=o[t])for(e in s)Z.call(s,e)&&(i=s[e],null!=r[e]&&"object"==typeof r[e]&&null!=i&&"object"==typeof i?O(r[e],i):r[e]=i);return r},L=function(t){var e,n,r,s,o;for(s=e=0,n=0,r=t.length;r>n;n++)o=t[n],s+=Math.abs(o),e++;return s/e},N=function(t,e){var n,r,s;if(null==t&&(t="options"),null==e&&(e=!0),s=document.querySelector("[data-pace-"+t+"]")){if(n=s.getAttribute("data-pace-"+t),!e)return n;try{return JSON.parse(n)}catch(o){return r=o,"undefined"!=typeof console&&null!==console?console.error("Error parsing inline pace options",r):void 0}}},c=function(){function t(){}return t.prototype.on=function(t,e,n,r){var s;return null==r&&(r=!1),null==this.bindings&&(this.bindings={}),null==(s=this.bindings)[t]&&(s[t]=[]),this.bindings[t].push({handler:e,ctx:n,once:r})},t.prototype.once=function(t,e,n){return this.on(t,e,n,!0)},t.prototype.off=function(t,e){var n,r,s;if(null!=(null!=(r=this.bindings)?r[t]:void 0)){if(null==e)return delete this.bindings[t];for(n=0,s=[];n<this.bindings[t].length;)this.bindings[t][n].handler===e?s.push(this.bindings[t].splice(n,1)):s.push(n++);return s}},t.prototype.trigger=function(){var t,e,n,r,s,o,i,u,a;if(n=arguments[0],t=2<=arguments.length?Y.call(arguments,1):[],null!=(i=this.bindings)?i[n]:void 0){for(s=0,a=[];s<this.bindings[n].length;)u=this.bindings[n][s],r=u.handler,e=u.ctx,o=u.once,r.apply(null!=e?e:this,t),o?a.push(this.bindings[n].splice(s,1)):a.push(s++);return a}},t}(),h=window.Pace||{},window.Pace=h,O(h,c.prototype),W=h.options=O({},E,window.paceOptions,N()),X=["ajax","document","eventLag","elements"],C=0,U=X.length;U>C;C++)K=X[C],W[K]===!0&&(W[K]=E[K]);p=function(t){function e(){return e.__super__.constructor.apply(this,arguments)}return $(e,t),e}(Error),s=function(){function t(){this.progress=0}return t.prototype.getElement=function(){var t;if(null==this.el){if(t=document.querySelector(W.target),!t)throw new p;this.el=document.createElement("div"),this.el.className="pace pace-active",document.body.className=document.body.className.replace(/pace-done/g,""),/pace-running/.test(document.body.className)||(document.body.className+=" pace-running"),this.el.innerHTML='<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>',null!=t.firstChild?t.insertBefore(this.el,t.firstChild):t.appendChild(this.el)}return this.el},t.prototype.finish=function(){var t;return t=this.getElement(),t.className=t.className.replace("pace-active",""),t.className+=" pace-inactive",document.body.className=document.body.className.replace("pace-running",""),document.body.className+=" pace-done"},t.prototype.update=function(t){return this.progress=t,h.trigger("update",t),this.render()},t.prototype.destroy=function(){try{this.getElement().parentNode.removeChild(this.getElement())}catch(t){p=t}return this.el=void 0},t.prototype.render=function(){var t,e,n,r,s,o,i;if(null==document.querySelector(W.target))return!1;for(t=this.getElement(),i="translate3d("+this.progress+"%, 0, 0)",o=["webkitTransform","msTransform","transform"],n=0,r=o.length;r>n;n++)e=o[n],t.children[0].style[e]=i;return(!this.lastRenderedProgress||this.lastRenderedProgress|0!==this.progress|0)&&(t.children[0].setAttribute("data-progress-text",(0|this.progress)+"%"),this.progress>=100?s="99":(s=this.progress<10?"0":"",s+=0|this.progress),t.children[0].setAttribute("data-progress",""+s)),this.lastRenderedProgress=this.progress},t.prototype.done=function(){return this.progress>=100},t}(),l=function(){function t(){this.bindings={}}return t.prototype.trigger=function(t,e){var n,r,s,o,i;if(null!=this.bindings[t]){for(o=this.bindings[t],i=[],r=0,s=o.length;s>r;r++)n=o[r],i.push(n.call(this,e));return i}},t.prototype.on=function(t,e){var n;return null==(n=this.bindings)[t]&&(n[t]=[]),this.bindings[t].push(e)},t}(),b=window.XMLHttpRequest,w=window.XDomainRequest,v=window.WebSocket,_=function(t,e){var n,r,s;s=[];for(r in e.prototype)try{null==t[r]&&"function"!=typeof e[r]?"function"==typeof Object.defineProperty?s.push(Object.defineProperty(t,r,{get:function(){return e.prototype[r]},configurable:!0,enumerable:!0})):s.push(t[r]=e.prototype[r]):s.push(void 0)}catch(o){n=o}return s},A=[],h.ignore=function(){var t,e,n;return e=arguments[0],t=2<=arguments.length?Y.call(arguments,1):[],A.unshift("ignore"),n=e.apply(null,t),A.shift(),n},h.track=function(){var t,e,n;return e=arguments[0],t=2<=arguments.length?Y.call(arguments,1):[],A.unshift("track"),n=e.apply(null,t),A.shift(),n},J=function(t){var e;if(null==t&&(t="GET"),"track"===A[0])return"force";if(!A.length&&W.ajax){if("socket"===t&&W.ajax.trackWebSockets)return!0;if(e=t.toUpperCase(),tt.call(W.ajax.trackMethods,e)>=0)return!0}return!1},f=function(t){function e(){var t;e.__super__.constructor.apply(this,arguments),t=function(t){return function(e){var n;return n=e.open,e.open=function(r,s,o){return J(r)&&t.trigger("request",{type:r,url:s,request:e}),n.apply(e,arguments)}}}(this),window.XMLHttpRequest=function(e){var n;return n=new b(e),t(n),n};try{_(window.XMLHttpRequest,b)}catch(n){}if(null!=w){window.XDomainRequest=function(){var e;return e=new w,t(e),e};try{_(window.XDomainRequest,w)}catch(n){}}if(null!=v&&W.ajax.trackWebSockets){window.WebSocket=function(t){return function(e,n){var r;return r=null!=n?new v(e,n):new v(e),J("socket")&&t.trigger("request",{type:"socket",url:e,protocols:n,request:r}),r}}(this);try{_(window.WebSocket,v)}catch(n){}}}return $(e,t),e}(l),q=null,j=function(){return null==q&&(q=new f),q},G=function(t){var e,n,r,s;for(s=W.ajax.ignoreURLs,e=0,n=s.length;n>e;e++)if(r=s[e],"string"==typeof r){if(-1!==t.indexOf(r))return!0}else if(r.test(t))return!0;return!1},j().on("request",function(t){var e,n,s,o,i;return o=t.type,s=t.request,i=t.url,G(i)?void 0:h.running||W.restartOnRequestAfter===!1&&"force"!==J(o)?void 0:(n=arguments,e=W.restartOnRequestAfter||0,"boolean"==typeof e&&(e=0),setTimeout(function(){var t,e,i,u,a,c;if(c="socket"===o?s.readyState<2:0<(i=s.readyState)&&4>i){for(h.restart(),u=h.sources,a=[],t=0,e=u.length;e>t;t++){if(K=u[t],K instanceof r){K.watch.apply(K,n);break}a.push(void 0)}return a}},e))}),r=function(){function t(){this.elements=[],j().on("request",function(t){return function(){return t.watch.apply(t,arguments)}}(this))}return t.prototype.watch=function(t){var e,n,r,s;return r=t.type,e=t.request,s=t.url,G(s)?void 0:(n="socket"===r?new m(e):new y(e),this.elements.push(n))},t}(),y=function(){function t(t){var e,n,r,s,o,i;if(this.progress=0,null!=window.ProgressEvent)for(i=null,t.addEventListener("progress",function(t){return function(e){return e.lengthComputable?t.progress=100*e.loaded/e.total:t.progress=t.progress+(100-t.progress)/2}}(this),!1),o=["load","abort","timeout","error"],r=0,s=o.length;s>r;r++)n=o[r],t.addEventListener(n,function(t){return function(){return t.progress=100}}(this),!1);else e=t.onreadystatechange,t.onreadystatechange=function(n){return function(){var r;return 0===(r=t.readyState)||4===r?n.progress=100:3===t.readyState&&(n.progress=50),"function"==typeof e?e.apply(null,arguments):void 0}}(this)}return t}(),m=function(){function t(t){var e,n,r,s;for(this.progress=0,s=["error","open"],n=0,r=s.length;r>n;n++)e=s[n],t.addEventListener(e,function(t){return function(){return t.progress=100}}(this),!1)}return t}(),i=function(){function t(t){var e,n,r,s;for(null==t&&(t={}),this.elements=[],null==t.selectors&&(t.selectors=[]),r=t.selectors,e=0,n=r.length;n>e;e++)s=r[e],this.elements.push(new u(s))}return t}(),u=function(){function t(t){this.selector=t,this.progress=0,this.check()}return t.prototype.check=function(){return document.querySelector(this.selector)?this.done():setTimeout(function(t){return function(){return t.check()}}(this),W.elements.checkInterval)},t.prototype.done=function(){return this.progress=100},t}(),o=function(){function t(){var t,e;this.progress=null!=(e=this.states[document.readyState])?e:100,t=document.onreadystatechange,document.onreadystatechange=function(e){return function(){return null!=e.states[document.readyState]&&(e.progress=e.states[document.readyState]),"function"==typeof t?t.apply(null,arguments):void 0}}(this)}return t.prototype.states={loading:0,interactive:50,complete:100},t}(),a=function(){function t(){var t,e,n,r,s;this.progress=0,t=0,s=[],r=0,n=D(),e=setInterval(function(o){return function(){var i;return i=D()-n-50,n=D(),s.push(i),s.length>W.eventLag.sampleCount&&s.shift(),t=L(s),++r>=W.eventLag.minSamples&&t<W.eventLag.lagThreshold?(o.progress=100,clearInterval(e)):o.progress=100*(3/(t+3))}}(this),50)}return t}(),g=function(){function t(t){this.source=t,this.last=this.sinceLastUpdate=0,this.rate=W.initialRate,this.catchup=0,this.progress=this.lastProgress=0,null!=this.source&&(this.progress=H(this.source,"progress"))}return t.prototype.tick=function(t,e){var n;return null==e&&(e=H(this.source,"progress")),e>=100&&(this.done=!0),e===this.last?this.sinceLastUpdate+=t:(this.sinceLastUpdate&&(this.rate=(e-this.last)/this.sinceLastUpdate),this.catchup=(e-this.progress)/W.catchupTime,this.sinceLastUpdate=0,this.last=e),e>this.progress&&(this.progress+=this.catchup*t),n=1-Math.pow(this.progress/100,W.easeFactor),this.progress+=n*this.rate*t,this.progress=Math.min(this.lastProgress+W.maxProgressPerFrame,this.progress),this.progress=Math.max(0,this.progress),this.progress=Math.min(100,this.progress),this.lastProgress=this.progress,this.progress},t}(),Q=null,B=null,T=null,V=null,x=null,P=null,h.running=!1,M=function(){return W.restartOnPushState?h.restart():void 0},null!=window.history.pushState&&(S=window.history.pushState,window.history.pushState=function(){return M(),S.apply(window.history,arguments)}),null!=window.history.replaceState&&(k=window.history.replaceState,window.history.replaceState=function(){return M(),k.apply(window.history,arguments)}),d={ajax:r,elements:i,document:o,eventLag:a},(F=function(){var t,e,n,r,o,i,u,a;for(h.sources=Q=[],o=["ajax","elements","document","eventLag"],t=0,e=o.length;e>t;t++)a=o[t],W[a]!==!1&&Q.push(new d[a](W[a]));for(u=null!=(i=W.extraSources)?i:[],r=0,n=u.length;n>r;r++)K=u[r],Q.push(new K(W));return h.bar=T=new s,B=[],V=new g})(),h.stop=function(){return h.trigger("stop"),h.running=!1,T.destroy(),P=!0,null!=x&&("function"==typeof R&&R(x),x=null),F()},h.restart=function(){return h.trigger("restart"),h.stop(),h.start()},h.go=function(){var t;return h.running=!0,T.render(),t=D(),P=!1,x=z(function(e,n){var r,s,o,i,u,a,c,l,p,f,d,m,y,v,w,b;for(y=100-T.progress,s=b=0,o=!0,a=l=0,p=Q.length;p>l;a=++l)for(K=Q[a],w=null!=B[a]?B[a]:B[a]=[],u=null!=(m=K.elements)?m:[K],c=d=0,f=u.length;f>d;c=++d)i=u[c],v=null!=w[c]?w[c]:w[c]=new g(i),o&=v.done,v.done||(s++,b+=v.tick(e));return r=b/s,T.update(V.tick(e,r)),T.done()||o||P?(T.update(100),h.trigger("done"),setTimeout(function(){return T.finish(),h.running=!1,h.trigger("hide")},Math.max(W.ghostTime,Math.max(W.minTime-(D()-t),0)))):n()})},h.start=function(t){O(W,t),h.running=!0;try{T.render()}catch(e){p=e}return document.querySelector(".pace")?(h.trigger("start"),h.go()):setTimeout(h.start,50)},"function"==typeof define&&define.amd?define(["pace"],function(){return h}):"object"==typeof n?e.exports=h:W.startOnPageLoad&&h.start()},{}],2:[function(t,e,n){var r,s,o,i;s=t("./lib/pace.custom"),s.start(),o=document.getElementById("preloader"),i=document.querySelector(".preloader__frontlayer"),r=function(t){return null==t&&(t=function(){}),setTimeout(function(){return o.classList.add("fade-out")},300),setTimeout(function(){return o.setAttribute("hidden","hidden")},800)},o&&(s.on("update",function(t){return i.style.width=t+"%"}),s.on("done",function(){return r()})),e.exports=s},{"./lib/pace.custom":1}]},{},[2]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	var hidePreloader, pace, preloader, preloaderFront;
+	
+	pace = __webpack_require__(32);
+	
+	preloader = document.getElementById('preloader');
+	
+	preloaderFront = document.querySelector('.preloader__frontlayer');
+	
+	hidePreloader = function(cb) {
+	  if (cb == null) {
+	    cb = function() {};
+	  }
+	  setTimeout(function() {
+	    return preloader.classList.add('fade-out');
+	  }, 300);
+	  return setTimeout(function() {
+	    return preloader.setAttribute('hidden', 'hidden');
+	  }, 800);
+	};
+	
+	if (preloader) {
+	  pace.on('update', function(progress) {
+	    return preloaderFront.style.width = progress + "%";
+	  });
+	  pace.on('done', function() {
+	    return hidePreloader();
+	  });
+	}
+	
+	pace.start();
+
+
+/***/ },
+
+/***/ 32:
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/*
+	Customization:
+	  - added 'update' event trigger (line 236)
+	  - commented AMD export due to unexpected error when compile with webpack (line 752-754)
+	 */
+	var AjaxMonitor, Bar, DocumentMonitor, ElementMonitor, ElementTracker, EventLagMonitor, Evented, Events, NoTargetError, Pace, RequestIntercept, SOURCE_KEYS, Scaler, SocketRequestTracker, XHRRequestTracker, _WebSocket, _XDomainRequest, _XMLHttpRequest, _intercept, _pushState, _replaceState, animation, avgAmplitude, bar, cancelAnimation, cancelAnimationFrame, defaultOptions, extend, extendNative, getFromDOM, getIntercept, handlePushState, ignoreStack, init, k, len, now, options, ref, requestAnimationFrame, result, runAnimation, scalers, shouldIgnoreURL, shouldTrack, source, sources, uniScaler,
+	  slice = [].slice,
+	  hasProp = {}.hasOwnProperty,
+	  extend1 = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+	  indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+	
+	defaultOptions = {
+	  catchupTime: 100,
+	  initialRate: .03,
+	  minTime: 250,
+	  ghostTime: 100,
+	  maxProgressPerFrame: 20,
+	  easeFactor: 1.25,
+	  startOnPageLoad: true,
+	  restartOnPushState: true,
+	  restartOnRequestAfter: 500,
+	  target: 'body',
+	  elements: {
+	    checkInterval: 100,
+	    selectors: ['body']
+	  },
+	  eventLag: {
+	    minSamples: 10,
+	    sampleCount: 3,
+	    lagThreshold: 3
+	  },
+	  ajax: {
+	    trackMethods: ['GET'],
+	    trackWebSockets: true,
+	    ignoreURLs: []
+	  }
+	};
+	
+	now = function() {
+	  var ref;
+	  return (ref = typeof performance !== "undefined" && performance !== null ? typeof performance.now === "function" ? performance.now() : void 0 : void 0) != null ? ref : +(new Date);
+	};
+	
+	requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+	
+	cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+	
+	if (requestAnimationFrame == null) {
+	  requestAnimationFrame = function(fn) {
+	    return setTimeout(fn, 50);
+	  };
+	  cancelAnimationFrame = function(id) {
+	    return clearTimeout(id);
+	  };
+	}
+	
+	runAnimation = function(fn) {
+	  var last, tick;
+	  last = now();
+	  tick = function() {
+	    var diff;
+	    diff = now() - last;
+	    if (diff >= 33) {
+	      last = now();
+	      return fn(diff, function() {
+	        return requestAnimationFrame(tick);
+	      });
+	    } else {
+	      return setTimeout(tick, 33 - diff);
+	    }
+	  };
+	  return tick();
+	};
+	
+	result = function() {
+	  var args, key, obj;
+	  obj = arguments[0], key = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+	  if (typeof obj[key] === 'function') {
+	    return obj[key].apply(obj, args);
+	  } else {
+	    return obj[key];
+	  }
+	};
+	
+	extend = function() {
+	  var k, key, len, out, source, sources, val;
+	  out = arguments[0], sources = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+	  for (k = 0, len = sources.length; k < len; k++) {
+	    source = sources[k];
+	    if (source) {
+	      for (key in source) {
+	        if (!hasProp.call(source, key)) continue;
+	        val = source[key];
+	        if ((out[key] != null) && typeof out[key] === 'object' && (val != null) && typeof val === 'object') {
+	          extend(out[key], val);
+	        } else {
+	          out[key] = val;
+	        }
+	      }
+	    }
+	  }
+	  return out;
+	};
+	
+	avgAmplitude = function(arr) {
+	  var count, k, len, sum, v;
+	  sum = count = 0;
+	  for (k = 0, len = arr.length; k < len; k++) {
+	    v = arr[k];
+	    sum += Math.abs(v);
+	    count++;
+	  }
+	  return sum / count;
+	};
+	
+	getFromDOM = function(key, json) {
+	  var data, e, el, error;
+	  if (key == null) {
+	    key = 'options';
+	  }
+	  if (json == null) {
+	    json = true;
+	  }
+	  el = document.querySelector("[data-pace-" + key + "]");
+	  if (!el) {
+	    return;
+	  }
+	  data = el.getAttribute("data-pace-" + key);
+	  if (!json) {
+	    return data;
+	  }
+	  try {
+	    return JSON.parse(data);
+	  } catch (error) {
+	    e = error;
+	    return typeof console !== "undefined" && console !== null ? console.error("Error parsing inline pace options", e) : void 0;
+	  }
+	};
+	
+	Evented = (function() {
+	  function Evented() {}
+	
+	  Evented.prototype.on = function(event, handler, ctx, once) {
+	    var base;
+	    if (once == null) {
+	      once = false;
+	    }
+	    if (this.bindings == null) {
+	      this.bindings = {};
+	    }
+	    if ((base = this.bindings)[event] == null) {
+	      base[event] = [];
+	    }
+	    return this.bindings[event].push({
+	      handler: handler,
+	      ctx: ctx,
+	      once: once
+	    });
+	  };
+	
+	  Evented.prototype.once = function(event, handler, ctx) {
+	    return this.on(event, handler, ctx, true);
+	  };
+	
+	  Evented.prototype.off = function(event, handler) {
+	    var i, ref, results;
+	    if (((ref = this.bindings) != null ? ref[event] : void 0) == null) {
+	      return;
+	    }
+	    if (handler == null) {
+	      return delete this.bindings[event];
+	    } else {
+	      i = 0;
+	      results = [];
+	      while (i < this.bindings[event].length) {
+	        if (this.bindings[event][i].handler === handler) {
+	          results.push(this.bindings[event].splice(i, 1));
+	        } else {
+	          results.push(i++);
+	        }
+	      }
+	      return results;
+	    }
+	  };
+	
+	  Evented.prototype.trigger = function() {
+	    var args, ctx, event, handler, i, once, ref, ref1, results;
+	    event = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+	    if ((ref = this.bindings) != null ? ref[event] : void 0) {
+	      i = 0;
+	      results = [];
+	      while (i < this.bindings[event].length) {
+	        ref1 = this.bindings[event][i], handler = ref1.handler, ctx = ref1.ctx, once = ref1.once;
+	        handler.apply(ctx != null ? ctx : this, args);
+	        if (once) {
+	          results.push(this.bindings[event].splice(i, 1));
+	        } else {
+	          results.push(i++);
+	        }
+	      }
+	      return results;
+	    }
+	  };
+	
+	  return Evented;
+	
+	})();
+	
+	Pace = window.Pace || {};
+	
+	window.Pace = Pace;
+	
+	extend(Pace, Evented.prototype);
+	
+	options = Pace.options = extend({}, defaultOptions, window.paceOptions, getFromDOM());
+	
+	ref = ['ajax', 'document', 'eventLag', 'elements'];
+	for (k = 0, len = ref.length; k < len; k++) {
+	  source = ref[k];
+	  if (options[source] === true) {
+	    options[source] = defaultOptions[source];
+	  }
+	}
+	
+	NoTargetError = (function(superClass) {
+	  extend1(NoTargetError, superClass);
+	
+	  function NoTargetError() {
+	    return NoTargetError.__super__.constructor.apply(this, arguments);
+	  }
+	
+	  return NoTargetError;
+	
+	})(Error);
+	
+	Bar = (function() {
+	  function Bar() {
+	    this.progress = 0;
+	  }
+	
+	  Bar.prototype.getElement = function() {
+	    var targetElement;
+	    if (this.el == null) {
+	      targetElement = document.querySelector(options.target);
+	      if (!targetElement) {
+	        throw new NoTargetError;
+	      }
+	      this.el = document.createElement('div');
+	      this.el.className = "pace pace-active";
+	      document.body.className = document.body.className.replace(/pace-done/g, '');
+	      if (!/pace-running/.test(document.body.className)) {
+	        document.body.className += ' pace-running';
+	      }
+	      this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>';
+	      if (targetElement.firstChild != null) {
+	        targetElement.insertBefore(this.el, targetElement.firstChild);
+	      } else {
+	        targetElement.appendChild(this.el);
+	      }
+	    }
+	    return this.el;
+	  };
+	
+	  Bar.prototype.finish = function() {
+	    var el;
+	    el = this.getElement();
+	    el.className = el.className.replace('pace-active', '');
+	    el.className += ' pace-inactive';
+	    document.body.className = document.body.className.replace('pace-running', '');
+	    return document.body.className += ' pace-done';
+	  };
+	
+	  Bar.prototype.update = function(prog) {
+	    this.progress = prog;
+	    Pace.trigger('update', prog);
+	    return this.render();
+	  };
+	
+	  Bar.prototype.destroy = function() {
+	    var error;
+	    try {
+	      this.getElement().parentNode.removeChild(this.getElement());
+	    } catch (error) {
+	      NoTargetError = error;
+	    }
+	    return this.el = void 0;
+	  };
+	
+	  Bar.prototype.render = function() {
+	    var el, key, l, len1, progressStr, ref1, transform;
+	    if (document.querySelector(options.target) == null) {
+	      return false;
+	    }
+	    el = this.getElement();
+	    transform = "translate3d(" + this.progress + "%, 0, 0)";
+	    ref1 = ['webkitTransform', 'msTransform', 'transform'];
+	    for (l = 0, len1 = ref1.length; l < len1; l++) {
+	      key = ref1[l];
+	      el.children[0].style[key] = transform;
+	    }
+	    if (!this.lastRenderedProgress || this.lastRenderedProgress | 0 !== this.progress | 0) {
+	      el.children[0].setAttribute('data-progress-text', (this.progress | 0) + "%");
+	      if (this.progress >= 100) {
+	        progressStr = '99';
+	      } else {
+	        progressStr = this.progress < 10 ? "0" : "";
+	        progressStr += this.progress | 0;
+	      }
+	      el.children[0].setAttribute('data-progress', "" + progressStr);
+	    }
+	    return this.lastRenderedProgress = this.progress;
+	  };
+	
+	  Bar.prototype.done = function() {
+	    return this.progress >= 100;
+	  };
+	
+	  return Bar;
+	
+	})();
+	
+	Events = (function() {
+	  function Events() {
+	    this.bindings = {};
+	  }
+	
+	  Events.prototype.trigger = function(name, val) {
+	    var binding, l, len1, ref1, results;
+	    if (this.bindings[name] != null) {
+	      ref1 = this.bindings[name];
+	      results = [];
+	      for (l = 0, len1 = ref1.length; l < len1; l++) {
+	        binding = ref1[l];
+	        results.push(binding.call(this, val));
+	      }
+	      return results;
+	    }
+	  };
+	
+	  Events.prototype.on = function(name, fn) {
+	    var base;
+	    if ((base = this.bindings)[name] == null) {
+	      base[name] = [];
+	    }
+	    return this.bindings[name].push(fn);
+	  };
+	
+	  return Events;
+	
+	})();
+	
+	_XMLHttpRequest = window.XMLHttpRequest;
+	
+	_XDomainRequest = window.XDomainRequest;
+	
+	_WebSocket = window.WebSocket;
+	
+	extendNative = function(to, from) {
+	  var e, error, key, results;
+	  results = [];
+	  for (key in from.prototype) {
+	    try {
+	      if ((to[key] == null) && typeof from[key] !== 'function') {
+	        if (typeof Object.defineProperty === 'function') {
+	          results.push(Object.defineProperty(to, key, {
+	            get: function() {
+	              return from.prototype[key];
+	            },
+	            configurable: true,
+	            enumerable: true
+	          }));
+	        } else {
+	          results.push(to[key] = from.prototype[key]);
+	        }
+	      } else {
+	        results.push(void 0);
+	      }
+	    } catch (error) {
+	      e = error;
+	    }
+	  }
+	  return results;
+	};
+	
+	ignoreStack = [];
+	
+	Pace.ignore = function() {
+	  var args, fn, ret;
+	  fn = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+	  ignoreStack.unshift('ignore');
+	  ret = fn.apply(null, args);
+	  ignoreStack.shift();
+	  return ret;
+	};
+	
+	Pace.track = function() {
+	  var args, fn, ret;
+	  fn = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+	  ignoreStack.unshift('track');
+	  ret = fn.apply(null, args);
+	  ignoreStack.shift();
+	  return ret;
+	};
+	
+	shouldTrack = function(method) {
+	  var ref1;
+	  if (method == null) {
+	    method = 'GET';
+	  }
+	  if (ignoreStack[0] === 'track') {
+	    return 'force';
+	  }
+	  if (!ignoreStack.length && options.ajax) {
+	    if (method === 'socket' && options.ajax.trackWebSockets) {
+	      return true;
+	    } else if (ref1 = method.toUpperCase(), indexOf.call(options.ajax.trackMethods, ref1) >= 0) {
+	      return true;
+	    }
+	  }
+	  return false;
+	};
+	
+	RequestIntercept = (function(superClass) {
+	  extend1(RequestIntercept, superClass);
+	
+	  function RequestIntercept() {
+	    var monitorXHR;
+	    RequestIntercept.__super__.constructor.apply(this, arguments);
+	    monitorXHR = (function(_this) {
+	      return function(req) {
+	        var _open;
+	        _open = req.open;
+	        return req.open = function(type, url, async) {
+	          if (shouldTrack(type)) {
+	            _this.trigger('request', {
+	              type: type,
+	              url: url,
+	              request: req
+	            });
+	          }
+	          return _open.apply(req, arguments);
+	        };
+	      };
+	    })(this);
+	    window.XMLHttpRequest = function(flags) {
+	      var req;
+	      req = new _XMLHttpRequest(flags);
+	      monitorXHR(req);
+	      return req;
+	    };
+	    try {
+	      extendNative(window.XMLHttpRequest, _XMLHttpRequest);
+	    } catch (undefined) {}
+	    if (_XDomainRequest != null) {
+	      window.XDomainRequest = function() {
+	        var req;
+	        req = new _XDomainRequest;
+	        monitorXHR(req);
+	        return req;
+	      };
+	      try {
+	        extendNative(window.XDomainRequest, _XDomainRequest);
+	      } catch (undefined) {}
+	    }
+	    if ((_WebSocket != null) && options.ajax.trackWebSockets) {
+	      window.WebSocket = (function(_this) {
+	        return function(url, protocols) {
+	          var req;
+	          if (protocols != null) {
+	            req = new _WebSocket(url, protocols);
+	          } else {
+	            req = new _WebSocket(url);
+	          }
+	          if (shouldTrack('socket')) {
+	            _this.trigger('request', {
+	              type: 'socket',
+	              url: url,
+	              protocols: protocols,
+	              request: req
+	            });
+	          }
+	          return req;
+	        };
+	      })(this);
+	      try {
+	        extendNative(window.WebSocket, _WebSocket);
+	      } catch (undefined) {}
+	    }
+	  }
+	
+	  return RequestIntercept;
+	
+	})(Events);
+	
+	_intercept = null;
+	
+	getIntercept = function() {
+	  if (_intercept == null) {
+	    _intercept = new RequestIntercept;
+	  }
+	  return _intercept;
+	};
+	
+	shouldIgnoreURL = function(url) {
+	  var l, len1, pattern, ref1;
+	  ref1 = options.ajax.ignoreURLs;
+	  for (l = 0, len1 = ref1.length; l < len1; l++) {
+	    pattern = ref1[l];
+	    if (typeof pattern === 'string') {
+	      if (url.indexOf(pattern) !== -1) {
+	        return true;
+	      }
+	    } else {
+	      if (pattern.test(url)) {
+	        return true;
+	      }
+	    }
+	  }
+	  return false;
+	};
+	
+	getIntercept().on('request', function(arg) {
+	  var after, args, request, type, url;
+	  type = arg.type, request = arg.request, url = arg.url;
+	  if (shouldIgnoreURL(url)) {
+	    return;
+	  }
+	  if (!Pace.running && (options.restartOnRequestAfter !== false || shouldTrack(type) === 'force')) {
+	    args = arguments;
+	    after = options.restartOnRequestAfter || 0;
+	    if (typeof after === 'boolean') {
+	      after = 0;
+	    }
+	    return setTimeout(function() {
+	      var l, len1, ref1, ref2, results, stillActive;
+	      if (type === 'socket') {
+	        stillActive = request.readyState < 2;
+	      } else {
+	        stillActive = (0 < (ref1 = request.readyState) && ref1 < 4);
+	      }
+	      if (stillActive) {
+	        Pace.restart();
+	        ref2 = Pace.sources;
+	        results = [];
+	        for (l = 0, len1 = ref2.length; l < len1; l++) {
+	          source = ref2[l];
+	          if (source instanceof AjaxMonitor) {
+	            source.watch.apply(source, args);
+	            break;
+	          } else {
+	            results.push(void 0);
+	          }
+	        }
+	        return results;
+	      }
+	    }, after);
+	  }
+	});
+	
+	AjaxMonitor = (function() {
+	  function AjaxMonitor() {
+	    this.elements = [];
+	    getIntercept().on('request', (function(_this) {
+	      return function() {
+	        return _this.watch.apply(_this, arguments);
+	      };
+	    })(this));
+	  }
+	
+	  AjaxMonitor.prototype.watch = function(arg) {
+	    var request, tracker, type, url;
+	    type = arg.type, request = arg.request, url = arg.url;
+	    if (shouldIgnoreURL(url)) {
+	      return;
+	    }
+	    if (type === 'socket') {
+	      tracker = new SocketRequestTracker(request);
+	    } else {
+	      tracker = new XHRRequestTracker(request);
+	    }
+	    return this.elements.push(tracker);
+	  };
+	
+	  return AjaxMonitor;
+	
+	})();
+	
+	XHRRequestTracker = (function() {
+	  function XHRRequestTracker(request) {
+	    var _onreadystatechange, event, l, len1, ref1, size;
+	    this.progress = 0;
+	    if (window.ProgressEvent != null) {
+	      size = null;
+	      request.addEventListener('progress', (function(_this) {
+	        return function(evt) {
+	          if (evt.lengthComputable) {
+	            return _this.progress = 100 * evt.loaded / evt.total;
+	          } else {
+	            return _this.progress = _this.progress + (100 - _this.progress) / 2;
+	          }
+	        };
+	      })(this), false);
+	      ref1 = ['load', 'abort', 'timeout', 'error'];
+	      for (l = 0, len1 = ref1.length; l < len1; l++) {
+	        event = ref1[l];
+	        request.addEventListener(event, (function(_this) {
+	          return function() {
+	            return _this.progress = 100;
+	          };
+	        })(this), false);
+	      }
+	    } else {
+	      _onreadystatechange = request.onreadystatechange;
+	      request.onreadystatechange = (function(_this) {
+	        return function() {
+	          var ref2;
+	          if ((ref2 = request.readyState) === 0 || ref2 === 4) {
+	            _this.progress = 100;
+	          } else if (request.readyState === 3) {
+	            _this.progress = 50;
+	          }
+	          return typeof _onreadystatechange === "function" ? _onreadystatechange.apply(null, arguments) : void 0;
+	        };
+	      })(this);
+	    }
+	  }
+	
+	  return XHRRequestTracker;
+	
+	})();
+	
+	SocketRequestTracker = (function() {
+	  function SocketRequestTracker(request) {
+	    var event, l, len1, ref1;
+	    this.progress = 0;
+	    ref1 = ['error', 'open'];
+	    for (l = 0, len1 = ref1.length; l < len1; l++) {
+	      event = ref1[l];
+	      request.addEventListener(event, (function(_this) {
+	        return function() {
+	          return _this.progress = 100;
+	        };
+	      })(this), false);
+	    }
+	  }
+	
+	  return SocketRequestTracker;
+	
+	})();
+	
+	ElementMonitor = (function() {
+	  function ElementMonitor(options) {
+	    var l, len1, ref1, selector;
+	    if (options == null) {
+	      options = {};
+	    }
+	    this.elements = [];
+	    if (options.selectors == null) {
+	      options.selectors = [];
+	    }
+	    ref1 = options.selectors;
+	    for (l = 0, len1 = ref1.length; l < len1; l++) {
+	      selector = ref1[l];
+	      this.elements.push(new ElementTracker(selector));
+	    }
+	  }
+	
+	  return ElementMonitor;
+	
+	})();
+	
+	ElementTracker = (function() {
+	  function ElementTracker(selector1) {
+	    this.selector = selector1;
+	    this.progress = 0;
+	    this.check();
+	  }
+	
+	  ElementTracker.prototype.check = function() {
+	    if (document.querySelector(this.selector)) {
+	      return this.done();
+	    } else {
+	      return setTimeout(((function(_this) {
+	        return function() {
+	          return _this.check();
+	        };
+	      })(this)), options.elements.checkInterval);
+	    }
+	  };
+	
+	  ElementTracker.prototype.done = function() {
+	    return this.progress = 100;
+	  };
+	
+	  return ElementTracker;
+	
+	})();
+	
+	DocumentMonitor = (function() {
+	  DocumentMonitor.prototype.states = {
+	    loading: 0,
+	    interactive: 50,
+	    complete: 100
+	  };
+	
+	  function DocumentMonitor() {
+	    var _onreadystatechange, ref1;
+	    this.progress = (ref1 = this.states[document.readyState]) != null ? ref1 : 100;
+	    _onreadystatechange = document.onreadystatechange;
+	    document.onreadystatechange = (function(_this) {
+	      return function() {
+	        if (_this.states[document.readyState] != null) {
+	          _this.progress = _this.states[document.readyState];
+	        }
+	        return typeof _onreadystatechange === "function" ? _onreadystatechange.apply(null, arguments) : void 0;
+	      };
+	    })(this);
+	  }
+	
+	  return DocumentMonitor;
+	
+	})();
+	
+	EventLagMonitor = (function() {
+	  function EventLagMonitor() {
+	    var avg, interval, last, points, samples;
+	    this.progress = 0;
+	    avg = 0;
+	    samples = [];
+	    points = 0;
+	    last = now();
+	    interval = setInterval((function(_this) {
+	      return function() {
+	        var diff;
+	        diff = now() - last - 50;
+	        last = now();
+	        samples.push(diff);
+	        if (samples.length > options.eventLag.sampleCount) {
+	          samples.shift();
+	        }
+	        avg = avgAmplitude(samples);
+	        if (++points >= options.eventLag.minSamples && avg < options.eventLag.lagThreshold) {
+	          _this.progress = 100;
+	          return clearInterval(interval);
+	        } else {
+	          return _this.progress = 100 * (3 / (avg + 3));
+	        }
+	      };
+	    })(this), 50);
+	  }
+	
+	  return EventLagMonitor;
+	
+	})();
+	
+	Scaler = (function() {
+	  function Scaler(source1) {
+	    this.source = source1;
+	    this.last = this.sinceLastUpdate = 0;
+	    this.rate = options.initialRate;
+	    this.catchup = 0;
+	    this.progress = this.lastProgress = 0;
+	    if (this.source != null) {
+	      this.progress = result(this.source, 'progress');
+	    }
+	  }
+	
+	  Scaler.prototype.tick = function(frameTime, val) {
+	    var scaling;
+	    if (val == null) {
+	      val = result(this.source, 'progress');
+	    }
+	    if (val >= 100) {
+	      this.done = true;
+	    }
+	    if (val === this.last) {
+	      this.sinceLastUpdate += frameTime;
+	    } else {
+	      if (this.sinceLastUpdate) {
+	        this.rate = (val - this.last) / this.sinceLastUpdate;
+	      }
+	      this.catchup = (val - this.progress) / options.catchupTime;
+	      this.sinceLastUpdate = 0;
+	      this.last = val;
+	    }
+	    if (val > this.progress) {
+	      this.progress += this.catchup * frameTime;
+	    }
+	    scaling = 1 - Math.pow(this.progress / 100, options.easeFactor);
+	    this.progress += scaling * this.rate * frameTime;
+	    this.progress = Math.min(this.lastProgress + options.maxProgressPerFrame, this.progress);
+	    this.progress = Math.max(0, this.progress);
+	    this.progress = Math.min(100, this.progress);
+	    this.lastProgress = this.progress;
+	    return this.progress;
+	  };
+	
+	  return Scaler;
+	
+	})();
+	
+	sources = null;
+	
+	scalers = null;
+	
+	bar = null;
+	
+	uniScaler = null;
+	
+	animation = null;
+	
+	cancelAnimation = null;
+	
+	Pace.running = false;
+	
+	handlePushState = function() {
+	  if (options.restartOnPushState) {
+	    return Pace.restart();
+	  }
+	};
+	
+	if (window.history.pushState != null) {
+	  _pushState = window.history.pushState;
+	  window.history.pushState = function() {
+	    handlePushState();
+	    return _pushState.apply(window.history, arguments);
+	  };
+	}
+	
+	if (window.history.replaceState != null) {
+	  _replaceState = window.history.replaceState;
+	  window.history.replaceState = function() {
+	    handlePushState();
+	    return _replaceState.apply(window.history, arguments);
+	  };
+	}
+	
+	SOURCE_KEYS = {
+	  ajax: AjaxMonitor,
+	  elements: ElementMonitor,
+	  document: DocumentMonitor,
+	  eventLag: EventLagMonitor
+	};
+	
+	(init = function() {
+	  var l, len1, len2, m, ref1, ref2, ref3, type;
+	  Pace.sources = sources = [];
+	  ref1 = ['ajax', 'elements', 'document', 'eventLag'];
+	  for (l = 0, len1 = ref1.length; l < len1; l++) {
+	    type = ref1[l];
+	    if (options[type] !== false) {
+	      sources.push(new SOURCE_KEYS[type](options[type]));
+	    }
+	  }
+	  ref3 = (ref2 = options.extraSources) != null ? ref2 : [];
+	  for (m = 0, len2 = ref3.length; m < len2; m++) {
+	    source = ref3[m];
+	    sources.push(new source(options));
+	  }
+	  Pace.bar = bar = new Bar;
+	  scalers = [];
+	  return uniScaler = new Scaler;
+	})();
+	
+	Pace.stop = function() {
+	  Pace.trigger('stop');
+	  Pace.running = false;
+	  bar.destroy();
+	  cancelAnimation = true;
+	  if (animation != null) {
+	    if (typeof cancelAnimationFrame === "function") {
+	      cancelAnimationFrame(animation);
+	    }
+	    animation = null;
+	  }
+	  return init();
+	};
+	
+	Pace.restart = function() {
+	  Pace.trigger('restart');
+	  Pace.stop();
+	  return Pace.start();
+	};
+	
+	Pace.go = function() {
+	  var start;
+	  Pace.running = true;
+	  bar.render();
+	  start = now();
+	  cancelAnimation = false;
+	  return animation = runAnimation(function(frameTime, enqueueNextFrame) {
+	    var avg, count, done, element, elements, i, j, l, len1, len2, m, ref1, remaining, scaler, scalerList, sum;
+	    remaining = 100 - bar.progress;
+	    count = sum = 0;
+	    done = true;
+	    for (i = l = 0, len1 = sources.length; l < len1; i = ++l) {
+	      source = sources[i];
+	      scalerList = scalers[i] != null ? scalers[i] : scalers[i] = [];
+	      elements = (ref1 = source.elements) != null ? ref1 : [source];
+	      for (j = m = 0, len2 = elements.length; m < len2; j = ++m) {
+	        element = elements[j];
+	        scaler = scalerList[j] != null ? scalerList[j] : scalerList[j] = new Scaler(element);
+	        done &= scaler.done;
+	        if (scaler.done) {
+	          continue;
+	        }
+	        count++;
+	        sum += scaler.tick(frameTime);
+	      }
+	    }
+	    avg = sum / count;
+	    bar.update(uniScaler.tick(frameTime, avg));
+	    if (bar.done() || done || cancelAnimation) {
+	      bar.update(100);
+	      Pace.trigger('done');
+	      return setTimeout(function() {
+	        bar.finish();
+	        Pace.running = false;
+	        return Pace.trigger('hide');
+	      }, Math.max(options.ghostTime, Math.max(options.minTime - (now() - start), 0)));
+	    } else {
+	      return enqueueNextFrame();
+	    }
+	  });
+	};
+	
+	Pace.start = function(_options) {
+	  var error;
+	  extend(options, _options);
+	  Pace.running = true;
+	  try {
+	    bar.render();
+	  } catch (error) {
+	    NoTargetError = error;
+	  }
+	  if (!document.querySelector('.pace')) {
+	    return setTimeout(Pace.start, 50);
+	  } else {
+	    Pace.trigger('start');
+	    return Pace.go();
+	  }
+	};
+	
+	if (true) {
+	  module.exports = Pace;
+	} else {
+	  if (options.startOnPageLoad) {
+	    Pace.start();
+	  }
+	}
+
+
+/***/ }
+
+/******/ });
 //# sourceMappingURL=preloader.js.map
