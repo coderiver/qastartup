@@ -1,8 +1,4 @@
-###
-Customization:
-  - added 'update' event trigger (line 236)
-  - commented AMD export due to unexpected error when compile with webpack (line 752-754)
-###
+# Added 'update' event trigger (line 236)
 
 defaultOptions =
   # How long should it take for the bar to animate to a new
@@ -752,10 +748,10 @@ Pace.start = (_options) ->
     Pace.trigger 'start'
     Pace.go()
 
-# if typeof define is 'function' and define.amd
-#   # AMD
-#   define ['pace'], -> Pace
-if typeof exports is 'object'
+if typeof define is 'function' and define.amd
+  # AMD
+  define ['pace'], -> Pace
+else if typeof exports is 'object'
   # CommonJS
   module.exports = Pace
 else

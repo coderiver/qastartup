@@ -1,5 +1,6 @@
 # $        = require 'jquery'
-s        = require 'snapsvg'
+# s        = require 'snapsvg'
+s =      window.Snap
 SM       = require './scroll-controller'
 debounce = require 'lodash/function/debounce'
 

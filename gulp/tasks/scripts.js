@@ -14,7 +14,7 @@ var _           = require('lodash');
 var reload      = require('browser-sync').reload;
 var config      = require('../config');
 
-var bundles = ['app', 'preloader'];
+var bundles = ['preloader'];
 var vendorBundleName = 'vendor';
 
 
@@ -61,7 +61,7 @@ function bundle(bundler, outputName) {
         .pipe(buffer())
         .pipe(gulpif(config.production, size()))
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(gulpif(config.production, uglify()))
+        // .pipe(gulpif(config.production, uglify()))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest.js))
         .pipe(gulpif(config.production, filter(['*.js'])))
@@ -69,7 +69,10 @@ function bundle(bundler, outputName) {
         .pipe(reload({ stream: true }));
 }
 
-gulp.task('scripts', ['scripts:app', 'scripts:vendor']);
+gulp.task('scripts', [
+    // 'scripts:vendor',
+    'scripts:app'
+]);
 
 gulp.task('scripts:app', function() {
     bundles.forEach(function(bundleName) {

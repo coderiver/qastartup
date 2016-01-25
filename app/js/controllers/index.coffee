@@ -1,7 +1,7 @@
 # jQuery plugins
-require 'jquery.transit'
-require 'slick-carousel'
-require 'jquery.easing'
+# require 'jquery.transit'
+# require 'slick-carousel'
+# require 'jquery.easing'
 require('../plugins/accordion')(jQuery)
 require('../plugins/hover-gallery')(jQuery)
 

@@ -1,7 +1,6 @@
 pace = require './lib/pace.custom'
-pace.start()
 
-preloader = document.getElementById 'preloader'
+preloader      = document.getElementById 'preloader'
 preloaderFront = document.querySelector '.preloader__frontlayer'
 
 hidePreloader = (cb = -> ) ->
@@ -19,5 +18,6 @@ if preloader
   pace.on 'done', ->
     do hidePreloader
 
+pace.start()
 
-module.exports = pace
+# module.exports = pace

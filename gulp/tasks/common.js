@@ -13,7 +13,8 @@ gulp.task('build', ['clean'],  function(cb) {
         'imagemin',
         'sass',
         'html:all',
-        'scripts',
+        // 'scripts',
+        'webpack',
         'copy:all'
     );
     cb();
@@ -23,6 +24,7 @@ gulp.task('watch', [
     'sass:watch',
     'iconfont:watch',
     'imagemin:watch',
-    'scripts:watch',
+    // 'scripts:watch',
+    'webpack:watch',
     'html:watch'
 ]);

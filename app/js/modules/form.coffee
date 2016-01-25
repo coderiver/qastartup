@@ -1,7 +1,8 @@
-require 'jquery.maskedinput'
-require 'validetta'
+# require 'jquery.maskedinput'
+# require 'validetta'
+# autosize = require 'autosize'
 require('../plugins/input-field')(jQuery)
-autosize = require 'autosize'
+
 
 showFormMessage = (form) ->
   form.parent().addClass 'show-msg'
